@@ -1,9 +1,12 @@
 <script setup lang="ts">
-const a = 1
+
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <h1 bg-red w-50 m-5>
+    Hello world
+  </h1>
 </template>
 
 <style>
