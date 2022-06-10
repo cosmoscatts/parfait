@@ -17,6 +17,10 @@ export interface User {
    */
   password?: string
   /**
+   * avatar
+   */
+  avatar?: string
+  /**
    * phone
    */
   phone?: string
