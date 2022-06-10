@@ -1,7 +1,5 @@
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import axios from 'axios'
-import { Message } from '@arco-design/web-vue'
-import { IconFaceSmileFill } from '@arco-design/web-vue/es/icon'
 
 function createAxios() {
   const service = axios.create({
@@ -21,13 +19,8 @@ function createAxios() {
       const {
         data: { code, data, message },
       } = response
-      if (code !== 0) {
-        Message.error(
-          {
-            content: message || '页面查询异常',
-            icon: () => h(IconFaceSmileFill),
-          })
-      }
+      if (code !== 0)
+        Message.error(message || '页面查询异常')
       return Promise.resolve({ code, data, message })
     },
     (error: any) => {

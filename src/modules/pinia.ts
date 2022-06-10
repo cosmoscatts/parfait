@@ -9,4 +9,3 @@ export default {
     app.use(store)
   },
 }
-
