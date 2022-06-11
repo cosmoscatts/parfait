@@ -5,6 +5,16 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ABreadcrumb: typeof import('@arco-design/web-vue')['Breadcrumb']
+    ABreadcrumbItem: typeof import('@arco-design/web-vue')['BreadcrumbItem']
+    ALayout: typeof import('@arco-design/web-vue')['Layout']
+    ALayoutContent: typeof import('@arco-design/web-vue')['LayoutContent']
+    ALayoutFooter: typeof import('@arco-design/web-vue')['LayoutFooter']
+    ALayoutHeader: typeof import('@arco-design/web-vue')['LayoutHeader']
+    ALayoutSider: typeof import('@arco-design/web-vue')['LayoutSider']
+    AMenu: typeof import('@arco-design/web-vue')['Menu']
+    AMenuItem: typeof import('@arco-design/web-vue')['MenuItem']
+    ASubMenu: typeof import('@arco-design/web-vue')['SubMenu']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

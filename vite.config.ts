@@ -41,7 +41,6 @@ export default defineConfig({
 
     // your plugin installation
     Components({
-      extensions: ['vue'],
       resolvers: [
         ArcoResolver(),
       ],

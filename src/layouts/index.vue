@@ -4,7 +4,7 @@ import Horizontal from './Horizontal.vue'
 
 const { layout } = storeToRefs(useSettingsStore())
 const component = computed(() => {
-  return layout.value === 'Vertical'
+  return layout.value === 'vertical'
     ? Vertical
     : Horizontal
 })
