@@ -26,6 +26,7 @@ export default defineConfig({
         'vue',
         'vue-router',
         'vue/macros',
+        '@vueuse/head',
         '@vueuse/core',
         'pinia',
       ],
@@ -33,13 +34,14 @@ export default defineConfig({
       dirs: [
         'src/apis',
         'src/composables',
-        'src/store',
+        'src/stores',
       ],
       vueTemplate: true,
     }),
 
     // your plugin installation
     Components({
+      extensions: ['vue'],
       resolvers: [
         ArcoResolver(),
       ],

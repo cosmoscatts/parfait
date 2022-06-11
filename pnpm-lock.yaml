@@ -8,6 +8,7 @@ specifiers:
   '@unocss/reset': ^0.38.2
   '@vitejs/plugin-vue': ^2.3.3
   '@vueuse/core': ^8.6.0
+  '@vueuse/head': ^0.7.6
   axios: ^0.27.2
   critters: ^0.0.16
   eslint: ^8.17.0
@@ -27,6 +28,7 @@ specifiers:
 dependencies:
   '@unocss/reset': registry.npmmirror.com/@unocss/reset/0.38.2
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/8.6.0_vue@3.2.37
+  '@vueuse/head': registry.npmmirror.com/@vueuse/head/0.7.6_vue@3.2.37
   axios: registry.npmmirror.com/axios/0.27.2
   critters: registry.npmmirror.com/critters/0.0.16
   nprogress: registry.npmmirror.com/nprogress/0.2.0
@@ -868,6 +870,17 @@ packages:
       '@vueuse/shared': registry.npmmirror.com/@vueuse/shared/8.6.0_vue@3.2.37
       vue: registry.npmmirror.com/vue/3.2.37
       vue-demi: registry.npmmirror.com/vue-demi/0.13.1_vue@3.2.37
+    dev: false
+
+  registry.npmmirror.com/@vueuse/head/0.7.6_vue@3.2.37:
+    resolution: {integrity: sha512-cOWqCkT3WiF5oEpw+VVEWUJd9RLD5rc7DmnFp3cePsejp+t7686uKD9Z9ZU7Twb7R/BI8iexKTmXo9D/F3v6UA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/head/-/head-0.7.6.tgz}
+    id: registry.npmmirror.com/@vueuse/head/0.7.6
+    name: '@vueuse/head'
+    version: 0.7.6
+    peerDependencies:
+      vue: '>=3'
+    dependencies:
+      vue: registry.npmmirror.com/vue/3.2.37
     dev: false
 
   registry.npmmirror.com/@vueuse/metadata/8.6.0:
