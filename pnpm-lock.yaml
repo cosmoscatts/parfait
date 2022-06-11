@@ -5,6 +5,7 @@ specifiers:
   '@arco-design/web-vue': ^2.29.1
   '@types/node': ^17.0.41
   '@types/nprogress': ^0.2.0
+  '@unocss/reset': ^0.38.2
   '@vitejs/plugin-vue': ^2.3.3
   '@vueuse/core': ^8.6.0
   axios: ^0.27.2
@@ -24,6 +25,7 @@ specifiers:
   vue-tsc: ^0.34.7
 
 dependencies:
+  '@unocss/reset': registry.npmmirror.com/@unocss/reset/0.38.2
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/8.6.0_vue@3.2.37
   axios: registry.npmmirror.com/axios/0.27.2
   critters: registry.npmmirror.com/critters/0.0.16
@@ -637,6 +639,12 @@ packages:
     name: '@unocss/reset'
     version: 0.34.1
     dev: true
+
+  registry.npmmirror.com/@unocss/reset/0.38.2:
+    resolution: {integrity: sha512-bK6khIAUQ2syp1eAq3hYK0ONqIBEZsBxMLZg8uFQOepXTJIHDH7fTm5gEXpCFcHJx91Onfcx9V9Twh4DjJv0wQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@unocss/reset/-/reset-0.38.2.tgz}
+    name: '@unocss/reset'
+    version: 0.38.2
+    dev: false
 
   registry.npmmirror.com/@unocss/scope/0.34.1:
     resolution: {integrity: sha512-uWCbjdKzSqiGvaTsvOFvQlWYErlUQ2TKfer90dJid5mdak2XHnH1X/XqSYqqHLT5pmyVk7c2OGALxgUQV+IzjQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@unocss/scope/-/scope-0.34.1.tgz}

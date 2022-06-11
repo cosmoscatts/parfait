@@ -3,19 +3,14 @@
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <h1 bg-red w-50 m-5>
-    Hello world
-  </h1>
+  <div font-sans bg-canvas h-screen>
+    <div flex="~ gap2" text-xl items-center justify-between px3 pt4>
+      <h1 text-2xl font-serif op50>
+        World Time
+      </h1>
+    </div>
+  </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

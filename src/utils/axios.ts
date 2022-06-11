@@ -19,8 +19,6 @@ function createAxios() {
       const {
         data: { code, data, message },
       } = response
-      if (code !== 0)
-        Message.error(message || '页面查询异常')
       return Promise.resolve({ code, data, message })
     },
     (error: any) => {

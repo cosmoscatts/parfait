@@ -1,10 +1,13 @@
 import axios from '~/utils/axios'
 import type { RequestParams } from '~/types'
-type ParamsType = Record<string, any> | Record<string, any>[]
+type ParamsType = RequestParams | RequestParams[]
 
 /**
  * add params to url
  * parmas can be Object or Array<Object>
+ *
+ * @param params - { k: v } | [{ k: v }, ...]
+ * @return react url - string
  */
 function addUrlParams(params?: ParamsType) {
   if (!params)
@@ -15,14 +18,11 @@ function addUrlParams(params?: ParamsType) {
     return ''
 
   let paramStr = ''
-  let _params: Record<string, any> = {}
-  if (Array.isArray(params))
-    params.forEach(v => _params = { ..._params, ...v })
+  if (!Array.isArray(params))
+    params = [params]
 
-  else
-    _params = params
-
-  for (const [k, v] of Object.entries(_params)) {
+  const arr = params.flatMap((i: RequestParams) => Object.entries(i))
+  for (const [k, v] of arr) {
     if (v === '')
       continue
     paramStr += `&${encodeURIComponent(k)}=${encodeURIComponent(v)}`
