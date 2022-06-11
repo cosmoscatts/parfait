@@ -1,5 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const cachedPageNames = computed(() => {
+  return usePermissionStore().cachedPageNames
+})
+</script>
 
 <template>
-  <div />
+  <RouterView v-slot="{ Component }">
+    <keep-alive :include="cachedPageNames">
+      <component :is="Component" />
+    </keep-alive>
+  </RouterView>
 </template>

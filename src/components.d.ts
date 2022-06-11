@@ -9,7 +9,6 @@ declare module '@vue/runtime-core' {
     ABreadcrumbItem: typeof import('@arco-design/web-vue')['BreadcrumbItem']
     ALayout: typeof import('@arco-design/web-vue')['Layout']
     ALayoutContent: typeof import('@arco-design/web-vue')['LayoutContent']
-    ALayoutFooter: typeof import('@arco-design/web-vue')['LayoutFooter']
     ALayoutHeader: typeof import('@arco-design/web-vue')['LayoutHeader']
     ALayoutSider: typeof import('@arco-design/web-vue')['LayoutSider']
     AMenu: typeof import('@arco-design/web-vue')['Menu']

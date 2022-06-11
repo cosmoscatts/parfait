@@ -6,7 +6,7 @@ const {
   mode = 'vertical',
   autoOpen = false,
   defaultCollapsed = false,
-  showCollapseButton = true,
+  showCollapseButton = false,
   accordion = true,
   collapsedWidth = 32,
   defaultSelectedKeys = [],
