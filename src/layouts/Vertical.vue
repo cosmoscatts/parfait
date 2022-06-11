@@ -2,27 +2,27 @@
 import TheMain from './components/TheMain.vue'
 import TheNav from './components/TheNav.vue'
 import TheTags from './components/TheTags.vue'
-import TheLogo from './components/TheLogo.vue'
 import TheSide from './components/TheSide.vue'
 import TheRightPanel from './components/TheRightPanel.vue'
 
-const { collapse } = storeToRefs(useCollapseStore())
+const { collapse, siderWidth } = storeToRefs(useCollapseStore())
 </script>
 
 <template>
-  <a-layout class="layout-demo">
+  <a-layout hw-screen>
     <a-layout-sider
+      h-full
+      overflow-hidden
       hide-trigger
       collapsible
-      :width="220"
+      :width="siderWidth"
       :collapsed="collapse"
     >
-      <TheLogo />
       <TheSide />
     </a-layout-sider>
     <a-layout>
       <a-layout-header>
-        <TheNav />
+        <TheNav w-full h-50px bg-red />
         <TheTags />
       </a-layout-header>
       <a-layout>

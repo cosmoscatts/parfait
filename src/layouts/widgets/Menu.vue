@@ -26,8 +26,9 @@ const {
 </script>
 
 <template>
-  <div h-full w-full bg-transparent>
+  <div h-full w-full bg-transparent shadow-inset>
     <a-menu
+      theme="dark"
       :mode="mode"
       :auto-open="autoOpen"
       :default-collapsed="defaultCollapsed"
