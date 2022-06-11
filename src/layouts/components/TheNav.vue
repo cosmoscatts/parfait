@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import NavHamburger from '../widgets/NavHamburger.vue'
-const { siderWidth } = storeToRefs(useCollapseStore())
+import NavDarkToggle from '../widgets/NavDarkToggle.vue'
 </script>
 
 <template>
-  <div h-50px flex justify-between items-center>
+  <div flex justify-between items-center border="1px solid red">
     <div flex justify-self-start>
-      <NavHamburger mx-3 />
+      <NavHamburger mx-4 />
     </div>
-    <div />
+    <div>
+      <NavDarkToggle mx-4 />
+    </div>
   </div>
 </template>

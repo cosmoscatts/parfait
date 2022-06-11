@@ -5,7 +5,7 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
-import { presetAttributify, presetIcons, presetUno } from 'unocss'
+import { presetAttributify, presetIcons, presetUno, presetWind } from 'unocss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -59,6 +59,7 @@ export default defineConfig({
         presetAttributify(),
         presetUno(),
         presetIcons(),
+        presetWind(),
       ],
     }),
   ],

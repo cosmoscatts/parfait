@@ -8,7 +8,7 @@ const {
   defaultCollapsed = false,
   showCollapseButton = false,
   accordion = true,
-  collapsedWidth = 32,
+  collapsedWidth = undefined,
   defaultSelectedKeys = [],
   breakpoint = 'xl',
   metadata = [],
@@ -26,7 +26,12 @@ const {
 </script>
 
 <template>
-  <div h-full w-full bg-transparent shadow-inset>
+  <div
+    flex justify-center
+    h-full w-full
+    bg-transparent
+    overflow-hidden
+  >
     <a-menu
       theme="dark"
       :mode="mode"
@@ -38,11 +43,11 @@ const {
       :default-selected-keys="defaultSelectedKeys"
       :breakpoint="breakpoint"
     >
-      <template v-for="{ id, title, path, children }, idx of metadata">
+      <template v-for="{ id, title, icon, path, children }, idx of metadata">
         <template v-if="children?.length">
           <a-sub-menu :key="String(id)">
             <template #icon>
-              <icon-bulb />
+              <icon :class="icon" />
             </template>
             <template #title>
               {{ title }}
@@ -62,7 +67,7 @@ const {
           <RouterLink :key="idx" :to="path">
             <a-menu-item :key="String(id)">
               <template #icon>
-                <icon-apps />
+                <span :class="icon" color="black dark:white" />
               </template>
               {{ title }}
             </a-menu-item>

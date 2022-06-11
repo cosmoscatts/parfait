@@ -14,17 +14,11 @@ const menuProps = {
   breakpoint: 'xl',
   metadata: menus,
 }
-
-const menuHeight = computed(() => {
-  return 'calc(100% - 50px)'
-})
 </script>
 
 <template>
-  <div h-full overflow-hidden bg-gray>
+  <div flex="~ col justify-center overflow-hidden">
     <Logo />
-    <div :style="{ height: `${menuHeight}` }">
-      <Menu v-bind="menuProps" />
-    </div>
+    <Menu v-bind="menuProps" />
   </div>
 </template>

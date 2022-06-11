@@ -3,8 +3,11 @@ lockfileVersion: 5.4
 specifiers:
   '@antfu/eslint-config': ^0.25.1
   '@arco-design/web-vue': ^2.29.1
+  '@iconify-json/carbon': ^1.1.5
   '@types/node': ^17.0.41
   '@types/nprogress': ^0.2.0
+  '@unocss/preset-icons': ^0.38.2
+  '@unocss/preset-wind': ^0.38.2
   '@unocss/reset': ^0.38.2
   '@vitejs/plugin-vue': ^2.3.3
   '@vueuse/core': ^8.6.0
@@ -43,8 +46,11 @@ dependencies:
 devDependencies:
   '@antfu/eslint-config': registry.npmmirror.com/@antfu/eslint-config/0.25.1_ud6rd4xtew5bv4yhvkvu24pzm4
   '@arco-design/web-vue': registry.npmmirror.com/@arco-design/web-vue/2.29.1_vue@3.2.37
+  '@iconify-json/carbon': registry.npmmirror.com/@iconify-json/carbon/1.1.5
   '@types/node': registry.npmmirror.com/@types/node/17.0.41
   '@types/nprogress': registry.npmmirror.com/@types/nprogress/0.2.0
+  '@unocss/preset-icons': registry.npmmirror.com/@unocss/preset-icons/0.38.2
+  '@unocss/preset-wind': registry.npmmirror.com/@unocss/preset-wind/0.38.2
   '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/2.3.3_vite@2.9.11+vue@3.2.37
   eslint: registry.npmmirror.com/eslint/8.17.0
   typescript: registry.npmmirror.com/typescript/4.7.3
@@ -273,6 +279,14 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz}
     name: '@humanwhocodes/object-schema'
     version: 1.2.1
+    dev: true
+
+  registry.npmmirror.com/@iconify-json/carbon/1.1.5:
+    resolution: {integrity: sha512-ENl8CIEo+7JcRzpJ/58i+dDc3fkNOO7gyNGg4S4JN5cAiVpvltYTVO86Oei7rpl8bKypJ0vk3B0BbzzTw7DclA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify-json/carbon/-/carbon-1.1.5.tgz}
+    name: '@iconify-json/carbon'
+    version: 1.1.5
+    dependencies:
+      '@iconify/types': registry.npmmirror.com/@iconify/types/1.1.0
     dev: true
 
   registry.npmmirror.com/@iconify/types/1.1.0:
@@ -565,6 +579,12 @@ packages:
     version: 0.34.1
     dev: true
 
+  registry.npmmirror.com/@unocss/core/0.38.2:
+    resolution: {integrity: sha512-GXJs1R0oRESgPv4UZKvNZCTnT5Iebn/E0bAHHaCugko2ccnqh6bHul7fcShXICwgT+hyQBPEF5SNS2BPcEjKpQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@unocss/core/-/core-0.38.2.tgz}
+    name: '@unocss/core'
+    version: 0.38.2
+    dev: true
+
   registry.npmmirror.com/@unocss/inspector/0.34.1:
     resolution: {integrity: sha512-4V4gUy1bykm/oOtEAXT5Lc98Bxp6k+vp141O/Yp+AMgX4wK0+dB9ELrQx7gzVLQauQv209xuMZ9tscKf0VEZaA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@unocss/inspector/-/inspector-0.34.1.tgz}
     name: '@unocss/inspector'
@@ -594,12 +614,32 @@ packages:
       - supports-color
     dev: true
 
+  registry.npmmirror.com/@unocss/preset-icons/0.38.2:
+    resolution: {integrity: sha512-C4OB09aOW4SVTSRTLQ8gVLSnaFCEccRwDz9ZfJsjVs1pClBU0d5MvNGc3ORDW6u29rOyWaIgEMkFtDW6vDQyOw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@unocss/preset-icons/-/preset-icons-0.38.2.tgz}
+    name: '@unocss/preset-icons'
+    version: 0.38.2
+    dependencies:
+      '@iconify/utils': registry.npmmirror.com/@iconify/utils/1.0.32
+      '@unocss/core': registry.npmmirror.com/@unocss/core/0.38.2
+      ohmyfetch: registry.npmmirror.com/ohmyfetch/0.4.18
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   registry.npmmirror.com/@unocss/preset-mini/0.34.1:
     resolution: {integrity: sha512-pEL+/55RfRTfpUplCVzC1l0gLy5cGR1lRSduNz91+FqHmxmyw/rzEoZl0+KhlcNTKWGJY6pM/UYQ3AcbNu5n9w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@unocss/preset-mini/-/preset-mini-0.34.1.tgz}
     name: '@unocss/preset-mini'
     version: 0.34.1
     dependencies:
       '@unocss/core': registry.npmmirror.com/@unocss/core/0.34.1
+    dev: true
+
+  registry.npmmirror.com/@unocss/preset-mini/0.38.2:
+    resolution: {integrity: sha512-xrZHcgjLuOY12+UxnpA0zHtLFnxG1hYWS9CFa/odUM7jtjLq/u+E3LVv4/g/+mwcXyj6EIfe4ItE87s3R87zzg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@unocss/preset-mini/-/preset-mini-0.38.2.tgz}
+    name: '@unocss/preset-mini'
+    version: 0.38.2
+    dependencies:
+      '@unocss/core': registry.npmmirror.com/@unocss/core/0.38.2
     dev: true
 
   registry.npmmirror.com/@unocss/preset-typography/0.34.1:
@@ -636,6 +676,15 @@ packages:
     dependencies:
       '@unocss/core': registry.npmmirror.com/@unocss/core/0.34.1
       '@unocss/preset-mini': registry.npmmirror.com/@unocss/preset-mini/0.34.1
+    dev: true
+
+  registry.npmmirror.com/@unocss/preset-wind/0.38.2:
+    resolution: {integrity: sha512-e6I07llFT73aMPR7KOk6ebWQUS3SNvu3c5DCriS+iqbplbdQtTP5Ox6Os33FjNIwzjxz8cSwUKUhRGODuFkFyg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@unocss/preset-wind/-/preset-wind-0.38.2.tgz}
+    name: '@unocss/preset-wind'
+    version: 0.38.2
+    dependencies:
+      '@unocss/core': registry.npmmirror.com/@unocss/core/0.38.2
+      '@unocss/preset-mini': registry.npmmirror.com/@unocss/preset-mini/0.38.2
     dev: true
 
   registry.npmmirror.com/@unocss/reset/0.34.1:
