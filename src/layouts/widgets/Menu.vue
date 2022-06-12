@@ -46,7 +46,7 @@ const {
         <template v-if="children?.length">
           <a-sub-menu :key="String(id)">
             <template #icon>
-              <icon :class="icon" />
+              <div :class="icon" dark:bg-white />
             </template>
             <template #title>
               {{ title }}
@@ -66,7 +66,7 @@ const {
           <RouterLink :key="idx" :to="path">
             <a-menu-item :key="String(id)">
               <template #icon>
-                <span :class="icon" color="black dark:white" />
+                <div :class="icon" dark:bg-white />
               </template>
               {{ title }}
             </a-menu-item>

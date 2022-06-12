@@ -1,13 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from 'nprogress' // progress bar
-import { constantRoutes } from '~/routes'
+import { constantRoutes, dynamicRoutes } from '~/routes'
 import 'nprogress/nprogress.css'
 NProgress.configure({ showSpinner: false, easing: 'ease', speed: 500 })
 
 function setupRouter() {
   const router = createRouter({
     history: createWebHashHistory(),
-    routes: [...constantRoutes],
+    routes: [...constantRoutes, ...dynamicRoutes],
     scrollBehavior() {
       return {
         top: 0,
