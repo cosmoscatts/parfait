@@ -8,8 +8,8 @@ import NavDarkToggle from '../widgets/NavDarkToggle.vue'
     <div flex justify-self-start>
       <NavHamburger mx-4 />
     </div>
-    <div>
-      <NavDarkToggle mx-4 />
-    </div>
+    <div flex-auto />
+    <a icon-btn i-carbon-logo-github href="https://github.com/antfu/what-time" target="_blank" title="GitHub" />
+    <NavDarkToggle mx-4 />
   </div>
 </template>
