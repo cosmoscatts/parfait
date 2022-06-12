@@ -9,16 +9,20 @@ const menuProps = {
   defaultCollapsed: false,
   showCollapseButton: false,
   accordion: true,
-  collapsedWidth: 32,
+  collapsedWidth: 50,
   defaultSelectedKeys: [],
   breakpoint: 'xl',
   metadata: menus,
+}
+const iconMap: Record<string, string> = {
+  home: 'i-carbon-home',
+  user: 'i-carbon-user',
 }
 </script>
 
 <template>
   <div flex="~ col justify-center of-hidden">
     <Logo />
-    <Menu v-bind="menuProps" />
+    <Menu v-bind="menuProps" :icon-map="iconMap" />
   </div>
 </template>

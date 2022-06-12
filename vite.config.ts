@@ -59,7 +59,9 @@ export default defineConfig({
       presets: [
         presetAttributify(),
         presetUno(),
-        presetIcons(),
+        presetIcons({
+          scale: 1.2,
+        }),
         presetWind(),
       ],
     }),

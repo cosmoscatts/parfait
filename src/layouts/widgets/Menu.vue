@@ -8,10 +8,11 @@ const {
   defaultCollapsed = false,
   showCollapseButton = false,
   accordion = true,
-  collapsedWidth = undefined,
+  collapsedWidth = 40,
   defaultSelectedKeys = [],
   breakpoint = 'xl',
   metadata = [],
+  iconMap = {},
 } = defineProps<{
   mode?: 'vertical' | 'horizontal' | 'pop' | 'popButton'
   autoOpen?: boolean
@@ -22,6 +23,7 @@ const {
   defaultSelectedKeys: number[] | string[]
   breakpoint?: 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
   metadata?: Menu[]
+  iconMap?: Record<string, string>
 }>()
 </script>
 
@@ -46,7 +48,7 @@ const {
         <template v-if="children?.length">
           <a-sub-menu :key="String(id)">
             <template #icon>
-              <div :class="icon" dark:bg-white />
+              <div :class="`${iconMap[icon!]}`" />
             </template>
             <template #title>
               {{ title }}
@@ -66,7 +68,7 @@ const {
           <RouterLink :key="idx" :to="path">
             <a-menu-item :key="String(id)">
               <template #icon>
-                <div :class="icon" dark:bg-white />
+                <div :class="`${iconMap[icon!]}`" />
               </template>
               {{ title }}
             </a-menu-item>

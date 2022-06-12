@@ -1,7 +1,6 @@
 import BaseLayout from '~/layouts/index.vue'
 
 export const dynamicRoutes = [
-
   {
     path: '/dashboard',
     name: 'dashboard-layout',

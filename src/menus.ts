@@ -4,13 +4,13 @@ export const menus: Menu[] = [
   {
     id: 101,
     title: '首页',
-    icon: 'i-carbon-home',
+    icon: 'home',
     path: '/dashboard',
   },
   {
     id: 102,
     title: '系统管理',
-    icon: 'i-carbon-user',
+    icon: 'user',
     children: [
       {
         id: 10201,
