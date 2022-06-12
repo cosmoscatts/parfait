@@ -9,7 +9,7 @@ const { collapse, siderWidth } = storeToRefs(useCollapseStore())
 </script>
 
 <template>
-  <a-layout h-screen w-screen of="x-hidden y-auto">
+  <a-layout h-screen w-screen bg-canvas of="x-hidden y-auto">
     <a-layout-sider
       h-full of-hidden bg="dark:#232324"
       hide-trigger

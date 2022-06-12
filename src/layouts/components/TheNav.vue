@@ -5,7 +5,7 @@ import NavDarkToggle from '../widgets/NavDarkToggle.vue'
 </script>
 
 <template>
-  <div flex justify-between items-center border="1px solid red">
+  <div flex justify-between items-center bg="white dark:[#111]">
     <NavHamburger mx-4 />
     <div flex-auto />
     <a
