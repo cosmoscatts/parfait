@@ -25,3 +25,10 @@ export const menus: Menu[] = [
     ],
   },
 ]
+
+// fix: unocss icons can not dynamic load
+// https://github.com/unocss/unocss/issues/785
+export const iconMap: Record<string, string> = {
+  home: 'i-carbon-home',
+  user: 'i-carbon-user',
+}
