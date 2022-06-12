@@ -21,8 +21,8 @@ const { collapse, siderWidth } = storeToRefs(useCollapseStore())
     </a-layout-sider>
     <a-layout>
       <a-layout-header>
-        <TheNav w-full h-50px />
-        <TheTags w-full h-34px />
+        <TheNav w-full h-50px bg="white dark:[#111]" />
+        <TheTags w-full h-34px bg="white dark:[#111]" />
       </a-layout-header>
       <a-layout border="~ solid white">
         <a-layout-content>
