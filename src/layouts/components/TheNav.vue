@@ -3,10 +3,11 @@ import NavHamburger from '../widgets/NavHamburger.vue'
 import NavBreadCrumb from '../widgets/NavBreadCrumb.vue'
 import NavFullScreen from '../widgets/NavFullScreen.vue'
 import NavDarkToggle from '../widgets/NavDarkToggle.vue'
+import NavAvatar from '../widgets/NavAvatar.vue'
 </script>
 
 <template>
-  <div flex justify-between items-center>
+  <div flex justify-between items-center pr-5>
     <NavHamburger mx-4 />
     <NavBreadCrumb />
     <div flex-auto />
@@ -17,5 +18,6 @@ import NavDarkToggle from '../widgets/NavDarkToggle.vue'
     />
     <NavFullScreen mr-3 />
     <NavDarkToggle mr-3 />
+    <NavAvatar />
   </div>
 </template>
