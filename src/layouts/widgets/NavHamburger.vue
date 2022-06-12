@@ -6,11 +6,8 @@ const { toggleCollapse } = collapseStore
 
 <template>
   <button
-    icon-btn
-    rounded-50
-    class="hover:!bg-white"
-    color="black dark:white"
-    :class="collapse ? 'i-carbon-chevron-right' : 'i-carbon-chevron-left'"
+    icon-btn text-5
+    :class="collapse ? 'i-ri-indent-increase' : 'i-ri-indent-decrease'"
     @click="toggleCollapse(!collapse)"
   />
 </template>
