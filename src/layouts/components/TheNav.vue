@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import NavHamburger from '../widgets/NavHamburger.vue'
+import NavBreadCrumb from '../widgets/NavBreadCrumb.vue'
 import NavFullScreen from '../widgets/NavFullScreen.vue'
 import NavDarkToggle from '../widgets/NavDarkToggle.vue'
 </script>
@@ -7,6 +8,7 @@ import NavDarkToggle from '../widgets/NavDarkToggle.vue'
 <template>
   <div flex justify-between items-center>
     <NavHamburger mx-4 />
+    <NavBreadCrumb />
     <div flex-auto />
     <a
       icon-btn text-lg i-carbon-logo-github mr-3

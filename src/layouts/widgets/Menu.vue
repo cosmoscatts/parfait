@@ -12,7 +12,6 @@ const {
   defaultSelectedKeys = [],
   breakpoint = 'xl',
   metadata = [],
-  iconMap = {},
 } = defineProps<{
   mode?: 'vertical' | 'horizontal' | 'pop' | 'popButton'
   autoOpen?: boolean
@@ -23,8 +22,14 @@ const {
   defaultSelectedKeys?: number[] | string[]
   breakpoint?: 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
   metadata?: Menu[]
-  iconMap?: Record<string, string>
 }>()
+
+// fix: unocss icons can not dynamic load
+// https://github.com/unocss/unocss/issues/785
+const iconMap: Record<string, string> = {
+  home: 'i-carbon-home',
+  user: 'i-carbon-user',
+}
 </script>
 
 <template>

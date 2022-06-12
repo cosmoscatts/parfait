@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Logo from '../widgets/Logo.vue'
 import Menu from '../widgets/Menu.vue'
-import { iconMap, menus } from '~/menus'
+import { menus } from '~/menus'
 
 const mode: 'vertical' | 'horizontal' | 'pop' | 'popButton' = 'vertical'
 </script>
@@ -9,6 +9,6 @@ const mode: 'vertical' | 'horizontal' | 'pop' | 'popButton' = 'vertical'
 <template>
   <div flex="~ col justify-center of-hidden">
     <Logo />
-    <Menu :mode="mode" :metadata="menus" :icon-map="iconMap" />
+    <Menu :mode="mode" :metadata="menus" />
   </div>
 </template>
