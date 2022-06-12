@@ -1,4 +1,9 @@
 <script setup lang="ts">
+// because unocss icons can not dynamic load
+// https://github.com/unocss/unocss/issues/785
+// here I prefer use arco icons
+import { IconHome, IconUser } from '@arco-design/web-vue/es/icon'
+import type { Component } from 'vue'
 import type { Menu } from '~/types'
 
 // https://arco.design/vue/component/menu#API
@@ -24,20 +29,21 @@ const {
   metadata?: Menu[]
 }>()
 
-// fix: unocss icons can not dynamic load
-// https://github.com/unocss/unocss/issues/785
-const iconMap: Record<string, string> = {
-  home: 'i-carbon-home',
-  user: 'i-carbon-user',
+const iconMap: Record<string, Component> = {
+  home: IconHome,
+  user: IconUser,
 }
+const isVertical = computed(() => {
+  return mode === 'vertical'
+})
 </script>
 
 <template>
   <div
     flex justify-center
     h-full w-full
-    bg-transparent
-    of-hidden
+    bg-transparent of-hidden
+    :class="!isVertical ? 'items-center' : ''"
   >
     <a-menu
       :mode="mode"
@@ -53,7 +59,7 @@ const iconMap: Record<string, string> = {
         <template v-if="children?.length">
           <a-sub-menu :key="String(id)">
             <template #icon>
-              <div :class="`${iconMap[icon!]}`" />
+              <Component :is="iconMap[icon!]" />
             </template>
             <template #title>
               {{ title }}
@@ -73,7 +79,7 @@ const iconMap: Record<string, string> = {
           <RouterLink :key="idx" :to="path">
             <a-menu-item :key="String(id)">
               <template #icon>
-                <div :class="`${iconMap[icon!]}`" />
+                <Component :is="iconMap[icon!]" />
               </template>
               {{ title }}
             </a-menu-item>

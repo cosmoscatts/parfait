@@ -4,15 +4,27 @@ import NavBreadCrumb from '../widgets/NavBreadCrumb.vue'
 import NavFullScreen from '../widgets/NavFullScreen.vue'
 import NavDarkToggle from '../widgets/NavDarkToggle.vue'
 import NavAvatar from '../widgets/NavAvatar.vue'
+import Logo from '../widgets/Logo.vue'
+import Menu from '../widgets/Menu.vue'
+import { menus } from '~/menus'
+
+const mode: 'vertical' | 'horizontal' | 'pop' | 'popButton' = 'horizontal'
+
+const { layout } = storeToRefs(useSettingsStore())
+const isVertical = computed(() => {
+  return layout.value === 'vertical'
+})
 </script>
 
 <template>
   <div flex justify-between items-center pr-5>
-    <NavHamburger mx-4 />
-    <NavBreadCrumb />
+    <Logo v-if="!isVertical" w-200px />
+    <NavHamburger v-if="isVertical" mx-4 />
+    <NavBreadCrumb v-if="isVertical" mr-4 />
+    <Menu v-if="!isVertical" :mode="mode" :metadata="menus" />
     <div flex-auto />
     <a
-      icon-btn text-lg i-carbon-logo-github mr-3
+      icon-btn text-lg i-carbon-logo-github mx-3
       href="https://github.com/faitsse/parfait"
       target="_blank" title="GitHub"
     />
