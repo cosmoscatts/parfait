@@ -9,9 +9,9 @@ const { collapse, siderWidth } = storeToRefs(useCollapseStore())
 </script>
 
 <template>
-  <a-layout h-screen w-screen bg-canvas of="x-hidden y-auto">
+  <a-layout h-screen w-screen bg-base of="x-hidden y-auto">
     <a-layout-sider
-      h-full of-hidden bg="dark:#232324"
+      h-full of-hidden bg-sider
       hide-trigger
       collapsible
       :width="siderWidth"
@@ -20,11 +20,11 @@ const { collapse, siderWidth } = storeToRefs(useCollapseStore())
       <TheSide h-full w-full bg-transparent />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header>
-        <TheNav w-full h-50px bg="white dark:[#111]" />
-        <TheTags w-full h-34px bg="white dark:[#111]" />
+      <a-layout-header bg-header>
+        <TheNav w-full h-50px bg-transparent />
+        <TheTags w-full h-34px bg-transparent />
       </a-layout-header>
-      <a-layout border="~ solid white">
+      <a-layout bg-transparent>
         <a-layout-content>
           <TheMain w-full h-full />
         </a-layout-content>
