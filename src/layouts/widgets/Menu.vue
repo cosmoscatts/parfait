@@ -8,7 +8,7 @@ const {
   defaultCollapsed = false,
   showCollapseButton = false,
   accordion = true,
-  collapsedWidth = 40,
+  collapsedWidth = 50,
   defaultSelectedKeys = [],
   breakpoint = 'xl',
   metadata = [],
@@ -20,7 +20,7 @@ const {
   showCollapseButton?: boolean
   accordion?: boolean
   collapsedWidth?: number
-  defaultSelectedKeys: number[] | string[]
+  defaultSelectedKeys?: number[] | string[]
   breakpoint?: 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
   metadata?: Menu[]
   iconMap?: Record<string, string>
