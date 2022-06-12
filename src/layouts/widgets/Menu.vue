@@ -36,6 +36,19 @@ const iconMap: Record<string, Component> = {
 const isVertical = computed(() => {
   return mode === 'vertical'
 })
+const { width } = useWindowSize()
+const { layout } = storeToRefs(useSettingsStore())
+const reactCollapseWidth = computed(() => {
+  return layout.value === 'vertical'
+    ? collapsedWidth
+    : width.value * 0.75
+})
+const collapseStore = useCollapseStore()
+const collapsed = computed(() => {
+  return layout.value === 'vertical'
+    ? collapseStore.collapse
+    : false
+})
 </script>
 
 <template>
@@ -48,10 +61,11 @@ const isVertical = computed(() => {
     <a-menu
       :mode="mode"
       :auto-open="autoOpen"
+      :collapsed="collapsed"
       :default-collapsed="defaultCollapsed"
       :show-collapse-button="showCollapseButton"
       :accordion="accordion"
-      :collapsed-width="collapsedWidth"
+      :collapsed-width="reactCollapseWidth"
       :default-selected-keys="defaultSelectedKeys"
       :breakpoint="breakpoint"
     >

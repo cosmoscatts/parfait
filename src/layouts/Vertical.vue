@@ -5,8 +5,8 @@ import TheTags from './components/TheTags.vue'
 import TheSide from './components/TheSide.vue'
 import TheRightPanel from './components/TheRightPanel.vue'
 
-const { collapse } = storeToRefs(useCollapseStore())
 const { width } = useWindowSize()
+const { collapse } = storeToRefs(useCollapseStore())
 watchEffect(() => {
   // when the screen width less than 1200px, collapse the sider
   if (width.value < 1200)

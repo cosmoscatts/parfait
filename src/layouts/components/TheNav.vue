@@ -9,16 +9,21 @@ import Menu from '../widgets/Menu.vue'
 import { menus } from '~/menus'
 
 const mode: 'vertical' | 'horizontal' | 'pop' | 'popButton' = 'horizontal'
-
 const { layout } = storeToRefs(useSettingsStore())
 const isVertical = computed(() => {
   return layout.value === 'vertical'
+})
+const { width } = useWindowSize()
+let shortLogo = $ref(false)
+watchEffect(() => {
+  if (!isVertical.value)
+    shortLogo = width.value < 1200
 })
 </script>
 
 <template>
   <div flex justify-between items-center pr-5>
-    <Logo v-if="!isVertical" w-200px />
+    <Logo v-if="!isVertical" :class="shortLogo ? 'w-64px' : 'w-200px'" />
     <NavHamburger v-if="isVertical" mx-4 />
     <NavBreadCrumb v-if="isVertical" mr-4 />
     <Menu v-if="!isVertical" :mode="mode" :metadata="menus" />
