@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
+const toggle = toggleDark
 </script>
 
 <template>
@@ -8,6 +7,6 @@ const toggleDark = useToggle(isDark)
     icon-btn
     color="black dark:white"
     i="carbon-sun dark:carbon-moon"
-    @click="toggleDark()"
+    @click="toggle()"
   />
 </template>

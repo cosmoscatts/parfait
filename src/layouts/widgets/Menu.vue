@@ -30,10 +30,9 @@ const {
     flex justify-center
     h-full w-full
     bg-transparent
-    overflow-hidden
+    of-hidden
   >
     <a-menu
-      theme="dark"
       :mode="mode"
       :auto-open="autoOpen"
       :default-collapsed="defaultCollapsed"

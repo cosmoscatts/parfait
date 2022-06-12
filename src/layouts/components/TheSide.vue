@@ -17,7 +17,7 @@ const menuProps = {
 </script>
 
 <template>
-  <div flex="~ col justify-center overflow-hidden">
+  <div flex="~ col justify-center of-hidden">
     <Logo />
     <Menu v-bind="menuProps" />
   </div>
