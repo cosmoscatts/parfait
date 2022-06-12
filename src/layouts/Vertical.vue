@@ -5,7 +5,19 @@ import TheTags from './components/TheTags.vue'
 import TheSide from './components/TheSide.vue'
 import TheRightPanel from './components/TheRightPanel.vue'
 
-const { collapse, siderWidth } = storeToRefs(useCollapseStore())
+const { collapse } = storeToRefs(useCollapseStore())
+const { width } = useWindowSize()
+watchEffect(() => {
+  // when the screen width less than 1200px, collapse the sider
+  if (width.value < 1200)
+    collapse.value = true
+})
+
+const sideWidth = computed(() => {
+  return width.value < 1200
+    ? 64
+    : 200
+})
 </script>
 
 <template>
@@ -14,7 +26,7 @@ const { collapse, siderWidth } = storeToRefs(useCollapseStore())
       h-full of-hidden bg-sider
       hide-trigger
       collapsible
-      :width="siderWidth"
+      :width="sideWidth"
       :collapsed="collapse"
     >
       <TheSide h-full w-full bg-transparent />
