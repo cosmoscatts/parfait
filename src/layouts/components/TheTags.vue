@@ -25,6 +25,9 @@ function isActive(path?: string) {
     return false
   return path === route.path
 }
+const visible = ref(false)
+const left = ref(0)
+const top = ref(0)
 </script>
 
 <template>
@@ -46,5 +49,13 @@ function isActive(path?: string) {
         </span>
       </RouterLink>
     </div>
+    <ul v-show="visible" :style="{ left: `${left}px`, top: `${top}px` }" class="contextmenu">
+      <li>
+        刷新当前
+      </li>
+      <li>
+        关闭其他
+      </li>
+    </ul>
   </div>
 </template>
