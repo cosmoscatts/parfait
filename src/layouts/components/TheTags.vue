@@ -25,18 +25,17 @@ addTag()
       v-for="{ title, path, fullPath, query }, idx in tags" :key="idx"
       h-26px lh-26px wa
       my-4px p="y0 x-3"
-      inline-block bg-green
-      cursor-pointer
+      inline-block cursor-pointer
+      bg="emerald-300 dark:[#4FC08D]"
     >
       <RouterLink
         :to="{ path, query, fullPath }"
       >
-        <span flex justify-center items-center text-white>
+        <span flex justify-center items-center op-80>
           {{ title }}
-          <span icon-btn text-sm ml-1 i-carbon-close-filled hover="bg-gray:80" />
+          <span icon-btn i-carbon-close-filled ml-1 color-white />
         </span>
       </RouterLink>
     </div>
   </div>
 </template>
--100px
