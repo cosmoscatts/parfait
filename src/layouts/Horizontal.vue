@@ -6,7 +6,7 @@ import TheRightPanel from './components/TheRightPanel.vue'
 </script>
 
 <template>
-  <a-layout h-screen w-screen bg-base of="x-hidden y-auto">
+  <a-layout id="main-wrapper" h-screen w-screen bg-base of="x-hidden y-auto">
     <a-layout-header bg-header>
       <TheNav w-full h-50px bg-transparent />
       <TheTags w-full h-34px bg-transparent />
@@ -16,4 +16,5 @@ import TheRightPanel from './components/TheRightPanel.vue'
     </a-layout-content>
     <TheRightPanel />
   </a-layout>
+  <a-back-top target-container="#main-wrapper" />
 </template>

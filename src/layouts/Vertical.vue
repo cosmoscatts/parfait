@@ -31,7 +31,7 @@ const sideWidth = computed(() => {
     >
       <TheSide h-full w-full bg-transparent />
     </a-layout-sider>
-    <a-layout>
+    <a-layout id="main-wrapper">
       <a-layout-header bg-header>
         <TheNav w-full h-50px bg-transparent />
         <TheTags w-full h-34px bg-transparent />
@@ -43,6 +43,7 @@ const sideWidth = computed(() => {
         <TheRightPanel />
       </a-layout>
     </a-layout>
+    <a-back-top target-container="#main-wrapper" />
   </a-layout>
 </template>
 
