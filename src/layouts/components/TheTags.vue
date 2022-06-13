@@ -17,6 +17,9 @@ function addTag() {
   })
 }
 addTag()
+watch(() => route.path, () => {
+  addTag()
+})
 function isActive(path?: string) {
   if (!path)
     return false
