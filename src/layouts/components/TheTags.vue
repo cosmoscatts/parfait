@@ -17,6 +17,11 @@ function addTag() {
   })
 }
 addTag()
+function isActive(path?: string) {
+  if (!path)
+    return false
+  return path === route.path
+}
 </script>
 
 <template>
@@ -24,16 +29,17 @@ addTag()
     <div
       v-for="{ title, path, fullPath, query }, idx in tags" :key="idx"
       h-26px lh-26px wa
-      my-4px p="y0 x-3"
+      my-4px p="y0 x-2"
       inline-block cursor-pointer
-      bg="emerald-300 dark:[#4FC08D]"
+      bg="[#4FC08D]" text="white 12px"
     >
       <RouterLink
         :to="{ path, query, fullPath }"
       >
-        <span flex justify-center items-center op-80>
+        <span flex justify-center items-center>
+          <span v-if="isActive(path)" i-carbon-dot-mark />
           {{ title }}
-          <span icon-btn i-carbon-close-filled ml-1 color-white />
+          <span icon-btn i-carbon-close-filled ml-1 />
         </span>
       </RouterLink>
     </div>
