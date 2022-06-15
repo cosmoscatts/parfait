@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { IconCloseCircle, IconRefresh } from '@arco-design/web-vue/es/icon'
+
 const tagsStore = useTagsStore()
 const tags = $computed(() => {
   return tagsStore.visitedPages
@@ -42,7 +44,7 @@ function closeOthers(idx: number) {
       inline-block cursor-pointer
       bg="[#4FC08D]" text="white 12px"
     >
-      <a-trigger trigger="contextMenu" align-point :popup-translate="[50, 10]">
+      <a-dropdown trigger="contextMenu" position="bl">
         <RouterLink
           :to="{ path, query, fullPath }"
         >
@@ -53,19 +55,20 @@ function closeOthers(idx: number) {
           </span>
         </RouterLink>
         <template #content>
-          <ul
-            box-border p-4 text-sm border="3 green6 rounded-md"
-            bg="white dark:[#373739]" list-none
-          >
-            <li @click="refresh(idx)">
-              刷新当前
-            </li>
-            <li @click="closeOthers(idx)">
-              关闭其他
-            </li>
-          </ul>
+          <a-doption @click="refresh(idx)">
+            <template #icon>
+              <icon-refresh />
+            </template>
+            刷新当前
+          </a-doption>
+          <a-doption @click="closeOthers(idx)">
+            <template #icon>
+              <icon-close-circle />
+            </template>
+            关闭其他
+          </a-doption>
         </template>
-      </a-trigger>
+      </a-dropdown>
     </div>
   </div>
 </template>
