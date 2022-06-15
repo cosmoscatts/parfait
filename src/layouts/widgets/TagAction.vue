@@ -1,23 +1,26 @@
 <script setup lang="ts">
 const {
   visible = false,
-  left = 0,
-  top = 0,
+  event = undefined,
 } = defineProps<{
   visible?: boolean
-  left?: number
-  top?: number
+  event?: MouseEvent
 }>()
-/**
- * calculate the <ul> position
- */
-function calculate() {
-
-}
+const left = computed(() => {
+  return 100
+})
+const top = computed(() => {
+  return 0
+})
 </script>
 
 <template>
-  <ul v-show="visible" :style="{ left: `${left}px`, top: `${top}px` }">
+  <ul
+    v-show="visible"
+    :style="{ left: `${left}px`, top: `${top}px` }"
+    absolute z-3000 box-border p-4 text-sm border="3 green6 rounded-md"
+    bg="white dark:[#373739]" list-none
+  >
     <li>
       刷新当前
     </li>
