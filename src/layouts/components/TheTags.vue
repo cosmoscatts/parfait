@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import TagAction from '../widgets/TagAction.vue'
-import type { Tag } from '~/types'
-
 const tagsStore = useTagsStore()
 const tags = $computed(() => {
   return tagsStore.visitedPages
@@ -28,31 +25,24 @@ function isActive(path?: string) {
     return false
   return path === route.path
 }
+function refresh(idx: number) {
 
-let visible = $ref(false)
-let rClickEvent = $ref<MouseEvent>()
-let selectedTag = $ref<Tag>()
-/**
- * right click to open the menu
- */
-function openActionMenu(idx: number, e: MouseEvent) {
-  selectedTag = tags[idx]
-  rClickEvent = e
-  visible = true
+}
+function closeOthers(idx: number) {
+
 }
 </script>
 
 <template>
-  <div flex="~ gap2" px-3 relative>
-    <div of="x-auto y-hidden">
-      <div
-        v-for="{ title, path, fullPath, query }, idx in tags" :key="idx"
-        h-26px lh-26px wa
-        my-4px p="y0 x-2"
-        inline-block cursor-pointer
-        bg="[#4FC08D]" text="white 12px"
-        @contextmenu.prevent="openActionMenu(idx, $event)"
-      >
+  <div flex="~ gap2" px-3 relative of="x-auto y-hidden">
+    <div
+      v-for="{ title, path, fullPath, query }, idx in tags" :key="idx"
+      h-26px lh-26px wa
+      my-4px p="y0 x-2"
+      inline-block cursor-pointer
+      bg="[#4FC08D]" text="white 12px"
+    >
+      <a-trigger trigger="contextMenu" align-point :popup-translate="[50, 10]">
         <RouterLink
           :to="{ path, query, fullPath }"
         >
@@ -62,8 +52,20 @@ function openActionMenu(idx: number, e: MouseEvent) {
             <span icon-btn i-carbon-close-filled ml-1 />
           </span>
         </RouterLink>
-      </div>
+        <template #content>
+          <ul
+            box-border p-4 text-sm border="3 green6 rounded-md"
+            bg="white dark:[#373739]" list-none
+          >
+            <li @click="refresh(idx)">
+              刷新当前
+            </li>
+            <li @click="closeOthers(idx)">
+              关闭其他
+            </li>
+          </ul>
+        </template>
+      </a-trigger>
     </div>
-    <TagAction v-bind="{ visible, event: rClickEvent }" />
   </div>
 </template>
