@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { WritableComputedRef } from 'vue'
 const settingsStore = useSettingsStore()
 function setter(key: string, value: boolean | string) {
   settingsStore.changeSettingsVal({
@@ -39,9 +38,6 @@ const fixHeader = computed({
     setter('fixHeader', value)
   },
 })
-watchEffect(() => {
-  console.log(fixHeader.value)
-})
 const primaryColor = computed({
   get() {
     return settingsStore.primaryColor
@@ -50,11 +46,17 @@ const primaryColor = computed({
     setter('primaryColor', value)
   },
 })
+const switchRect = reactive<any>({
+  primaryColor,
+  fixHeader,
+  showTheLogo,
+  showTheTags,
+})
 const switchItems = [
-  { name: '主题颜色', prop: 'primaryColor', ref: unref(primaryColor) },
-  { name: '页面Logo', prop: 'showTheLogo', ref: unref(fixHeader) },
-  { name: '固定页头', prop: 'fixHeader', ref: unref(showTheLogo) },
-  { name: '标签导航', prop: 'showTheTags', ref: unref(showTheTags) },
+  { name: '主题颜色', prop: 'primaryColor' },
+  { name: '页面Logo', prop: 'showTheLogo' },
+  { name: '固定页头', prop: 'fixHeader' },
+  { name: '标签导航', prop: 'showTheTags' },
 ]
 const switchColors = {
   checked: 'rgb(var(--primary-6))',
@@ -66,7 +68,7 @@ const switchColors = {
   <div ha of="x-hidden y-auto" flex="~ col" gap-4>
     <div mt-3>
       <span>页面排版</span>
-      <a-radio-group>
+      <a-radio-group v-modal="layout">
         <template v-for="item in 2" :key="item">
           <a-radio :value="item">
             <template #radio="{ checked }">
@@ -93,11 +95,11 @@ const switchColors = {
       </a-radio-group>
     </div>
 
-    <div v-for="{ name, prop, ref }, idx of switchItems" :key="idx">
+    <div v-for="{ name, prop }, idx of switchItems" :key="idx">
       <span>{{ name }}</span>
       <a-switch
         v-if="prop !== 'primaryColor'"
-        v-model="fixHeader"
+        v-model="switchRect[prop]"
         type="round" float-right
         :checked-color="switchColors.checked"
         :unchecked-color="switchColors.unchecked"
