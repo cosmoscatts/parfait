@@ -23,4 +23,8 @@ export const baseSettings = reactive<Record<string, any>>({
    * @default: true
    */
   fixHeader: true,
+  /**
+   * theme primary color
+   */
+  primaryColor: '',
 })
