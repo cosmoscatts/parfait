@@ -3,7 +3,7 @@ import { IconCloseCircle, IconRefresh } from '@arco-design/web-vue/es/icon'
 
 const tagsStore = useTagsStore()
 const tags = $computed(() => {
-  return tagsStore.visitedPages
+  return tagsStore.visitedPages || []
 })
 const route = useRoute()
 function addTag() {
@@ -27,11 +27,50 @@ function isActive(path?: string) {
     return false
   return path === route.path
 }
+const router = useRouter()
 function refresh(idx: number) {
-
+  const tag = tags[idx]
+  if (!tag)
+    return
+  const { fullPath } = tag
+  nextTick(() => {
+    router.replace({
+      path: `/redirect${fullPath}`,
+    })
+  })
+}
+function closeTag(idx: number) {
+  if (tags.length === 1) {
+    Message.warning('已经是最后一个标签了')
+    return
+  }
+  const tag = tags[idx]
+  if (!tag)
+    return
+  tagsStore.removeTag(tag).then(() => {
+    // close the current tag that is show
+    if (tag.path === route.path) {
+      // find the latest
+      const latest = tags.slice(-1)[0]
+      const path = latest
+        ? latest.fullPath!
+        : '/'
+      router.push(path)
+    }
+  })
 }
 function closeOthers(idx: number) {
-
+  if (tags.length === 1) {
+    Message.warning('已经是最后一个标签了')
+    return
+  }
+  const tag = tags[idx]
+  if (!tag)
+    return
+  const { fullPath } = tag
+  router.push(fullPath!)
+  // FIXME: add move to current tag
+  tagsStore.removerOthers(tag)
 }
 </script>
 
@@ -51,7 +90,7 @@ function closeOthers(idx: number) {
           <span flex justify-center items-center>
             <span v-if="isActive(path)" i-carbon-dot-mark />
             {{ title }}
-            <span icon-btn i-carbon-close-filled ml-1 />
+            <span icon-btn i-carbon-close-filled ml-1 @click="closeTag(idx)" />
           </span>
         </RouterLink>
         <template #content>
