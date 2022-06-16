@@ -68,7 +68,7 @@ const switchColors = {
   <div ha of="x-hidden y-auto" flex="~ col" gap-4>
     <div mt-3>
       <span>页面排版</span>
-      <a-radio-group v-modal="layout">
+      <a-radio-group>
         <template v-for="item in 2" :key="item">
           <a-radio :value="item">
             <template #radio="{ checked }">
