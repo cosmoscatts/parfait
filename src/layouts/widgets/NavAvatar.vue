@@ -8,10 +8,7 @@ function onSelect() {}
   <div cursor-pointer>
     <a-dropdown trigger="hover" position="bottom" @select="onSelect">
       <a-avatar :size="32" shape="square">
-        <img
-          alt="头像"
-          :src="avatar"
-        >
+        <img alt="头像" :src="avatar">
       </a-avatar>
       <template #content>
         <a-doption>个人资料</a-doption>
