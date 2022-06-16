@@ -1,4 +1,6 @@
 import type { MessageConfig, ModalConfig } from '@arco-design/web-vue'
+import '@arco-design/web-vue/es/message/style/css.js'
+import '@arco-design/web-vue/es/modal/style/css.js'
 import { Message as aMessage, Modal as aModal } from '@arco-design/web-vue'
 
 /**
