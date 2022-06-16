@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BackTop from './widgets/BackTop.vue'
 import TheMain from './components/TheMain.vue'
 import TheNav from './components/TheNav.vue'
 import TheTags from './components/TheTags.vue'
@@ -16,5 +17,5 @@ import TheRightPanel from './components/TheRightPanel.vue'
     </a-layout-content>
     <TheRightPanel />
   </a-layout>
-  <a-back-top target-container="#main-wrapper" />
+  <BackTop target-container="#main-wrapper" />
 </template>

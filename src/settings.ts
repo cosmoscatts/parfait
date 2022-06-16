@@ -4,7 +4,7 @@ export const baseSettings = reactive<Record<string, any>>({
    *
    * @default: 'vertical'
    */
-  layout: 'vertical',
+  layout: 'horizontal',
   /**
    * whether show the logo
    *

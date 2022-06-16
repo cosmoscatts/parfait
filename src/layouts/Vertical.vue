@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BackTop from './widgets/BackTop.vue'
 import TheMain from './components/TheMain.vue'
 import TheNav from './components/TheNav.vue'
 import TheTags from './components/TheTags.vue'
@@ -12,12 +13,12 @@ watchEffect(() => {
   if (width.value < 1200)
     collapse.value = true
 })
-
 const sideWidth = computed(() => {
   return width.value < 1200
     ? 64
     : 200
 })
+const rightPanelVisible = $ref(false)
 </script>
 
 <template>
@@ -40,10 +41,10 @@ const sideWidth = computed(() => {
         <a-layout-content>
           <TheMain w-full h-full />
         </a-layout-content>
-        <TheRightPanel />
+        <TheRightPanel v-model:visible="rightPanelVisible" />
       </a-layout>
     </a-layout>
-    <a-back-top target-container="#main-wrapper" />
+    <BackTop target-container="#main-wrapper" />
   </a-layout>
 </template>
 
