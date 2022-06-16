@@ -3,16 +3,16 @@ import type { Tag } from '~/types'
 export const useTagsStore = defineStore(
   'tagsStore',
   () => {
-    let visitedPages = $ref<Tag[]>([])
+    const visitedPages = ref<Tag[]>([])
     function addTag(tag: Tag) {
-      const oldPath = visitedPages.map(i => i.path)
+      const oldPath = visitedPages.value.map(i => i.path)
       // already visited
       if (!tag.path || oldPath.includes(tag.path))
         return
-      visitedPages.push(tag)
+      visitedPages.value.push(tag)
     }
     function updateTag(tag: Tag) {
-      for (const page of visitedPages) {
+      for (const page of visitedPages.value) {
         if (page.path !== tag.path)
           continue
         Object.assign(page, tag)
@@ -20,10 +20,10 @@ export const useTagsStore = defineStore(
     }
     function removeTag(tag: Tag) {
       return new Promise((resolve) => {
-        for (const [i, v] of visitedPages.entries()) {
+        for (const [i, v] of visitedPages.value.entries()) {
           if (v.path !== tag.path)
             continue
-          visitedPages.splice(i, 1)
+          visitedPages.value.splice(i, 1)
         }
         resolve({
           visitedPages,
@@ -32,7 +32,7 @@ export const useTagsStore = defineStore(
     }
     function removerOthers(tag: Tag) {
       return new Promise((resolve) => {
-        visitedPages = [tag]
+        visitedPages.value = [tag]
         resolve({
           visitedPages,
         })
@@ -40,7 +40,7 @@ export const useTagsStore = defineStore(
     }
     function removeAll() {
       return new Promise((resolve) => {
-        visitedPages = []
+        visitedPages.value = []
         resolve({
           visitedPages,
         })

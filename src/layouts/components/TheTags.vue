@@ -90,7 +90,7 @@ function closeOthers(idx: number) {
           <span flex justify-center items-center>
             <span v-if="isActive(path)" i-carbon-dot-mark />
             {{ title }}
-            <span icon-btn i-carbon-close-filled ml-1 @click="closeTag(idx)" />
+            <span icon-btn i-carbon-close-filled ml-1 @click.prevent="closeTag(idx)" />
           </span>
         </RouterLink>
         <template #content>
