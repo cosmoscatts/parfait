@@ -4,6 +4,8 @@ import TheMain from './components/TheMain.vue'
 import TheNav from './components/TheNav.vue'
 import TheTags from './components/TheTags.vue'
 import TheRightPanel from './components/TheRightPanel.vue'
+
+const rightPanelVisible = $ref(false)
 </script>
 
 <template>
@@ -15,7 +17,7 @@ import TheRightPanel from './components/TheRightPanel.vue'
     <a-layout-content bg-transparent>
       <TheMain w-full h-full />
     </a-layout-content>
-    <TheRightPanel />
+    <TheRightPanel v-model:visible="rightPanelVisible" />
   </a-layout>
   <BackTop target-container="#main-wrapper" />
 </template>
