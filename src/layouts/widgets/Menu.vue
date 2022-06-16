@@ -14,7 +14,6 @@ const {
   showCollapseButton = false,
   accordion = true,
   collapsedWidth = 50,
-  defaultSelectedKeys = [],
   breakpoint = 'xl',
   metadata = [],
 } = defineProps<{
@@ -24,7 +23,6 @@ const {
   showCollapseButton?: boolean
   accordion?: boolean
   collapsedWidth?: number
-  defaultSelectedKeys?: number[] | string[]
   breakpoint?: 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
   metadata?: Menu[]
 }>()
@@ -49,6 +47,12 @@ const collapsed = computed(() => {
     ? collapseStore.collapse
     : false
 })
+const route = useRoute()
+const selectedKeys = computed(() => {
+  const matched = route.matched || []
+  return matched.map(i => i?.meta?.id || -1)
+    .filter(i => i !== -1).map(i => String(i))
+})
 </script>
 
 <template>
@@ -66,7 +70,7 @@ const collapsed = computed(() => {
       :show-collapse-button="showCollapseButton"
       :accordion="accordion"
       :collapsed-width="reactCollapseWidth"
-      :default-selected-keys="defaultSelectedKeys"
+      :selected-keys="selectedKeys"
       :breakpoint="breakpoint"
     >
       <template v-for="{ id, title, icon, path, children }, idx of metadata">
