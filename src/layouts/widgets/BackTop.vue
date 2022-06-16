@@ -10,7 +10,7 @@ const {
 <template>
   <a-back-top :target-container="targetContainer">
     <a-button
-      fixed
+      fixed shadow-md
       class="bottom-23% right-3%"
       size="large"
       shape="circle"

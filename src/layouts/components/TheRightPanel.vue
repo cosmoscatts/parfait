@@ -28,10 +28,9 @@ function onHover(state: boolean) {
   <div>
     <a-button
       v-element-hover="onHover" fixed
-      class="bottom-30% right-3%"
+      class="bottom-30% right-3%" shadow-md
       :shape="isHovered ? 'round' : 'circle'"
-      size="large"
-      @click="onClick()"
+      size="large" @click="onClick()"
     >
       <icon-skin />
       <span v-if="isHovered" ml-3>页面风格</span>
