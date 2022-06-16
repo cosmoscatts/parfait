@@ -1,5 +1,65 @@
 <script setup lang="ts">
-
+import type { WritableComputedRef } from 'vue'
+const settingsStore = useSettingsStore()
+function setter(key: string, value: boolean | string) {
+  settingsStore.changeSettingsVal({
+    key,
+    value,
+  })
+}
+const layout = computed({
+  get() {
+    return settingsStore.layout
+  },
+  set(value) {
+    setter('layout', value)
+  },
+})
+const showTheLogo = computed({
+  get() {
+    return settingsStore.showTheLogo
+  },
+  set(value) {
+    setter('showTheLogo', value)
+  },
+})
+const showTheTags = computed({
+  get() {
+    return settingsStore.showTheTags
+  },
+  set(value) {
+    setter('showTheTags', value)
+  },
+})
+const fixHeader = computed({
+  get() {
+    return settingsStore.fixHeader
+  },
+  set(value) {
+    setter('fixHeader', value)
+  },
+})
+watchEffect(() => {
+  console.log(fixHeader.value)
+})
+const primaryColor = computed({
+  get() {
+    return settingsStore.primaryColor
+  },
+  set(value) {
+    setter('primaryColor', value)
+  },
+})
+const switchItems = [
+  { name: '主题颜色', prop: 'primaryColor', ref: unref(primaryColor) },
+  { name: '页面Logo', prop: 'showTheLogo', ref: unref(fixHeader) },
+  { name: '固定页头', prop: 'fixHeader', ref: unref(showTheLogo) },
+  { name: '标签导航', prop: 'showTheTags', ref: unref(showTheTags) },
+]
+const switchColors = {
+  checked: 'rgb(var(--primary-6))',
+  unchecked: 'rgb(var(--gray-6))',
+}
 </script>
 
 <template>
@@ -11,7 +71,7 @@
           <a-radio :value="item">
             <template #radio="{ checked }">
               <a-space
-                align="start"
+                align="center" w-full
                 class="custom-radio-card"
                 :class="{ 'custom-radio-card-checked': checked }"
               >
@@ -33,24 +93,15 @@
       </a-radio-group>
     </div>
 
-    <div>
-      <span>主题颜色</span>
-      <!-- <theme-picker @theme-change="themeChange" /> -->
-    </div>
-
-    <div>
-      <span>标签导航</span>
-      <a-switch type="round" float-right checked-color="red" unchecked-color="grey" />
-    </div>
-
-    <div>
-      <span>固定页头</span>
-      <a-switch type="round" float-right checked-color="red" unchecked-color="grey" />
-    </div>
-
-    <div>
-      <span>页面 Logo</span>
-      <a-switch type="round" float-right checked-color="red" unchecked-color="grey" />
+    <div v-for="{ name, prop, ref }, idx of switchItems" :key="idx">
+      <span>{{ name }}</span>
+      <a-switch
+        v-if="prop !== 'primaryColor'"
+        v-model="fixHeader"
+        type="round" float-right
+        :checked-color="switchColors.checked"
+        :unchecked-color="switchColors.unchecked"
+      />
     </div>
   </div>
 </template>
@@ -60,7 +111,7 @@
   padding: 10px 16px;
   border: 1px solid var(--color-border-2);
   border-radius: 4px;
-  width: 250px;
+  /* width: 250px; */
   box-sizing: border-box;
 }
 

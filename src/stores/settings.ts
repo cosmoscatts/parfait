@@ -7,6 +7,8 @@ export const useSettingsStore = defineStore(
       layout,
       showTheLogo,
       showTheTags,
+      fixHeader,
+      primaryColor,
     } = toRefs(baseSettings)
     function changeSettingsVal({ key, value }: { key: string; value: any }) {
       if (!Object.prototype.hasOwnProperty.call(baseSettings, key))
@@ -18,6 +20,8 @@ export const useSettingsStore = defineStore(
       layout,
       showTheLogo,
       showTheTags,
+      fixHeader,
+      primaryColor,
       changeSettingsVal,
     }
   },
