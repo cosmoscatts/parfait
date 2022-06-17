@@ -26,5 +26,5 @@ export const baseSettings = reactive<Record<string, any>>({
   /**
    * theme primary color
    */
-  primaryColor: '',
+  primaryColor: 'arcoblue',
 })

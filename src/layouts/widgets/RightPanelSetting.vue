@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ColorPicker from './ColorPicker.vue'
+
 const settingsStore = useSettingsStore()
 const {
   layout,
@@ -73,46 +75,8 @@ const switchColors = {
         :checked-color="switchColors.checked"
         :unchecked-color="switchColors.unchecked"
       />
+      <ColorPicker v-else v-model:color-name="primaryColor" />
     </div>
   </div>
 </template>
 
-<style scoped>
-.custom-radio-card-mask {
-  border: 1px solid var(--color-border-2);
-  box-sizing: border-box;
-}
-
-.custom-radio-card-mask-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 100%;
-}
-
-.custom-radio-card-title {
-  color: var(--color-text-1);
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.custom-radio-card:hover,
-.custom-radio-card-checked,
-.custom-radio-card:hover .custom-radio-card-mask,
-.custom-radio-card-checked  .custom-radio-card-mask{
-  border-color: rgb(var(--primary-6));
-}
-
-.custom-radio-card-checked {
-  background-color: var(--color-primary-light-1);
-}
-
-.custom-radio-card:hover .custom-radio-card-title,
-.custom-radio-card-checked .custom-radio-card-title {
-  color: rgb(var(--primary-6));
-}
-
-.custom-radio-card-checked .custom-radio-card-mask-dot {
-  background-color: rgb(var(--primary-6));
-}
-</style>
