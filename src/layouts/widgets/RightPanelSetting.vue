@@ -7,7 +7,10 @@ const {
   showTheTags,
   primaryColor,
 } = settingsStore.getStageVal()
-const layoutRadios = ['vertical', 'horizontal']
+const layoutRadios = [
+  { prop: 'vertical', name: '垂直导航', img: '' },
+  { prop: 'horizontal', name: '水平导航', img: '' },
+]
 const switchRect = reactive<any>({
   primaryColor,
   fixHeader,
@@ -31,21 +34,29 @@ const switchColors = {
     <div mt-3 flex="~ col">
       <span>页面排版</span>
       <a-radio-group v-model="layout" direction="vertical">
-        <template v-for="item of layoutRadios" :key="item">
-          <a-radio :value="item" mt-3>
+        <template v-for="{ prop, name } of layoutRadios" :key="prop">
+          <a-radio :value="prop" mt-3>
             <template #radio="{ checked }">
               <a-space
-                align="center" w-full
-                class="custom-radio-card"
-                :class="{ 'custom-radio-card-checked': checked }"
+                align="start" w-full
+                p="x-3 y-2" rounded
+                border="1 gray300 dark:gray600 hover:[rgb(var(--primary-6))]"
+                :class="checked
+                  ? 'bg-[var(--color-primary-light-1)] border-[rgb(var(--primary-6))]'
+                  : ''"
               >
-                <div className="custom-radio-card-mask">
+                <div
+                  className="custom-radio-card-mask"
+                  h-14px w-14px flex-inline justify-center items-center rounded-full
+                  border="1 gray300 dark:gray600 hover:[rgb(var(--primary-6))]"
+                  :class="checked ? 'border-[rgb(var(--primary-6))]' : ''"
+                >
                   <div className="custom-radio-card-mask-dot" />
                 </div>
+                <div className="custom-radio-card-title">
+                  {{ name }}
+                </div>
                 <div>
-                  <div className="custom-radio-card-title">
-                    radio Card {{ item }}
-                  </div>
                   <a-typography-text type="secondary">
                     this is a text
                   </a-typography-text>
@@ -70,22 +81,8 @@ const switchColors = {
   </div>
 </template>
 
-<!-- <style scoped>
-.custom-radio-card {
-  padding: 10px 16px;
-  border: 1px solid var(--color-border-2);
-  border-radius: 4px;
-  /* width: 250px; */
-  box-sizing: border-box;
-}
-
+<style scoped>
 .custom-radio-card-mask {
-  height: 14px;
-  width: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100%;
   border: 1px solid var(--color-border-2);
   box-sizing: border-box;
 }
@@ -122,4 +119,4 @@ const switchColors = {
 .custom-radio-card-checked .custom-radio-card-mask-dot {
   background-color: rgb(var(--primary-6));
 }
-</style> -->
+</style>
