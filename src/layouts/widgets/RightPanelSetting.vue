@@ -1,51 +1,12 @@
 <script setup lang="ts">
 const settingsStore = useSettingsStore()
-function setter(key: string, value: boolean | string) {
-  settingsStore.changeSettingsVal({
-    key,
-    value,
-  })
-}
-const layout = computed({
-  get() {
-    return settingsStore.layout
-  },
-  set(value) {
-    setter('layout', value)
-  },
-})
-const showTheLogo = computed({
-  get() {
-    return settingsStore.showTheLogo
-  },
-  set(value) {
-    setter('showTheLogo', value)
-  },
-})
-const showTheTags = computed({
-  get() {
-    return settingsStore.showTheTags
-  },
-  set(value) {
-    setter('showTheTags', value)
-  },
-})
-const fixHeader = computed({
-  get() {
-    return settingsStore.fixHeader
-  },
-  set(value) {
-    setter('fixHeader', value)
-  },
-})
-const primaryColor = computed({
-  get() {
-    return settingsStore.primaryColor
-  },
-  set(value) {
-    setter('primaryColor', value)
-  },
-})
+const {
+  // layout,
+  fixHeader,
+  showTheLogo,
+  showTheTags,
+  primaryColor,
+} = settingsStore.getStageVal()
 const switchRect = reactive<any>({
   primaryColor,
   fixHeader,

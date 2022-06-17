@@ -8,18 +8,20 @@ const {
 } = defineProps<{
   visible?: boolean
 }>()
-const emits = defineEmits(['update:visible', 'changeSettings'])
+const emits = defineEmits(['update:visible'])
 let isHovered = $ref(false)
 function onHover(state: boolean) {
   isHovered = state
 }
+const { updateByStage } = useSettingsStore()
 const handleOk = () => {
-  emits('changeSettings')
   isHovered = false
+  updateByStage()
+  emits('update:visible', false)
 }
 const handleCancel = () => {
-  emits('update:visible', false)
   isHovered = false
+  emits('update:visible', false)
 }
 function onClick() {
   emits('update:visible', !visible)

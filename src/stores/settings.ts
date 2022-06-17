@@ -28,7 +28,6 @@ export const useSettingsStore = defineStore(
     function resetStage() {
       buildStage()
     }
-
     return {
       layout,
       showTheLogo,
