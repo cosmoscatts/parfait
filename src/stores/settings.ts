@@ -23,7 +23,7 @@ export const useSettingsStore = defineStore(
     }
     function updateByStage() {
       for (const [k, v] of Object.entries(toRaw(stage)))
-        baseSettings[k] = ref(v)
+        baseSettings[k] = unref(v)
     }
     function resetStage() {
       buildStage()

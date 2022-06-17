@@ -13,7 +13,7 @@ let isHovered = $ref(false)
 function onHover(state: boolean) {
   isHovered = state
 }
-const { updateByStage } = useSettingsStore()
+const { updateByStage, resetStage } = useSettingsStore()
 const handleOk = () => {
   isHovered = false
   updateByStage()
@@ -21,6 +21,7 @@ const handleOk = () => {
 }
 const handleCancel = () => {
   isHovered = false
+  resetStage()
   emits('update:visible', false)
 }
 function onClick() {
@@ -40,7 +41,12 @@ function onClick() {
       <icon-skin />
       <span v-if="isHovered" ml-3>页面风格</span>
     </a-button>
-    <a-drawer :visible="visible" unmount-on-close @ok="handleOk" @cancel="handleCancel">
+    <a-drawer
+      :visible="visible"
+      unmount-on-close
+      @ok="handleOk"
+      @cancel="handleCancel"
+    >
       <template #title>
         页面风格设置
       </template>
