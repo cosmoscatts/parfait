@@ -4,6 +4,7 @@ const title = 'Parfait'
 const { collapse } = storeToRefs(useCollapseStore())
 const { width } = useWindowSize()
 let hiddenTitle = $ref(false)
+const { showTheLogo } = storeToRefs(useSettingsStore())
 watchEffect(() => {
   // when the screen width less than 1200px, hide the title
   hiddenTitle = width.value < 1200
@@ -11,7 +12,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div h-50px flex justify-center items-center>
+  <div v-if="showTheLogo" h-50px flex justify-center items-center>
     <img :src="logo" alt="" h-32px w-32px :class="collapse || hiddenTitle ? '' : 'mr-5'">
     <h1 v-if="!collapse && !hiddenTitle" font="bold serif" text-2xl op50>
       {{ title }}

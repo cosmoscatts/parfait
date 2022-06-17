@@ -18,6 +18,7 @@ const sideWidth = computed(() => {
     ? 64
     : 200
 })
+const { showTheTags } = storeToRefs(useSettingsStore())
 const rightPanelVisible = $ref(false)
 </script>
 
@@ -35,7 +36,7 @@ const rightPanelVisible = $ref(false)
     <a-layout id="main-wrapper">
       <a-layout-header bg-header>
         <TheNav w-full h-50px bg-transparent />
-        <TheTags w-full h-34px bg-transparent />
+        <TheTags v-show="showTheTags" w-full h-34px bg-transparent />
       </a-layout-header>
       <a-layout bg-transparent>
         <a-layout-content>

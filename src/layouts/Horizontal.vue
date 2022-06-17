@@ -5,6 +5,7 @@ import TheNav from './components/TheNav.vue'
 import TheTags from './components/TheTags.vue'
 import TheRightPanel from './components/TheRightPanel.vue'
 
+const { showTheTags } = storeToRefs(useSettingsStore())
 const rightPanelVisible = $ref(false)
 </script>
 
@@ -12,7 +13,7 @@ const rightPanelVisible = $ref(false)
   <a-layout id="main-wrapper" h-screen w-screen bg-base of="x-hidden y-auto">
     <a-layout-header bg-header>
       <TheNav w-full h-50px bg-transparent />
-      <TheTags w-full h-34px bg-transparent />
+      <TheTags v-show="showTheTags" w-full h-34px bg-transparent />
     </a-layout-header>
     <a-layout-content bg-transparent>
       <TheMain w-full h-full />

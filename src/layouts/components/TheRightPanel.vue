@@ -25,6 +25,7 @@ const handleCancel = () => {
   emits('update:visible', false)
 }
 function onClick() {
+  resetStage()
   emits('update:visible', !visible)
 }
 </script>
