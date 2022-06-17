@@ -1,7 +1,6 @@
 import axios from '~/utils/axios'
 import type { RequestParams } from '~/types'
 type ParamsType = RequestParams | RequestParams[]
-
 /**
  * add params to url
  * parmas can be Object or Array<Object>
@@ -16,11 +15,9 @@ function addUrlParams(params?: ParamsType) {
     return ''
   if (!Array.isArray(params) && Object.keys(params).length === 0)
     return ''
-
   let paramStr = ''
   if (!Array.isArray(params))
     params = [params]
-
   const arr = params.flatMap((i: RequestParams) => Object.entries(i))
   for (const [k, v] of arr) {
     if (v === '')

@@ -27,7 +27,6 @@ function packMessage() {
       aMessage.clear(position)
     },
   }
-
   return {
     Message: message,
   }
@@ -60,7 +59,6 @@ function packModal() {
     Modal: modal,
   }
 }
-
 const { Message } = packMessage()
 const { Modal } = packModal()
 export { Message, Modal }

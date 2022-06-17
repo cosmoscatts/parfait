@@ -1,12 +1,13 @@
 <script setup lang="ts">
 const settingsStore = useSettingsStore()
 const {
-  // layout,
+  layout,
   fixHeader,
   showTheLogo,
   showTheTags,
   primaryColor,
 } = settingsStore.getStageVal()
+const layoutRadios = ['vertical', 'horizontal']
 const switchRect = reactive<any>({
   primaryColor,
   fixHeader,
@@ -27,11 +28,11 @@ const switchColors = {
 
 <template>
   <div ha of="x-hidden y-auto" flex="~ col" gap-4>
-    <div mt-3>
+    <div mt-3 flex="~ col">
       <span>页面排版</span>
-      <a-radio-group>
-        <template v-for="item in 2" :key="item">
-          <a-radio :value="item">
+      <a-radio-group v-model="layout" direction="vertical">
+        <template v-for="item of layoutRadios" :key="item">
+          <a-radio :value="item" mt-3>
             <template #radio="{ checked }">
               <a-space
                 align="center" w-full
@@ -69,7 +70,7 @@ const switchColors = {
   </div>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 .custom-radio-card {
   padding: 10px 16px;
   border: 1px solid var(--color-border-2);
@@ -121,4 +122,4 @@ const switchColors = {
 .custom-radio-card-checked .custom-radio-card-mask-dot {
   background-color: rgb(var(--primary-6));
 }
-</style>
+</style> -->
