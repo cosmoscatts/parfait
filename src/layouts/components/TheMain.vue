@@ -7,7 +7,7 @@ const cachedPageNames = computed(() => {
 <template>
   <RouterView v-slot="{ Component }">
     <keep-alive :include="cachedPageNames">
-      <component :is="Component" />
+      <Component :is="Component" />
     </keep-alive>
   </RouterView>
 </template>

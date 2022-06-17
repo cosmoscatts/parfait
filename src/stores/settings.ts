@@ -15,6 +15,24 @@ export const useSettingsStore = defineStore(
         return
       baseSettings[key] = value
     }
+    const stage = reactive({})
+
+    function buildStage() {
+
+    }
+    function swape() {
+
+    }
+
+    function getStageVal() {
+      return stage
+    }
+    function updateByStage() {
+
+    }
+    function resetStage() {
+
+    }
 
     return {
       layout,
