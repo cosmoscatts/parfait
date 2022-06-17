@@ -1,13 +1,18 @@
 <script setup lang="ts">
 const logo = 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
 const title = 'Parfait'
-const { collapse } = storeToRefs(useCollapseStore())
+const collapseStore = useCollapseStore()
+const { collapse } = storeToRefs(collapseStore)
+const { toggleCollapse } = collapseStore
 const { width } = useWindowSize()
 let hiddenTitle = $ref(false)
-const { showTheLogo } = storeToRefs(useSettingsStore())
+const { layout, showTheLogo } = storeToRefs(useSettingsStore())
 watchEffect(() => {
   // when the screen width less than 1200px, hide the title
   hiddenTitle = width.value < 1200
+  // reset the collapse
+  if (layout.value === 'horizontal')
+    toggleCollapse(false)
 })
 </script>
 
