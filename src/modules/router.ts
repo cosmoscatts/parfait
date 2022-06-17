@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import NProgress from 'nprogress' // progress bar
+import NProgress from 'nprogress'
 import { constantRoutes, dynamicRoutes } from '~/routes'
 import 'nprogress/nprogress.css'
 NProgress.configure({ showSpinner: false, easing: 'ease', speed: 500 })
