@@ -14,7 +14,7 @@ const switchRect = reactive<any>({
   showTheTags,
 })
 const switchItems = [
-  { name: '主题颜色', prop: 'primaryColor' },
+  { name: '主要色调', prop: 'primaryColor' },
   { name: '页面Logo', prop: 'showTheLogo' },
   { name: '固定页头', prop: 'fixHeader' },
   { name: '标签导航', prop: 'showTheTags' },
