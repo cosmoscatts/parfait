@@ -1,3 +1,4 @@
+import type { Ref } from 'vue'
 import { baseSettings } from '~/settings'
 
 export const useSettingsStore = defineStore(
@@ -10,28 +11,22 @@ export const useSettingsStore = defineStore(
       fixHeader,
       primaryColor,
     } = toRefs(baseSettings)
-    function changeSettingsVal({ key, value }: { key: string; value: any }) {
-      if (!Object.prototype.hasOwnProperty.call(baseSettings, key))
-        return
-      baseSettings[key] = value
-    }
-    const stage = reactive({})
-
+    // stage the change of style right panel done
+    const stage = reactive<Record<string, Ref>>({})
     function buildStage() {
-
+      for (const [k, v] of Object.entries(toRaw(baseSettings)))
+        stage[k] = ref(v)
     }
-    function swape() {
-
-    }
-
+    buildStage()
     function getStageVal() {
-      return stage
+      return toRefs(stage)
     }
     function updateByStage() {
-
+      for (const [k, v] of Object.entries(toRaw(stage)))
+        baseSettings[k] = ref(v)
     }
     function resetStage() {
-
+      buildStage()
     }
 
     return {
@@ -40,7 +35,9 @@ export const useSettingsStore = defineStore(
       showTheTags,
       fixHeader,
       primaryColor,
-      changeSettingsVal,
+      getStageVal,
+      updateByStage,
+      resetStage,
     }
   },
   {
