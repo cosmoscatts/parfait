@@ -1,9 +1,6 @@
-<script lang="ts" setup>
-const route = useRoute()
-const router = useRouter()
-const { params, query } = route
-const { path } = params
-router.replace({ path: `/${path}`, query })
+<script setup lang="ts">
+const { params: { path }, query } = useRoute()
+useRouter().replace({ path: `/${path}`, query })
 </script>
 
 <template>
