@@ -14,12 +14,12 @@ function onHover(state: boolean) {
   isHovered = state
 }
 const { updateByStage, resetStage } = useSettingsStore()
-const handleOk = () => {
+function handleOk() {
   isHovered = false
   updateByStage()
   emits('update:visible', false)
 }
-const handleCancel = () => {
+function handleCancel() {
   isHovered = false
   resetStage()
   emits('update:visible', false)

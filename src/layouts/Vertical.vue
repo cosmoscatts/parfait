@@ -18,8 +18,13 @@ const sideWidth = computed(() => {
     ? 64
     : 200
 })
-const { showTheTags } = storeToRefs(useSettingsStore())
+const { showTheTags, fixHeader } = storeToRefs(useSettingsStore())
 const rightPanelVisible = $ref(false)
+const backTopTarget = computed(() => {
+  return fixHeader.value
+    ? '#content-wrapper'
+    : '#main-wrapper'
+})
 </script>
 
 <template>
@@ -34,18 +39,35 @@ const rightPanelVisible = $ref(false)
       <TheSide h-full w-full bg-transparent />
     </a-layout-sider>
     <a-layout id="main-wrapper">
-      <a-layout-header bg-header>
+      <a-layout-header
+        bg-header
+        :class="
+          fixHeader
+            ? collapse
+              ? 'fixed top-0 right-0 w-[calc(100%-64px)]'
+              : 'fixed top-0 right-0 w-[calc(100%-200px)]'
+            : ''"
+      >
         <TheNav w-full h-50px bg-transparent />
         <TheTags v-show="showTheTags" w-full h-34px bg-transparent />
       </a-layout-header>
-      <a-layout bg-transparent>
+      <a-layout
+        id="content-wrapper"
+        bg-transparent
+        :class="
+          fixHeader
+            ? showTheTags
+              ? 'of-x-hidden of-y-auto mt-84px'
+              : 'of-x-hidden of-y-auto mt-50px'
+            : '' "
+      >
         <a-layout-content>
           <TheMain w-full h-full />
         </a-layout-content>
         <TheRightPanel v-model:visible="rightPanelVisible" />
       </a-layout>
     </a-layout>
-    <BackTop target-container="#main-wrapper" />
+    <BackTop :target-container="backTopTarget" />
   </a-layout>
 </template>
 
