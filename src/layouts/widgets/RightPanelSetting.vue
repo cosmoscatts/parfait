@@ -38,22 +38,24 @@ const switchColors = {
           <a-radio :value="prop" mt-3>
             <template #radio="{ checked }">
               <a-space
-                align="start" w-full
-                p="x-3 y-2" rounded
-                border="1 gray300 dark:gray600 hover:[rgb(var(--primary-6))]"
+                w-full p="x-3 y-2" rounded
+                border="1 gray300 dark:gray600 hover:![rgb(var(--primary-6))]"
                 :class="checked
-                  ? 'bg-[var(--color-primary-light-1)] border-[rgb(var(--primary-6))]'
+                  ? 'bg-[var(--color-primary-light-1)] !border-[rgb(var(--primary-6))]'
                   : ''"
               >
                 <div
                   className="custom-radio-card-mask"
                   h-14px w-14px flex-inline justify-center items-center rounded-full
-                  border="1 gray300 dark:gray600 hover:[rgb(var(--primary-6))]"
+                  border="1 gray300 dark:gray600 hover:![rgb(var(--primary-6))]"
                   :class="checked ? 'border-[rgb(var(--primary-6))]' : ''"
                 >
                   <div className="custom-radio-card-mask-dot" />
                 </div>
-                <div className="custom-radio-card-title">
+                <div
+                  flex-inline justify-center items-center hover="!text-[rgb(var(--color-primary-6))]"
+                  :class="checked ? '!text-[rgb(var(--color-primary-6))]' : ''"
+                >
                   {{ name }}
                 </div>
                 <div>
