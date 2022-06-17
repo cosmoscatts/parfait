@@ -34,6 +34,7 @@ const backTopTarget = computed(() => {
       hide-trigger
       collapsible
       :width="sideWidth"
+      :collapsed-width="64"
       :collapsed="collapse"
     >
       <TheSide h-full w-full bg-transparent />
