@@ -40,9 +40,9 @@ const switchColors = {
               <a-space
                 class="group" w-full p="x-3 y-2" rounded
                 border="1 gray300 dark:gray600 hover:![rgb(var(--primary-6))]"
-                text="hover:![rgb(var(--primary-6))]"
+                text="gray600 dark:white hover:![rgb(var(--primary-6))]"
                 :class="checked
-                  ? `bg-[var(--color-primary-light-1)] !border-[rgb(var(--primary-6))] text-[rgb(var(--primary-6))]`
+                  ? `bg-[var(--color-primary-light-1)] !border-[rgb(var(--primary-6))] !text-[rgb(var(--primary-6))]`
                   : ''"
               >
                 <div
