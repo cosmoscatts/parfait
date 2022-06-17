@@ -38,31 +38,25 @@ const switchColors = {
           <a-radio :value="prop" mt-3>
             <template #radio="{ checked }">
               <a-space
-                w-full p="x-3 y-2" rounded
+                class="group" w-full p="x-3 y-2" rounded
                 border="1 gray300 dark:gray600 hover:![rgb(var(--primary-6))]"
+                text="hover:![rgb(var(--primary-6))]"
                 :class="checked
-                  ? 'bg-[var(--color-primary-light-1)] !border-[rgb(var(--primary-6))]'
+                  ? `bg-[var(--color-primary-light-1)] !border-[rgb(var(--primary-6))] text-[rgb(var(--primary-6))]`
                   : ''"
               >
                 <div
-                  className="custom-radio-card-mask"
                   h-14px w-14px flex-inline justify-center items-center rounded-full
-                  border="1 gray300 dark:gray600 hover:![rgb(var(--primary-6))]"
-                  :class="checked ? 'border-[rgb(var(--primary-6))]' : ''"
+                  border="1 gray300 dark:gray600 group-hover:![rgb(var(--primary-6))]"
+                  :class="checked ? '!border-[rgb(var(--primary-6))]' : ''"
                 >
-                  <div className="custom-radio-card-mask-dot" />
+                  <div w-8px h-8px rounded-full :class="checked ? '!bg-[rgb(var(--primary-6))]' : ''" />
                 </div>
-                <div
-                  flex-inline justify-center items-center hover="!text-[rgb(var(--color-primary-6))]"
-                  :class="checked ? '!text-[rgb(var(--color-primary-6))]' : ''"
-                >
+                <div flex-inline justify-center items-center mx-4 font-bold>
                   {{ name }}
                 </div>
-                <div>
-                  <a-typography-text type="secondary">
-                    this is a text
-                  </a-typography-text>
-                </div>
+                <div v-if="prop === 'vertical'" i-ri-layout-3-line text-40px />
+                <div v-else i-ri-layout-top-line text-40px />
               </a-space>
             </template>
           </a-radio>
