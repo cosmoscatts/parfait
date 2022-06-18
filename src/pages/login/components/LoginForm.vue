@@ -29,8 +29,10 @@ async function submit({
     username: 'admin',
     name: 'admin',
   })
-  setTimeout(() => setLoading(false), 2000)
-  router.push('/')
+  setTimeout(() => {
+    router.push('/')
+    setLoading(false)
+  }, 2000)
 }
 </script>
 
