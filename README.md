@@ -2,7 +2,7 @@
 
 ## Features
 
-- ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite), [pnpm](https://pnpm.js.org/)
+- ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite), [Pnpm](https://pnpm.js.org/)
 
 - 🎆 [Arco Design](https://arco.design/vue/docs/start)
 
