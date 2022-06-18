@@ -16,7 +16,15 @@ function setupRouter() {
   })
   router.beforeEach((to: any, _: any, next: any) => {
     NProgress.start()
-    next()
+    if (!to.meta.auth)
+      return next()
+
+    const { getUser } = storeToRefs(useUserStore())
+    if (getUser.value === null)
+      return next('/login')
+
+    else
+      return next()
   })
   router.afterEach(() => {
     setTimeout(() => {
