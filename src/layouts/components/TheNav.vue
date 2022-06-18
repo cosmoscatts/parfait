@@ -5,8 +5,8 @@ import NavFullScreen from '../widgets/NavFullScreen.vue'
 import NavAvatar from '../widgets/NavAvatar.vue'
 import Logo from '../widgets/Logo.vue'
 import Menu from '../widgets/Menu.vue'
-import { menus } from '~/menus'
 
+const { appMenus } = storeToRefs(usePermissionStore())
 const mode: 'vertical' | 'horizontal' | 'pop' | 'popButton' = 'horizontal'
 const { layout } = storeToRefs(useSettingsStore())
 const isVertical = computed(() => {
@@ -25,7 +25,7 @@ watchEffect(() => {
     <Logo v-if="!isVertical" :class="shortLogo ? 'w-64px' : 'w-200px'" />
     <NavHamburger v-if="isVertical" mx-4 />
     <NavBreadCrumb v-if="isVertical" mr-4 />
-    <Menu v-if="!isVertical" :mode="mode" :metadata="menus" />
+    <Menu v-if="!isVertical" :mode="mode" :metadata="appMenus" />
     <div flex-auto />
     <a
       icon-btn text-lg i-carbon-logo-github mx-3
