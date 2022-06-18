@@ -5,7 +5,7 @@ const router = useRouter()
 function logout() {
   useLogout()
   Message.success('退出成功')
-  setTimeout(() => {
+  useTimeoutFn(() => {
     router.push('/login')
   }, 1000)
 }

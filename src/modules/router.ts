@@ -27,7 +27,7 @@ function setupRouter() {
       return next()
   })
   router.afterEach(() => {
-    setTimeout(() => {
+    useTimeoutFn(() => {
       NProgress.done()
     }, 200)
   })
