@@ -30,7 +30,7 @@ const backTopTarget = computed(() => {
             : 'of-x-hidden of-y-auto mt-50px'
           : '' "
     >
-      <TheMain w-full h-full />
+      <TheMain w-full h-full pt-3 />
     </a-layout-content>
     <TheRightPanel v-model:visible="rightPanelVisible" />
   </a-layout>

@@ -20,7 +20,7 @@ const columns = [
 </script>
 
 <template>
-  <div style="height: 1800px;" w-full border="1 red">
+  <div style="height: 1800px;" w-full>
     <a-table :columns="columns" :data="[]" />
     <span v-for="i in 7" :key="i">{{
       i

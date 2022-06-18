@@ -63,7 +63,7 @@ const backTopTarget = computed(() => {
             : '' "
       >
         <a-layout-content>
-          <TheMain w-full h-full />
+          <TheMain w-full h-full p="l-3 t-3" />
         </a-layout-content>
         <TheRightPanel v-model:visible="rightPanelVisible" />
       </a-layout>
