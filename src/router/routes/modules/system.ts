@@ -4,6 +4,9 @@ export default {
   path: '/system',
   redirect: '/system/user',
   component: BASE_LAYOUT,
+  meta: {
+    title: '系统管理',
+  },
   children: [
     {
       path: 'user',

@@ -3,10 +3,10 @@ import avatar from '~/assets/avatar.jpg'
 
 const router = useRouter()
 function logout() {
-  useLogout()
   Message.success('登出成功')
   useTimeoutFn(() => {
     router.push('/login')
+    useLogout()
   }, 1000)
 }
 function onSelect(value: any) {

@@ -2,7 +2,6 @@ import { BASE_LAYOUT } from '~/router/constants'
 
 export default {
   path: '/redirect',
-  name: 'redirect',
   component: BASE_LAYOUT,
   meta: {
     requiresAuth: true,
@@ -11,6 +10,7 @@ export default {
   children: [
     {
       path: ':path(.*)',
+      name: 'redirect',
       component: () => import('~/pages/redirect/index.vue'),
     },
   ],
