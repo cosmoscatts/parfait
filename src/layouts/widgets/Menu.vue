@@ -50,7 +50,7 @@ const collapsed = computed(() => {
 const route = useRoute()
 const selectedKeys = computed(() => {
   const matched = route.matched || []
-  return matched.map(i => i?.meta?.path || '')
+  return matched.map(i => i?.path || '')
     .filter(i => i !== '')
 })
 </script>
@@ -75,7 +75,7 @@ const selectedKeys = computed(() => {
     >
       <template v-for="{ title, icon, path, children }, idx of metadata">
         <template v-if="children?.length">
-          <a-sub-menu :key="path">
+          <a-sub-menu :key="path || title">
             <template #icon>
               <Component :is="iconMap[icon!]" />
             </template>
