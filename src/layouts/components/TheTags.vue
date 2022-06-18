@@ -7,15 +7,16 @@ const tags = $computed(() => {
 })
 const route = useRoute()
 function addTag() {
-  const { name, meta: { title }, path, fullPath, query } = route
+  const { name, meta: { title, cached }, path, fullPath, query } = route
   if ([title, path, fullPath].some(i => !i))
     return
   tagsStore.addTag({
-    name: name?.toString() || '',
-    title: title as string,
     path,
     query,
     fullPath,
+    name: name?.toString() || '',
+    title: title as string,
+    cached: cached as boolean || false,
   })
 }
 addTag()

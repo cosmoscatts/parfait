@@ -4,12 +4,14 @@ export const useTagsStore = defineStore(
   'tagsStore',
   () => {
     const visitedPages = ref<Tag[]>([])
+    const cachedPageNames = ref<Set<string>>(new Set())
     function addTag(tag: Tag) {
       const oldPath = visitedPages.value.map(i => i.path)
       // already visited
       if (!tag.path || oldPath.includes(tag.path))
         return
       visitedPages.value.push(tag)
+      cachedPageNames.value.add(tag.name!)
     }
     function updateTag(tag: Tag) {
       for (const page of visitedPages.value) {

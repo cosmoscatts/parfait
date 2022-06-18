@@ -29,4 +29,10 @@ export interface Tag {
    * @default: undefined
    */
   query?: Record<string, any>
+  /**
+   * whether cached
+   *
+   * @default: false
+   */
+  cached?: boolean
 }

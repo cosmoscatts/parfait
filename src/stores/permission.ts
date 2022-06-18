@@ -5,16 +5,17 @@ export const usePermissionStore = defineStore(
   'permissionStore',
   () => {
     const appMenus = ref<Menu[]>([])
-    const cachedPageNames = ref<string[]>([])
-
     function fetchAppMenus() {
       appMenus.value = menus
+    }
+    function removeAppMenus() {
+      appMenus.value = []
     }
 
     return {
       appMenus,
-      cachedPageNames,
       fetchAppMenus,
+      removeAppMenus,
     }
   },
   {
