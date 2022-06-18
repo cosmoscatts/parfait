@@ -5,8 +5,8 @@ import DarkToggle from '~/components/DarkToggle.vue'
 
 const { loading, setLoading } = useLoading()
 const form = reactive({
-  username: '',
-  password: '',
+  username: 'admin',
+  password: '123456',
   isRead: false,
 })
 const validateTrigger = ref<('change' | 'input' | 'focus' | 'blur')[]>(['change', 'input'])
@@ -30,7 +30,7 @@ async function submit({
   setTimeout(() => {
     router.push('/')
     setLoading(false)
-  }, 2000)
+  }, 1000)
 }
 </script>
 
