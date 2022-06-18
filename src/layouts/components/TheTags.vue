@@ -81,7 +81,7 @@ function closeOthers(idx: number) {
       h-26px lh-26px wa
       my-4px p="y0 x-2"
       inline-block cursor-pointer
-      bg="[#4FC08D]" text="white 12px"
+      bg="[rgb(var(--primary-6))]" text="white 12px"
     >
       <a-dropdown trigger="contextMenu" position="bl">
         <RouterLink
