@@ -1,30 +1,30 @@
 export interface Tag {
   /**
-   * 路由名称
+   * route name
    *
    * @default: undefined
    */
   name?: string
   /**
-   * Tag 路由
+   * route path
    *
    * @default: undefined
    */
   path?: string
   /**
-   * Tag 全路由
+   * route fulPath
    *
    * @default: undefined
    */
   fullPath?: string
   /**
-   * Tag 名称
+   * route meta title
    *
    * @default: undefined
    */
   title?: string
   /**
-   * 路由 query
+   * route query
    *
    * @default: undefined
    */
