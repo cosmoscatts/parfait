@@ -30,7 +30,7 @@ export default defineConfig({
         '@vueuse/core',
         'pinia',
       ],
-      dts: 'src/auto-imports.d.ts',
+      dts: 'src/autoImports.d.ts',
       dirs: [
         'src/apis',
         'src/composables',
