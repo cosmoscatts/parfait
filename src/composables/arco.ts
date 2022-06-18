@@ -7,7 +7,7 @@ import { Message as aMessage, Modal as aModal } from '@arco-design/web-vue'
  * repack arco Message, make it global
  */
 function packMessage() {
-  const message = {
+  return {
     success(config: string | MessageConfig) {
       aMessage.success(config)
     },
@@ -27,15 +27,12 @@ function packMessage() {
       aMessage.clear(position)
     },
   }
-  return {
-    Message: message,
-  }
 }
 /**
  * repack arco Modal, make it global
  */
 function packModal() {
-  const modal = {
+  return {
     open(config: ModalConfig) {
       aModal.open(config)
     },
@@ -55,10 +52,7 @@ function packModal() {
       aModal.info(config)
     },
   }
-  return {
-    Modal: modal,
-  }
 }
-const { Message } = packMessage()
-const { Modal } = packModal()
+const Message = packMessage()
+const Modal = packModal()
 export { Message, Modal }

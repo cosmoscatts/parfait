@@ -12,8 +12,8 @@ function logout() {
 function onSelect(value: any) {
   const actionMap: Record<string, any> = {
     0: () => router.push('/system/user'),
-    1: () => window.open('https://github.com/faitsse/parfait'),
-    2: () => window.open('https://github.com/faitsse/parfait'),
+    1: () => openWindow('https://github.com/faitsse/parfait'),
+    2: () => openWindow('https://github.com/faitsse/parfait'),
     3: logout,
   }
   const action = actionMap[value]

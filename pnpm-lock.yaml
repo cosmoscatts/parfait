@@ -17,6 +17,7 @@ specifiers:
   axios: ^0.27.2
   critters: ^0.0.16
   eslint: ^8.17.0
+  mitt: ^3.0.0
   nprogress: ^0.2.0
   pinia: ^2.0.14
   pinia-plugin-persist-uni: ^1.1.3
@@ -37,6 +38,7 @@ dependencies:
   '@vueuse/head': registry.npmmirror.com/@vueuse/head/0.7.6_vue@3.2.37
   axios: registry.npmmirror.com/axios/0.27.2
   critters: registry.npmmirror.com/critters/0.0.16
+  mitt: registry.npmmirror.com/mitt/3.0.0
   nprogress: registry.npmmirror.com/nprogress/0.2.0
   pinia: registry.npmmirror.com/pinia/2.0.14_vcmyupim4cga7k7f5hngmth5py
   pinia-plugin-persist-uni: registry.npmmirror.com/pinia-plugin-persist-uni/1.1.3_pinia@2.0.14+vue@3.2.37
@@ -3206,6 +3208,12 @@ packages:
     name: minimist
     version: 1.2.6
     dev: true
+
+  registry.npmmirror.com/mitt/3.0.0:
+    resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mitt/-/mitt-3.0.0.tgz}
+    name: mitt
+    version: 3.0.0
+    dev: false
 
   registry.npmmirror.com/mlly/0.3.19:
     resolution: {integrity: sha512-zMq5n3cOf4fOzA4WoeulxagbAgMChdev3MgP6K51k7M0u2whTXxupfIY4VVzws4vxkiWhwH1rVQcsw7zDGfRhA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mlly/-/mlly-0.3.19.tgz}
