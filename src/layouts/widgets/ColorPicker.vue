@@ -22,7 +22,7 @@ function onChange(val: any) {
   >
     <a-radio
       v-for="[k, { name, value }] of Object.entries(colorMap)"
-      :key="k" :value="k"
+      :key="k" :value="k" m="t-1 l-1"
     >
       <div w-12px h-12px rounded-sm flex-inline mr-1 :style="{ background: value }" />
       <span class="!text-sm">{{ name }}</span>

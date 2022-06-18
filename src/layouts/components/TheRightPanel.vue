@@ -44,6 +44,7 @@ function onClick() {
     </a-button>
     <a-drawer
       :visible="visible"
+      :width="270"
       unmount-on-close
       @ok="handleOk"
       @cancel="handleCancel"

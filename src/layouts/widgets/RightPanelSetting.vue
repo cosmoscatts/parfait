@@ -40,7 +40,7 @@ const switchColors = {
           <a-radio :value="prop" mt-3>
             <template #radio="{ checked }">
               <a-space
-                class="group" w-full p="x-3 y-2" rounded
+                class="group" w-full p="x-3 y-2" rounded flex justify-between
                 border="1 gray300 dark:gray600 hover:![rgb(var(--primary-6))]"
                 text="gray600 dark:white hover:![rgb(var(--primary-6))]"
                 :class="checked
