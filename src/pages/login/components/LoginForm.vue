@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { IconLock, IconUser } from '@arco-design/web-vue/es/icon'
 import type { ValidatedError } from '~/types'
 import DarkToggle from '~/components/DarkToggle.vue'
 
@@ -29,7 +30,7 @@ async function submit({
     name: 'admin',
   })
   setTimeout(() => setLoading(false), 2000)
-  // router.push('/')
+  router.push('/')
 }
 </script>
 
@@ -47,7 +48,11 @@ async function submit({
         ]"
         :validate-trigger="validateTrigger"
       >
-        <a-input v-model="form.username" placeholder="请输入你的账号..." />
+        <a-input v-model="form.username" placeholder="请输入你的账号..." allow-clear>
+          <template #prefix>
+            <icon-user />
+          </template>
+        </a-input>
       </a-form-item>
       <a-form-item
         field="password" label="密码" hide-asterisk feedback
@@ -57,13 +62,19 @@ async function submit({
         ]"
         :validate-trigger="validateTrigger"
       >
-        <a-input v-model="form.password" placeholder="请输入你的密码..." />
+        <a-input-password v-model="form.password" placeholder="请输入你的密码..." allow-clear>
+          <template #prefix>
+            <icon-lock />
+          </template>
+        </a-input-password>
       </a-form-item>
+      <div flex justify-start items-center border-red mt-3>
+        <div i-carbon-touch-2-filled icon-btn />
+        <span text-10px ml-3>注册登录即表示同意 用户协议 、 隐私政策</span>
+      </div>
       <a-form-item
-        field="isRead" feedback required :rules="[
-          { required: true, message: '密码是必须的' },
-        ]"
-        help="注册登录即表示同意 用户协议 、 隐私政策" validate-status="success"
+        field="isRead" hide-asterisk
+        :rules="[{ type: 'boolean', true: true, message: '请勾选' }]"
       >
         <a-checkbox v-model="form.isRead">
           我同意登录协议

@@ -17,6 +17,7 @@ declare module '@vue/runtime-core' {
     AForm: typeof import('@arco-design/web-vue')['Form']
     AFormItem: typeof import('@arco-design/web-vue')['FormItem']
     AInput: typeof import('@arco-design/web-vue')['Input']
+    AInputPassword: typeof import('@arco-design/web-vue')['InputPassword']
     ALayout: typeof import('@arco-design/web-vue')['Layout']
     ALayoutContent: typeof import('@arco-design/web-vue')['LayoutContent']
     ALayoutHeader: typeof import('@arco-design/web-vue')['LayoutHeader']
