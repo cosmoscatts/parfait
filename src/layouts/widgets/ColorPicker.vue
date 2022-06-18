@@ -14,7 +14,6 @@ function onChange(val: any) {
 </script>
 
 <template>
-  <!-- <a-space direction="vertical" size="large" /> -->
   <a-radio-group
     :model-value="colorName" flex="~ wrap"
     mt-2 border="1 gray300 dark:gray600" rounded py-2
