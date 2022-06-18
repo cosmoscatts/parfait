@@ -1,26 +1,34 @@
-Faitsse - Vue3 Starter Template With Arco Design
+# Faitsse - Vue3 Starter Template With Arco Design
 
-Features
-⚡️ Vue 3, Vite 2, pnpm, Arco Design
+## Features
 
-📦 Components auto importing
+- ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite), [pnpm](https://pnpm.js.org/)
 
-🍍 State Management via Pinia
+- 🎆 [Arco Design][https://arco.design/vue/docs/start]
 
-📑 Layout system
+- 📦 [Components auto importing](./src/components)
 
-🎨 UnoCSS - the instant on-demand atomic CSS engine
+- 🍍 [State Management via Pinia](https://pinia.esm.dev/)
 
-😃 Use icons from any icon sets with classes
+- 📑 [Layout system](./src/layouts)
 
-🗒 Markdown Support
+- 🎨 [UnoCSS](https://github.com/antfu/unocss) - the instant on-demand atomic CSS engine
 
-🔥 Use the new <script setup> syntax
+- 😃 [Use icons from any icon sets with classes](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
 
-🤙🏻 Reactivity Transform enabled
+- 🗒 [Markdown Support](https://github.com/antfu/vite-plugin-md)
 
-📥 APIs auto importing - use Composition API and others directly
+- 🔥 Use the [new `<script setup>` syntax](https://github.com/vuejs/rfcs/pull/227)
 
-🦔 Critical CSS via critters
+- 🤙🏻 [Reactivity Transform](https://vuejs.org/guide/extras/reactivity-transform.html) enabled
 
-🦾 TypeScript, of course
+- 📥 [APIs auto importing](https://github.com/antfu/unplugin-auto-import) - use Composition API and others directly
+
+- 🦔 Critical CSS via [critters](https://github.com/GoogleChromeLabs/critters)
+
+- 🦾 TypeScript, of course
+
+- ☁️ Deploy on Netlify, zero-config
+
+<br>
+
