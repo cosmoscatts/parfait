@@ -4,14 +4,15 @@ export const useTagsStore = defineStore(
   'tagsStore',
   () => {
     const visitedPages = ref<Tag[]>([])
-    const cachedPageNames = ref<Set<string>>(new Set())
+    const cachedPageNames = new Set<string>()
     function addTag(tag: Tag) {
       const oldPath = visitedPages.value.map(i => i.path)
       // already visited
       if (!tag.path || oldPath.includes(tag.path))
         return
       visitedPages.value.push(tag)
-      cachedPageNames.value.add(tag.name!)
+      if (tag.cached)
+        cachedPageNames.add(tag.name!)
     }
     function updateTag(tag: Tag) {
       for (const page of visitedPages.value) {
@@ -27,6 +28,7 @@ export const useTagsStore = defineStore(
             continue
           visitedPages.value.splice(i, 1)
         }
+        cachedPageNames.delete(tag.name || '')
         resolve({
           visitedPages,
         })
@@ -35,6 +37,9 @@ export const useTagsStore = defineStore(
     function removerOthers(tag: Tag) {
       return new Promise((resolve) => {
         visitedPages.value = [tag]
+        cachedPageNames.clear()
+        if (tag.cached)
+          cachedPageNames.add(tag.name!)
         resolve({
           visitedPages,
         })
@@ -43,6 +48,7 @@ export const useTagsStore = defineStore(
     function removeAll() {
       return new Promise((resolve) => {
         visitedPages.value = []
+        cachedPageNames.clear()
         resolve({
           visitedPages,
         })
@@ -51,6 +57,7 @@ export const useTagsStore = defineStore(
 
     return {
       visitedPages,
+      cachedPageNames,
       addTag,
       updateTag,
       removeTag,

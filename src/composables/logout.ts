@@ -4,6 +4,7 @@
 export function useLogout() {
   const { removeUser } = useUserStore()
   const { removeAll } = useTagsStore()
-  for (const remove of [removeUser, removeAll])
+  const { removeAppMenus } = usePermissionStore()
+  for (const remove of [removeUser, removeAll, removeAppMenus])
     remove()
 }

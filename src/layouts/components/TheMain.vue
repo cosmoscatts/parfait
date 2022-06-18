@@ -1,5 +1,13 @@
 <script setup lang="ts">
-const { cachedPageNames } = storeToRefs(usePermissionStore())
+const tagsStore = useTagsStore()
+const cachedPageNames = computed(() => {
+  return Array.from(tagsStore.cachedPageNames)
+})
+const route = useRoute()
+watch(() => route.path, (val) => {
+  console.log(tagsStore.cachedPageNames)
+  console.log(cachedPageNames.value)
+})
 </script>
 
 <template>
