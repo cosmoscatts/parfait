@@ -6,14 +6,7 @@ function logout() {
   useLogout()
   Message.success('登出成功')
   useTimeoutFn(() => {
-    const currentRoute = router.currentRoute.value
-    router.push({
-      name: 'login',
-      query: {
-        ...router.currentRoute.value.query,
-        redirect: currentRoute.name as string,
-      },
-    })
+    router.push('/login')
   }, 1000)
 }
 function onSelect(value: any) {

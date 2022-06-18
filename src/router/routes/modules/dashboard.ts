@@ -18,8 +18,8 @@ export default [
     ],
   },
   {
-    path: '/tourist',
-    name: 'tourist',
+    path: '/foo',
+    name: 'foo',
     component: BASE_LAYOUT,
     meta: {
       requiresAuth: true,

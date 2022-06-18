@@ -1,4 +1,4 @@
-import type { LocationQueryRaw, Router } from 'vue-router'
+import type { Router } from 'vue-router'
 import NProgress from 'nprogress'
 
 export default function setupUserLoginInfoGuard(router: Router) {
@@ -12,13 +12,7 @@ export default function setupUserLoginInfoGuard(router: Router) {
       else {
         useLogout()
         Message.error('请联系管理员配置用户角色')
-        next({
-          name: 'login',
-          query: {
-            redirect: to.name,
-            ...to.query,
-          } as LocationQueryRaw,
-        })
+        next('/login')
       }
     }
     else {
@@ -26,13 +20,7 @@ export default function setupUserLoginInfoGuard(router: Router) {
         next()
         return
       }
-      next({
-        name: 'login',
-        query: {
-          redirect: to.name,
-          ...to.query,
-        } as LocationQueryRaw,
-      })
+      next('/login')
     }
   })
 }

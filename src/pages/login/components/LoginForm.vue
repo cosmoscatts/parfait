@@ -22,7 +22,7 @@ async function submit({
   if (errors)
     return
   setLoading(true)
-  Message.success('登录成功')
+  Message.success('欢迎使用')
   updateUser({
     id: 1,
     username: 'admin',
@@ -30,13 +30,7 @@ async function submit({
     roleId: 1,
   })
   useTimeoutFn(() => {
-    const { redirect, ...othersQuery } = router.currentRoute.value.query
-    router.push({
-      name: (redirect as string) || 'tourist',
-      query: {
-        ...othersQuery,
-      },
-    })
+    router.push('/foo')
     setLoading(false)
   }, 1000)
 }
