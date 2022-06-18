@@ -26,8 +26,8 @@ const backTopTarget = computed(() => {
       :class="
         fixHeader
           ? showTheTags
-            ? 'of-x-hidden of-y-auto mt-84px'
-            : 'of-x-hidden of-y-auto mt-50px'
+            ? 'of-x-hidden of-y-auto !mt-84px'
+            : 'of-x-hidden of-y-auto !mt-50px'
           : '' "
     >
       <TheMain w-full h-full pt-3 />

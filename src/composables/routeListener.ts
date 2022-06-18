@@ -17,7 +17,7 @@ export function setRouteEmitter(to: RouteLocationNormalized) {
   latestRoute = to
 }
 
-export function listenerRouteChange(
+export function listenRouteChange(
   handler: (route: RouteLocationNormalized) => void,
   immediate = true,
 ) {
