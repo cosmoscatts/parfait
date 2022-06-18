@@ -22,6 +22,7 @@ async function submit({
   if (errors)
     return
   setLoading(true)
+  Message.success('登录成功')
   updateUser({
     id: 1,
     username: 'admin',
