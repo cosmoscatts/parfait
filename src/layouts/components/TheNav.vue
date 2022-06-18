@@ -2,7 +2,6 @@
 import NavHamburger from '../widgets/NavHamburger.vue'
 import NavBreadCrumb from '../widgets/NavBreadCrumb.vue'
 import NavFullScreen from '../widgets/NavFullScreen.vue'
-import NavDarkToggle from '../widgets/NavDarkToggle.vue'
 import NavAvatar from '../widgets/NavAvatar.vue'
 import Logo from '../widgets/Logo.vue'
 import Menu from '../widgets/Menu.vue'
@@ -34,7 +33,7 @@ watchEffect(() => {
       target="_blank" title="GitHub"
     />
     <NavFullScreen mr-3 />
-    <NavDarkToggle mr-3 />
+    <DarkToggle mr-3 />
     <NavAvatar />
   </div>
 </template>
