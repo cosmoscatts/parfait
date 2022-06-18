@@ -5,7 +5,26 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    GithubCorner: typeof import('./components/GithubCorner.vue')['default']
+    AAvatar: typeof import('@arco-design/web-vue')['Avatar']
+    ABackTop: typeof import('@arco-design/web-vue')['BackTop']
+    ABreadcrumb: typeof import('@arco-design/web-vue')['Breadcrumb']
+    ABreadcrumbItem: typeof import('@arco-design/web-vue')['BreadcrumbItem']
+    AButton: typeof import('@arco-design/web-vue')['Button']
+    ADoption: typeof import('@arco-design/web-vue')['Doption']
+    ADrawer: typeof import('@arco-design/web-vue')['Drawer']
+    ADropdown: typeof import('@arco-design/web-vue')['Dropdown']
+    ALayout: typeof import('@arco-design/web-vue')['Layout']
+    ALayoutContent: typeof import('@arco-design/web-vue')['LayoutContent']
+    ALayoutHeader: typeof import('@arco-design/web-vue')['LayoutHeader']
+    ALayoutSider: typeof import('@arco-design/web-vue')['LayoutSider']
+    AMenu: typeof import('@arco-design/web-vue')['Menu']
+    AMenuItem: typeof import('@arco-design/web-vue')['MenuItem']
+    ARadio: typeof import('@arco-design/web-vue')['Radio']
+    ARadioGroup: typeof import('@arco-design/web-vue')['RadioGroup']
+    ASpace: typeof import('@arco-design/web-vue')['Space']
+    ASubMenu: typeof import('@arco-design/web-vue')['SubMenu']
+    ASwitch: typeof import('@arco-design/web-vue')['Switch']
+    Plum: typeof import('./components/Plum.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
