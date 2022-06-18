@@ -6,18 +6,6 @@ export const useUserStore = defineStore(
   'userStore',
   () => {
     const user = ref<User>()
-
-    // get user on store
-    const getUser = computed(() => {
-      if (user.value)
-        return user
-      const userOnStorage = sessionStorage.getItem('savedUser')
-      if (!userOnStorage)
-        return null
-      user.value = JSON.parse(userOnStorage)
-      return user
-    })
-
     /**
      * update the new user.
      *
@@ -27,19 +15,16 @@ export const useUserStore = defineStore(
       if (!_user.avatar)
         _user.avatar = defaultAvatar
       user.value = _user
-      useSessionStorage('savedUser', JSON.stringify(_user))
     }
-
     /**
      * remove the user.
      */
     function removeUser() {
       user.value = undefined
-      sessionStorage.removeItem('savedUser')
     }
 
     return {
-      getUser,
+      user,
       updateUser,
       removeUser,
     }

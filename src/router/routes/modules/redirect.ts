@@ -6,7 +6,7 @@ export default {
   component: BASE_LAYOUT,
   meta: {
     requiresAuth: true,
-    cached: true,
+    cached: false,
   },
   children: [
     {

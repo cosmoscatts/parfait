@@ -3,5 +3,7 @@
  */
 export function useLogout() {
   const { removeUser } = useUserStore()
-  removeUser()
+  const { removeAll } = useTagsStore()
+  for (const remove of [removeUser, removeAll])
+    remove()
 }

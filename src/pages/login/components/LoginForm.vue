@@ -27,9 +27,16 @@ async function submit({
     id: 1,
     username: 'admin',
     name: 'admin',
+    roleId: 1,
   })
   useTimeoutFn(() => {
-    router.push('/')
+    const { redirect, ...othersQuery } = router.currentRoute.value.query
+    router.push({
+      name: (redirect as string) || 'tourist',
+      query: {
+        ...othersQuery,
+      },
+    })
     setLoading(false)
   }, 1000)
 }

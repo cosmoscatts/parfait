@@ -4,9 +4,16 @@ import avatar from '~/assets/avatar.jpg'
 const router = useRouter()
 function logout() {
   useLogout()
-  Message.success('退出成功')
+  Message.success('登出成功')
   useTimeoutFn(() => {
-    router.push('/login')
+    const currentRoute = router.currentRoute.value
+    router.push({
+      name: 'login',
+      query: {
+        ...router.currentRoute.value.query,
+        redirect: currentRoute.name as string,
+      },
+    })
   }, 1000)
 }
 function onSelect(value: any) {

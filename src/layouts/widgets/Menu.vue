@@ -50,8 +50,8 @@ const collapsed = computed(() => {
 const route = useRoute()
 const selectedKeys = computed(() => {
   const matched = route.matched || []
-  return matched.map(i => i?.meta?.id || -1)
-    .filter(i => i !== -1).map(i => String(i))
+  return matched.map(i => i?.meta?.path || '')
+    .filter(i => i !== '')
 })
 </script>
 
@@ -73,9 +73,9 @@ const selectedKeys = computed(() => {
       :selected-keys="selectedKeys"
       :breakpoint="breakpoint"
     >
-      <template v-for="{ id, title, icon, path, children }, idx of metadata">
+      <template v-for="{ title, icon, path, children }, idx of metadata">
         <template v-if="children?.length">
-          <a-sub-menu :key="String(id)">
+          <a-sub-menu :key="path">
             <template #icon>
               <Component :is="iconMap[icon!]" />
             </template>
@@ -83,11 +83,11 @@ const selectedKeys = computed(() => {
               {{ title }}
             </template>
             <RouterLink
-              v-for="{ id, title, path }, sonIdx of children"
+              v-for="{ title, path }, sonIdx of children"
               :key="`${idx}_${sonIdx}`"
               :to="path"
             >
-              <a-menu-item :key="String(id)">
+              <a-menu-item :key="path">
                 {{ title }}
               </a-menu-item>
             </RouterLink>
@@ -95,7 +95,7 @@ const selectedKeys = computed(() => {
         </template>
         <template v-else>
           <RouterLink :key="idx" :to="path">
-            <a-menu-item :key="String(id)">
+            <a-menu-item :key="path">
               <template #icon>
                 <Component :is="iconMap[icon!]" />
               </template>
