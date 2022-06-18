@@ -9,11 +9,9 @@ const form = reactive({
   password: '',
   isRead: false,
 })
-const status = ref<'success' | 'warning' | 'error' | 'validating'>()
 const validateTrigger = ref<('change' | 'input' | 'focus' | 'blur')[]>(['change', 'input'])
 const { updateUser } = useUserStore()
 const router = useRouter()
-const formRef = ref()
 async function submit({
   errors,
   values,
@@ -41,9 +39,9 @@ async function submit({
     <div text="32px center" font-bold>
       🎃 Parfiat
     </div>
-    <a-form ref="formRef" :model="form" layout="vertical" size="large" @submit="submit">
+    <a-form :model="form" layout="vertical" size="large" @submit="submit">
       <a-form-item
-        field="username" label="账号" hide-asterisk feedback :validate-status="status"
+        field="username" label="账号" hide-asterisk feedback
         :rules="[
           { required: true, message: '账号是必须的' },
           { minLength: 5, message: '长度必须大于5' },
