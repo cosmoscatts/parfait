@@ -1,42 +1,37 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from 'nprogress'
-import { constantRoutes, dynamicRoutes } from '~/routes'
 import 'nprogress/nprogress.css'
+import { createRouter, createWebHistory } from 'vue-router'
+import createRouteGuard, { appRoutes } from '~/router'
+
 NProgress.configure({ showSpinner: false, easing: 'ease', speed: 500 })
 
-function setupRouter() {
-  const router = createRouter({
-    history: createWebHashHistory(),
-    routes: [...constantRoutes, ...dynamicRoutes],
-    scrollBehavior() {
-      return {
-        top: 0,
-      }
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '/',
+      redirect: 'login',
     },
-  })
-  router.beforeEach((to: any, _: any, next: any) => {
-    NProgress.start()
-    if (!to.meta.auth)
-      return next()
-
-    const { getUser } = storeToRefs(useUserStore())
-    if (getUser.value === null)
-      return next('/login')
-
-    else
-      return next()
-  })
-  router.afterEach(() => {
-    useTimeoutFn(() => {
-      NProgress.done()
-    }, 200)
-  })
-  return router
-}
-
-const router = setupRouter()
-export default {
-  install(app: any) {
-    app.use(router)
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('~/pages/login/index.vue'),
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    ...appRoutes,
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'notFound',
+      component: () => import('~/pages/not-found/index.vue'),
+    },
+  ],
+  scrollBehavior() {
+    return { top: 0 }
   },
-}
+})
+
+createRouteGuard(router)
+
+export default router

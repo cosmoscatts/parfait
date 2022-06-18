@@ -1,17 +1,20 @@
-import type { RouteRecordRaw } from 'vue-router'
 import type { Menu } from '~/types'
+import { menus } from '~/menus'
 
 export const usePermissionStore = defineStore(
   'permissionStore',
   () => {
-    const ownMenus = ref<Menu[]>([])
-    const ownRoutes = ref<RouteRecordRaw[]>([])
+    const appMenus = ref<Menu[]>([])
     const cachedPageNames = ref<string[]>([])
 
+    function fetchAppMenus() {
+      appMenus.value = menus
+    }
+
     return {
-      ownMenus,
-      ownRoutes,
+      appMenus,
       cachedPageNames,
+      fetchAppMenus,
     }
   },
   {
