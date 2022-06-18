@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const logo = 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
+import logo from '~/assets/logo.svg'
+
 const title = 'Parfait'
 const collapseStore = useCollapseStore()
 const { collapse } = storeToRefs(collapseStore)
@@ -18,7 +19,7 @@ watchEffect(() => {
 
 <template>
   <div v-if="showTheLogo" h-50px flex justify-center items-center>
-    <img :src="logo" alt="" h-32px w-32px :class="collapse || hiddenTitle ? '' : 'mr-5'">
+    <img :src="logo" alt="" h-34px w-34px :class="collapse || hiddenTitle ? '' : 'mr-5'">
     <h1 v-if="!collapse && !hiddenTitle" font="bold serif" text-2xl op50>
       {{ title }}
     </h1>
