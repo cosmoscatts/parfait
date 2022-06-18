@@ -1,3 +1,3 @@
-export { appRoutes } from './routes'
+export { appRoutes as default } from './routes'
 
-export { createRouteGuard as default } from './guards'
+export { createRouteGuard } from './guards'

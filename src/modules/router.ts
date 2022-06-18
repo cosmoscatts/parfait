@@ -1,7 +1,7 @@
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { createRouter, createWebHistory } from 'vue-router'
-import createRouteGuard, { appRoutes } from '~/router'
+import appRoutes, { createRouteGuard } from '~/router'
 
 NProgress.configure({ showSpinner: false, easing: 'ease', speed: 500 })
 
