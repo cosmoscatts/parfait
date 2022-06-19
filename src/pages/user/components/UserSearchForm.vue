@@ -1,10 +1,28 @@
 <script setup lang="ts">
-const formModel = ref()
+import { IconRefresh, IconSearch } from '@arco-design/web-vue/es/icon'
+import type { SelectOptionData } from '~/types'
+const {
+  roleOptions = [],
+} = defineProps<{
+  roleOptions: SelectOptionData[]
+}>()
+const emit = defineEmits(['fetchData'])
+function generateFormModel() {
+  return {
+    username: '',
+    name: '',
+    phone: '',
+    roleId: '',
+    email: '',
+    createTime: [],
+  }
+}
+const formModel = ref(generateFormModel())
 function search() {
-
+  emit('fetchData', formModel)
 }
 function reset() {
-
+  formModel.value = ref(generateFormModel()) as any
 }
 </script>
 
@@ -19,64 +37,59 @@ function reset() {
       >
         <a-row :gutter="16">
           <a-col :span="8">
-            <a-form-item
-              field="number"
-              :label="$t('searchTable.form.number')"
-            >
+            <a-form-item field="username" label="账号">
               <a-input
-                v-model="formModel.number"
-                :placeholder="$t('searchTable.form.number.placeholder')"
+                v-model="formModel.username"
+                placeholder="请输入用户账号"
               />
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="name" :label="$t('searchTable.form.name')">
+            <a-form-item field="name" label="名称">
               <a-input
                 v-model="formModel.name"
-                :placeholder="$t('searchTable.form.name.placeholder')"
+                placeholder="请输入名称"
               />
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item
-              field="contentType"
-              :label="$t('searchTable.form.contentType')"
-            >
+            <a-form-item field="phone" label="手机号">
+              <a-input
+                v-model="formModel.phone"
+                placeholder="请输入手机号"
+              />
+            </a-form-item>
+          </a-col>
+          <a-col :span="8">
+            <a-form-item field="roleId" label="角色">
               <a-select
-                v-model="formModel.contentType"
-                :options="contentTypeOptions"
-                :placeholder="$t('searchTable.form.selectDefault')"
+                v-model="formModel.roleId"
+                :options="roleOptions"
+                placeholder="请选择角色"
               />
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item
-              field="filterType"
-              :label="$t('searchTable.form.filterType')"
-            >
-              <a-select
-                v-model="formModel.filterType"
-                :options="filterTypeOptions"
-                :placeholder="$t('searchTable.form.selectDefault')"
+            <a-form-item field="email" label="电子邮箱">
+              <a-input
+                v-model="formModel.email"
+                placeholder="请输入电子邮箱"
               />
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item
-              field="createdTime"
-              :label="$t('searchTable.form.createdTime')"
-            >
+            <a-form-item field="createTime" label="创建时间">
               <a-range-picker
-                v-model="formModel.createdTime"
-                style="width: 100%"
+                v-model="formModel.createTime"
+                w-full
               />
             </a-form-item>
           </a-col>
         </a-row>
       </a-form>
     </a-col>
-    <a-divider style="height: 84px" direction="vertical" />
-    <a-col flex="86px" style="text-align: right">
+    <a-divider class="!h-84px" direction="vertical" />
+    <a-col flex="86px">
       <a-space direction="vertical" :size="18">
         <a-button type="primary" @click="search">
           <template #icon>
