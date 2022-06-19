@@ -62,7 +62,7 @@ export default defineConfig({
         'bg-card': 'bg-white dark:bg-[#2A2A2B]',
         'bg-header': 'bg-white dark:bg-[#232324]',
         'bg-sider': 'bg-white dark:bg-[#232324]',
-        'icon-btn': 'op30 hover:op100',
+        'icon-btn': 'op30 hover:op100 hover:bg-[rgb(var(--primary-6))]',
       },
       presets: [
         presetAttributify(),
