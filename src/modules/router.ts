@@ -14,7 +14,7 @@ const router = createRouter({
     },
     {
       path: '/login',
-      name: 'login',
+      name: 'Login',
       component: () => import('~/pages/login/index.vue'),
       meta: {
         requiresAuth: false,
@@ -23,7 +23,7 @@ const router = createRouter({
     ...appRoutes,
     {
       path: '/:pathMatch(.*)*',
-      name: 'notFound',
+      name: 'NotFound',
       component: () => import('~/pages/not-found/index.vue'),
     },
   ],

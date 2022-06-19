@@ -10,7 +10,7 @@ export default {
   children: [
     {
       path: 'user',
-      name: 'user',
+      name: 'User',
       component: () => import('~/pages/user/index.vue'),
       meta: {
         title: '用户管理',
@@ -20,7 +20,7 @@ export default {
     },
     {
       path: 'role',
-      name: 'role',
+      name: 'Role',
       component: () => import('~/pages/role/index.vue'),
       meta: {
         title: '角色管理',

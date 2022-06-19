@@ -1,5 +1,5 @@
 // I do not know how to dynamic generated colors,
-// so I just use the default colors from arco
+// so I just use the default colors from arco.
 // https://arco.design/react/docs/palette
 export const colors: Record<string, string>[] = [
   { prop: 'red', name: '浪漫红' },

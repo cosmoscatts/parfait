@@ -7,7 +7,7 @@ export default [
     children: [
       {
         path: '',
-        name: 'dashboard',
+        name: 'Dashboard',
         component: () => import('~/pages/dashboard/index.vue'),
         meta: {
           title: '首页',
@@ -19,7 +19,7 @@ export default [
   },
   {
     path: '/foo',
-    name: 'foo',
+    name: 'Foo',
     component: BASE_LAYOUT,
     meta: {
       requiresAuth: true,

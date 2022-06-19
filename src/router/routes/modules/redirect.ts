@@ -6,7 +6,7 @@ export default {
   children: [
     {
       path: ':path(.*)',
-      name: 'redirect',
+      name: 'Redirect',
       component: () => import('~/pages/redirect/index.vue'),
       meta: {
         requiresAuth: true,
