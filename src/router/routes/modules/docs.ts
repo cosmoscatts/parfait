@@ -8,10 +8,11 @@ export default {
       path: '',
       name: 'Docs',
       component: () => import('~/pages/Docs.md'),
+      meta: {
+        title: '文档',
+        requiresAuth: true,
+        cached: false,
+      },
     },
   ],
-  meta: {
-    requiresAuth: true,
-    cached: false,
-  },
 }
