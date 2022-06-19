@@ -1,7 +1,6 @@
 import type { Router } from 'vue-router'
 import NProgress from 'nprogress'
 import type { Menu } from '~/types'
-
 import { NOT_FOUND, WHITE_LIST } from '~/router/constants'
 import { findFirstPermissionRoute } from '~/utils'
 
