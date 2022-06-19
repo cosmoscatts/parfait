@@ -19,11 +19,16 @@ function generateFormModel() {
 }
 const formModel = ref(generateFormModel())
 function search() {
-  emit('fetchData', formModel)
+  emit('fetchData', formModel.value)
 }
+search()
 function reset() {
   formModel.value = ref(generateFormModel()) as any
 }
+
+defineExpose({
+  formModel,
+})
 </script>
 
 <template>

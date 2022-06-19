@@ -36,6 +36,7 @@ declare module '@vue/runtime-core' {
     ASubMenu: typeof import('@arco-design/web-vue')['SubMenu']
     ASwitch: typeof import('@arco-design/web-vue')['Switch']
     ATable: typeof import('@arco-design/web-vue')['Table']
+    ATableColumn: typeof import('@arco-design/web-vue')['TableColumn']
     DarkToggle: typeof import('./components/DarkToggle.vue')['default']
     Plum: typeof import('./components/Plum.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
