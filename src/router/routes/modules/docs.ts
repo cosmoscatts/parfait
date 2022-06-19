@@ -5,7 +5,7 @@ export default {
   component: BASE_LAYOUT,
   children: [
     {
-      path: '/',
+      path: '',
       name: 'Docs',
       component: () => import('~/pages/Docs.md'),
     },

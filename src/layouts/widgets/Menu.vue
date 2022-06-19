@@ -2,7 +2,7 @@
 // because unocss icons can not dynamic load
 // https://github.com/unocss/unocss/issues/785
 // here I prefer use arco icons
-import { IconHome, IconUser } from '@arco-design/web-vue/es/icon'
+import { IconFile, IconHome, IconUser } from '@arco-design/web-vue/es/icon'
 import type { Component } from 'vue'
 import type { Menu } from '~/types'
 
@@ -30,6 +30,7 @@ const {
 const iconMap: Record<string, Component> = {
   home: IconHome,
   user: IconUser,
+  file: IconFile,
 }
 const isVertical = computed(() => {
   return mode === 'vertical'
