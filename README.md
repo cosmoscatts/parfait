@@ -33,7 +33,7 @@
 
 - 🦾 TypeScript, of course
 
-- ☁️ Deploy on Netlify, zero-config [Netlify](https://app.netlify.com/sites/hilarious-mochi-9d140e/overview)
+- ☁️ Deploy on Netlify, zero-config [Netlify](https://www.netlify.com)
 
 <br>
 
