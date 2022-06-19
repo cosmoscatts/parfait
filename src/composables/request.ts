@@ -23,27 +23,27 @@ function addUrlParams(params?: AnyObject | AnyObject[]) {
   return `?${paramStr.slice(1)}`
 }
 
-export class Request {
+export const useRequest = {
   // HTTP GET
-  static get(url: string, { urlAdd }: GetParams) {
+  get(url: string, { urlAdd }: GetParams) {
     url += addUrlParams(urlAdd)
     return axios.get(url)
-  }
+  },
 
   // HTTP POST
-  static post(url: string, { body = {}, urlAdd }: PostData) {
+  post(url: string, { body = {}, urlAdd }: PostData) {
     url += addUrlParams(urlAdd)
     return axios.post(url, body)
-  }
+  },
 
   // HTTP PUT
-  static put(url: string, { body = {} }: PostData) {
+  put(url: string, { body = {} }: PostData) {
     return axios.put(url, body)
-  }
+  },
 
   // HTTP DELETE
-  static delete(url: string, { urlAdd }: GetParams) {
+  delete(url: string, { urlAdd }: GetParams) {
     url += addUrlParams(urlAdd)
     return axios.delete(url)
-  }
+  },
 }

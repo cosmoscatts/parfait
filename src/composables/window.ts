@@ -1,6 +1,6 @@
 type TargetContext = '_self' | '_parent' | '_blank' | '_top'
 
-export function openWindow(
+export function useOpenWindow(
   url: string,
   opts?: {
     target?: TargetContext

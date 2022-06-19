@@ -1,4 +1,4 @@
-export class UserApi {
+export class RoleApi {
   static fetchRoleList() {
     return {
       code: 0,
