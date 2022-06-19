@@ -1,7 +1,8 @@
 # Faitsse - Vue3 Starter Template With Arco Design
 
+# Live Demo
 <p align='center'>
-<a href="https://hilarious-mochi-9d140e.netlify.app">在线 Demo</a>
+<a href="https://hilarious-mochi-9d140e.netlify.app">Preview</a>
 </p>
 
 ## Features
