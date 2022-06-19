@@ -22,9 +22,14 @@ const router = createRouter({
     },
     ...appRoutes,
     {
+      path: '/500',
+      name: 'ErrorPage',
+      component: () => import('~/pages/exception/error-page/index.vue'),
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: () => import('~/pages/not-found/index.vue'),
+      component: () => import('~/pages/exception/not-found/index.vue'),
     },
   ],
   scrollBehavior() {
