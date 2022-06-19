@@ -1,4 +1,4 @@
-# Faitsse - Vue3 Starter Template With Arco Design
+# Parfait - Vue3 Starter Template With Arco Design
 Learn from [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) and [vitesse](https://github.com/antfu/vitesse).
 <br>Rewrite with [Arco Design](https://arco.design/vue/docs/start).
 
