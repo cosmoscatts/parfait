@@ -12,7 +12,7 @@ export interface NodeOptions extends Options {
 }
 
 export interface GetParams {
-  urlAdd: AnyObject | AnyObject[]
+  urlAdd?: AnyObject | AnyObject[]
 }
 
 export interface PostData {

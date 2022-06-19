@@ -32,7 +32,7 @@ export default defineConfig({
       ],
       dts: 'src/autoImports.d.ts',
       dirs: [
-        'src/apis',
+        'src/server/api',
         'src/composables',
         'src/stores',
       ],
