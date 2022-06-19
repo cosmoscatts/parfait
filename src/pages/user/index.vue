@@ -91,7 +91,11 @@ function formatRowIndex(idx: number) {
             title="角色"
             data-index="roleId"
             :cell-style="{ 'text-align': 'center' }"
-          />
+          >
+            <template #cell="{ record }">
+              {{ record?.role?.name || '无' }}
+            </template>
+          </a-table-column>
           <a-table-column
             title="手机号"
             data-index="phone"
