@@ -1,4 +1,4 @@
-import axios from '~/utils/axios'
+import { axiosService as axios } from '~/utils'
 import type { RequestParams } from '~/types'
 type ParamsType = RequestParams | RequestParams[]
 /**

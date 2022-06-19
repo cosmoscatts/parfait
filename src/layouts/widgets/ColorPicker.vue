@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getColorMap } from '~/utils/color'
+import { getColorMap } from '~/utils'
 
 const {
   colorName = 'arcoblue',

@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { baseSettings } from '~/settings'
-import { replacePrimaryColor } from '~/utils/color'
+import { replacePrimaryColor } from '~/utils'
 
 export const useSettingsStore = defineStore(
   'settingsStore',

@@ -1,6 +1,6 @@
 import type { Menu } from '~/types'
 
-export default function findFirstPermissionRoute() {
+export function findFirstPermissionRoute() {
   const { appMenus } = usePermissionStore()
   const menus = [...appMenus]
   let path = null

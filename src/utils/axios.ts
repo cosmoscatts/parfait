@@ -28,6 +28,5 @@ function createAxios() {
   return service
 }
 
-const service = createAxios()
-
-export default service
+const axiosService = createAxios()
+export { axiosService }

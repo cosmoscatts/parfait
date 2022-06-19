@@ -3,7 +3,7 @@ import NProgress from 'nprogress'
 import type { Menu } from '~/types'
 
 import { NOT_FOUND, WHITE_LIST } from '~/router/constants'
-import findFirstPermissionRoute from '~/utils/permission'
+import { findFirstPermissionRoute } from '~/utils'
 
 export default function setupPermissionGuard(router: Router) {
   router.beforeEach(async (to, _, next) => {
