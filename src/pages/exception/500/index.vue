@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const router = useRouter()
 function back() {
-  router.push('/Foo')
+  router.push('/foo')
 }
 function reTry() {
   router.back()
