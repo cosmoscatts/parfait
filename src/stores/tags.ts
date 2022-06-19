@@ -4,15 +4,15 @@ export const useTagsStore = defineStore(
   'tagsStore',
   () => {
     const visitedPages = ref<Tag[]>([])
-    const cachedPageNames = new Set<string>()
+    const cachedPageNames = ref<string[]>([])
     function addTag(tag: Tag) {
       const oldPath = visitedPages.value.map(i => i.path)
       // already visited
       if (!tag.path || oldPath.includes(tag.path))
         return
       visitedPages.value.push(tag)
-      if (tag.cached)
-        cachedPageNames.add(tag.name!)
+      if (tag.cached && !cachedPageNames.value.includes(tag.name!))
+        cachedPageNames.value.push(tag.name!)
     }
     function updateTag(tag: Tag) {
       for (const page of visitedPages.value) {
@@ -27,8 +27,9 @@ export const useTagsStore = defineStore(
           if (v.path !== tag.path)
             continue
           visitedPages.value.splice(i, 1)
+          if (tag.cached && cachedPageNames.value.findIndex(i => i === tag.name) > -1)
+            cachedPageNames.value.splice(i, 1)
         }
-        cachedPageNames.delete(tag.name || '')
         resolve({
           visitedPages,
         })
@@ -37,9 +38,9 @@ export const useTagsStore = defineStore(
     function removerOthers(tag: Tag) {
       return new Promise((resolve) => {
         visitedPages.value = [tag]
-        cachedPageNames.clear()
-        if (tag.cached)
-          cachedPageNames.add(tag.name!)
+        cachedPageNames.value = tag.cached
+          ? [tag.name!]
+          : []
         resolve({
           visitedPages,
         })
@@ -48,7 +49,7 @@ export const useTagsStore = defineStore(
     function removeAll() {
       return new Promise((resolve) => {
         visitedPages.value = []
-        cachedPageNames.clear()
+        cachedPageNames.value = []
         resolve({
           visitedPages,
         })
