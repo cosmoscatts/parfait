@@ -3,9 +3,14 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import Markdown from 'vite-plugin-md'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
 import { presetAttributify, presetIcons, presetUno, presetWind } from 'unocss'
+import Prism from 'markdown-it-prism'
+import LinkAttributes from 'markdown-it-link-attributes'
+
+const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,6 +22,7 @@ export default defineConfig({
 
   plugins: [
     vue({
+      include: [/\.vue$/, /\.md$/],
       reactivityTransform: true,
     }),
 
@@ -66,6 +72,23 @@ export default defineConfig({
         }),
         presetWind(),
       ],
+    }),
+
+    // https://github.com/antfu/vite-plugin-md
+    Markdown({
+      wrapperClasses: markdownWrapperClasses,
+      headEnabled: true,
+      markdownItSetup(md) {
+        // https://prismjs.com/
+        md.use(Prism)
+        md.use(LinkAttributes, {
+          matcher: (link: string) => /^https?:\/\//.test(link),
+          attrs: {
+            target: '_blank',
+            rel: 'noopener',
+          },
+        })
+      },
     }),
   ],
 
