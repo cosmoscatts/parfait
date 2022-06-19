@@ -17,7 +17,7 @@ export default function setupPermissionGuard(router: Router) {
 
     const permissionStore = usePermissionStore()
     // from login page
-    if (to.name === 'foo') {
+    if (to.name === 'Foo') {
       permissionStore.fetchAppMenus()
       const path = findFirstPermissionRoute()
       if (path) {
