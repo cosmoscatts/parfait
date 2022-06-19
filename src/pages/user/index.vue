@@ -42,6 +42,15 @@ function onPageChange(current: number) {
   const params = refSearchForm.value.formModel
   fetchTableData({ ...params, ...basePagination, current })
 }
+function formartDate(date?: Date) {
+  return date
+    ? dayJs(date).format('YYYY-MM-DD HH:mm:ss')
+    : ''
+}
+function formatRowIndex(idx: number) {
+  const { current, pageSize } = pagination
+  return (current - 1) * pageSize + idx + 1
+}
 </script>
 
 <template>
@@ -60,7 +69,11 @@ function onPageChange(current: number) {
           <a-table-column
             title="序号"
             data-index="number"
-          />
+          >
+            <template #cell="{ rowIndex }">
+              {{ formatRowIndex(rowIndex) }}
+            </template>
+          </a-table-column>>
           <a-table-column
             title="账号"
             data-index="username"
@@ -84,7 +97,11 @@ function onPageChange(current: number) {
           <a-table-column
             title="创建时间"
             data-index="createTime"
-          />
+          >
+            <template #cell="{ record }">
+              {{ formartDate(record.createTime) }}
+            </template>
+          </a-table-column>
           <a-table-column
             title="操作"
             data-index="operations"

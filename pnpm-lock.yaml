@@ -17,6 +17,7 @@ specifiers:
   '@vueuse/head': ^0.7.6
   axios: ^0.27.2
   critters: ^0.0.16
+  dayjs: ^1.11.3
   eslint: ^8.17.0
   markdown-it-link-attributes: ^4.0.0
   markdown-it-prism: ^2.2.4
@@ -42,6 +43,7 @@ dependencies:
   '@vueuse/head': registry.npmmirror.com/@vueuse/head/0.7.6_vue@3.2.37
   axios: registry.npmmirror.com/axios/0.27.2
   critters: registry.npmmirror.com/critters/0.0.16
+  dayjs: registry.npmmirror.com/dayjs/1.11.3
   mitt: registry.npmmirror.com/mitt/3.0.0
   nprogress: registry.npmmirror.com/nprogress/0.2.0
   pinia: registry.npmmirror.com/pinia/2.0.14_vcmyupim4cga7k7f5hngmth5py
@@ -1566,7 +1568,6 @@ packages:
     resolution: {integrity: sha512-xxwlswWOlGhzgQ4TKzASQkUhqERI3egRNqgV4ScR8wlANA/A9tZ7miXa44vTTKEq5l7vWoL5G57bG3zA+Kow0A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dayjs/-/dayjs-1.11.3.tgz}
     name: dayjs
     version: 1.11.3
-    dev: true
 
   registry.npmmirror.com/debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/debug/-/debug-2.6.9.tgz}

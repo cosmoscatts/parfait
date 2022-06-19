@@ -17,6 +17,7 @@
     "@vueuse/head": "^0.7.6",
     "axios": "^0.27.2",
     "critters": "^0.0.16",
+    "dayjs": "^1.11.3",
     "mitt": "^3.0.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.14",
