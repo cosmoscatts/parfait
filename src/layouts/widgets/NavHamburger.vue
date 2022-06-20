@@ -13,7 +13,9 @@ function toggle() {
 <template>
   <button
     icon-btn text-5
-    :class="collapse ? 'i-ri-indent-increase' : 'i-ri-indent-decrease'"
+    :class="collapse
+      ? 'i-line-md-menu-unfold-right'
+      : 'i-line-md-menu-unfold-left'"
     @click="toggle"
   />
 </template>

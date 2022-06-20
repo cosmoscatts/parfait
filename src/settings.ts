@@ -18,9 +18,11 @@ export const baseSettings = reactive<Record<string, any>>({
    */
   showTheTags: true,
   /**
-   * the style of tag
+   * the style of tag - 'chrome' | 'button'
+   *
+   * @default: 'chrome'
    */
-  tagStyle: '',
+  theTagStyle: 'chrome',
   /**
    * whether show the header
    *
@@ -38,7 +40,7 @@ export const baseSettings = reactive<Record<string, any>>({
    */
   openAnimate: true,
   /**
-   * animate type
+   * animate type - 'fade-slide' | 'fade' | 'fade-bottom' | 'fade-scale' | 'zoom-fade' | 'zoom-out'
    *
    * @default: 'fade-slide'
    */
