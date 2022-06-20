@@ -7,7 +7,6 @@ const {
   fixHeader,
   showTheLogo,
   showTheTags,
-  theTagMode,
   primaryColor,
   openAnimation,
   animationMode,
@@ -21,7 +20,6 @@ const switchRect = reactive<any>({
   fixHeader,
   showTheLogo,
   showTheTags,
-  theTagMode,
   openAnimation,
   animationMode,
 })
