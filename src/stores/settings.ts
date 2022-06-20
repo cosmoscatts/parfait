@@ -9,8 +9,12 @@ export const useSettingsStore = defineStore(
       layout,
       showTheLogo,
       showTheTags,
+      theTagStyle,
       fixHeader,
       primaryColor,
+      openAnimation,
+      animationMode,
+      theme,
     } = toRefs(baseSettings)
     // stage the change of style right panel done
     const stage = reactive<Record<string, Ref>>({})
@@ -34,8 +38,12 @@ export const useSettingsStore = defineStore(
       layout,
       showTheLogo,
       showTheTags,
+      theTagStyle,
       fixHeader,
       primaryColor,
+      openAnimation,
+      animationMode,
+      theme,
       getStageVal,
       updateByStage,
       resetStage,

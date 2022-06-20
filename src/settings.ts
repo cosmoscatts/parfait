@@ -38,13 +38,13 @@ export const baseSettings = reactive<Record<string, any>>({
    *
    * @default: true
    */
-  openAnimate: true,
+  openAnimation: true,
   /**
    * animate type - 'fade-slide' | 'fade' | 'fade-bottom' | 'fade-scale' | 'zoom-fade' | 'zoom-out'
    *
    * @default: 'fade-slide'
    */
-  animateMode: 'fade-slide',
+  animationMode: 'fade-slide',
   /**
    * theme
    */

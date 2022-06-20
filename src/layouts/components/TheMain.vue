@@ -1,11 +1,16 @@
 <script setup lang="ts">
 const { cachedPageNames } = storeToRefs(useTagsStore())
-// const { } = storeToRefs(useSettingsStore())
+const { openAnimation, animationMode } = storeToRefs(useSettingsStore())
+const animateName = computed(() => {
+  return unref(openAnimation)
+    ? unref(animationMode)
+    : undefined
+})
 </script>
 
 <template>
   <RouterView v-slot="{ Component, route }">
-    <Transition name="fade" mode="out-in" appear>
+    <Transition :name="animateName" mode="out-in" appear>
       <KeepAlive :include="cachedPageNames">
         <Component :is="Component" :key="route.fullPath" />
       </KeepAlive>

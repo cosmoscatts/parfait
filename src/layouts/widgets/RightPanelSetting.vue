@@ -7,7 +7,10 @@ const {
   fixHeader,
   showTheLogo,
   showTheTags,
+  theTagStyle,
   primaryColor,
+  openAnimation,
+  animationMode,
 } = settingsStore.getStageVal()
 const layoutRadios = [
   { prop: 'vertical', name: '垂直导航', img: '' },
@@ -18,16 +21,39 @@ const switchRect = reactive<any>({
   fixHeader,
   showTheLogo,
   showTheTags,
+  theTagStyle,
+  openAnimation,
+  animationMode,
 })
 const switchItems = [
-  { name: '主要色调', prop: 'primaryColor' },
-  { name: '页面Logo', prop: 'showTheLogo' },
-  { name: '固定页头', prop: 'fixHeader' },
-  { name: '标签导航', prop: 'showTheTags' },
+  { name: '主要色调', prop: 'primaryColor', type: 'colorPicker', dependOn: undefined },
+  { name: '页面Logo', prop: 'showTheLogo', type: 'switch', dependOn: undefined },
+  { name: '固定页头', prop: 'fixHeader', type: 'switch', dependOn: undefined },
+  { name: '多页签导航', prop: 'showTheTags', type: 'switch', dependOn: undefined },
+  { name: '多页签风格', prop: 'theTagStyle', type: 'select', dependOn: 'showTheTags' },
+  { name: '页面切换动画', prop: 'openAnimation', type: 'switch', dependOn: undefined },
+  { name: '页面切换动画类型', prop: 'animationMode', type: 'select', dependOn: 'openAnimation' },
 ]
+const filterSwitchItems = computed(() => {
+  return switchItems.filter(i => i.type !== 'select' || switchRect[i.dependOn!])
+})
 const switchColors = {
   checked: 'rgb(var(--primary-6))',
   unchecked: 'rgb(var(--gray-6))',
+}
+const selectOptions: Record<string, any> = {
+  theTagStyle: [
+    { label: '谷歌风格', value: 'chrome' },
+    { label: '按钮风格', value: 'button' },
+  ],
+  animationMode: [
+    { label: '滑动', value: 'fade-slide' },
+    { label: '消退', value: 'fade' },
+    { label: '底部消退', value: 'fade-bottom' },
+    { label: '缩放消退', value: 'fade-scale' },
+    { label: '渐变', value: 'zoom-fade' },
+    { label: '闪现', value: 'zoom-out' },
+  ],
 }
 </script>
 
@@ -66,16 +92,21 @@ const switchColors = {
       </a-radio-group>
     </div>
 
-    <div v-for="{ name, prop }, idx of switchItems" :key="idx">
+    <div v-for="{ name, prop, type }, idx of filterSwitchItems" :key="idx">
       <span>{{ name }}</span>
+      <ColorPicker v-if="type === 'colorPicker'" v-model:color-name="primaryColor" />
       <a-switch
-        v-if="prop !== 'primaryColor'"
+        v-if="type === 'switch'"
         v-model="switchRect[prop]"
         type="round" float-right
         :checked-color="switchColors.checked"
         :unchecked-color="switchColors.unchecked"
       />
-      <ColorPicker v-else v-model:color-name="primaryColor" />
+      <a-select
+        v-if="type === 'select'"
+        v-model="switchRect[prop]" float-right class="!w-120px"
+        :options="selectOptions[prop]" size="small"
+      />
     </div>
   </div>
 </template>
