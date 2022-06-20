@@ -13,8 +13,11 @@ export default function setupLoginGuard(router: Router) {
         useLogout()
         Message.error('请联系管理员配置用户角色')
         next('/login')
-        if (form.name === 'Login')
-          NProgress.done()
+        if (form.name === 'Login') {
+          useTimeoutFn(() => {
+            NProgress.done()
+          }, 200)
+        }
       }
     }
     else {
