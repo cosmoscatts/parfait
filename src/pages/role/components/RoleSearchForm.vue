@@ -32,7 +32,7 @@ defineExpose({
         label-align="left"
       >
         <a-row :gutter="16">
-          <a-col :span="12">
+          <a-col :span="8">
             <a-form-item field="name" label="名称">
               <a-input
                 v-model="formModel.name"
@@ -40,7 +40,7 @@ defineExpose({
               />
             </a-form-item>
           </a-col>
-          <a-col :span="12">
+          <a-col :span="8">
             <a-form-item field="createTime" label="创建时间">
               <a-range-picker
                 v-model="formModel.createTime"
@@ -48,6 +48,7 @@ defineExpose({
               />
             </a-form-item>
           </a-col>
+          <a-col :span="8" />
         </a-row>
       </a-form>
     </a-col>
