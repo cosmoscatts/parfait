@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { replacePrimaryColor } from '~/utils'
+
 useHead({
   title: 'Parfait',
   meta: [
@@ -16,6 +18,9 @@ useHead({
     },
   ],
 })
+// reset primary color
+const { primaryColor } = storeToRefs(useSettingsStore())
+replacePrimaryColor(primaryColor.value)
 </script>
 
 <template>

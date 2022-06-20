@@ -12,8 +12,6 @@ export const useSettingsStore = defineStore(
       fixHeader,
       primaryColor,
     } = toRefs(baseSettings)
-    // reset primary color
-    replacePrimaryColor(primaryColor.value)
     // stage the change of style right panel done
     const stage = reactive<Record<string, Ref>>({})
     function buildStage() {
