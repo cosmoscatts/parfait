@@ -59,7 +59,7 @@ const selectOptions: Record<string, any> = {
 
 <template>
   <div ha of="x-hidden y-auto" flex="~ col" gap-4>
-    <div mt-3 flex="~ col">
+    <div flex="~ col">
       <span>页面排版</span>
       <a-radio-group v-model="layout" direction="vertical">
         <template v-for="{ prop, name } of layoutRadios" :key="prop">

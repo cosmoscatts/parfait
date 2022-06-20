@@ -11,6 +11,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@soybeanjs/vue-admin-tab": "^1.0.2",
     "@unocss/reset": "^0.38.2",
     "@vueuse/components": "^8.6.0",
     "@vueuse/core": "^8.6.0",
