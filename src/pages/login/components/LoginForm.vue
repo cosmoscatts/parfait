@@ -39,7 +39,7 @@ async function submit({
 <template>
   <a-space direction="vertical" size="large" w-450px class="mt-1/15">
     <div text="32px center" font-bold>
-      🎃 Parfiat
+      🎃 Parfait
     </div>
     <a-form :model="form" layout="vertical" size="large" @submit="submit">
       <a-form-item

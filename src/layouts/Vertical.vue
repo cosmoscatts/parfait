@@ -19,7 +19,7 @@ const sideWidth = computed(() => {
     : 200
 })
 const { showTheTags, fixHeader } = storeToRefs(useSettingsStore())
-const rightPanelVisible = $ref(false)
+const rightPanelVisible = ref(false)
 const backTopTarget = computed(() => {
   return fixHeader.value
     ? '#content-wrapper'
