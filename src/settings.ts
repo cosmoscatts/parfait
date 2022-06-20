@@ -18,12 +18,6 @@ export const baseSettings = reactive<Record<string, any>>({
    */
   showTheTags: true,
   /**
-   * the style of tag - 'chrome' | 'button'
-   *
-   * @default: 'chrome'
-   */
-  theTagStyle: 'chrome',
-  /**
    * whether show the header
    *
    * @default: true

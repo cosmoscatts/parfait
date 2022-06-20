@@ -7,7 +7,7 @@ const {
   fixHeader,
   showTheLogo,
   showTheTags,
-  theTagStyle,
+  theTagMode,
   primaryColor,
   openAnimation,
   animationMode,
@@ -21,7 +21,7 @@ const switchRect = reactive<any>({
   fixHeader,
   showTheLogo,
   showTheTags,
-  theTagStyle,
+  theTagMode,
   openAnimation,
   animationMode,
 })
@@ -30,7 +30,6 @@ const switchItems = [
   { name: '页面Logo', prop: 'showTheLogo', type: 'switch', dependOn: undefined },
   { name: '固定页头', prop: 'fixHeader', type: 'switch', dependOn: undefined },
   { name: '多页签导航', prop: 'showTheTags', type: 'switch', dependOn: undefined },
-  { name: '多页签风格', prop: 'theTagStyle', type: 'select', dependOn: 'showTheTags' },
   { name: '页面切换动画', prop: 'openAnimation', type: 'switch', dependOn: undefined },
   { name: '页面切换动画类型', prop: 'animationMode', type: 'select', dependOn: 'openAnimation' },
 ]
@@ -42,10 +41,6 @@ const switchColors = {
   unchecked: 'rgb(var(--gray-6))',
 }
 const selectOptions: Record<string, any> = {
-  theTagStyle: [
-    { label: '谷歌风格', value: 'chrome' },
-    { label: '按钮风格', value: 'button' },
-  ],
   animationMode: [
     { label: '滑动', value: 'fade-slide' },
     { label: '消退', value: 'fade' },

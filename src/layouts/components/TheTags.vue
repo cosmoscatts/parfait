@@ -80,8 +80,8 @@ function closeOthers(idx: number) {
     <div
       v-for="{ title, path, fullPath, query }, idx in tags" :key="idx"
       h-26px lh-26px wa
-      my-4px p="y0 x-2"
-      inline-block cursor-pointer op-50
+      my-4px p="y0 x2"
+      inline-block cursor-pointer op-80
       bg="[rgb(var(--primary-6))]" text="white 12px"
       :class="isActive(path) ? '!op-100' : ''"
     >
@@ -92,7 +92,7 @@ function closeOthers(idx: number) {
           <span flex justify-center items-center>
             <span v-if="isActive(path)" i-carbon-dot-mark />
             {{ title }}
-            <span icon-btn i-carbon-close-filled hover="!bg-white" ml-1 @click.prevent="closeTag(idx)" />
+            <span icon-btn i-carbon-close-filled hover="!bg-white" @click.prevent="closeTag(idx)" />
           </span>
         </RouterLink>
         <template #content>
