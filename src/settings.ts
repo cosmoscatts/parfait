@@ -18,6 +18,10 @@ export const baseSettings = reactive<Record<string, any>>({
    */
   showTheTags: true,
   /**
+   * the style of tag
+   */
+  tagStyle: '',
+  /**
    * whether show the header
    *
    * @default: true
@@ -27,4 +31,20 @@ export const baseSettings = reactive<Record<string, any>>({
    * theme primary color
    */
   primaryColor: 'arcoblue',
+  /**
+   * whether open page animate
+   *
+   * @default: true
+   */
+  openAnimate: true,
+  /**
+   * animate type
+   *
+   * @default: 'fade-slide'
+   */
+  animateMode: 'fade-slide',
+  /**
+   * theme
+   */
+  theme: '',
 })
