@@ -27,7 +27,6 @@ const switchRect = reactive<any>({
 })
 const switchItems = [
   { name: '主要色调', prop: 'primaryColor', type: 'colorPicker', dependOn: undefined },
-  { name: '页面主题', prop: 'theme', type: 'button', dependOn: undefined },
   { name: '页面Logo', prop: 'showTheLogo', type: 'switch', dependOn: undefined },
   { name: '固定页头', prop: 'fixHeader', type: 'switch', dependOn: undefined },
   { name: '多页签导航', prop: 'showTheTags', type: 'switch', dependOn: undefined },
@@ -90,12 +89,6 @@ const selectOptions: Record<string, any> = {
 
     <div v-for="{ name, prop, type }, idx of filterSwitchItems" :key="idx">
       <span>{{ name }}</span>
-      <a-button
-        v-if="type === 'button'" size="mini"
-        type="primary" float-right font-bold
-      >
-        更换
-      </a-button>
       <ColorPicker v-if="type === 'colorPicker'" v-model:color-name="primaryColor" />
       <a-switch
         v-if="type === 'switch'"

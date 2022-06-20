@@ -39,8 +39,4 @@ export const baseSettings = reactive<Record<string, any>>({
    * @default: 'fade-slide'
    */
   animationMode: 'fade-slide',
-  /**
-   * theme
-   */
-  theme: '',
 })
