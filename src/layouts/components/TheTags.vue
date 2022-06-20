@@ -81,7 +81,7 @@ function closeOthers(idx: number) {
       v-for="{ title, path, fullPath, query }, idx in tags" :key="idx"
       h-26px lh-26px wa
       my-4px p="y0 x2"
-      inline-block cursor-pointer op-80
+      inline-block cursor-pointer op="80 hover:100"
       bg="[rgb(var(--primary-6))]" text="white 12px"
       :class="isActive(path) ? '!op-100' : ''"
     >
