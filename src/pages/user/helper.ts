@@ -3,24 +3,18 @@ import type { User } from '~/types'
 export function saveUserHandler(
   {
     type = 'add',
-    data = {},
+    // data = {},
   }: {
     type?: 'add' | 'edit'
     data?: User
   },
 ) {
-  const userStore = useUserStore()
-  const { user, updateUser } = userStore
   const map = {
     add: () => {
-      updateUser(data)
+      Message.success('添加成功')
     },
     edit: () => {
-      const _user = {
-        ...toRaw(user),
-        ...data,
-      }
-      updateUser(_user)
+      Message.success('更新成功')
     },
   }
   map[type]()

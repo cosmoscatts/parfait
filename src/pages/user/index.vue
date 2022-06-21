@@ -70,7 +70,7 @@ function saveUser(data: Record<string, any>) {
   })
   useTimeoutFn(() => {
     userModalVisible = false
-  }, 200)
+  }, 500)
 }
 </script>
 
