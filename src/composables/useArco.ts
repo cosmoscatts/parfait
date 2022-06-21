@@ -28,6 +28,7 @@ function useMessage() {
     },
   }
 }
+
 /**
  * repack arco Modal, make it global
  */
@@ -53,6 +54,8 @@ function useModal() {
     },
   }
 }
+
 const Message = useMessage()
 const Modal = useModal()
+
 export { Message, Modal }

@@ -10,6 +10,7 @@ export function useLogout() {
   if (!showTheTags || !cacheTheTags)
     actions.push(removeAll)
 
-  for (const remove of actions)
-    remove()
+  actions.forEach((removeEffect) => {
+    removeEffect()
+  })
 }
