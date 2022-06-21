@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import appRoutes from './routes'
-import createRouteGuard from './guards'
+import createRouterGuard from './guards'
 import 'nprogress/nprogress.css'
 
 NProgress.configure({ showSpinner: false, easing: 'ease', speed: 500 })
@@ -38,6 +38,6 @@ const router = createRouter({
   },
 })
 
-createRouteGuard(router)
+createRouterGuard(router)
 
 export default router
