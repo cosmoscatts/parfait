@@ -7,6 +7,7 @@ export const WHITE_LIST = [
   { name: 'Login', children: [] },
   { name: 'Redirect', children: [] },
   { name: 'Profile', children: [] },
+  { name: 'WindowLoad', children: [] },
 ]
 
 export const NOT_FOUND = {
