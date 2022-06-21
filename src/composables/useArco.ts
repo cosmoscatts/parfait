@@ -1,7 +1,7 @@
 import type { MessageConfig, ModalConfig } from '@arco-design/web-vue'
 import '@arco-design/web-vue/es/message/style/css.js'
 import '@arco-design/web-vue/es/modal/style/css.js'
-import { Message as aMessage, Modal as aModal } from '@arco-design/web-vue'
+import { Message as ArcoMessage, Modal as ArcoModal } from '@arco-design/web-vue'
 
 /**
  * repack arco Message, make it global
@@ -9,22 +9,22 @@ import { Message as aMessage, Modal as aModal } from '@arco-design/web-vue'
 function useMessage() {
   return {
     success(config: string | MessageConfig) {
-      aMessage.success(config)
+      ArcoMessage.success(config)
     },
     warning(config: string | MessageConfig) {
-      aMessage.warning(config)
+      ArcoMessage.warning(config)
     },
     error(config: string | MessageConfig) {
-      aMessage.error(config)
+      ArcoMessage.error(config)
     },
     info(config: string | MessageConfig) {
-      aMessage.info(config)
+      ArcoMessage.info(config)
     },
     loading(config: string | MessageConfig) {
-      aMessage.loading(config)
+      ArcoMessage.loading(config)
     },
     clear(position?: 'top' | 'bottom' | undefined) {
-      aMessage.clear(position)
+      ArcoMessage.clear(position)
     },
   }
 }
@@ -35,22 +35,22 @@ function useMessage() {
 function useModal() {
   return {
     open(config: ModalConfig) {
-      aModal.open(config)
+      ArcoModal.open(config)
     },
     confirm(config: ModalConfig) {
-      aModal.confirm(config)
+      ArcoModal.confirm(config)
     },
     success(config: ModalConfig) {
-      aModal.success(config)
+      ArcoModal.success(config)
     },
     warning(config: ModalConfig) {
-      aModal.warning(config)
+      ArcoModal.warning(config)
     },
     error(config: ModalConfig) {
-      aModal.error(config)
+      ArcoModal.error(config)
     },
     info(config: ModalConfig) {
-      aModal.info(config)
+      ArcoModal.info(config)
     },
   }
 }
