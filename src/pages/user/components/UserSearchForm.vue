@@ -46,6 +46,7 @@ defineExpose({
               <a-input
                 v-model="formModel.username"
                 placeholder="请输入用户账号"
+                allow-clear
               />
             </a-form-item>
           </a-col>
@@ -54,6 +55,7 @@ defineExpose({
               <a-input
                 v-model="formModel.name"
                 placeholder="请输入名称"
+                allow-clear
               />
             </a-form-item>
           </a-col>
@@ -62,6 +64,7 @@ defineExpose({
               <a-input
                 v-model="formModel.phone"
                 placeholder="请输入手机号"
+                allow-clear
               />
             </a-form-item>
           </a-col>
@@ -71,6 +74,7 @@ defineExpose({
                 v-model="formModel.roleId"
                 :options="roleOptions"
                 placeholder="请选择角色"
+                allow-clear
               />
             </a-form-item>
           </a-col>
@@ -79,6 +83,7 @@ defineExpose({
               <a-input
                 v-model="formModel.email"
                 placeholder="请输入电子邮箱"
+                allow-clear
               />
             </a-form-item>
           </a-col>
@@ -86,7 +91,7 @@ defineExpose({
             <a-form-item field="createTime" label="创建时间">
               <a-range-picker
                 v-model="formModel.createTime"
-                w-full
+                w-full allow-clear
               />
             </a-form-item>
           </a-col>
