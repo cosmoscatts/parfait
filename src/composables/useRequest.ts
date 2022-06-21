@@ -11,15 +11,18 @@ import type { AnyObject, GetParams, PostData } from '~/types'
 function addUrlParams(params?: AnyObject | AnyObject[]) {
   if (!params)
     return ''
+
   let paramStr = ''
   if (!Array.isArray(params))
     params = [params]
+
   const arr = params.flatMap((i: AnyObject) => Object.entries(i))
   for (const [k, v] of arr) {
     if (v === '')
       continue
     paramStr += `&${encodeURIComponent(k)}=${encodeURIComponent(v as string)}`
   }
+
   return `?${paramStr.slice(1)}`
 }
 
