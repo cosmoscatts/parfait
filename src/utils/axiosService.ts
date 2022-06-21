@@ -8,6 +8,7 @@ function createAxios() {
     baseURL: import.meta.env.VITE_BASE_API_URL as string,
     timeout: 5000,
   })
+
   service.interceptors.request.use(
     (config: AxiosRequestConfig) => {
       return config
@@ -16,6 +17,7 @@ function createAxios() {
       Promise.reject(e).then(() => console.error(e))
     },
   )
+
   service.interceptors.response.use(
     async (response: AxiosResponse) => {
       const {
@@ -29,6 +31,7 @@ function createAxios() {
       return Promise.reject(error)
     },
   )
+
   return service
 }
 

@@ -17,6 +17,7 @@ export const colors: Record<string, string>[] = [
   { prop: 'gray', name: '中性灰' },
   { prop: 'magenta', name: '品红' },
 ]
+
 export function getColorMap() {
   const colorMap: Record<string, Record<string, string>> = {}
   colors.forEach(({ prop, name }: Record<string, string>) => {
@@ -25,11 +26,14 @@ export function getColorMap() {
       value: `rgb(var(--${prop}-6))`,
     }
   })
+
   return { colorMap }
 }
+
 export function replacePrimaryColor(colorName: string) {
   if (!colors.map(i => i.prop).includes(colorName))
     return
+
   Array.from({ length: 10 }).forEach((_, index) => {
     document.body.style.setProperty(`--primary-${index + 1}`, `var(--${colorName}-${index + 1})`)
   })

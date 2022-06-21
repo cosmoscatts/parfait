@@ -1,3 +1,4 @@
-export * from './axios'
-export * from './color'
-export * from './permission'
+export * from './axiosService'
+export * from './replacePrimaryColor'
+export * from './findFirstPermissionRoute'
+export * from './exeStrategyActions'
