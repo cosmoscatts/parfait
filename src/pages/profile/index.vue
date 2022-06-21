@@ -3,5 +3,7 @@
 </script>
 
 <template>
-  <div />
+  <div text-50px>
+    Profile
+  </div>
 </template>
