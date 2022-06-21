@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { IconLock } from '@arco-design/web-vue/es/icon'
 import type { SelectOptionData } from '~/types'
-import AvatarUpload from '~/components/AvatarUpload.vue'
 
 const {
   visible = false,
@@ -34,18 +33,14 @@ const title = computed(() => {
   return ['添加用户', '编辑用户'][type === 'add' ? 0 : 1]
 })
 function assign() {
-  console.log(user)
-  console.log(type)
   const target = visible && type === 'edit'
     ? unref(user)
     : baseFormModel
-  console.log('target', target)
   for (const [k, v] of Object.entries(target)) {
     if (!Object.prototype.hasOwnProperty.call(formModel, k))
       continue
     formModel[k] = v
   }
-  console.log('formModal', formModel)
 }
 watch(() => visible, () => {
   assign()
@@ -64,6 +59,9 @@ function handleCancel() {
       {{ title }}
     </template>
     <a-form :model="formModel" auto-label-width size="large">
+      <a-form-item field="avatar" label="头像" hide-asterisk feedback>
+        <AvatarUpload v-model:avatar="formModel.avatar" />
+      </a-form-item>
       <a-form-item field="username" label="账号" hide-asterisk feedback>
         <a-input
           v-model="formModel.username"
@@ -99,9 +97,6 @@ function handleCancel() {
             <icon-lock />
           </template>
         </a-input-password>
-      </a-form-item>
-      <a-form-item field="avatar" label="头像" hide-asterisk feedback>
-        <AvatarUpload :avatar="formModel.avatar" />
       </a-form-item>
       <a-form-item field="phone" label="手机号" hide-asterisk feedback>
         <a-input
