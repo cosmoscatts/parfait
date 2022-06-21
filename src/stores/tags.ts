@@ -1,9 +1,16 @@
 import type { Tag } from '~/types'
+import { baseSettings } from '~/settings'
 
 export const useTagsStore = defineStore(
   'tagsStore',
   () => {
+    const { showTheTags, cacheTheTags } = baseSettings
     const visitedPages = ref<Tag[]>([])
+    // if cache the tags
+    if (showTheTags && cacheTheTags) {
+      const cachedData = JSON.parse(localStorage.getItem('tagsStore')!)
+      visitedPages.value = cachedData?.visitedPages || []
+    }
     const cachedPageNames = ref<string[]>([])
     function addTag(tag: Tag) {
       const oldPath = visitedPages.value.map(i => i.path)
@@ -69,6 +76,11 @@ export const useTagsStore = defineStore(
   {
     persist: {
       enabled: true,
+      strategies: [
+        {
+          storage: localStorage,
+        },
+      ],
     },
   },
 )
