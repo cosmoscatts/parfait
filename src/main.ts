@@ -10,6 +10,7 @@ function init(app: any) {
     .forEach(i => i.install?.(app))
   app.mount('#app')
 }
+
 const app = createApp(App)
 init(app)
 
