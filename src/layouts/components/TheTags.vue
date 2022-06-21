@@ -84,7 +84,7 @@ function closeOthers(idx: number) {
       inline-block cursor-pointer
       bg="[var(--color-primary-light-3)]"
       :class="isActive(path)
-        ? '!bg-[rgb(var(--primary-3))]'
+        ? '!bg-[rgb(var(--primary-6))] dark:!bg-[rgb(var(--primary-3))]'
         : ''"
     >
       <a-dropdown trigger="contextMenu" position="bl">
