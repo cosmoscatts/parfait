@@ -5,6 +5,15 @@ import { replacePrimaryColor } from '~/utils'
 export const useSettingsStore = defineStore(
   'settingsStore',
   () => {
+    const { bool: appLoading, setFalse, setTrue } = useBoolean(true)
+    async function loadPage(duration = 5000) {
+      setTrue()
+      await nextTick()
+      useTimeoutFn(() => {
+        setFalse()
+      }, duration)
+    }
+    loadPage()
     const {
       layout,
       showTheLogo,
@@ -34,6 +43,7 @@ export const useSettingsStore = defineStore(
       buildStage()
     }
     return {
+      appLoading,
       layout,
       showTheLogo,
       showTheTags,

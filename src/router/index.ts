@@ -16,11 +16,17 @@ const router = createRouter({
     },
     {
       path: '/login',
-      name: 'Login',
-      component: () => import('~/pages/login/index.vue'),
-      meta: {
-        requiresAuth: false,
-      },
+      component: BLANK_LAYOUT,
+      children: [
+        {
+          path: '',
+          name: 'Login',
+          component: () => import('~/pages/login/index.vue'),
+          meta: {
+            requiresAuth: false,
+          },
+        },
+      ],
     },
     ...appRoutes,
     {
