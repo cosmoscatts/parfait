@@ -1,4 +1,5 @@
-export const BASE_LAYOUT = () => import('~/layouts/index.vue')
+export const BASE_LAYOUT = () => import('~/layouts/BaseLayout.vue')
+export const BLANK_LAYOUT = () => import('~/layouts/BlankLayout.vue')
 
 export const WHITE_LIST = [
   { name: 'NotFound', children: [] },

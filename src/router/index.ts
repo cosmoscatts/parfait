@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import NProgress from 'nprogress'
+import { BLANK_LAYOUT } from './constants'
 import appRoutes from './routes'
 import createRouterGuard from './guards'
 import 'nprogress/nprogress.css'
@@ -24,13 +25,25 @@ const router = createRouter({
     ...appRoutes,
     {
       path: '/500',
-      name: 'ErrorPage',
-      component: () => import('~/pages/exception/500/index.vue'),
+      component: BLANK_LAYOUT,
+      children: [
+        {
+          path: '',
+          name: 'ErrorPage',
+          component: () => import('~/pages/exception/500/index.vue'),
+        },
+      ],
     },
     {
       path: '/:pathMatch(.*)*',
-      name: 'NotFound',
-      component: () => import('~/pages/exception/404/index.vue'),
+      component: BLANK_LAYOUT,
+      children: [
+        {
+          path: '',
+          name: 'NotFound',
+          component: () => import('~/pages/exception/404/index.vue'),
+        },
+      ],
     },
   ],
   scrollBehavior() {
