@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import UserModal from './components/UserModal.vue'
+import UserModal from './components/UserModal.vue'
 import UserSearchForm from './components/UserSearchForm.vue'
 import type { Pagination, SelectOptionData } from '~/types'
 
@@ -52,6 +52,15 @@ function formartDate(date?: Date) {
 function formatRowIndex(idx: number) {
   const { current, pageSize } = pagination
   return (current - 1) * pageSize + idx + 1
+}
+
+let userModalVisible = $ref(false)
+let showUserModaltype = $ref<'add' | 'edit'>('add')
+let selectedUser = $ref({})
+function showUserModal(type: 'add' | 'edit', user = {}) {
+  showUserModaltype = type
+  selectedUser = user
+  userModalVisible = true
 }
 </script>
 
@@ -120,8 +129,8 @@ function formatRowIndex(idx: number) {
             data-index="operations"
             :cell-style="{ 'text-align': 'center' }"
           >
-            <template #cell>
-              <a-button type="text" size="small">
+            <template #cell="{ record }">
+              <a-button type="text" size="small" @click="showUserModal('edit', record)">
                 编辑
               </a-button>
               <a-button type="text" size="small">
@@ -132,5 +141,6 @@ function formatRowIndex(idx: number) {
         </template>
       </a-table>
     </a-card>
+    <UserModal v-model:visible="userModalVisible" :type="showUserModaltype" :role-options="roleOptions" :user="selectedUser" />
   </div>
 </template>
