@@ -62,6 +62,9 @@ function showUserModal(type: 'add' | 'edit', user = {}) {
   selectedUser = user
   userModalVisible = true
 }
+function saveUser() {
+
+}
 </script>
 
 <template>
@@ -141,6 +144,12 @@ function showUserModal(type: 'add' | 'edit', user = {}) {
         </template>
       </a-table>
     </a-card>
-    <UserModal v-model:visible="userModalVisible" :type="showUserModaltype" :role-options="roleOptions" :user="selectedUser" />
+    <UserModal
+      v-model:visible="userModalVisible"
+      :type="showUserModaltype"
+      :role-options="roleOptions"
+      :user="selectedUser"
+      @save-user="saveUser"
+    />
   </div>
 </template>

@@ -45,7 +45,10 @@ function assign() {
 watch(() => visible, () => {
   assign()
 })
+const { loading, setLoading } = useLoading()
 function handleOk() {
+  setLoading(true)
+
   emits('update:visible', false)
 }
 function handleCancel() {
@@ -54,7 +57,15 @@ function handleCancel() {
 </script>
 
 <template>
-  <a-modal :visible="visible" :width="600" @ok="handleOk" @cancel="handleCancel">
+  <a-modal
+    :visible="visible"
+    :width="600"
+    :mask-closable="false"
+    :ok-loading="loading"
+    :ok-text="type === 'add' ? '添加' : '更新'"
+    @ok="handleOk"
+    @cancel="handleCancel"
+  >
     <template #title>
       {{ title }}
     </template>
