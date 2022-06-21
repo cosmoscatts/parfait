@@ -12,5 +12,6 @@ export function findFirstPermissionRoute() {
     if (item?.children?.length)
       menus.unshift(...item.children)
   }
+
   return path
 }
