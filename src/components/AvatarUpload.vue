@@ -19,12 +19,15 @@ watch(() => avatar, (val) => {
     }
   }
 })
+
 function onChange(_: any, currentFile: any) {
   file.value = {
     ...currentFile,
   }
+
   emit('update:avatar', file.value.url)
 }
+
 function onProgress(currentFile: any) {
   file.value = currentFile
 }
