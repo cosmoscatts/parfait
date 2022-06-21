@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import UserModal from './components/UserModal.vue'
 import UserSearchForm from './components/UserSearchForm.vue'
+import { saveUserHandler } from './helper'
 import type { Pagination, SelectOptionData } from '~/types'
 
 const { loading, setLoading } = useLoading()
@@ -55,15 +56,21 @@ function formatRowIndex(idx: number) {
 }
 
 let userModalVisible = $ref(false)
-let showUserModaltype = $ref<'add' | 'edit'>('add')
+let showUserModalType = $ref<'add' | 'edit'>('add')
 let selectedUser = $ref({})
 function showUserModal(type: 'add' | 'edit', user = {}) {
-  showUserModaltype = type
+  showUserModalType = type
   selectedUser = user
   userModalVisible = true
 }
-function saveUser() {
-
+function saveUser(data: Record<string, any>) {
+  saveUserHandler({
+    type: showUserModalType,
+    data,
+  })
+  useTimeoutFn(() => {
+    userModalVisible = false
+  }, 200)
 }
 </script>
 
@@ -146,7 +153,7 @@ function saveUser() {
     </a-card>
     <UserModal
       v-model:visible="userModalVisible"
-      :type="showUserModaltype"
+      :type="showUserModalType"
       :role-options="roleOptions"
       :user="selectedUser"
       @save-user="saveUser"

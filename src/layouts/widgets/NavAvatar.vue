@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import avatar from '~/assets/avatar.jpg'
-
 const router = useRouter()
 function logout() {
   Message.success('登出成功')
@@ -19,6 +17,10 @@ function onSelect(value: any) {
   const action = actionMap[value]
   action()
 }
+const userStore = useUserStore()
+const avatar = computed(() => {
+  return userStore.user?.avatar
+})
 </script>
 
 <template>

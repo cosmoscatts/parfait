@@ -1,7 +1,6 @@
 import type { User } from '~/types'
+import defaultAvatar from '~/assets/avatar.jpg'
 
-// default avatar
-const defaultAvatar = 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
 export const useUserStore = defineStore(
   'userStore',
   () => {

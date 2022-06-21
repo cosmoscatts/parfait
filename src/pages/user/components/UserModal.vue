@@ -15,6 +15,8 @@ const {
 }>()
 const emits = defineEmits(['update:visible', 'saveUser'])
 
+const refForm = ref()
+const validateTrigger = ref<('change' | 'input' | 'focus' | 'blur')[]>(['change', 'input'])
 const baseFormModel = {
   id: undefined,
   username: '',
@@ -32,6 +34,7 @@ const formModel = reactive<Record<string, any>>({
 const title = computed(() => {
   return ['添加用户', '编辑用户'][type === 'add' ? 0 : 1]
 })
+const { loading, setLoading } = useLoading()
 function assign() {
   const target = visible && type === 'edit'
     ? unref(user)
@@ -44,12 +47,18 @@ function assign() {
 }
 watch(() => visible, () => {
   assign()
+  setLoading(false)
+  refForm.value && refForm.value.clearValidate()
 })
-const { loading, setLoading } = useLoading()
 function handleOk() {
   setLoading(true)
-
-  emits('update:visible', false)
+  refForm.value.validate((errors: any) => {
+    if (errors)
+      return
+    if (type === 'edit')
+      formModel.password = undefined
+    emits('saveUser', formModel)
+  })
 }
 function handleCancel() {
   emits('update:visible', false)
@@ -69,18 +78,31 @@ function handleCancel() {
     <template #title>
       {{ title }}
     </template>
-    <a-form :model="formModel" auto-label-width size="large">
+    <a-form ref="refForm" :model="formModel" auto-label-width size="large">
       <a-form-item field="avatar" label="头像" hide-asterisk feedback>
         <AvatarUpload v-model:avatar="formModel.avatar" />
       </a-form-item>
-      <a-form-item field="username" label="账号" hide-asterisk feedback>
+      <a-form-item
+        field="username" label="账号" hide-asterisk feedback
+        :rules="[
+          { required: true, message: '账号是必须的' },
+          { minLength: 5, message: '长度必须大于5' },
+        ]"
+        :validate-trigger="validateTrigger"
+      >
         <a-input
           v-model="formModel.username"
           placeholder="请输入账号..."
           allow-clear
         />
       </a-form-item>
-      <a-form-item field="name" label="名称" hide-asterisk feedback>
+      <a-form-item
+        field="name" label="名称" hide-asterisk feedback
+        :rules="[
+          { required: true, message: '名称是必须的' },
+        ]"
+        :validate-trigger="validateTrigger"
+      >
         <a-input
           v-model="formModel.name"
           placeholder="请输入名称..."
@@ -123,7 +145,13 @@ function handleCancel() {
           allow-clear
         />
       </a-form-item>
-      <a-form-item field="roleId" label="角色" hide-asterisk feedback>
+      <a-form-item
+        field="roleId" label="角色" hide-asterisk feedback
+        :rules="[
+          { required: true, message: '角色是必须的' },
+        ]"
+        :validate-trigger="validateTrigger"
+      >
         <a-select
           v-model="formModel.roleId"
           :options="roleOptions"
