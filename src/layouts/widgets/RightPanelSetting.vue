@@ -7,6 +7,7 @@ const {
   fixHeader,
   showTheLogo,
   showTheTags,
+  cacheTheTags,
   primaryColor,
   openAnimation,
   animationMode,
@@ -20,6 +21,7 @@ const switchRect = reactive<any>({
   fixHeader,
   showTheLogo,
   showTheTags,
+  cacheTheTags,
   openAnimation,
   animationMode,
 })
@@ -28,11 +30,12 @@ const switchItems = [
   { name: '页面Logo', prop: 'showTheLogo', type: 'switch', dependOn: undefined },
   { name: '固定页头', prop: 'fixHeader', type: 'switch', dependOn: undefined },
   { name: '多页签导航', prop: 'showTheTags', type: 'switch', dependOn: undefined },
+  { name: '多页签缓存', prop: 'cacheTheTags', type: 'switch', dependOn: 'showTheTags' },
   { name: '页面切换动画', prop: 'openAnimation', type: 'switch', dependOn: undefined },
   { name: '页面切换动画类型', prop: 'animationMode', type: 'select', dependOn: 'openAnimation' },
 ]
 const filterSwitchItems = computed(() => {
-  return switchItems.filter(i => i.type !== 'select' || switchRect[i.dependOn!])
+  return switchItems.filter(i => i.dependOn === undefined || switchRect[i.dependOn!])
 })
 const switchColors = {
   checked: 'rgb(var(--primary-6))',
