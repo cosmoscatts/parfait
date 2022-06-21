@@ -1,7 +1,7 @@
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import axios from 'axios'
 import { ERROR_PAGE } from '~/router/constants'
-import router from '~/modules/router'
+import router from '~/router'
 
 function createAxios() {
   const service = axios.create({

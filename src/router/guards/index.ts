@@ -9,7 +9,7 @@ function setupPageGuard(router: Router) {
   })
 }
 
-export function createRouteGuard(router: Router) {
+export default function createRouteGuard(router: Router) {
   setupPageGuard(router)
   setupLoginGuard(router)
   setupPermissionGuard(router)
