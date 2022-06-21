@@ -7,7 +7,7 @@ export function useLogout() {
   const { removeAll } = useTagsStore()
   const { removeAppMenus } = usePermissionStore()
   const actions = [removeUser, removeAppMenus]
-  if (showTheTags && cacheTheTags)
+  if (!showTheTags || !cacheTheTags)
     actions.push(removeAll)
 
   for (const remove of actions)
