@@ -1,7 +1,7 @@
 /**
  * resolve actions
  */
-export function actuatorActions(actions: [string, any][]) {
+export function executeActions(actions: [string, any][]) {
   actions.some((item) => {
     const [flag, action] = item
     if (flag)
