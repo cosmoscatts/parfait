@@ -51,10 +51,10 @@ watch(() => visible, () => {
   refForm.value && refForm.value.clearValidate()
 })
 function handleOk() {
-  setLoading(true)
   refForm.value.validate((errors: any) => {
     if (errors)
       return
+    setLoading(true)
     if (type === 'edit')
       formModel.password = undefined
     emits('saveUser', formModel)
