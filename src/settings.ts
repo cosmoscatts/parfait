@@ -18,6 +18,12 @@ export const baseSettings = reactive<Record<string, any>>({
    */
   showTheTags: true,
   /**
+   * whether cache the tags view
+   *
+   * @default: true
+   */
+  cacheTheTags: true,
+  /**
    * whether show the header
    *
    * @default: true
