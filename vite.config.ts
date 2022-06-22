@@ -1,6 +1,6 @@
 import path from 'path'
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Markdown from 'vite-plugin-md'
@@ -21,7 +21,7 @@ export default defineConfig({
   },
 
   plugins: [
-    vue({
+    Vue({
       include: [/\.vue$/, /\.md$/],
       reactivityTransform: true,
     }),
@@ -91,5 +91,4 @@ export default defineConfig({
       },
     }),
   ],
-
 })
