@@ -42,10 +42,10 @@ const reactCollapseWidth = computed(() => {
     ? collapsedWidth
     : width.value * 0.75
 })
-const collapseStore = useCollapseStore()
+const appStore = useAppStore()
 const collapsed = computed(() => {
   return layout.value === 'vertical'
-    ? collapseStore.collapse
+    ? appStore.menuCollapsed
     : false
 })
 const route = useRoute()

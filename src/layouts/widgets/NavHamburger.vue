@@ -1,19 +1,19 @@
 <script setup lang="ts">
-const collapseStore = useCollapseStore()
-const { collapse } = storeToRefs(collapseStore)
-const { toggleCollapse } = collapseStore
+const appStore = useAppStore()
+const { menuCollapsed } = storeToRefs(appStore)
+const { toggleMenuCollapsed } = appStore
 const { width } = useWindowSize()
 function toggle() {
   if (width.value < 1200)
     return
-  toggleCollapse(!collapse.value)
+  toggleMenuCollapsed(!unref(menuCollapsed))
 }
 </script>
 
 <template>
   <button
     icon-btn text-5
-    :class="collapse
+    :class="menuCollapsed
       ? 'i-line-md-menu-unfold-right'
       : 'i-line-md-menu-unfold-left'"
     @click="toggle"

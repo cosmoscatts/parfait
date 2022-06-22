@@ -1,4 +1,4 @@
-export const baseSettings = reactive<Record<string, any>>({
+const settingVars = reactive<Record<string, any>>({
   /**
    * the mode of theme - 'dark' | 'light' | 'system'
    */
@@ -49,4 +49,8 @@ export const baseSettings = reactive<Record<string, any>>({
    * @default: 'fade-slide'
    */
   animationMode: 'fade-slide',
+})
+
+export const baseSettings = reactive({
+  ...settingVars,
 })

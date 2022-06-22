@@ -6,8 +6,8 @@ export const useAppStore = defineStore(
   'appStore',
   () => {
     const {
-      bool: menuCollapse,
-      toggle: toggleMenuCollapse,
+      bool: menuCollapsed,
+      setBool: toggleMenuCollapsed,
     } = useBoolean()
     const {
       layout,
@@ -46,11 +46,11 @@ export const useAppStore = defineStore(
       primaryColor,
       openAnimation,
       animationMode,
-      menuCollapse,
+      menuCollapsed,
       getStageVal,
       updateByStage,
       resetStage,
-      toggleMenuCollapse,
+      toggleMenuCollapsed,
     }
   },
   {

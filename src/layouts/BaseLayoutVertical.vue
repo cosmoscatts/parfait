@@ -7,11 +7,11 @@ import TheSide from './components/TheSide.vue'
 import TheRightPanel from './components/TheRightPanel.vue'
 
 const { width } = useWindowSize()
-const { collapse } = storeToRefs(useCollapseStore())
+const { menuCollapsed } = storeToRefs(useAppStore())
 watchEffect(() => {
   // when the screen width less than 1200px, collapse the sider
   if (width.value < 1200)
-    collapse.value = true
+    menuCollapsed.value = true
 })
 const sideWidth = computed(() => {
   return width.value < 1200
@@ -35,7 +35,7 @@ const backTopTarget = computed(() => {
       collapsible
       :width="sideWidth"
       :collapsed-width="64"
-      :collapsed="collapse"
+      :collapsed="menuCollapsed"
     >
       <TheSide h-full w-full bg-transparent />
     </a-layout-sider>
@@ -44,7 +44,7 @@ const backTopTarget = computed(() => {
         bg-header
         :class="
           fixHeader
-            ? collapse
+            ? menuCollapsed
               ? 'fixed top-0 right-0 w-[calc(100%-64px)]'
               : 'fixed top-0 right-0 w-[calc(100%-200px)]'
             : ''"
