@@ -8,7 +8,7 @@ export default [
       {
         path: '',
         name: 'Dashboard',
-        component: () => import('~/pages/dashboard/index.vue'),
+        component: () => import('~/pages/dashboard/index.md'),
         meta: {
           title: '首页',
           requiresAuth: true,
