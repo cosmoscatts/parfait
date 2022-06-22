@@ -1,5 +1,9 @@
 export const baseSettings = reactive<Record<string, any>>({
   /**
+   * the mode of theme - 'dark' | 'light' | 'system'
+   */
+  themeMode: 'dark',
+  /**
    * layout direction - 'vertical' / 'horizontal'
    *
    * @default: 'vertical'
