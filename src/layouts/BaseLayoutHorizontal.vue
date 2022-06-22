@@ -5,7 +5,7 @@ import TheNav from './components/TheNav.vue'
 import TheTags from './components/TheTags.vue'
 import TheRightPanel from './components/TheRightPanel.vue'
 
-const { showTheTags, fixHeader } = storeToRefs(useSettingsStore())
+const { showTheTags, fixHeader } = storeToRefs(useAppStore())
 const rightPanelVisible = ref(false)
 const backTopTarget = computed(() => {
   return fixHeader.value

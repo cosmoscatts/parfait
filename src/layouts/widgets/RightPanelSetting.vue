@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ColorPicker from './ColorPicker.vue'
 
-const settingsStore = useSettingsStore()
+const appStore = useAppStore()
 const {
   layout,
   fixHeader,
@@ -11,7 +11,7 @@ const {
   primaryColor,
   openAnimation,
   animationMode,
-} = settingsStore.getStageVal()
+} = appStore.getStageVal()
 const layoutRadios = [
   { prop: 'vertical', name: '垂直导航', img: '' },
   { prop: 'horizontal', name: '水平导航', img: '' },

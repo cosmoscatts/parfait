@@ -36,7 +36,7 @@ const isVertical = computed(() => {
   return mode === 'vertical'
 })
 const { width } = useWindowSize()
-const { layout } = storeToRefs(useSettingsStore())
+const { layout } = storeToRefs(useAppStore())
 const reactCollapseWidth = computed(() => {
   return layout.value === 'vertical'
     ? collapsedWidth

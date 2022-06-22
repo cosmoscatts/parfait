@@ -19,7 +19,7 @@ useHead({
   ],
 })
 // reset primary color
-const { primaryColor } = storeToRefs(useSettingsStore())
+const { primaryColor } = storeToRefs(useAppStore())
 replacePrimaryColor(primaryColor.value)
 const { appReloading, handleReload } = useReload()
 handleReload(1500)

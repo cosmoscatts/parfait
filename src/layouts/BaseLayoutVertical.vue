@@ -18,7 +18,7 @@ const sideWidth = computed(() => {
     ? 64
     : 200
 })
-const { showTheTags, fixHeader } = storeToRefs(useSettingsStore())
+const { showTheTags, fixHeader } = storeToRefs(useAppStore())
 const rightPanelVisible = ref(false)
 const backTopTarget = computed(() => {
   return fixHeader.value

@@ -9,6 +9,7 @@ export const useAppStore = defineStore(
       bool: menuCollapsed,
       setBool: toggleMenuCollapsed,
     } = useBoolean()
+
     const {
       layout,
       showTheLogo,
@@ -19,6 +20,7 @@ export const useAppStore = defineStore(
       openAnimation,
       animationMode,
     } = toRefs(baseSettings)
+
     // stage the change of style right panel done
     const stage = reactive<Record<string, Ref>>({})
     function buildStage() {
@@ -26,17 +28,21 @@ export const useAppStore = defineStore(
         stage[k] = ref(v)
     }
     buildStage()
+
     function getStageVal() {
       return toRefs(stage)
     }
+
     function updateByStage() {
       for (const [k, v] of Object.entries(toRaw(stage)))
         baseSettings[k] = unref(v)
       replacePrimaryColor(primaryColor.value)
     }
+
     function resetStage() {
       buildStage()
     }
+
     return {
       layout,
       showTheLogo,

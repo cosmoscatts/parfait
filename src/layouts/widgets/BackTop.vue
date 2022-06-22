@@ -5,7 +5,7 @@ const {
 } = defineProps<{
   targetContainer: string
 }>()
-const { fixHeader } = storeToRefs(useSettingsStore())
+const { fixHeader } = storeToRefs(useAppStore())
 // when the fixHeader change, the backTop target not update
 // immediately, so change the key to force update
 let key = $ref(0)

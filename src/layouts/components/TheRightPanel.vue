@@ -13,7 +13,7 @@ let isHovered = $ref(false)
 function onHover(state: boolean) {
   isHovered = state
 }
-const { updateByStage, resetStage } = useSettingsStore()
+const { updateByStage, resetStage } = useAppStore()
 function handleOk() {
   isHovered = false
   updateByStage()

@@ -2,7 +2,7 @@
  * when logout, clear store effects
  */
 export function useLogout() {
-  const { showTheTags, cacheTheTags } = useSettingsStore()
+  const { showTheTags, cacheTheTags } = useAppStore()
   const { removeUser } = useUserStore()
   const { removeAll } = useTagsStore()
   const { removeAppMenus } = usePermissionStore()

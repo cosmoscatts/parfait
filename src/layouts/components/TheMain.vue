@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { cachedPageNames } = storeToRefs(useTagsStore())
-const { openAnimation, animationMode } = storeToRefs(useSettingsStore())
+const { openAnimation, animationMode } = storeToRefs(useAppStore())
 const animateName = computed(() => {
   return unref(openAnimation)
     ? unref(animationMode)

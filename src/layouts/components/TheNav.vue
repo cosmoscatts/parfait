@@ -8,7 +8,7 @@ import Menu from '../widgets/Menu.vue'
 
 const { appMenus } = storeToRefs(usePermissionStore())
 const mode: 'vertical' | 'horizontal' | 'pop' | 'popButton' = 'horizontal'
-const { layout } = storeToRefs(useSettingsStore())
+const { layout } = storeToRefs(useAppStore())
 const isVertical = computed(() => {
   return layout.value === 'vertical'
 })
