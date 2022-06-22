@@ -26,7 +26,7 @@ export const menus: Menu[] = [
   },
   {
     id: 103,
-    title: '文档',
+    title: '代码风格',
     icon: 'file',
     path: '/docs',
   },

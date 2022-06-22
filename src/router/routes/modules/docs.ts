@@ -9,7 +9,7 @@ export default {
       name: 'Docs',
       component: () => import('~/pages/Docs.md'),
       meta: {
-        title: '文档',
+        title: '代码风格',
         requiresAuth: true,
         cached: false,
       },
