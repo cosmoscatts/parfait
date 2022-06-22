@@ -14,9 +14,6 @@ title: 首页
 The starter of Vite, Vue3 Template with Arco Design. Just playing around!
 </p>
 
-<p align="center">
-<a href="https://www.npmjs.com/package/unocss"><img src="https://img.shields.io/npm/v/unocss?color=c95f8b&amp;label=" alt="NPM version"></a></p>
-
 <blockquote align="center">
 <p>💡 I highly recommend this enterprise-level design system - <br><a href="https://arco.design/vue/component/layout"><strong>Arco Design</strong></a><br>for the project behind</p>
 </blockquote>
@@ -25,6 +22,11 @@ The starter of Vite, Vue3 Template with Arco Design. Just playing around!
 <p align="center">
 <a href="https://github.com/faitsse">🤹‍♂️ faitsse</a><br>
 <a href="https://github.com/faitsse/parfait">🐱‍🐉 github</a>
+</p>
+<br>
+
+<p align="center" text-18px>
+✨✨😍😍
 </p>
 <br>
 
