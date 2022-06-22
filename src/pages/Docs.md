@@ -2,7 +2,7 @@
 title: 代码风格
 ---
 
-<div class="mt-1/6 text-center">
+<div class="mt-1/12 text-center">
   <!-- You can use Vue components inside markdown -->
   <div i-carbon-dicom-overlay class="text-4xl -mb-6 m-auto" />
   <h3>关于本项目的一些代码风格及习惯...</h3>
