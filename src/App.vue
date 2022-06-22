@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import WaitForWindowReload from './components/WaitForWindowReload.vue'
 import { replacePrimaryColor } from '~/utils'
 
 useHead({
@@ -23,7 +22,7 @@ useHead({
 const { primaryColor } = storeToRefs(useSettingsStore())
 replacePrimaryColor(primaryColor.value)
 const { appReloading, handleReload } = useReload()
-handleReload()
+handleReload(1500)
 </script>
 
 <template>
