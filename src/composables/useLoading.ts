@@ -1,13 +1,9 @@
 export function useLoading(initValue = false) {
-  const loading = ref(initValue)
-
-  function setLoading(value: boolean) {
-    loading.value = value
-  }
-
-  function toggle() {
-    loading.value = !loading.value
-  }
+  const {
+    bool: loading,
+    setBool: setLoading,
+    toggle,
+  } = useBoolean(initValue)
 
   return {
     loading,
