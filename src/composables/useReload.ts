@@ -1,19 +1,19 @@
 export function useReload() {
-  const { bool: reloadFlag, setTrue, setFalse } = useBoolean(true)
+  const { bool: appReloading, setTrue, setFalse } = useBoolean(true)
 
-  async function handleReload(duration = 0) {
-    setFalse()
+  async function handleReload(duration = 1000) {
+    setTrue()
     await nextTick()
 
     if (duration > 0) {
-      setTimeout(() => {
-        setTrue()
+      useTimeoutFn(() => {
+        setFalse()
       }, duration)
     }
   }
 
   return {
-    reloadFlag,
+    appReloading,
     handleReload,
   }
 }

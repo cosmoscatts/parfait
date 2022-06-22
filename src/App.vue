@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import WaitForWindowReload from './components/WaitForWindowReload.vue'
 import { replacePrimaryColor } from '~/utils'
 
 useHead({
@@ -21,8 +22,11 @@ useHead({
 // reset primary color
 const { primaryColor } = storeToRefs(useSettingsStore())
 replacePrimaryColor(primaryColor.value)
+const { appReloading, handleReload } = useReload()
+handleReload()
 </script>
 
 <template>
-  <RouterView />
+  <WaitForWindowReload v-if="appReloading" />
+  <RouterView v-else />
 </template>

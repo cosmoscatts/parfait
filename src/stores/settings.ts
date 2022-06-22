@@ -5,19 +5,6 @@ import { replacePrimaryColor } from '~/utils'
 export const useSettingsStore = defineStore(
   'settingsStore',
   () => {
-    const route = useRoute()
-    const router = useRouter()
-    const { bool: appLoading, setFalse, setTrue } = useBoolean(true)
-    async function loadPage(path = '/', duration = 1000) {
-      setTrue()
-      router.push({ name: 'WindowLoad' })
-      await nextTick()
-      useTimeoutFn(() => {
-        setFalse()
-        router.push(path)
-      }, duration)
-    }
-    loadPage(route.fullPath)
     const {
       layout,
       showTheLogo,
@@ -47,7 +34,6 @@ export const useSettingsStore = defineStore(
       buildStage()
     }
     return {
-      appLoading,
       layout,
       showTheLogo,
       showTheTags,
