@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { baseSettings } from '~/settings'
 import { replacePrimaryColor } from '~/utils'
 
 useHead({
@@ -18,11 +19,21 @@ useHead({
     },
   ],
 })
+
 // reset primary color
 const { primaryColor } = storeToRefs(useAppStore())
 replacePrimaryColor(primaryColor.value)
 const { appReloading, handleReload } = useReload()
 handleReload(1500)
+
+// when the window unload, remove the tags
+// if do not want cache the tags
+const { removeAll } = useTagsStore()
+useEventListener(window, 'beforeunload', () => {
+  const { showTheTags, cacheTheTags } = baseSettings
+  if (!showTheTags || !cacheTheTags)
+    removeAll()
+})
 </script>
 
 <template>

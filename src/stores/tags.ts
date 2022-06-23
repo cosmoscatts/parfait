@@ -1,16 +1,18 @@
+import type { RemovableRef } from '@vueuse/core'
 import type { Tag } from '~/types'
 import { baseSettings } from '~/settings'
 
+const TAGS_KEY = 'TAGS'
+const tagsOnStorage: RemovableRef<Tag[]> = useStorage(TAGS_KEY, [], localStorage)
 export const useTagsStore = defineStore(
   'tagsStore',
   () => {
     const { showTheTags, cacheTheTags } = baseSettings
     const visitedPages = ref<Tag[]>([])
     // if cache the tags
-    if (showTheTags && cacheTheTags) {
-      const cachedData = JSON.parse(localStorage.getItem('tagsStore')!)
-      visitedPages.value = cachedData?.visitedPages || []
-    }
+    if (showTheTags && cacheTheTags)
+      visitedPages.value = unref(tagsOnStorage) || []
+
     const cachedPageNames = ref<string[]>([])
     function addTag(tag: Tag) {
       const oldPath = visitedPages.value.map(i => i.path)
@@ -62,6 +64,14 @@ export const useTagsStore = defineStore(
         })
       })
     }
+
+    watch(visitedPages, (val) => {
+      if (showTheTags && cacheTheTags)
+        tagsOnStorage.value = val
+
+      else
+        tagsOnStorage.value = []
+    })
 
     return {
       visitedPages,
