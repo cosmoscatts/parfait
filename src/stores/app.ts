@@ -1,14 +1,12 @@
 import type { Ref } from 'vue'
 import { baseSettings } from '~/settings'
-import { replacePrimaryColor } from '~/utils'
+import { cacheAppSettings, replacePrimaryColor, updateFromStorage } from '~/utils'
 
 export const useAppStore = defineStore(
   'appStore',
   () => {
-    const {
-      bool: menuCollapsed,
-      setBool: toggleMenuCollapsed,
-    } = useBoolean()
+    // update the history settings from localStorage
+    updateFromStorage(baseSettings)
 
     const {
       layout,
@@ -36,12 +34,23 @@ export const useAppStore = defineStore(
     function updateByStage() {
       for (const [k, v] of Object.entries(toRaw(stage)))
         baseSettings[k] = unref(v)
+
+      // update the primary color
       replacePrimaryColor(primaryColor.value)
+
+      // write settings to localStorage
+      cacheAppSettings(baseSettings)
     }
 
     function resetStage() {
       buildStage()
     }
+
+    // the collapse state of menu
+    const {
+      bool: menuCollapsed,
+      setBool: toggleMenuCollapsed,
+    } = useBoolean()
 
     return {
       layout,
