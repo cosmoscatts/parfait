@@ -26,8 +26,8 @@ replacePrimaryColor(primaryColor.value)
 const { appReloading, handleReload } = useReload()
 handleReload(1500)
 
-// when the window unload, remove the tags
-// if do not want cache the tags
+// when the window unload, remove the
+// tags if do not want cache the tags
 const { removeAll } = useTagsStore()
 useEventListener(window, 'beforeunload', () => {
   const { showTheTags, cacheTheTags } = baseSettings
