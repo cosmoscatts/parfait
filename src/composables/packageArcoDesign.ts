@@ -4,7 +4,10 @@ import '@arco-design/web-vue/es/modal/style/css.js'
 import { Message as ArcoMessage, Modal as ArcoModal } from '@arco-design/web-vue'
 
 /**
- * repack arco Message, make it global
+ * repack Arco`s Message, make it global.
+ * when we want use Arco`s Message, we
+ * do not need to import them, just use
+ * Message.success('Hello, World!')...
  */
 function useMessage() {
   return {
@@ -30,7 +33,7 @@ function useMessage() {
 }
 
 /**
- * repack arco Modal, make it global
+ * Just like Message
  */
 function useModal() {
   return {
