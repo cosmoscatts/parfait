@@ -4,7 +4,7 @@ export const baseSettings = reactive<Record<string, any>>({
    */
   themeMode: 'dark',
   /**
-   * layout direction - 'vertical' / 'horizontal'
+   * layout direction - 'vertical' | 'horizontal'
    *
    * @default: 'vertical'
    */
@@ -51,4 +51,10 @@ export const baseSettings = reactive<Record<string, any>>({
   animationMode: 'fade-slide',
 })
 
+/**
+ * the mode of theme
+ *  - 'dark': dark mode
+ *  - 'light': light mode
+ *  - 'auto': just follow the system mode
+ */
 export const themeMode: 'dark' | 'light' | 'auto' = 'dark'
