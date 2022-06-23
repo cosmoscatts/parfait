@@ -51,4 +51,4 @@ export const baseSettings = reactive<Record<string, any>>({
   animationMode: 'fade-slide',
 })
 
-export const themeMode: 'dark' | 'light' | 'auto' = 'auto'
+export const themeMode: 'dark' | 'light' | 'auto' = 'dark'

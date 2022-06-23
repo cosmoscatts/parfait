@@ -1,9 +1,8 @@
-import { isDark } from './dark'
 import { themeMode } from '~/settings'
 import { EnumStorageKey } from '~/enum'
 
 const THEME_MODE_KEY = EnumStorageKey.themeMode
-const themeModeOnStorage = useStorage(THEME_MODE_KEY, {}, localStorage)
+const themeModeOnStorage = useStorage(THEME_MODE_KEY, '', localStorage)
 
 function init() {
   console.log('themeMode', themeMode)
@@ -17,13 +16,13 @@ function init() {
   else {
     themeModeOnStorage.value = themeMode
   }
-  const isDark = useDark({
+  const dark = useDark({
     storageKey: THEME_MODE_KEY,
-
   })
   console.log('themeStorage', themeModeOnStorage.value)
-  console.log('isDark', isDark)
-  return isDark
+  console.log('themeStorage2', localStorage.getItem(THEME_MODE_KEY))
+  console.log('isDark', dark)
+  return dark
 }
 
 export const isDark = init()
