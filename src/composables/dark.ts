@@ -1,4 +1,33 @@
-export const isDark = useDark()
+import { isDark } from './dark'
+import { themeMode } from '~/settings'
+import { EnumStorageKey } from '~/enum'
+
+const THEME_MODE_KEY = EnumStorageKey.themeMode
+const themeModeOnStorage = useStorage(THEME_MODE_KEY, {}, localStorage)
+
+function init() {
+  console.log('themeMode', themeMode)
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  console.log('prefer', prefersDark)
+  if (themeMode === 'auto') {
+    themeModeOnStorage.value = prefersDark
+      ? 'dark'
+      : 'light'
+  }
+  else {
+    themeModeOnStorage.value = themeMode
+  }
+  const isDark = useDark({
+    storageKey: THEME_MODE_KEY,
+
+  })
+  console.log('themeStorage', themeModeOnStorage.value)
+  console.log('isDark', isDark)
+  return isDark
+}
+
+export const isDark = init()
+
 export const toggleDark = useToggle(isDark)
 export const preferredDark = usePreferredDark()
 
