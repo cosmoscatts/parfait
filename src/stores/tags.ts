@@ -1,8 +1,9 @@
 import type { RemovableRef } from '@vueuse/core'
 import type { Tag } from '~/types'
 import { baseSettings } from '~/settings'
+import { EnumStorageKey } from '~/enum'
 
-const TAGS_KEY = 'TAGS'
+const TAGS_KEY = EnumStorageKey.tags
 const tagsOnStorage: RemovableRef<Tag[]> = useStorage(TAGS_KEY, [], localStorage)
 export const useTagsStore = defineStore(
   'tagsStore',

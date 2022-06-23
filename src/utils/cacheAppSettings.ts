@@ -1,4 +1,6 @@
-const APP_SETTINGS_KEY = 'APP_SETTINGS'
+import { EnumStorageKey } from '~/enum'
+
+const APP_SETTINGS_KEY = EnumStorageKey.appSettings
 const appSettingsOnStorage = useStorage(APP_SETTINGS_KEY, {}, localStorage)
 
 export function cacheAppSettings(settings = {}) {
