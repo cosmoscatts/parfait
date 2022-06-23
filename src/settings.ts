@@ -50,3 +50,4 @@ export const baseSettings = reactive<Record<string, any>>({
    */
   animationMode: 'fade-slide',
 })
+
