@@ -6,7 +6,8 @@ const THEME_MODE_KEY = EnumStorageKey.themeMode
 function initDark() {
   if (themeMode === 'auto') {
     const prefersDark = window.matchMedia
-                     && window.matchMedia('(prefers-color-scheme: dark)').matches
+                     && window.matchMedia('(prefers-color-scheme: dark)')
+                       .matches
     localStorage.setItem(
       THEME_MODE_KEY,
       prefersDark
