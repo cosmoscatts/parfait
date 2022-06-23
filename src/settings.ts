@@ -59,4 +59,4 @@ export const baseSettings = reactive<Record<string, any>>({
  *
  * @default: 'dark'
  */
-export const themeMode: 'dark' | 'light' | 'auto' = 'auto'
+export const themeMode: 'dark' | 'light' | 'auto' = 'dark'
