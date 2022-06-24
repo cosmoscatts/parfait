@@ -5,6 +5,7 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+<<<<<<< HEAD
     AAvatar: typeof import('@arco-design/web-vue')['Avatar']
     ABackTop: typeof import('@arco-design/web-vue')['BackTop']
     ABreadcrumb: typeof import('@arco-design/web-vue')['Breadcrumb']
@@ -31,6 +32,9 @@ declare module '@vue/runtime-core' {
     ASpin: typeof import('@arco-design/web-vue')['Spin']
     ASubMenu: typeof import('@arco-design/web-vue')['SubMenu']
     ASwitch: typeof import('@arco-design/web-vue')['Switch']
+=======
+    ASpin: typeof import('@arco-design/web-vue')['Spin']
+>>>>>>> 568261931d09e9d927ef060bbd4b5bce9a32afb8
     AvatarUpload: typeof import('./components/AvatarUpload.vue')['default']
     DarkToggle: typeof import('./components/DarkToggle.vue')['default']
     Plum: typeof import('./components/Plum.vue')['default']
