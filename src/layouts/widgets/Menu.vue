@@ -86,7 +86,7 @@ const selectedKeys = computed(() => {
             <RouterLink
               v-for="{ title, path }, sonIdx of children"
               :key="`${idx}_${sonIdx}`"
-              :to="path"
+              :to="path!"
             >
               <a-menu-item :key="path">
                 {{ title }}
@@ -95,7 +95,7 @@ const selectedKeys = computed(() => {
           </a-sub-menu>
         </template>
         <template v-else>
-          <RouterLink :key="idx" :to="path">
+          <RouterLink :key="idx" :to="path!">
             <a-menu-item :key="path">
               <template #icon>
                 <Component :is="iconMap[icon!]" />
