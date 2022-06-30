@@ -78,7 +78,7 @@ function closeOthers(idx: number) {
 <template>
   <div flex="~ gap2" class="px-1.8" relative of="x-auto y-hidden">
     <div
-      v-for="{ title, path, fullPath, query }, idx in tags" :key="idx"
+      v-for="{ title, path, query }, idx in tags" :key="idx"
       h-26px lh-26px wa
       my-4px p="y0 x2" text="white 12px"
       inline-block cursor-pointer
@@ -89,7 +89,7 @@ function closeOthers(idx: number) {
     >
       <a-dropdown trigger="contextMenu" position="bl">
         <RouterLink
-          :to="{ path, query, fullPath }"
+          :to="{ path, query }"
         >
           <span flex justify-center items-center>
             <span v-if="isActive(path)" i-carbon-dot-mark />
