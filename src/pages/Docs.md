@@ -57,6 +57,6 @@ function get() {
 }
 ```
 
-Check out the [GitHub repo](https://github.com/faitsse/parfait) for more details.
+Check out the [GitHub repo](https://github.com/dudiii/parfait) for more details.
 
 <br>

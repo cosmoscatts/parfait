@@ -90,7 +90,7 @@ async function submit({
     </a-form>
     <div flex justify-center items-center>
       <DarkToggle />
-      <span ml-5 op-50 text-xl>🙌🙌 By Faitsse 🙌🙌</span>
+      <span ml-5 op-50 text-xl>🙌🙌 By Duende 🙌🙌</span>
     </div>
   </a-space>
 </template>

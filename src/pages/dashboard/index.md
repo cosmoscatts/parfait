@@ -20,8 +20,8 @@ The starter of Vite, Vue3 Template with Arco Design. Just playing around!
 
 <br>
 <p align="center">
-<a href="https://github.com/faitsse">🤹‍♂️ faitsse</a><br>
-<a href="https://github.com/faitsse/parfait">🐱‍🐉 github</a>
+<a href="https://github.com/dudiii">🤹‍♂️ Duende</a><br>
+<a href="https://github.com/dudiii/parfait">🐱‍🐉 github</a>
 </p>
 <br>
 

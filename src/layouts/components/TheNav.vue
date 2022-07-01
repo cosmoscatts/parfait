@@ -29,7 +29,7 @@ watchEffect(() => {
     <div flex-auto />
     <a
       icon-btn text-lg i-carbon-logo-github mx-3
-      href="https://github.com/faitsse/parfait"
+      href="https://github.com/dudiii/parfait"
       target="_blank" title="GitHub"
     />
     <NavFullScreen mr-3 />
