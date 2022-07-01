@@ -5,7 +5,7 @@ Learn from [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) 
 
 ## Live Demo
 <p align='center'>
-<a href="https://hilarious-mochi-9d140e.netlify.app">Preview</a>
+<a href="https://parfait.netlify.app">Preview</a>
 </p>
 
 ## Features
