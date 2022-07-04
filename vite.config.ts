@@ -1,4 +1,4 @@
-import path from 'path'
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
@@ -16,7 +16,7 @@ const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
+      '~/': `${resolve(__dirname, 'src')}/`,
     },
   },
 
