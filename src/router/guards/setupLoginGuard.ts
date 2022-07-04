@@ -2,7 +2,7 @@ import type { Router } from 'vue-router'
 import NProgress from 'nprogress'
 
 export default function setupLoginGuard(router: Router) {
-  router.beforeEach(async (to, form, next) => {
+  router.beforeEach(async (to, from, next) => {
     NProgress.start()
     const { user } = useUserStore()
     if (user) {
@@ -13,7 +13,7 @@ export default function setupLoginGuard(router: Router) {
         useLogout()
         Message.error('请联系管理员配置用户角色')
         next('/login')
-        if (form.name === 'Login') {
+        if (from.name === 'Login') {
           useTimeoutFn(() => {
             NProgress.done()
           }, 200)
