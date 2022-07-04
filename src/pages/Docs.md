@@ -9,16 +9,16 @@ title: 代码风格
 </div>
 
 <blockquote align="center">
-<p>💡 关于 JS 代码规范可参考 - <br><a href="https://github.com/BingKui/javascript-zh"><strong>Airbnb JavaScript 代码规范</strong></a><br>里面很详细.</p>
+<p>💡 关于 JS 代码规范可参考 - <br><a href="https://github.com/BingKui/javascript-zh"><strong>Airbnb JavaScript 代码规范</strong></a>里面很详细.</p>
 </blockquote>
 
 #### 文件夹
-<p align="center">
+<p>
 文件夹名称格式为`system-user`, 小写加`-`
 </p>
 
 #### 文件
-<p align="center">
+<p>
 文件名称格式为驼峰命名<br>
 例如: useBoolean.ts<br>
 </p>
