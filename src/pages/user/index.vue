@@ -90,7 +90,7 @@ function saveUser(data: Record<string, any>) {
           <a-table-column
             title="序号"
             data-index="number"
-            :cell-style="{ 'text-align': 'center' }"
+            align="center"
           >
             <template #cell="{ rowIndex }">
               {{ formatRowIndex(rowIndex) }}
@@ -99,17 +99,17 @@ function saveUser(data: Record<string, any>) {
           <a-table-column
             title="账号"
             data-index="username"
-            :cell-style="{ 'text-align': 'center' }"
+            align="center"
           />
           <a-table-column
             title="名称"
             data-index="name"
-            :cell-style="{ 'text-align': 'center' }"
+            align="center"
           />
           <a-table-column
             title="角色"
             data-index="roleId"
-            :cell-style="{ 'text-align': 'center' }"
+            align="center"
           >
             <template #cell="{ record }">
               {{ record?.role?.name || '无' }}
@@ -118,17 +118,17 @@ function saveUser(data: Record<string, any>) {
           <a-table-column
             title="手机号"
             data-index="phone"
-            :cell-style="{ 'text-align': 'center' }"
+            align="center"
           />
           <a-table-column
             title="邮箱"
             data-index="email"
-            :cell-style="{ 'text-align': 'center' }"
+            align="center"
           />
           <a-table-column
             title="创建时间"
             data-index="createTime"
-            :cell-style="{ 'text-align': 'center' }"
+            align="center"
           >
             <template #cell="{ record }">
               {{ formartDate(record.createTime) }}
@@ -137,7 +137,7 @@ function saveUser(data: Record<string, any>) {
           <a-table-column
             title="操作"
             data-index="operations"
-            :cell-style="{ 'text-align': 'center' }"
+            align="center"
           >
             <template #cell="{ record }">
               <a-button type="text" size="small" @click="showUserModal('edit', record)">
