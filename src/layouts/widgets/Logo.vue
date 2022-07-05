@@ -3,11 +3,10 @@ import logo from '~/assets/logo.svg'
 
 const title = 'Parfait'
 const appstore = useAppStore()
-const { menuCollapsed } = storeToRefs(appstore)
+const { menuCollapsed, layout, showTheLogo } = storeToRefs(appstore)
 const { toggleMenuCollapsed } = appstore
 const { width } = useWindowSize()
 let hiddenTitle = $ref(false)
-const { layout, showTheLogo } = storeToRefs(useAppStore())
 watchEffect(() => {
   // when the screen width less than 1200px, hide the title
   hiddenTitle = width.value < 1200
