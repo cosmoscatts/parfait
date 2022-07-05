@@ -26,7 +26,7 @@ The starter of Vite, Vue3 Template with Arco Design. Just playing around!
 <br>
 
 <p align="center" text-18px>
-✨✨😍😍
+✨✨ :P 😍😍
 </p>
 <br>
 
