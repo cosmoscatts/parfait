@@ -3,7 +3,8 @@ import NProgress from 'nprogress'
 
 export default function setupLoginGuard(router: Router) {
   router.beforeEach(async (to, from, next) => {
-    NProgress.start()
+    if (!to.path.startsWith('/redirect'))
+      NProgress.start()
     const { user } = useUserStore()
     if (user) {
       if (user.roleId) {
