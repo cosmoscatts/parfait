@@ -17,6 +17,9 @@ function reset() {
   formModel.value = ref(generateFormModel()) as any
 }
 
+// whether hide the form label
+const lableHidden = isLabelHidden
+
 defineExpose({
   formModel,
 })
@@ -32,23 +35,23 @@ defineExpose({
         label-align="left"
       >
         <a-row :gutter="16">
-          <a-col :span="8">
-            <a-form-item field="name" label="名称">
+          <a-col :xs="12" :lg="8">
+            <a-form-item field="name" label="名称" :hide-label="lableHidden">
               <a-input
                 v-model="formModel.name"
                 placeholder="请输入名称"
               />
             </a-form-item>
           </a-col>
-          <a-col :span="8">
-            <a-form-item field="createTime" label="创建时间">
+          <a-col :xs="12" :lg="8">
+            <a-form-item field="createTime" label="创建时间" :hide-label="lableHidden">
               <a-range-picker
                 v-model="formModel.createTime"
                 w-full
               />
             </a-form-item>
           </a-col>
-          <a-col :span="8" />
+          <a-col :xs="0" :lg="8" />
         </a-row>
       </a-form>
     </a-col>
