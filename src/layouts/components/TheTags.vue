@@ -91,7 +91,7 @@ function closeOthers(idx: number) {
         <RouterLink
           :to="{ path, query }"
         >
-          <span flex justify-center items-center>
+          <span flex="~ nowrap" justify-center items-center lt-sm="!min-w-70px">
             <span v-if="isActive(path)" i-carbon-dot-mark />
             {{ title }}
             <span icon-btn i-carbon-close-filled hover="!bg-white" ml-1 @click.prevent="closeTag(idx)" />
@@ -115,3 +115,23 @@ function closeOthers(idx: number) {
     </div>
   </div>
 </template>
+
+<style scoped>
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 6px;
+}
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+  background: var(--c-bg);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-hover);
+}
+</style>
