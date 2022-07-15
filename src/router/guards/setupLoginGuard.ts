@@ -27,6 +27,8 @@ export default function setupLoginGuard(router: Router) {
         return
       }
       next('/login')
+      if (from.name === 'Login')
+        NProgress.done()
     }
   })
 }

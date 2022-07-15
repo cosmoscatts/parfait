@@ -27,6 +27,9 @@ function reset() {
   formModel.value = ref(generateFormModel()) as any
 }
 
+// whether hide the form label
+const lableHidden = isLabelHidden
+
 defineExpose({
   formModel,
 })
@@ -43,7 +46,7 @@ defineExpose({
       >
         <a-row :gutter="16">
           <a-col :span="8">
-            <a-form-item field="username" label="账号">
+            <a-form-item field="username" label="账号" :hide-label="lableHidden">
               <a-input
                 v-model="formModel.username"
                 placeholder="请输入用户账号"
@@ -52,7 +55,7 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="name" label="名称">
+            <a-form-item field="name" label="名称" :hide-label="lableHidden">
               <a-input
                 v-model="formModel.name"
                 placeholder="请输入名称"
@@ -61,7 +64,7 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="phone" label="手机号">
+            <a-form-item field="phone" label="手机号" :hide-label="lableHidden">
               <a-input
                 v-model="formModel.phone"
                 placeholder="请输入手机号"
@@ -70,7 +73,7 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="roleId" label="角色">
+            <a-form-item field="roleId" label="角色" :hide-label="lableHidden">
               <a-select
                 v-model="formModel.roleId"
                 :options="roleOptions"
@@ -80,7 +83,7 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="email" label="电子邮箱">
+            <a-form-item field="email" label="电子邮箱" :hide-label="lableHidden">
               <a-input
                 v-model="formModel.email"
                 placeholder="请输入电子邮箱"
@@ -89,7 +92,7 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="createTime" label="创建时间">
+            <a-form-item field="createTime" label="创建时间" :hide-label="lableHidden">
               <a-range-picker
                 v-model="formModel.createTime"
                 w-full allow-clear
