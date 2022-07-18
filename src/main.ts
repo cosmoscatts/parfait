@@ -7,7 +7,7 @@ import './styles/markdown.css'
 import 'uno.css'
 
 function init(app: any) {
-  Object.values(import.meta.globEager('./modules/*.ts'))
+  Object.values(import.meta.glob<{ default: { install: any } }>('./modules/*.ts', { eager: true }))
     .map(i => i.default)
     .forEach(i => i.install?.(app))
   app.mount('#app')
