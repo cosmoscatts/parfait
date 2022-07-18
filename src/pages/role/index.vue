@@ -50,7 +50,7 @@ function formatRowIndex(idx: number) {
 <template>
   <div>
     <a-card title="查询角色">
-      <RoleSearchForm ref="refSearchForm" @fetchData="fetchRoleData" />
+      <RoleSearchForm ref="refSearchForm" @fetch-data="fetchRoleData" />
       <a-table
         row-key="id"
         :loading="loading"

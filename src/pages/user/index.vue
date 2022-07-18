@@ -77,7 +77,7 @@ function saveUser(data: Record<string, any>) {
 <template>
   <div>
     <a-card title="查询用户">
-      <UserSearchForm ref="refSearchForm" :role-options="roleOptions" @fetchData="fetchTableData" />
+      <UserSearchForm ref="refSearchForm" :role-options="roleOptions" @fetch-data="fetchTableData" />
       <a-table
         row-key="id"
         :loading="loading"
