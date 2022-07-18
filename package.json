@@ -36,7 +36,6 @@
     "@unocss/preset-icons": "^0.44.3",
     "@unocss/preset-wind": "^0.44.3",
     "@vitejs/plugin-vue": "^3.0.0",
-    "@yankeeinlondon/happy-wrapper": "2.1.0",
     "eslint": "^8.20.0",
     "markdown-it": "^13.0.1",
     "markdown-it-link-attributes": "^4.0.0",
@@ -46,7 +45,7 @@
     "unplugin-auto-import": "^0.9.3",
     "unplugin-vue-components": "^0.21.1",
     "vite": "^3.0.0",
-    "vite-plugin-md": "^0.18.1",
+    "vite-plugin-vue-markdown": "^0.20.1",
     "vue-tsc": "^0.38.8"
   }
 }
