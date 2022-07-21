@@ -1,7 +1,6 @@
 import router from '~/router'
+import type { UserModule } from '~/types'
 
-export default {
-  install(app: any) {
-    app.use(router)
-  },
+export const install: UserModule = ({ use }) => {
+  use(router)
 }

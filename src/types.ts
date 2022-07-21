@@ -1,3 +1,6 @@
+import type { App } from 'vue'
+export type UserModule = (app: App) => void
+
 export * from '~/types/user'
 export * from '~/types/role'
 export * from '~/types/menu'

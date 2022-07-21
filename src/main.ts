@@ -1,4 +1,5 @@
 import App from './App.vue'
+import type { UserModule } from './types'
 
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
@@ -7,8 +8,7 @@ import './styles/markdown.css'
 import 'uno.css'
 
 function init(app: any) {
-  Object.values(import.meta.glob<{ default: { install: any } }>('./modules/*.ts', { eager: true }))
-    .map(i => i.default)
+  Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
     .forEach(i => i.install?.(app))
   app.mount('#app')
 }
