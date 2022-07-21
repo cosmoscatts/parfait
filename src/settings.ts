@@ -24,7 +24,7 @@ export const baseSettings = reactive<Record<string, any>>({
    */
   cacheTheTags: true,
   /**
-   * whether show the header
+   * whether fix the header
    *
    * @default: true
    */
