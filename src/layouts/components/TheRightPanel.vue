@@ -35,7 +35,7 @@ function onClick() {
     <a-button
       v-if="!visible"
       v-element-hover="onHover" fixed
-      class="bottom-30% right-3%" shadow-md
+      class="bottom-25% right-3% lt-md:!right-5%" shadow-md
       :shape="isHovered ? 'round' : 'circle'"
       size="large" @click="onClick()"
     >

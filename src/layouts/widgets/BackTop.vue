@@ -19,7 +19,7 @@ watch(fixHeader, () => {
   <a-back-top :key="key" :target-container="targetContainer">
     <a-button
       fixed shadow-md
-      class="bottom-23% lt-lg:!bottom-18% xs:!bottom-10% right-3%"
+      class="bottom-18% lt-lg:!bottom-15% right-3% lt-md:!right-5%"
       size="large" shape="circle"
     >
       <icon-to-top />
