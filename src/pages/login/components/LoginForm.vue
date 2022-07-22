@@ -28,6 +28,7 @@ async function submit({
     username: 'admin',
     name: 'admin',
     roleId: 1,
+    createTime: new Date(),
   })
   useTimeoutFn(() => {
     router.push('/foo')
