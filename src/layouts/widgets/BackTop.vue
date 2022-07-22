@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { IconToTop } from '@arco-design/web-vue/es/icon'
+
 const {
   targetContainer = '',
 } = defineProps<{
