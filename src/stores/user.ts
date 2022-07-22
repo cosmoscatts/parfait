@@ -16,6 +16,12 @@ export const useUserStore = defineStore(
       user.value = _user
     }
     /**
+     * update user avatar
+     */
+    function updateAvatar(avatar: string) {
+      user.value!.avatar = avatar
+    }
+    /**
      * remove the user.
      */
     function removeUser() {
@@ -25,6 +31,7 @@ export const useUserStore = defineStore(
     return {
       user,
       updateUser,
+      updateAvatar,
       removeUser,
     }
   },
