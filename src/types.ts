@@ -2,10 +2,10 @@ import type { App } from 'vue'
 export type UserModule = (app: App) => void
 export type { App as AppContext }
 
-export * from '~/types/user'
-export * from '~/types/role'
-export * from '~/types/menu'
-export * from '~/types/tag'
-export * from '~/types/arco'
-export * from '~/types/global'
+export * from '~/typings/user'
+export * from '~/typings/role'
+export * from '~/typings/menu'
+export * from '~/typings/tag'
+export * from '~/typings/arco'
+export * from '~/typings/global'
 
