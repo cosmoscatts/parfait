@@ -81,7 +81,7 @@ function saveUser(data: Record<string, any>) {
       <a-table
         row-key="id"
         :loading="loading"
-        :pagination="pagination"
+        :pagination="pagination.total! > pagination.pageSize ? pagination : false"
         :data="tabledata"
         :bordered="false"
         @page-change="onPageChange"
