@@ -1,38 +1,37 @@
-import {
-  defineConfig,
-  presetAttributify,
-  presetIcons,
-  presetTypography,
-  presetUno,
-  presetWebFonts,
-  transformerDirectives,
-  transformerVariantGroup,
-} from 'unocss'
+import { defineConfig, presetAttributify, presetIcons, presetUno, presetWebFonts, presetWind } from 'unocss'
 
+// https://github.com/antfu/unocss
+// see unocss.config.ts for config
 export default defineConfig({
-  shortcuts: [
-    ['btn', 'px-4 py-1 rounded inline-block bg-teal-700 text-white cursor-pointer hover:bg-teal-800 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
-    ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],
-  ],
+  shortcuts: {
+    'border-base': 'border-gray/20 dark:border-gray/15',
+    'bg-base': 'bg-gray:15 dark:bg-[#17171A]',
+    'bg-card': 'bg-white dark:bg-[#2A2A2B]',
+    'bg-header': 'bg-white dark:bg-[#232324]',
+    'bg-sider': 'bg-white dark:bg-[#232324]',
+    'icon-btn': 'op30 hover:op100 hover:bg-[rgb(var(--primary-6))]',
+  },
   presets: [
-    presetUno(),
     presetAttributify(),
+    presetUno(),
     presetIcons({
       scale: 1.2,
-      warn: true,
     }),
-    presetTypography(),
+    presetWind(),
     presetWebFonts({
       fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
+        sans: 'Inter',
         mono: 'DM Mono',
       },
     }),
   ],
-  transformers: [
-    transformerDirectives(),
-    transformerVariantGroup(),
-  ],
-  safelist: 'prose prose-sm m-auto text-left'.split(' '),
+  theme: {
+    breakpoints: {
+      xs: '320px',
+      sm: '640px',
+      md: '768px',
+      lg: '1280px',
+      xl: '1536px',
+    },
+  },
 })

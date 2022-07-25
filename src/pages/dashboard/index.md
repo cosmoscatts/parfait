@@ -1,7 +1,3 @@
----
-title: 首页
----
-
 <br>
 
 <p align="center">
@@ -14,21 +10,16 @@ title: 首页
 The starter of Vite, Vue3 Template with Arco Design. Just playing around!
 </p>
 
-<blockquote align="center">
-<p>💡 I highly recommend this enterprise-level design system - <br><a href="https://arco.design/vue/component/layout"><strong>Arco Design</strong></a><br>for the project behind</p>
-</blockquote>
+<p align="center">💡 I highly recommend this enterprise-level design system - <br><a href="https://arco.design/vue/component/layout"><strong>Arco Design</strong></a> for the project behind</p>
 
-<br>
 <p align="center">
 <a href="https://github.com/dud9">🤹‍♂️ Duende</a><br>
 <a href="https://github.com/dud9/parfait">🐱‍🐉 github</a>
 </p>
-<br>
 
 <p align="center" text-18px>
 ✨✨ :P 😍😍
 </p>
-<br>
 
 ## Features
 
@@ -59,8 +50,6 @@ The starter of Vite, Vue3 Template with Arco Design. Just playing around!
  🦾 TypeScript, of course
 
  ☁️ Deploy on Netlify, zero-config [Netlify](https://www.netlify.com)
-
-###### cd ..
 
 <br>
 <br>
