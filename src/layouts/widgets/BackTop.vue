@@ -22,7 +22,7 @@ watch(fixHeader, () => {
       class="bottom-18% lt-lg:!bottom-15% right-3% lt-md:!right-5%"
       size="large" shape="circle"
     >
-      <icon-to-top />
+      <IconToTop :stroke-width="8" />
     </a-button>
   </a-back-top>
 </template>

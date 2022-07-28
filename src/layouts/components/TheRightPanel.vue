@@ -39,7 +39,7 @@ function onClick() {
       :shape="isHovered ? 'round' : 'circle'"
       size="large" @click="onClick()"
     >
-      <icon-skin />
+      <IconSkin :stroke-width="6" />
       <span v-if="isHovered" ml-3>页面风格</span>
     </a-button>
     <a-drawer
