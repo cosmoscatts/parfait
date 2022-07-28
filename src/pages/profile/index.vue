@@ -12,7 +12,6 @@ function changeTabIdx(key: any) {
 
 <template>
   <div>
-    <PageHeader />
     <a-row mb-16px>
       <a-col :span="24">
         <UserPanel />
