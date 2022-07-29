@@ -18,6 +18,12 @@ export const baseSettings = reactive<Record<string, any>>({
    */
   showTheTags: true,
   /**
+   * the shape of the tag button - 'default' | 'chrome'
+   *
+   * @default: 'chrome'
+   */
+  tagButtonShape: 'chrome',
+  /**
    * whether cache the tags view
    *
    * @default: true
