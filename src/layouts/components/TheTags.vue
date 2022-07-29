@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { IconCloseCircle, IconRefresh } from '@arco-design/web-vue/es/icon'
+import TagButtonDefault from '../widgets/TagButtonDefault.vue'
 
 const tagsStore = useTagsStore()
 const tags = $computed(() => {
@@ -79,24 +80,21 @@ function closeOthers(idx: number) {
   <div flex="~ gap2" class="px-1.8" relative of="x-auto y-hidden">
     <div
       v-for="{ title, path, query }, idx in tags" :key="idx"
-      h-26px lh-26px wa
-      my-4px p="y0 x2" text="[var(--color-neutral-10)] dark:white 12px"
-      inline-block cursor-pointer
-      bg="[var(--color-primary-light-3)]"
-      :class="isActive(path)
-        ? '!bg-[rgb(var(--primary-6))] dark:!bg-[rgb(var(--primary-3))]'
-        : ''"
+      h-26px lh-26px wa my-7px p-0 inline-block cursor-pointer
     >
       <a-dropdown trigger="contextMenu" position="bl">
         <RouterLink
           :to="{ path, query }"
         >
-          <span flex="~ nowrap" justify-center items-center lt-sm="!min-w-70px">
-            <span v-if="isActive(path)" i-ri-price-tag-3-fill mr-1 />
-            <span v-else i-ri-price-tag-3-line mr-1 />
-            {{ title }}
-            <span icon-btn i-carbon-close-filled hover="!bg-white" ml-1 @click.prevent="closeTag(idx)" />
-          </span>
+          <TagButtonDefault :title="title" :is-active="isActive(path)">
+            <template #close>
+              <span
+                icon-btn ml-1
+                i-ri-close-fill hover="i-carbon-close-filled !text-[rgb(var(--primary-6))]"
+                @click.prevent="closeTag(idx)"
+              />
+            </template>
+          </TagButtonDefault>
         </RouterLink>
         <template #content>
           <a-doption @click="refresh(idx)">
