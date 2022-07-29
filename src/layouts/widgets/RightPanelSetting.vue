@@ -7,6 +7,7 @@ const {
   fixHeader,
   showTheLogo,
   showTheTags,
+  tagButtonShape,
   cacheTheTags,
   primaryColor,
   openAnimation,
@@ -21,6 +22,7 @@ const switchRect = reactive<any>({
   fixHeader,
   showTheLogo,
   showTheTags,
+  tagButtonShape,
   cacheTheTags,
   openAnimation,
   animationMode,
@@ -30,6 +32,7 @@ const switchItems = [
   { name: '页面Logo', prop: 'showTheLogo', type: 'switch', dependOn: undefined },
   { name: '固定页头', prop: 'fixHeader', type: 'switch', dependOn: undefined },
   { name: '多页签导航', prop: 'showTheTags', type: 'switch', dependOn: undefined },
+  { name: '多页签风格', prop: 'tagButtonShape', type: 'select', dependOn: 'showTheTags' },
   { name: '多页签缓存', prop: 'cacheTheTags', type: 'switch', dependOn: 'showTheTags' },
   { name: '页面切换动画', prop: 'openAnimation', type: 'switch', dependOn: undefined },
   { name: '页面切换动画类型', prop: 'animationMode', type: 'select', dependOn: 'openAnimation' },
@@ -49,6 +52,10 @@ const selectOptions: Record<string, any> = {
     { label: '缩放消退', value: 'fade-scale' },
     { label: '渐变', value: 'zoom-fade' },
     { label: '闪现', value: 'zoom-out' },
+  ],
+  tagButtonShape: [
+    { label: '按钮风格', value: 'default' },
+    { label: '谷歌风格', value: 'chrome' },
   ],
 }
 </script>
