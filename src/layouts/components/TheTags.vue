@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { IconCloseCircle, IconRefresh } from '@arco-design/web-vue/es/icon'
 import TagButtonDefault from '../widgets/TagButtonDefault.vue'
+import TagButtonChrome from '../widgets/TagButtonChrome.vue'
+
+const { tagButtonShape } = storeToRefs(useAppStore())
 
 const tagsStore = useTagsStore()
 const tags = $computed(() => {
   return tagsStore.visitedPages || []
 })
+
 const route = useRoute()
 function addTag() {
   const { name, meta: { title, cached }, path, fullPath, query } = route
@@ -86,7 +90,7 @@ function closeOthers(idx: number) {
         <RouterLink
           :to="{ path, query }"
         >
-          <TagButtonDefault :title="title" :is-active="isActive(path)">
+          <TagButtonDefault v-if="tagButtonShape === 'default'" :title="title" :is-active="isActive(path)">
             <template #close>
               <span
                 icon-btn ml-1
@@ -95,6 +99,15 @@ function closeOthers(idx: number) {
               />
             </template>
           </TagButtonDefault>
+          <TagButtonChrome v-else :title="title" :is-active="isActive(path)" :is-last="idx === tags.length - 1">
+            <template #close>
+              <span
+                icon-btn ml-1 z-2
+                i-ri-close-fill hover="i-carbon-close-filled"
+                @click.prevent="closeTag(idx)"
+              />
+            </template>
+          </TagButtonChrome>
         </RouterLink>
         <template #content>
           <a-doption @click="refresh(idx)">
