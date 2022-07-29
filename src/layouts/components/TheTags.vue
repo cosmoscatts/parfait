@@ -93,8 +93,7 @@ function closeOthers(idx: number) {
           <TagButtonDefault v-if="tagButtonShape === 'default'" :title="title" :is-active="isActive(path)">
             <template #close>
               <span
-                icon-btn ml-1
-                i-ri-close-fill hover="i-carbon-close-filled !text-[rgb(var(--primary-6))]"
+                i-ri-close-fill hover="i-carbon-close-filled" ml-1
                 @click.prevent="closeTag(idx)"
               />
             </template>
@@ -102,8 +101,8 @@ function closeOthers(idx: number) {
           <TagButtonChrome v-else :title="title" :is-active="isActive(path)" :is-last="idx === tags.length - 1">
             <template #close>
               <span
-                icon-btn ml-1 z-2
-                i-ri-close-fill hover="i-carbon-close-filled"
+                i-ri-close-fill hover="i-carbon-close-filled" ml-1 z-2
+                :class="{ '!text-[rgb(var(--primary-6))]': isActive(path) }"
                 @click.prevent="closeTag(idx)"
               />
             </template>

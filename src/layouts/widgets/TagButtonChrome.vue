@@ -33,7 +33,7 @@ const primaryColor = computed(() => {
 
 <template>
   <div
-    ref="refTag" text="stone-600 dark:white"
+    ref="refTag" text="stone-600 dark:light-600/80"
     relative flex-inline items-center h-34px px-24px m="r-[-28px]" cursor-pointer
     :class="{ 'z-10': isActive, 'z-9': isHovered, '!text-[rgb(var(--primary-6))]': isActive }"
   >
