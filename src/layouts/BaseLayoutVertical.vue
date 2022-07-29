@@ -50,7 +50,7 @@ const backTopTarget = computed(() => {
             : ''"
       >
         <TheNav w-full h-50px bg-transparent />
-        <TheTags v-show="showTheTags" w-full h-34px bg-transparent />
+        <TheTags v-show="showTheTags" w-full h-40px bg-transparent />
       </a-layout-header>
       <a-layout
         id="content-wrapper"
@@ -58,7 +58,7 @@ const backTopTarget = computed(() => {
         :class="
           fixHeader
             ? showTheTags
-              ? 'of-x-hidden of-y-auto !mt-84px'
+              ? 'of-x-hidden of-y-auto !mt-90px'
               : 'of-x-hidden of-y-auto !mt-50px'
             : '' "
       >
