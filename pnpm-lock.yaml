@@ -15,6 +15,7 @@ specifiers:
   '@vueuse/core': ^9.0.0
   '@vueuse/head': ^0.7.7
   axios: ^0.27.2
+  colord: ^2.9.2
   critters: ^0.0.16
   dayjs: ^1.11.4
   eslint: ^8.20.0
@@ -41,6 +42,7 @@ dependencies:
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/9.0.0_vue@3.2.37
   '@vueuse/head': registry.npmmirror.com/@vueuse/head/0.7.7_vue@3.2.37
   axios: registry.npmmirror.com/axios/0.27.2
+  colord: registry.npmmirror.com/colord/2.9.2
   critters: registry.npmmirror.com/critters/0.0.16
   dayjs: registry.npmmirror.com/dayjs/1.11.4
   mitt: registry.npmmirror.com/mitt/3.0.0
@@ -1448,6 +1450,12 @@ packages:
       color-convert: registry.npmmirror.com/color-convert/1.9.3
       color-string: registry.npmmirror.com/color-string/1.9.1
     dev: true
+
+  registry.npmmirror.com/colord/2.9.2:
+    resolution: {integrity: sha512-Uqbg+J445nc1TKn4FoDPS6ZZqAvEDnwrH42yo8B40JSOgSLxMZ/gt3h4nmCtPLQeXhjJJkqBx7SCY35WnIixaQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/colord/-/colord-2.9.2.tgz}
+    name: colord
+    version: 2.9.2
+    dev: false
 
   registry.npmmirror.com/colorette/2.0.19:
     resolution: {integrity: sha512-3tlv/dIP7FWvj3BsbHrGLJ6l/oKh1O3TcgBqMn+yyCagOxc23fyzDS6HypQbgxWbkpDnf52p1LuR4eWDQ/K9WQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/colorette/-/colorette-2.0.19.tgz}
