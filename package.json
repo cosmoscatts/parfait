@@ -28,9 +28,9 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
     "@arco-design/web-vue": "^2.33.1",
-    "@iconify/json": "^2.1.84",
+    "@iconify/json": "^2.1.85",
     "@types/markdown-it-link-attributes": "^3.0.1",
-    "@types/node": "^18.6.1",
+    "@types/node": "^18.6.2",
     "@types/nprogress": "^0.2.0",
     "@unocss/preset-icons": "^0.44.7",
     "@unocss/preset-wind": "^0.44.7",
@@ -45,6 +45,6 @@
     "unplugin-vue-components": "^0.21.2",
     "vite": "^3.0.3",
     "vite-plugin-vue-markdown": "^0.20.1",
-    "vue-tsc": "^0.39.0"
+    "vue-tsc": "^0.39.2"
   }
 }
