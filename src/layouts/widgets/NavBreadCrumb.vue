@@ -29,7 +29,7 @@ watch(
 <template>
   <a-breadcrumb
     v-if="metadata.length"
-    :max-count="maxCount" op50
+    :max-count="maxCount" op-80
   >
     <template #separator>
       <div i-carbon-plane-private bg="black dark:white" />
