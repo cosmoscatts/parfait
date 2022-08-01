@@ -31,6 +31,8 @@ watch(() => route.path, () => {
 function isActive(path?: string) {
   if (!path)
     return false
+  if (route.path.startsWith('/redirect'))
+    return `/redirect${path}` === route.path
   return path === route.path
 }
 const router = useRouter()
