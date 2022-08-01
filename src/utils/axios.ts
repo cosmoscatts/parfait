@@ -14,6 +14,8 @@ function createAxios() {
       return config
     },
     (e: any) => {
+      router.push(ERROR_PAGE)
+      Message.error('请求异常')
       Promise.reject(e).then(() => console.error(e))
     },
   )
