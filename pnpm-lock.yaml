@@ -15,6 +15,7 @@ specifiers:
   '@vueuse/core': ^9.0.2
   '@vueuse/head': ^0.7.8
   axios: ^0.27.2
+  b-tween: ^0.3.3
   colord: ^2.9.2
   critters: ^0.0.16
   dayjs: ^1.11.4
@@ -42,6 +43,7 @@ dependencies:
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/9.0.2_vue@3.2.37
   '@vueuse/head': registry.npmmirror.com/@vueuse/head/0.7.8_vue@3.2.37
   axios: registry.npmmirror.com/axios/0.27.2
+  b-tween: registry.npmmirror.com/b-tween/0.3.3
   colord: registry.npmmirror.com/colord/2.9.2
   critters: registry.npmmirror.com/critters/0.0.16
   dayjs: registry.npmmirror.com/dayjs/1.11.4
@@ -1263,7 +1265,6 @@ packages:
     resolution: {integrity: sha512-oEHegcRpA7fAuc9KC4nktucuZn2aS8htymCPcP3qkEGPqiBH+GfqtqoG2l7LxHngg6O0HFM7hOeOYExl1Oz4ZA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/b-tween/-/b-tween-0.3.3.tgz}
     name: b-tween
     version: 0.3.3
-    dev: true
 
   registry.npmmirror.com/b-validate/1.4.0:
     resolution: {integrity: sha512-oSXHKWXisRFuHnmNr5QXsg9JoyUTRCfBbM4hAcAqDjAO1jeV7aQXTkzS7O2WVDDHlnGeqH7v5Im4Z+eKU1x5Mw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/b-validate/-/b-validate-1.4.0.tgz}
