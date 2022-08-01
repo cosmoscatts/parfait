@@ -53,6 +53,7 @@ declare module '@vue/runtime-core' {
     Plum: typeof import('./components/Plum.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScrollWrapper: typeof import('./components/ScrollWrapper.vue')['default']
     WaitForWindowReload: typeof import('./components/WaitForWindowReload.vue')['default']
   }
 }

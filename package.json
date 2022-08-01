@@ -11,6 +11,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@better-scroll/core": "^2.4.2",
     "@unocss/reset": "^0.45.1",
     "@vueuse/components": "^9.0.2",
     "@vueuse/core": "^9.0.2",
