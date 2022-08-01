@@ -24,7 +24,7 @@ useHead({
 const { primaryColor } = storeToRefs(useAppStore())
 replacePrimaryColor(primaryColor.value)
 const { appReloading, handleReload } = useReload()
-handleReload(1500)
+handleReload(1200)
 
 // when the window unload, remove the
 // tags if do not want cache the tags
