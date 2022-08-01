@@ -1,8 +1,13 @@
 <script setup lang="ts">
+const router = useRouter()
 const { params: { path }, query } = useRoute()
-useRouter().replace({ path: `/${path}`, query })
+useTimeoutFn(() => {
+  router.replace({ path: `/${path}`, query })
+}, 1000)
 </script>
 
 <template>
-  <div />
+  <div w-full h-full flex justify-center items-center>
+    <a-spin dot :size="24" />
+  </div>
 </template>
