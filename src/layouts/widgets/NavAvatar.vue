@@ -43,7 +43,7 @@ const avatar = computed(() => {
         </a-doption>
         <a-doption value="2">
           <template #icon>
-            <div i-carbon-touch-1-down-filled bg-red />
+            <div i-carbon-touch-1-filled bg-red />
           </template>
           退出登录
         </a-doption>
