@@ -88,7 +88,7 @@ function closeOthers(idx: number) {
     <div
       v-for="{ title, path, query }, idx in tags" :key="idx"
       h-26px lh-26px wa flex-inline items-center cursor-pointer
-      :class="{ ha: tagButtonShape !== 'default' }"
+      :class="{ 'ha max-h-full': tagButtonShape !== 'default' }"
     >
       <a-dropdown trigger="contextMenu" position="bl">
         <RouterLink
