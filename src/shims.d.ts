@@ -15,3 +15,5 @@ declare module '*.vue' {
   export default component
 }
 
+declare module 'b-tween'
+
