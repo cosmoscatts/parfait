@@ -1,4 +1,6 @@
 @import './transition.css';
+@import './prose.css';
+@import './markdown.css';
 
 :root {
   --c-bg: #F0F1F3;
