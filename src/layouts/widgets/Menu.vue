@@ -84,12 +84,12 @@ const selectedKeys = computed(() => {
               {{ title }}
             </template>
             <RouterLink
-              v-for="{ title, path }, sonIdx of children"
-              :key="`${idx}_${sonIdx}`"
-              :to="path!"
+              v-for="{ title: childTitle, path: childPath }, childIdx of children"
+              :key="`${idx}_${childIdx}`"
+              :to="childPath!"
             >
-              <a-menu-item :key="path">
-                {{ title }}
+              <a-menu-item :key="childPath">
+                {{ childTitle }}
               </a-menu-item>
             </RouterLink>
           </a-sub-menu>
