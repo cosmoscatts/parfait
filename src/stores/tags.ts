@@ -56,6 +56,14 @@ export const useTagsStore = defineStore(
         })
       })
     }
+    function removeTagsByList(tagList: Tag[]) {
+      if (tagList.length === 0)
+        return
+      const pathList = tagList.map(i => i.path) || []
+      const restTags = visitedPages.value.filter(i => !pathList.includes(i.path))
+      visitedPages.value = [...restTags]
+      cachedPageNames.value = restTags.filter(i => i.cached).map(i => i.name ?? '') || []
+    }
     function removeAll() {
       return new Promise((resolve) => {
         visitedPages.value = []
@@ -80,6 +88,7 @@ export const useTagsStore = defineStore(
       addTag,
       updateTag,
       removeTag,
+      removeTagsByList,
       removerOthers,
       removeAll,
     }

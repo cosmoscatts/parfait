@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { IconCloseCircle, IconRefresh } from '@arco-design/web-vue/es/icon'
 import TagButtonDefault from '../widgets/TagButtonDefault.vue'
 import TagButtonChrome from '../widgets/TagButtonChrome.vue'
+import TagContextMenu from '../widgets/TagContextMenu.vue'
 
 const { tagButtonShape } = storeToRefs(useAppStore())
 
@@ -34,17 +34,6 @@ function isActive(path?: string) {
   return path === route.path
 }
 const router = useRouter()
-function refresh(idx: number) {
-  const tag = tags[idx]
-  if (!tag)
-    return
-  const { fullPath } = tag
-  nextTick(() => {
-    router.replace({
-      path: `/redirect${fullPath}`,
-    })
-  })
-}
 function closeTag(idx: number) {
   if (tags.length === 1) {
     Message.warning('已经是最后一个标签了')
@@ -64,19 +53,6 @@ function closeTag(idx: number) {
       router.push(path)
     }
   })
-}
-function closeOthers(idx: number) {
-  if (tags.length === 1) {
-    Message.warning('已经是最后一个标签了')
-    return
-  }
-  const tag = tags[idx]
-  if (!tag)
-    return
-  const { fullPath } = tag
-  router.push(fullPath!)
-  // FIXME: add move to current tag
-  tagsStore.removerOthers(tag)
 }
 </script>
 
@@ -113,18 +89,12 @@ function closeOthers(idx: number) {
           </TagButtonChrome>
         </RouterLink>
         <template #content>
-          <a-doption @click="refresh(idx)">
-            <template #icon>
-              <icon-refresh />
-            </template>
-            刷新当前
-          </a-doption>
-          <a-doption @click="closeOthers(idx)">
-            <template #icon>
-              <icon-close-circle />
-            </template>
-            关闭其他
-          </a-doption>
+          <TagContextMenu
+            :index="idx"
+            :tags="tags"
+            :has-left-tags="tags.length > 1 && idx > 0"
+            :has-right-tags="tags.length > 1 && idx < tags.length - 1"
+          />
         </template>
       </a-dropdown>
     </div>
