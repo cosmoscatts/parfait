@@ -32,8 +32,8 @@ defineExpose({ instance })
 </script>
 
 <template>
-  <div ref="refScrollWrapper" class="h-full text-left">
-    <div ref="refScrollContent" class="inline-block" :class="{ 'h-full': !isScrollY }">
+  <div ref="refScrollWrapper" h-full text-left>
+    <div ref="refScrollContent" inline-block :class="{ 'h-full': !isScrollY }">
       <slot />
     </div>
   </div>

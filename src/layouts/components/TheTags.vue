@@ -56,69 +56,95 @@ function closeTag(idx: number) {
     }
   })
 }
+
+const refWrapper = ref()
+const refScroll = ref()
+const refTag = ref()
+const { width: refWrapperWidth, left: refWrapperLeft } = useElementBounding(refWrapper)
+const activeTagIndex = computed(() => {
+  const redirectPrefix = '/redirect'
+  const activePath = route.path.startsWith(redirectPrefix)
+    ? route.path.substring(redirectPrefix.length)
+    : route.path
+  return tags.findIndex(i => i.path === activePath) || -1
+})
+
+async function getActiveTabClientX() {
+  await nextTick()
+  if (refTag.value && refTag.value?.children?.length && refTag.value.children[activeTagIndex.value]) {
+    const activeTagEl = refTag.value.children[activeTagIndex.value]
+    const { x, width } = activeTagEl.getBoundingClientRect()
+    const clientX = x + width / 2
+    useTimeoutFn(() => {
+      handleScroll(clientX)
+    }, 50)
+  }
+}
+
+function handleScroll(clientX: number) {
+  const currentX = clientX - refWrapperLeft.value
+  const deltaX = currentX - refWrapperWidth.value / 2
+  if (refScroll.value) {
+    const { maxScrollX, x: leftX } = refScroll.value.instance
+    const rightX = maxScrollX - leftX
+    const update = deltaX > 0 ? Math.max(-deltaX, rightX) : Math.min(-deltaX, -leftX)
+    refScroll.value?.instance.scrollBy(update, 0, 300)
+  }
+}
+
+watch(
+  activeTagIndex,
+  () => {
+    getActiveTabClientX()
+  },
+  {
+    immediate: true,
+  },
+)
 </script>
 
 <template>
-  <div
-    flex="~ gap2" class="px-1.8" relative of="x-auto y-hidden"
-    :class="[tagButtonShape === 'default' ? 'flex items-center' : 'flex items-end']"
-  >
-    <div
-      v-for="{ title, path, query }, idx in tags" :key="idx"
-      h-26px lh-26px wa flex-inline items-center cursor-pointer
-      :class="{ 'ha max-h-full': tagButtonShape !== 'default' }"
-    >
-      <a-dropdown trigger="contextMenu" position="bl">
-        <RouterLink
-          :to="{ path, query }"
+  <div ref="refWrapper" of-hidden mx-1rem style="width: calc(100% - 2rem);">
+    <ScrollWrapper ref="refScroll" :options="{ scrollX: true, scrollY: false, click: true }">
+      <div ref="refTag" h-full :class="[tagButtonShape === 'default' ? 'flex items-center gap-x-2' : 'flex items-end pr-7']">
+        <div
+          v-for="{ title, path, query }, idx in tags" :key="idx"
+          h-26px lh-26px wa flex-inline items-center cursor-pointer
+          :class="{ 'ha max-h-full': tagButtonShape !== 'default' }"
         >
-          <TagButtonDefault v-if="tagButtonShape === 'default'" :title="title" :is-active="isActive(path)">
-            <template #close>
-              <span
-                i-ri-close-fill hover="i-carbon-close-filled" ml-1
-                @click.prevent="closeTag(idx)"
+          <a-dropdown trigger="contextMenu" position="bl">
+            <RouterLink
+              :to="{ path, query }"
+            >
+              <TagButtonDefault v-if="tagButtonShape === 'default'" :title="title" :is-active="isActive(path)">
+                <template #close>
+                  <span
+                    i-ri-close-fill hover="i-carbon-close-filled" ml-1
+                    @click.prevent="closeTag(idx)"
+                  />
+                </template>
+              </TagButtonDefault>
+              <TagButtonChrome v-else :title="title" :is-active="isActive(path)" :is-last="idx === tags.length - 1">
+                <template #close>
+                  <span
+                    i-ri-close-fill hover="i-carbon-close-filled" ml-1 z-2
+                    :class="{ '!text-[rgb(var(--primary-6))]': isActive(path) }"
+                    @click.prevent="closeTag(idx)"
+                  />
+                </template>
+              </TagButtonChrome>
+            </RouterLink>
+            <template #content>
+              <TagContextMenu
+                :index="idx"
+                :tags="tags"
+                :has-left-tags="tags.length > 1 && idx > 0"
+                :has-right-tags="tags.length > 1 && idx < tags.length - 1"
               />
             </template>
-          </TagButtonDefault>
-          <TagButtonChrome v-else :title="title" :is-active="isActive(path)" :is-last="idx === tags.length - 1">
-            <template #close>
-              <span
-                i-ri-close-fill hover="i-carbon-close-filled" ml-1 z-2
-                :class="{ '!text-[rgb(var(--primary-6))]': isActive(path) }"
-                @click.prevent="closeTag(idx)"
-              />
-            </template>
-          </TagButtonChrome>
-        </RouterLink>
-        <template #content>
-          <TagContextMenu
-            :index="idx"
-            :tags="tags"
-            :has-left-tags="tags.length > 1 && idx > 0"
-            :has-right-tags="tags.length > 1 && idx < tags.length - 1"
-          />
-        </template>
-      </a-dropdown>
-    </div>
+          </a-dropdown>
+        </div>
+      </div>
+    </ScrollWrapper>
   </div>
 </template>
-
-<style scoped>
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar:horizontal {
-  height: 4px;
-}
-::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
-  background: var(--c-bg);
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--c-scrollbar);
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--c-scrollbar-hover);
-}
-</style>
