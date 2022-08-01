@@ -129,10 +129,10 @@ function closeOthers(idx: number) {
 
 <style scoped>
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 ::-webkit-scrollbar:horizontal {
-  height: 6px;
+  height: 4px;
 }
 ::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
   background: var(--c-bg);
