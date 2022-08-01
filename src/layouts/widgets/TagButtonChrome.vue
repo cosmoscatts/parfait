@@ -49,8 +49,8 @@ const primaryColor = computed(() => {
       />
     </div>
     <span relative z-2 whitespace-nowrap flex-inline items-center>
-      <div v-if="isActive" i-ri-price-tag-3-fill mr-2 z-2 />
-      <div v-else i-ri-price-tag-3-line mr-2 z-2 />
+      <div v-if="isActive" i-carbon-bookmark-filled mr-2 z-2 />
+      <div v-else i-carbon-bookmark mr-2 z-2 />
       {{ title }}
     </span>
     <slot name="close" />
