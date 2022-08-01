@@ -11,10 +11,10 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@unocss/reset": "^0.44.7",
-    "@vueuse/components": "^9.0.0",
-    "@vueuse/core": "^9.0.0",
-    "@vueuse/head": "^0.7.7",
+    "@unocss/reset": "^0.45.1",
+    "@vueuse/components": "^9.0.2",
+    "@vueuse/core": "^9.0.2",
+    "@vueuse/head": "^0.7.8",
     "axios": "^0.27.2",
     "colord": "^2.9.2",
     "critters": "^0.0.16",
@@ -28,24 +28,24 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
-    "@arco-design/web-vue": "^2.33.1",
+    "@arco-design/web-vue": "^2.34.0",
     "@iconify/json": "^2.1.85",
     "@types/markdown-it-link-attributes": "^3.0.1",
-    "@types/node": "^18.6.2",
+    "@types/node": "^18.6.3",
     "@types/nprogress": "^0.2.0",
-    "@unocss/preset-icons": "^0.44.7",
-    "@unocss/preset-wind": "^0.44.7",
+    "@unocss/preset-icons": "^0.45.1",
+    "@unocss/preset-wind": "^0.45.1",
     "@vitejs/plugin-vue": "^3.0.1",
     "eslint": "^8.20.0",
     "markdown-it": "^13.0.1",
     "markdown-it-link-attributes": "^4.0.0",
     "markdown-it-shiki": "^0.5.1",
     "typescript": "^4.7.4",
-    "unocss": "^0.44.7",
-    "unplugin-auto-import": "^0.10.2",
+    "unocss": "^0.45.1",
+    "unplugin-auto-import": "^0.10.3",
     "unplugin-vue-components": "^0.21.2",
-    "vite": "^3.0.3",
-    "vite-plugin-vue-markdown": "^0.20.1",
-    "vue-tsc": "^0.39.2"
+    "vite": "^3.0.4",
+    "vite-plugin-vue-markdown": "^0.21.1",
+    "vue-tsc": "^0.39.4"
   }
 }
