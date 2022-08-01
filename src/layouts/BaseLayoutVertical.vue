@@ -18,12 +18,28 @@ const sideWidth = computed(() => {
     ? 64
     : 200
 })
+
 const { showTheTags, fixHeader } = storeToRefs(useAppStore())
 const rightPanelVisible = ref(false)
 const backTopTarget = computed(() => {
   return fixHeader.value
     ? '#content-wrapper'
     : '#main-wrapper'
+})
+
+// handle scroll position
+const refMainWrapper = ref()
+const refContentWrapper = ref()
+const route = useRoute()
+watch(() => route.path, (val, old) => {
+  if (val === old)
+    return
+  const refTarget = fixHeader.value
+    ? refContentWrapper
+    : refMainWrapper
+  if ((refTarget.value?.$el?.scrollTop ?? 0) === 0)
+    return
+  scrollToTop(refTarget.value!.$el)
 })
 </script>
 
@@ -39,7 +55,7 @@ const backTopTarget = computed(() => {
     >
       <TheSide h-full w-full bg-transparent />
     </a-layout-sider>
-    <a-layout id="main-wrapper">
+    <a-layout id="main-wrapper" ref="refMainWrapper">
       <a-layout-header
         bg-header
         :class="
@@ -54,6 +70,7 @@ const backTopTarget = computed(() => {
       </a-layout-header>
       <a-layout
         id="content-wrapper"
+        ref="refContentWrapper"
         bg-transparent
         :class="
           fixHeader
