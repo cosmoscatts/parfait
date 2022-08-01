@@ -37,6 +37,7 @@ export default defineConfig({
         '@vueuse/core',
         'pinia',
       ],
+      resolvers: [ArcoResolver()],
       dts: 'src/autoImports.d.ts',
       dirs: [
         'src/server/api',
@@ -49,7 +50,9 @@ export default defineConfig({
     // your plugin installation
     Components({
       resolvers: [
-        ArcoResolver(),
+        ArcoResolver({
+          sideEffect: true,
+        }),
       ],
       dts: 'src/components.d.ts',
     }),
