@@ -81,10 +81,14 @@ function closeOthers(idx: number) {
 </script>
 
 <template>
-  <div flex="~ gap2" class="px-1.8" relative of="x-auto y-hidden">
+  <div
+    flex="~ gap2" class="px-1.8" relative of="x-auto y-hidden"
+    :class="[tagButtonShape === 'default' ? 'flex items-center' : 'flex items-end']"
+  >
     <div
       v-for="{ title, path, query }, idx in tags" :key="idx"
-      h-26px lh-26px wa my-7px p-0 inline-block cursor-pointer
+      h-26px lh-26px wa flex-inline items-center cursor-pointer
+      :class="{ ha: tagButtonShape !== 'default' }"
     >
       <a-dropdown trigger="contextMenu" position="bl">
         <RouterLink
