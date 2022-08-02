@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
-
 const {
   data = [],
   type = 'notification',
-  iconMap = {},
 } = defineProps<{
   data?: any[]
   type?: string
-  iconMap?: { [key: string]: Component }
 }>()
 
 const useDayJs = dayJs
+const iconMap: { [key: string]: string } = {
+  notification: 'i-carbon-chat',
+  message: 'i-carbon-user',
+  todo: 'i-carbon-checkbox-checked',
+}
 </script>
 
 <template>
@@ -22,7 +23,7 @@ const useDayJs = dayJs
         :description="useDayJs(date).format('YYYY-MM-DD HH:mm:ss')"
       >
         <template #avatar>
-          <Component :is="iconMap[type]" :size="50" text="![rgb(var(--primary-6))]" />
+          <div :class="iconMap[type]" text="36px ![rgb(var(--primary-6))]" />
         </template>
       </a-list-item-meta>
     </a-list-item>

@@ -55,7 +55,7 @@ const totalCnt = computed(() => {
 
 <template>
   <div flex items-center mt-2px>
-    <a-popover trigger="click" :content-style="{ paddingBottom: 0 }">
+    <a-popover trigger="click" position="br" :content-style="{ paddingBottom: 0 }">
       <a-badge :count="totalCnt" dot>
         <button i-carbon-notification-filled icon-btn />
       </a-badge>
@@ -72,7 +72,7 @@ const totalCnt = computed(() => {
                 />
               </div>
             </template>
-            <NavBellListMessage :icon-map="iconMap" :type="type" :data="getDataByKey(idx)" />
+            <NavBellListMessage :type="type" :data="getDataByKey(idx)" />
           </a-tab-pane>
         </a-tabs>
         <div class="flex cursor-pointer">
