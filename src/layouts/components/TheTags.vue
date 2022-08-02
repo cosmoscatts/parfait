@@ -106,7 +106,7 @@ watch(
 <template>
   <div ref="refWrapper" of-hidden mx-1rem style="width: calc(100% - 2rem);">
     <ScrollWrapper ref="refScroll" :options="{ scrollX: true, scrollY: false, click: true }">
-      <div ref="refTag" h-full :class="[tagButtonShape === 'default' ? 'flex items-center gap-x-2' : 'flex items-end pr-7']">
+      <div ref="refTag" h-full :class="[tagButtonShape === 'default' ? 'flex !items-center gap-x-2 mt-1px' : 'flex items-end pr-7']">
         <div
           v-for="{ title, path, query }, idx in tags" :key="idx"
           h-26px lh-26px wa flex-inline items-center cursor-pointer
