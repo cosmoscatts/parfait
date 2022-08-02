@@ -50,7 +50,7 @@ html.dark {
 
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-corner {
-  background: var(--c-bg);
+  background: transparent !important;
   border-radius: 10px;
 }
 
