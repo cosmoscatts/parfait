@@ -16,8 +16,8 @@ const iconMap: { [key: string]: string } = {
 </script>
 
 <template>
-  <a-list :max-height="360" w-full h-360px>
-    <a-list-item v-for="{ title, date }, idx in data" :key="idx">
+  <a-list :max-height="360" w-full h-360px cursor-pointer>
+    <a-list-item v-for="{ title, date }, idx in data" :key="idx" hover="bg-[var(--color-bg-3)]">
       <a-list-item-meta
         :title="title"
         :description="useDayJs(date).format('YYYY-MM-DD HH:mm:ss')"
