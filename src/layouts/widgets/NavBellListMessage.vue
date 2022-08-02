@@ -15,7 +15,7 @@ const useDayJs = dayJs
 </script>
 
 <template>
-  <a-list :max-height="360" w-full>
+  <a-list :max-height="360" w-full h-360px>
     <a-list-item v-for="{ title, date }, idx in data" :key="idx">
       <a-list-item-meta
         :title="title"
