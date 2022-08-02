@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IconCloseCircle, IconRefresh } from '@arco-design/web-vue/es/icon'
+import { IconArrowLeft, IconArrowRight, IconCloseCircle, IconRefresh } from '@arco-design/web-vue/es/icon'
 import type { Tag } from '~/types'
 
 const {
@@ -66,25 +66,25 @@ function closeOthers() {
 <template>
   <a-doption @click="refresh">
     <template #icon>
-      <icon-refresh />
+      <IconRefresh />
     </template>
     刷新当前
   </a-doption>
   <a-doption :disabled="!hasLeftTags" @click="closeLeft">
     <template #icon>
-      <icon-close-circle />
+      <IconArrowLeft />
     </template>
     关闭左边
   </a-doption>
   <a-doption :disabled="!hasRightTags" @click="closeRight">
     <template #icon>
-      <icon-close-circle />
+      <IconArrowRight />
     </template>
     关闭右边
   </a-doption>
   <a-doption :disabled="tags.length <= 1" @click="closeOthers">
     <template #icon>
-      <icon-close-circle />
+      <IconCloseCircle />
     </template>
     关闭其他
   </a-doption>
