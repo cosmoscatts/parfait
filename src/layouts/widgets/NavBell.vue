@@ -68,7 +68,10 @@ const totalCnt = computed(() => {
                 {{ name }}
                 <a-badge
                   :count="getDataByKey(idx).length || 0" :max-count="99" ml-2
-                  :dot-style="{ background: color, boxShadow: `0 0 0 2px ${color}` }"
+                  :dot-style="{
+                    background: color,
+                    boxShadow: `0 0 0 2px ${color}`,
+                  }"
                 />
               </div>
             </template>
