@@ -28,14 +28,16 @@ watchEffect(() => {
     <NavBreadCrumb v-if="isVertical" mr-4 />
     <Menu v-if="!isVertical" :mode="mode" :metadata="appMenus" />
     <div flex-auto />
-    <a
-      icon-btn text-lg i-carbon-logo-github mx-4
-      href="https://github.com/dud9/parfait"
-      target="_blank" title="GitHub"
-    />
-    <NavBell mr-4 />
-    <NavFullScreen mr-4 />
-    <DarkToggle mr-4 />
-    <NavAvatar />
+    <div flex items-center>
+      <a
+        icon-btn text-lg i-carbon-logo-github mx-4
+        href="https://github.com/dud9/parfait"
+        target="_blank" title="GitHub"
+      />
+      <NavBell mr-4 />
+      <NavFullScreen mr-4 />
+      <DarkToggle mr-4 />
+      <NavAvatar />
+    </div>
   </div>
 </template>
