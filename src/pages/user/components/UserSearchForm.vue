@@ -28,7 +28,7 @@ function reset() {
 }
 
 // whether hide the form label
-const lableHidden = isLabelHidden
+const labelHidden = isLabelHidden
 
 defineExpose({
   formModel,
@@ -46,7 +46,7 @@ defineExpose({
       >
         <a-row :gutter="16">
           <a-col :span="8">
-            <a-form-item field="username" label="账号" :hide-label="lableHidden">
+            <a-form-item field="username" label="账号" :hide-label="labelHidden">
               <a-input
                 v-model="formModel.username"
                 placeholder="请输入用户账号"
@@ -55,7 +55,7 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="name" label="名称" :hide-label="lableHidden">
+            <a-form-item field="name" label="名称" :hide-label="labelHidden">
               <a-input
                 v-model="formModel.name"
                 placeholder="请输入名称"
@@ -64,7 +64,7 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="phone" label="手机号" :hide-label="lableHidden">
+            <a-form-item field="phone" label="手机号" :hide-label="labelHidden">
               <a-input
                 v-model="formModel.phone"
                 placeholder="请输入手机号"
@@ -73,7 +73,7 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="roleId" label="角色" :hide-label="lableHidden">
+            <a-form-item field="roleId" label="角色" :hide-label="labelHidden">
               <a-select
                 v-model="formModel.roleId"
                 :options="roleOptions"
@@ -83,7 +83,7 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="email" label="电子邮箱" :hide-label="lableHidden">
+            <a-form-item field="email" label="电子邮箱" :hide-label="labelHidden">
               <a-input
                 v-model="formModel.email"
                 placeholder="请输入电子邮箱"
@@ -92,7 +92,7 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="createTime" label="创建时间" :hide-label="lableHidden">
+            <a-form-item field="createTime" label="创建时间" :hide-label="labelHidden">
               <a-range-picker
                 v-model="formModel.createTime"
                 w-full allow-clear
