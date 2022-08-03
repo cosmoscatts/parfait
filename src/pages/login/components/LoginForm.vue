@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { IconLock, IconUser } from '@arco-design/web-vue/es/icon'
 import type { ValidatedError } from '~/types'
-import DarkToggle from '~/components/DarkToggle.vue'
 
 const { loading, setLoading } = useLoading()
 const form = reactive({
