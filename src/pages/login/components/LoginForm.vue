@@ -84,7 +84,7 @@ async function submit({
         </a-checkbox>
       </a-form-item>
       <a-form-item>
-        <a-button long type="primary" html-type="submit" :loading="loading">
+        <a-button long type="primary" html-type="submit" :loading="loading" font-bold>
           登录
         </a-button>
       </a-form-item>
