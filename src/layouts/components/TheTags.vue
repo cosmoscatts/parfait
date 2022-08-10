@@ -112,7 +112,7 @@ watch(
           h-26px lh-26px wa flex-inline items-center cursor-pointer
           :class="{ 'ha max-h-full': tagButtonShape !== 'default' }"
         >
-          <a-dropdown trigger="contextMenu" position="bl">
+          <a-dropdown trigger="contextMenu" position="br">
             <RouterLink
               :to="{ path, query }"
             >
