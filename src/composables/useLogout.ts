@@ -2,13 +2,10 @@
  * when logout, clear store effects
  */
 export function useLogout() {
-  const { showTheTags, cacheTheTags } = useAppStore()
   const { removeUser } = useUserStore()
   const { removeAll } = useTagsStore()
   const { removeAppMenus } = usePermissionStore()
-  const actions = [removeUser, removeAppMenus]
-  if (!showTheTags || !cacheTheTags)
-    actions.push(removeAll)
+  const actions = [removeUser, removeAll, removeAppMenus]
 
   actions.forEach((removeEffect) => {
     removeEffect()
