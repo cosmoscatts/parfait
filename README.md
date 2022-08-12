@@ -4,9 +4,7 @@ Learn from [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) 
 
 
 ## Live Demo
-<p align='center'>
 <a href="https://parfait.netlify.app">Preview</a>
-</p>
 
 ## Features
 
