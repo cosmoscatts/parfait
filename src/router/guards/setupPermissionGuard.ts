@@ -14,11 +14,17 @@ export default function setupPermissionGuard(router: Router) {
       return next()
     }
 
+    const { user } = useUserStore()
     const permissionStore = usePermissionStore()
+    const tagsStore = useTagsStore()
+    const { updateFromTagStorageIfCached } = tagsStore
     // from login page
     if (to.name === 'Foo') {
       permissionStore.fetchAppMenus()
-      const path = findFirstPermissionRoute()
+      updateFromTagStorageIfCached(user?.id)
+      const path = tagsStore.visitedPages?.length > 0
+        ? tagsStore.visitedPages[tagsStore.visitedPages.length - 1].path
+        : findFirstPermissionRoute()
       if (path) {
         next(path)
       }
