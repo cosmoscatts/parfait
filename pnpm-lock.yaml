@@ -4,9 +4,9 @@ specifiers:
   '@antfu/eslint-config': ^0.26.1
   '@arco-design/web-vue': ^2.34.1
   '@better-scroll/core': ^2.4.2
-  '@iconify/json': ^2.1.89
+  '@iconify/json': ^2.1.90
   '@types/markdown-it-link-attributes': ^3.0.1
-  '@types/node': ^18.7.1
+  '@types/node': ^18.7.2
   '@types/nprogress': ^0.2.0
   '@unocss/preset-icons': ^0.45.6
   '@unocss/preset-wind': ^0.45.6
@@ -59,9 +59,9 @@ dependencies:
 devDependencies:
   '@antfu/eslint-config': registry.npmmirror.com/@antfu/eslint-config/0.26.1_qugx7qdu5zevzvxaiqyxfiwquq
   '@arco-design/web-vue': registry.npmmirror.com/@arco-design/web-vue/2.34.1_vue@3.2.37
-  '@iconify/json': registry.npmmirror.com/@iconify/json/2.1.89
+  '@iconify/json': registry.npmmirror.com/@iconify/json/2.1.90
   '@types/markdown-it-link-attributes': registry.npmmirror.com/@types/markdown-it-link-attributes/3.0.1
-  '@types/node': registry.npmmirror.com/@types/node/18.7.1
+  '@types/node': registry.npmmirror.com/@types/node/18.7.2
   '@types/nprogress': registry.npmmirror.com/@types/nprogress/0.2.0
   '@unocss/preset-icons': registry.npmmirror.com/@unocss/preset-icons/0.45.6
   '@unocss/preset-wind': registry.npmmirror.com/@unocss/preset-wind/0.45.6
@@ -350,10 +350,10 @@ packages:
     version: 1.2.1
     dev: true
 
-  registry.npmmirror.com/@iconify/json/2.1.89:
-    resolution: {integrity: sha512-HcFbefSS/rPbRebO/YL4Oj0BEIflZZnPVzI8qjew0H6K979ooY3gyehm6q7V5aLGaNiZxht/tMx63dT+FgczWg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify/json/-/json-2.1.89.tgz}
+  registry.npmmirror.com/@iconify/json/2.1.90:
+    resolution: {integrity: sha512-PLD493JwyJ9+fRmT1eN0BArUZJW7hxo74Jo3DSJyWPeKUHo4lHezfPw4L2T2JN7xolrRcWDkjmVWH4vGKR4byA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify/json/-/json-2.1.90.tgz}
     name: '@iconify/json'
-    version: 2.1.89
+    version: 2.1.90
     dependencies:
       '@iconify/types': registry.npmmirror.com/@iconify/types/1.1.0
       pathe: registry.npmmirror.com/pathe/0.3.3
@@ -551,10 +551,10 @@ packages:
     version: 1.0.2
     dev: true
 
-  registry.npmmirror.com/@types/node/18.7.1:
-    resolution: {integrity: sha512-GKX1Qnqxo4S+Z/+Z8KKPLpH282LD7jLHWJcVryOflnsnH+BtSDfieR6ObwBMwpnNws0bUK8GI7z0unQf9bARNQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.7.1.tgz}
+  registry.npmmirror.com/@types/node/18.7.2:
+    resolution: {integrity: sha512-ce7MIiaYWCFv6A83oEultwhBXb22fxwNOQf5DIxWA4WXvDQ7K+L0fbWl/YOfCzlR5B/uFkSnVBhPcOfOECcWvA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.7.2.tgz}
     name: '@types/node'
-    version: 18.7.1
+    version: 18.7.2
     dev: true
 
   registry.npmmirror.com/@types/normalize-package-data/2.4.1:
