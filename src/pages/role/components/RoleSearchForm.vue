@@ -40,6 +40,7 @@ defineExpose({
               <a-input
                 v-model="formModel.name"
                 placeholder="请输入名称"
+                allow-clear
               />
             </a-form-item>
           </a-col>
@@ -58,15 +59,15 @@ defineExpose({
     <a-divider class="!h-34px" direction="vertical" />
     <a-col flex="172px">
       <a-space :size="18">
-        <a-button type="primary" @click="search">
+        <a-button type="primary" font-bold @click="search">
           <template #icon>
-            <icon-search />
+            <IconSearch />
           </template>
           搜索
         </a-button>
-        <a-button @click="reset">
+        <a-button font-bold @click="reset">
           <template #icon>
-            <icon-refresh />
+            <IconRefresh />
           </template>
           重置
         </a-button>

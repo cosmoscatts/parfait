@@ -95,7 +95,7 @@ defineExpose({
             <a-form-item field="createTime" label="创建时间" :hide-label="labelHidden">
               <a-range-picker
                 v-model="formModel.createTime"
-                w-full allow-clear
+                w-full
               />
             </a-form-item>
           </a-col>
@@ -105,15 +105,15 @@ defineExpose({
     <a-divider class="!h-84px" direction="vertical" />
     <a-col flex="86px">
       <a-space direction="vertical" :size="18">
-        <a-button type="primary" @click="search">
+        <a-button type="primary" font-bold @click="search">
           <template #icon>
-            <icon-search />
+            <IconSearch />
           </template>
           搜索
         </a-button>
-        <a-button @click="reset">
+        <a-button font-bold @click="reset">
           <template #icon>
-            <icon-refresh />
+            <IconRefresh />
           </template>
           重置
         </a-button>
