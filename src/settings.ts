@@ -37,8 +37,12 @@ export const baseSettings = reactive<Record<string, any>>({
   fixHeader: true,
   /**
    * theme primary color
+   *  - 'red' | 'orangered' | 'orange' | 'gold' | 'yellow' | 'lime' | 'green'
+   *  - 'cyan' | 'blue' | 'arcoblue' | 'purple' | 'pinkpurple' | 'gray' | 'magenta'
+   *
+   * @default: 'orangered'
    */
-  primaryColor: 'arcoblue',
+  primaryColor: 'orangered',
   /**
    * whether open page animate
    *
