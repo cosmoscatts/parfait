@@ -29,6 +29,3 @@ function onChange(val: any) {
   </a-radio-group>
 </template>
 
-<style>
-
-</style>
