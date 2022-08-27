@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useMixinColor } from '~/utils'
 import type { FillColor, MixRatio } from '~/types'
 
