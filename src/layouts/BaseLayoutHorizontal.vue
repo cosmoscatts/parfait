@@ -35,7 +35,7 @@ watch(() => route.path, (val, old) => {
       <TheNav w-full h-50px bg-transparent />
       <TheTags v-show="showTheTags" w-full h-40px bg-transparent />
     </a-layout-header>
-    <a-layout-content
+    <a-layout
       id="content-wrapper"
       ref="refContentWrapper"
       bg-transparent
@@ -46,8 +46,10 @@ watch(() => route.path, (val, old) => {
             : 'of-x-hidden of-y-auto !mt-50px'
           : '' "
     >
-      <TheMain w-full h-full p-5 />
-    </a-layout-content>
+      <a-layout-content>
+        <TheMain w-full h-full p-5 />
+      </a-layout-content>
+    </a-layout>
     <TheRightPanel v-model:visible="rightPanelVisible" />
   </a-layout>
   <BackTop :target-container="backTopTarget" />
