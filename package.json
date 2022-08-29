@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@better-scroll/core": "^2.4.2",
-    "@unocss/reset": "^0.45.12",
+    "@unocss/reset": "^0.45.13",
     "@vueuse/components": "^9.1.1",
     "@vueuse/core": "^9.1.1",
     "@vueuse/head": "^0.7.9",
@@ -23,31 +23,31 @@
     "dayjs": "^1.11.5",
     "mitt": "^3.0.0",
     "nprogress": "^0.2.0",
-    "pinia": "^2.0.20",
+    "pinia": "^2.0.21",
     "pinia-plugin-persist-uni": "^1.1.5",
     "vue": "^3.2.37",
-    "vue-router": "^4.1.4"
+    "vue-router": "^4.1.5"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.26.1",
+    "@antfu/eslint-config": "^0.26.2",
     "@arco-design/web-vue": "^2.35.1",
-    "@iconify/json": "^2.1.97",
+    "@iconify/json": "^2.1.100",
     "@types/markdown-it-link-attributes": "^3.0.1",
     "@types/node": "^18.7.13",
     "@types/nprogress": "^0.2.0",
-    "@unocss/preset-icons": "^0.45.12",
-    "@unocss/preset-wind": "^0.45.12",
+    "@unocss/preset-icons": "^0.45.13",
+    "@unocss/preset-wind": "^0.45.13",
     "@vitejs/plugin-vue": "^3.0.3",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.0",
     "markdown-it": "^13.0.1",
     "markdown-it-link-attributes": "^4.0.1",
     "markdown-it-shiki": "^0.5.1",
     "typescript": "^4.8.2",
-    "unocss": "^0.45.12",
+    "unocss": "^0.45.13",
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.4",
     "vite": "^3.0.9",
     "vite-plugin-vue-markdown": "^0.21.1",
-    "vue-tsc": "^0.40.1"
+    "vue-tsc": "^0.40.4"
   }
 }
