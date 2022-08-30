@@ -30,10 +30,10 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.2",
-    "@arco-design/web-vue": "^2.35.1",
+    "@arco-design/web-vue": "^2.35.2",
     "@iconify/json": "^2.1.100",
     "@types/markdown-it-link-attributes": "^3.0.1",
-    "@types/node": "^18.7.13",
+    "@types/node": "^18.7.14",
     "@types/nprogress": "^0.2.0",
     "@unocss/preset-icons": "^0.45.13",
     "@unocss/preset-wind": "^0.45.13",
