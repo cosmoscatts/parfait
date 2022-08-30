@@ -1,8 +1,8 @@
-import { BASE_LAYOUT } from '~/router/constants'
+import { BLANK_LAYOUT } from '~/router/constants'
 
 export default {
   path: '/redirect',
-  component: BASE_LAYOUT,
+  component: BLANK_LAYOUT,
   children: [
     {
       path: ':path(.*)',
