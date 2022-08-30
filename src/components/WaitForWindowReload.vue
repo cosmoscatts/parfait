@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper" bg="white dark:[#17171A]">
     <div class="mask" />
-    <div class="logo" i-carbon-campsite text=" white" />
+    <div class="logo" i-carbon-campsite text="white" />
   </div>
 </template>
 
