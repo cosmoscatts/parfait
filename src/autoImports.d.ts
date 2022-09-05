@@ -10,8 +10,8 @@ declare global {
   const $toRef: typeof import('vue/macros')['$toRef']
   const AuthApi: typeof import('./server/api/auth')['AuthApi']
   const EffectScope: typeof import('vue')['EffectScope']
-  const Message: typeof import('./composables/packageArcoDesign')['Message']
-  const Modal: typeof import('./composables/packageArcoDesign')['Modal']
+  const Message: typeof import('./composables/useGlobalArcoDesign')['Message']
+  const Modal: typeof import('./composables/useGlobalArcoDesign')['Modal']
   const RoleApi: typeof import('./server/api/role')['RoleApi']
   const UserApi: typeof import('./server/api/user')['UserApi']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
@@ -33,7 +33,7 @@ declare global {
   const createSharedComposable: typeof import('@vueuse/core')['createSharedComposable']
   const createUnrefFn: typeof import('@vueuse/core')['createUnrefFn']
   const customRef: typeof import('vue')['customRef']
-  const dayJs: typeof import('./composables/globalPlugins')['dayJs']
+  const dayJs: typeof import('./composables/useGlobalPlugin')['dayJs']
   const debouncedRef: typeof import('@vueuse/core')['debouncedRef']
   const debouncedWatch: typeof import('@vueuse/core')['debouncedWatch']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
@@ -99,7 +99,7 @@ declare global {
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
-  const scrollToTop: typeof import('./composables/scrollTop')['scrollToTop']
+  const scrollToTop: typeof import('./composables/useScrollTop')['scrollToTop']
   const setActivePinia: typeof import('pinia')['setActivePinia']
   const setMapStoreSuffix: typeof import('pinia')['setMapStoreSuffix']
   const shallowReactive: typeof import('vue')['shallowReactive']
@@ -312,8 +312,8 @@ declare module '@vue/runtime-core' {
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
     readonly AuthApi: UnwrapRef<typeof import('./server/api/auth')['AuthApi']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
-    readonly Message: UnwrapRef<typeof import('./composables/packageArcoDesign')['Message']>
-    readonly Modal: UnwrapRef<typeof import('./composables/packageArcoDesign')['Modal']>
+    readonly Message: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['Message']>
+    readonly Modal: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['Modal']>
     readonly RoleApi: UnwrapRef<typeof import('./server/api/role')['RoleApi']>
     readonly UserApi: UnwrapRef<typeof import('./server/api/user')['UserApi']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -335,7 +335,7 @@ declare module '@vue/runtime-core' {
     readonly createSharedComposable: UnwrapRef<typeof import('@vueuse/core')['createSharedComposable']>
     readonly createUnrefFn: UnwrapRef<typeof import('@vueuse/core')['createUnrefFn']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
-    readonly dayJs: UnwrapRef<typeof import('./composables/globalPlugins')['dayJs']>
+    readonly dayJs: UnwrapRef<typeof import('./composables/useGlobalPlugin')['dayJs']>
     readonly debouncedRef: UnwrapRef<typeof import('@vueuse/core')['debouncedRef']>
     readonly debouncedWatch: UnwrapRef<typeof import('@vueuse/core')['debouncedWatch']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
@@ -401,7 +401,7 @@ declare module '@vue/runtime-core' {
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
-    readonly scrollToTop: UnwrapRef<typeof import('./composables/scrollTop')['scrollToTop']>
+    readonly scrollToTop: UnwrapRef<typeof import('./composables/useScrollTop')['scrollToTop']>
     readonly setActivePinia: UnwrapRef<typeof import('pinia')['setActivePinia']>
     readonly setMapStoreSuffix: UnwrapRef<typeof import('pinia')['setMapStoreSuffix']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
