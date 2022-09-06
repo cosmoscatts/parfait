@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import DefineOptions from 'unplugin-vue-define-options/vite'
 import Markdown from 'vite-plugin-vue-markdown'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 import UnoCSS from 'unocss/vite'
@@ -26,6 +27,8 @@ export default defineConfig({
       include: [/\.vue$/, /\.md$/],
       reactivityTransform: true,
     }),
+
+    DefineOptions(),
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
