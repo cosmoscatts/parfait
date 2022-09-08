@@ -1,7 +1,7 @@
 import '@arco-design/web-vue/es/message/style/css.js'
 import '@arco-design/web-vue/es/modal/style/css.js'
 import '@arco-design/web-vue/es/notification/style/css.js'
-import { Message, Modal, Notification } from '@arco-design/web-vue'
+import { Notification as ANotification, Message, Modal } from '@arco-design/web-vue'
 
 /**
  * 统一导出 `Arco Design` 消息组件
@@ -11,5 +11,5 @@ import { Message, Modal, Notification } from '@arco-design/web-vue'
 export {
   Modal,
   Message,
-  Notification,
+  ANotification,
 }

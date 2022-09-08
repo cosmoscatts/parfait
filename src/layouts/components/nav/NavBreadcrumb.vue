@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import type { RouteLocationMatched } from 'vue-router'
+import { IconBookmark } from '@arco-design/web-vue/es/icon'
 
-const {
-  maxCount = 3,
-} = defineProps<{
-  maxCount?: number
-}>()
 let metadata = $ref<string[]>()
+
 const route = useRoute()
+
+/**
+ * 从路由获取面包屑数据
+ */
 function getBreadCrumbs() {
   metadata = []
   const matched = route.matched.filter((i: RouteLocationMatched) => i.meta && i.meta.title)
@@ -16,6 +17,8 @@ function getBreadCrumbs() {
   metadata = matched.map(i => i.meta.title as string)
 }
 getBreadCrumbs()
+
+// 当路由发生改变时，重新生成面包屑
 watch(
   () => route.path,
   (path) => {
@@ -29,12 +32,11 @@ watch(
 <template>
   <a-breadcrumb
     v-if="metadata.length"
-    :max-count="maxCount" op-80
+    :max-count="3"
+    separator=">"
   >
-    <template #separator>
-      <div i-carbon-plane-private bg="black dark:white" />
-    </template>
-    <a-breadcrumb-item v-for="title, idx of metadata" :key="idx">
+    <a-breadcrumb-item v-for="title of metadata" :key="title">
+      <IconBookmark />
       {{ title }}
     </a-breadcrumb-item>
   </a-breadcrumb>

@@ -8,11 +8,11 @@ declare global {
   const $ref: typeof import('vue/macros')['$ref']
   const $shallowRef: typeof import('vue/macros')['$shallowRef']
   const $toRef: typeof import('vue/macros')['$toRef']
+  const ANotification: typeof import('./composables/useGlobalArcoDesign')['ANotification']
   const AuthApi: typeof import('./server/api/auth')['AuthApi']
   const EffectScope: typeof import('vue')['EffectScope']
   const Message: typeof import('./composables/useGlobalArcoDesign')['Message']
   const Modal: typeof import('./composables/useGlobalArcoDesign')['Modal']
-  const Notification: typeof import('./composables/useGlobalArcoDesign')['Notification']
   const RoleApi: typeof import('./server/api/role')['RoleApi']
   const UserApi: typeof import('./server/api/user')['UserApi']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
@@ -98,7 +98,6 @@ declare global {
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
-  const scrollToTop: typeof import('./composables/useScrollTop')['scrollToTop']
   const setActivePinia: typeof import('pinia')['setActivePinia']
   const setMapStoreSuffix: typeof import('pinia')['setMapStoreSuffix']
   const shallowReactive: typeof import('vue')['shallowReactive']
@@ -240,6 +239,7 @@ declare global {
   const useScriptTag: typeof import('@vueuse/core')['useScriptTag']
   const useScroll: typeof import('@vueuse/core')['useScroll']
   const useScrollLock: typeof import('@vueuse/core')['useScrollLock']
+  const useScrollTop: typeof import('./composables/useScrollTop')['useScrollTop']
   const useSessionStorage: typeof import('@vueuse/core')['useSessionStorage']
   const useShare: typeof import('@vueuse/core')['useShare']
   const useSlots: typeof import('vue')['useSlots']
@@ -311,11 +311,11 @@ declare module '@vue/runtime-core' {
     readonly $ref: UnwrapRef<typeof import('vue/macros')['$ref']>
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
+    readonly ANotification: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['ANotification']>
     readonly AuthApi: UnwrapRef<typeof import('./server/api/auth')['AuthApi']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly Message: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['Message']>
     readonly Modal: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['Modal']>
-    readonly Notification: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['Notification']>
     readonly RoleApi: UnwrapRef<typeof import('./server/api/role')['RoleApi']>
     readonly UserApi: UnwrapRef<typeof import('./server/api/user')['UserApi']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -401,7 +401,6 @@ declare module '@vue/runtime-core' {
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
-    readonly scrollToTop: UnwrapRef<typeof import('./composables/useScrollTop')['scrollToTop']>
     readonly setActivePinia: UnwrapRef<typeof import('pinia')['setActivePinia']>
     readonly setMapStoreSuffix: UnwrapRef<typeof import('pinia')['setMapStoreSuffix']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
@@ -543,6 +542,7 @@ declare module '@vue/runtime-core' {
     readonly useScriptTag: UnwrapRef<typeof import('@vueuse/core')['useScriptTag']>
     readonly useScroll: UnwrapRef<typeof import('@vueuse/core')['useScroll']>
     readonly useScrollLock: UnwrapRef<typeof import('@vueuse/core')['useScrollLock']>
+    readonly useScrollTop: UnwrapRef<typeof import('./composables/useScrollTop')['useScrollTop']>
     readonly useSessionStorage: UnwrapRef<typeof import('@vueuse/core')['useSessionStorage']>
     readonly useShare: UnwrapRef<typeof import('@vueuse/core')['useShare']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>

@@ -54,16 +54,16 @@ const totalCnt = computed(() => {
 </script>
 
 <template>
-  <div flex items-center mt-2px>
+  <div flex-y-center mt-2px>
     <a-popover trigger="click" position="br" :content-style="{ paddingBottom: 0 }">
       <a-badge :count="totalCnt" dot>
-        <button i-carbon-notification-filled icon-btn text-lg />
+        <button i-fa-solid-bell icon-btn text-lg />
       </a-badge>
       <template #content>
         <a-tabs v-model:active-key="activeKey" w-420px flex="~ col" items-center type="rounded">
           <a-tab-pane v-for="{ name, type, color }, idx in tabList" :key="idx">
             <template #title>
-              <div class="flex justify-center items-center w-100px">
+              <div class="flex-center w-100px">
                 <Component :is="iconMap[type]" :size="18" mr-2 />
                 {{ name }}
                 <a-badge

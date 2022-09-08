@@ -23,7 +23,7 @@ const iconMap: { [key: string]: string } = {
         :description="useDayJs(date).format('YYYY-MM-DD HH:mm:ss')"
       >
         <template #avatar>
-          <div :class="iconMap[type]" text="36px ![rgb(var(--primary-6))]" />
+          <div :class="iconMap[type]" text="36px primary" />
         </template>
       </a-list-item-meta>
     </a-list-item>
