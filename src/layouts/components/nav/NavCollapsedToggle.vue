@@ -1,18 +1,19 @@
 <script setup lang="ts">
 const appStore = useAppStore()
 const { menuCollapsed } = storeToRefs(appStore)
-const { toggleMenuCollapsed } = appStore
-const { width } = useWindowSize()
+const { setMenuCollapsed, setMenuUnCollapsed } = appStore
+
 function toggle() {
-  if (width.value < 1200)
-    return
-  toggleMenuCollapsed(!unref(menuCollapsed))
+  const { value: _menuCollapsed } = menuCollapsed
+  if (_menuCollapsed)
+    setMenuUnCollapsed()
+  else setMenuCollapsed()
 }
 </script>
 
 <template>
   <button
-    icon-btn text-5
+    icon-btn text-xl
     :class="menuCollapsed
       ? 'i-line-md-menu-unfold-right'
       : 'i-line-md-menu-unfold-left'"

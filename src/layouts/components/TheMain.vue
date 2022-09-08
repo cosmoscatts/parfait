@@ -1,19 +1,24 @@
 <script setup lang="ts">
-const { cachedPageNames } = storeToRefs(useTagsStore())
-const { openAnimation, animationMode } = storeToRefs(useAppStore())
+// 获取缓存页面
+const { cachedTabNames } = storeToRefs(useTabStore())
+// 获取页面动画
+const { baseSettings } = storeToRefs(useAppStore())
 const animateName = computed(() => {
-  return unref(openAnimation)
-    ? unref(animationMode)
+  return baseSettings.value?.showTransitionAnimation
+    ? baseSettings.value.transitionAnimation
     : undefined
 })
 </script>
 
 <template>
-  <RouterView v-slot="{ Component, route }">
-    <Transition :name="animateName" mode="out-in" appear>
-      <KeepAlive :include="cachedPageNames">
-        <component :is="Component" :key="route.fullPath" />
-      </KeepAlive>
-    </Transition>
-  </RouterView>
+  <div>
+    <RouterView v-slot="{ Component, route }">
+      <Transition :name="animateName" mode="out-in" appear>
+        <KeepAlive :include="cachedTabNames" :max="10">
+          <component :is="Component" :key="route.path" />
+        </KeepAlive>
+      </Transition>
+    </RouterView>
+  </div>
 </template>
+
