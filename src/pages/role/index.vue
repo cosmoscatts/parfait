@@ -2,7 +2,7 @@
 import RoleSearchForm from './components/RoleSearchForm.vue'
 import type { Pagination } from '~/types'
 
-const { loading, setLoading } = useLoading()
+const { loading, startLoading, endLoading } = useLoading()
 let tabledata = $ref([])
 const basePagination: Pagination = {
   current: 1,
@@ -13,7 +13,7 @@ const pagination = reactive({
 })
 function fetchRoleData(params: Record<string, any>) {
   params = { ...basePagination, ...params }
-  setLoading(true)
+  startLoading()
   try {
     const { data } = RoleApi.fetchRoleList()
     tabledata = data as any
@@ -25,7 +25,7 @@ function fetchRoleData(params: Record<string, any>) {
   }
   finally {
     useTimeoutFn(() => {
-      setLoading(false)
+      endLoading()
     }, 1000)
   }
 }

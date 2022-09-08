@@ -34,7 +34,7 @@ const formModel = reactive<Record<string, any>>({
 const title = computed(() => {
   return ['添加用户', '编辑用户'][type === 'add' ? 0 : 1]
 })
-const { loading, setLoading } = useLoading()
+const { loading, startLoading, endLoading } = useLoading()
 function assign() {
   const target = visible && type === 'edit'
     ? unref(user)
@@ -47,14 +47,14 @@ function assign() {
 }
 watch(() => visible, () => {
   assign()
-  setLoading(false)
+  endLoading()
   refForm.value && refForm.value.clearValidate()
 })
 function handleOk() {
   refForm.value.validate((errors: any) => {
     if (errors)
       return
-    setLoading(true)
+    startLoading()
     if (type === 'edit')
       formModel.password = undefined
     emits('saveUser', formModel)
@@ -116,7 +116,7 @@ function handleCancel() {
           allow-clear
         >
           <template #prefix>
-            <icon-lock />
+            <IconLock />
           </template>
         </a-input-password>
       </a-form-item>
@@ -127,7 +127,7 @@ function handleCancel() {
           allow-clear
         >
           <template #prefix>
-            <icon-lock />
+            <IconLock />
           </template>
         </a-input-password>
       </a-form-item>

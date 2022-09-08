@@ -4,7 +4,7 @@ import UserSearchForm from './components/UserSearchForm.vue'
 import { saveUserHandler } from './helper'
 import type { Pagination, SelectOptionData } from '~/types'
 
-const { loading, setLoading } = useLoading()
+const { loading, startLoading, endLoading } = useLoading()
 let tabledata = $ref([])
 const basePagination: Pagination = {
   current: 1,
@@ -22,7 +22,7 @@ function fetchRoleOptions() {
 fetchRoleOptions()
 function fetchTableData(params: Record<string, any>) {
   params = { ...basePagination, ...params }
-  setLoading(true)
+  startLoading()
   try {
     const { data } = UserApi.fetchUserList()
     tabledata = data as any
@@ -34,7 +34,7 @@ function fetchTableData(params: Record<string, any>) {
   }
   finally {
     useTimeoutFn(() => {
-      setLoading(false)
+      endLoading()
     }, 1000)
   }
 }

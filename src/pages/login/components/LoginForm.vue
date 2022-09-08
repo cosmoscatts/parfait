@@ -2,7 +2,7 @@
 import { IconLock, IconUser } from '@arco-design/web-vue/es/icon'
 import type { ValidatedError } from '~/types'
 
-const { loading, setLoading } = useLoading()
+const { loading, startLoading, endLoading } = useLoading()
 const form = reactive({
   username: 'admin',
   password: '123456',
@@ -20,7 +20,7 @@ async function submit({
 }) {
   if (errors)
     return
-  setLoading(true)
+  startLoading()
   Message.success('欢迎使用')
   updateUser({
     id: 1,
@@ -31,7 +31,7 @@ async function submit({
   })
   useTimeoutFn(() => {
     router.push('/foo')
-    setLoading(false)
+    endLoading()
   }, 1000)
 }
 </script>
@@ -52,7 +52,7 @@ async function submit({
       >
         <a-input v-model="form.username" placeholder="请输入你的账号..." allow-clear>
           <template #prefix>
-            <icon-user />
+            <IconUser />
           </template>
         </a-input>
       </a-form-item>
@@ -66,7 +66,7 @@ async function submit({
       >
         <a-input-password v-model="form.password" placeholder="请输入你的密码..." allow-clear>
           <template #prefix>
-            <icon-lock />
+            <IconLock />
           </template>
         </a-input-password>
       </a-form-item>
