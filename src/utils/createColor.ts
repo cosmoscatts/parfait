@@ -2,6 +2,7 @@ import { colord, extend } from 'colord'
 import mixPlugin from 'colord/plugins/mix'
 
 extend([mixPlugin])
+
 export function addColorAlpha(color: string, alpha: number) {
   return colord(color).alpha(alpha).toHex()
 }

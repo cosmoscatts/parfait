@@ -1,7 +1,7 @@
 import BTween from 'b-tween'
 
 // https://github.com/PengJiyuan/b-tween
-export function scrollToTop(target: HTMLElement, easing = 'quartOut', duration = 500) {
+export function useScrollTop(target: HTMLElement, easing = 'quartOut', duration = 500) {
   if (!target)
     return
 

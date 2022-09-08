@@ -25,7 +25,7 @@ watch(() => route.path, (val, old) => {
     : refMainWrapper
   if ((refTarget.value?.$el?.scrollTop ?? 0) === 0)
     return
-  scrollToTop(refTarget.value!.$el)
+  useScrollTop(refTarget.value!.$el)
 })
 </script>
 

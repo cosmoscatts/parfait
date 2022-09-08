@@ -3,9 +3,9 @@
  */
 export function useLogout() {
   const { removeUser } = useUserStore()
-  const { removeAll } = useTagsStore()
+  const { removeAllTabs } = useTabStore()
   const { removeAppMenus } = usePermissionStore()
-  const actions = [removeUser, removeAll, removeAppMenus]
+  const actions = [removeUser, removeAllTabs, removeAppMenus]
 
   actions.forEach((removeEffect) => {
     removeEffect()
