@@ -42,9 +42,10 @@ export default defineConfig({
     breakpoints: {
       xs: '320px',
       sm: '640px',
-      md: '768px',
+      md: '1024px',
       lg: '1280px',
       xl: '1536px',
+      xxl: '1920px',
     },
     // 整合 `arco` 内置颜色
     // 命名可参考 https://arco.design/react/docs/token

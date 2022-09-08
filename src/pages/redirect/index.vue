@@ -7,7 +7,7 @@ useTimeoutFn(() => {
 </script>
 
 <template>
-  <div w-full h-full flex justify-center items-center>
+  <div hw-full flex-center>
     <a-spin dot :size="24" />
   </div>
 </template>

@@ -7,7 +7,7 @@ defineOptions({
 </script>
 
 <template>
-  <div flex justify-center>
+  <div flex-center>
     <Docs />
   </div>
 </template>

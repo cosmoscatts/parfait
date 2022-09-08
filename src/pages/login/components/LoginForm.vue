@@ -70,7 +70,7 @@ async function submit({
           </template>
         </a-input-password>
       </a-form-item>
-      <div flex justify-start items-center border-red mt-3>
+      <div flex-y-center justify-start mt-3>
         <div i-carbon-touch-2-filled icon-btn />
         <span text-10px ml-3>注册登录即表示同意 用户协议 、 隐私政策</span>
       </div>
@@ -88,7 +88,7 @@ async function submit({
         </a-button>
       </a-form-item>
     </a-form>
-    <div flex justify-center items-center>
+    <div flex-center>
       <DarkToggle />
       <span ml-5 op-50 text-xl> Duende </span>
     </div>

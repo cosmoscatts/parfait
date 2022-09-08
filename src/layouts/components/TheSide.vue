@@ -7,7 +7,7 @@ const mode: 'vertical' | 'horizontal' | 'pop' | 'popButton' = 'vertical'
 </script>
 
 <template>
-  <div flex="~ col" justify-center of-hidden>
+  <div flex="x-center col" of-hidden>
     <Logo />
     <Menu :mode="mode" :metadata="appMenus" />
   </div>

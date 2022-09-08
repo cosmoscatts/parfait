@@ -22,13 +22,13 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div flex justify-between items-center pr-5 shadow="sm light-900 dark:dark-700">
+  <div flex-center pr-5 shadow="sm light-900 dark:dark-700">
     <Logo v-if="!isVertical" :class="shortLogo ? 'w-64px' : 'w-200px'" />
     <NavHamburger v-if="isVertical" mx-4 />
     <NavBreadCrumb v-if="isVertical" mr-4 />
     <Menu v-if="!isVertical" :mode="mode" :metadata="appMenus" />
     <div flex-auto />
-    <div flex items-center>
+    <div flex-y-center>
       <a
         icon-btn text-lg i-carbon-logo-github mx-4
         href="https://github.com/dud9/parfait"
