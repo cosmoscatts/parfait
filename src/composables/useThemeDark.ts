@@ -28,19 +28,10 @@ function initDark() {
 
 export const isDark = initDark()
 export const toggleDark = useToggle(isDark)
-export const preferredDark = usePreferredDark()
 
-/**
- * when the dark changed, we should
- * change the app theme immediately.
- */
-watchEffect(() => {
-  if (isDark.value) {
-    // set dark theme
+// 监控亮暗模式的变化，设置亮暗主题
+watch(isDark, (_isDark) => {
+  if (_isDark)
     document.body.setAttribute('arco-theme', 'dark')
-  }
-  else {
-    // back to light theme
-    document.body.removeAttribute('arco-theme')
-  }
+  else document.body.removeAttribute('arco-theme')
 })
