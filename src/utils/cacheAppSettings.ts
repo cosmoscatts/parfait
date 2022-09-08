@@ -1,21 +1,32 @@
-import { EnumStorageKey } from '~/enum'
+import type { RemovableRef } from '@vueuse/core'
+import { wrapStorageKey } from './wrapStorageKey'
+import { appStorageKeyEnum } from '~/enum'
+import type { ConfigSettingObject } from '~/config'
 
-const APP_SETTINGS_KEY = EnumStorageKey.appSettings
-const appSettingsOnStorage = useStorage(APP_SETTINGS_KEY, {}, localStorage)
+/** `app-settings` 缓存在 `storage` 中的 `key` */
+const APP_SETTINGS_KEY = wrapStorageKey(appStorageKeyEnum.appSettings)
+const appSettingsStorage: RemovableRef<ConfigSettingObject | Object> = useStorage(APP_SETTINGS_KEY, {}, localStorage)
 
-export function cacheAppSettings(settings = {}) {
-  if (!Object.keys(settings).length)
+/**
+ * 将 `settings` 写入 `storage`
+ */
+export const cacheSettingsOnStorage = (settings = {}) => {
+  if (!appSettingsStorage.value)
     return
-
-  appSettingsOnStorage.value = settings
+  appSettingsStorage.value = settings
 }
 
-export function updateFromStorage(target = reactive<Record<string, any>>({})) {
-  const source = unref(appSettingsOnStorage)
-  if (!source || !Object.keys(source).length)
-    return
+/**
+ * 从 `storage` 更新 `settings`
+ */
+export const updateSettingsFromStorage = (target: ConfigSettingObject) => {
+  const source = appSettingsStorage.value
 
-  Object.entries(source).forEach(([k, v]) => {
-    target[k] = v
-  })
+  if (!source || !Object.keys(source).length)
+    return { ...target }
+
+  return {
+    ...target,
+    ...source,
+  }
 }

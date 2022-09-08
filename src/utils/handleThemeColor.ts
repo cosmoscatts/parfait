@@ -1,37 +1,10 @@
-// I do not know how to dynamic generated colors,
-// so I just use the default colors from arco.
-// https://arco.design/react/docs/palette
-export const colors: Record<string, string>[] = [
-  { prop: 'red', name: '浪漫红' },
-  { prop: 'orangered', name: '晚秋红' },
-  { prop: 'orange', name: '活力橙' },
-  { prop: 'gold', name: '黄昏' },
-  { prop: 'yellow', name: '柠檬黄' },
-  { prop: 'lime', name: '新生绿' },
-  { prop: 'green', name: '仙野绿' },
-  { prop: 'cyan', name: '碧涛青' },
-  { prop: 'blue', name: '海蔚蓝' },
-  { prop: 'arcoblue', name: '极致蓝' },
-  { prop: 'purple', name: '暗夜紫' },
-  { prop: 'pinkpurple', name: '青春紫' },
-  { prop: 'gray', name: '中性灰' },
-  { prop: 'magenta', name: '品红' },
-]
+import { defaultThemeColors } from '~/config'
 
-export function getColorMap() {
-  const colorMap: Record<string, Record<string, string>> = {}
-  colors.forEach(({ prop, name }: Record<string, string>) => {
-    colorMap[prop] = {
-      name,
-      value: `rgb(var(--${prop}-6))`,
-    }
-  })
-
-  return { colorMap }
-}
-
+/**
+ * 替换主色调
+ */
 export function replacePrimaryColor(colorName: string) {
-  if (!colors.map(i => i.prop).includes(colorName))
+  if (!defaultThemeColors.map(i => i.prop).includes(colorName))
     return
 
   Array.from({ length: 10 }).forEach((_, index) => {
@@ -39,19 +12,19 @@ export function replacePrimaryColor(colorName: string) {
   })
 }
 
-export const primaryColorMap: Record<string, string> = {
-  red: '#F53F3F',
-  orangered: '#F77234',
-  orange: '#FF7D00',
-  gold: '#F7BA1E',
-  yellow: '#FADC19',
-  lime: '#9FDB1D',
-  green: '#00B42A',
-  cyan: '#14C9C9',
-  blue: '#3491FA',
-  arcoblue: '#165DFF',
-  purple: '#722ED1',
-  pinkpurple: '#D91AD9',
-  gray: '#F5319D',
-  magenta: '#86909C',
-}
+// export const primaryColorMap: Record<string, string> = {
+//   red: '#F53F3F',
+//   orangered: '#F77234',
+//   orange: '#FF7D00',
+//   gold: '#F7BA1E',
+//   yellow: '#FADC19',
+//   lime: '#9FDB1D',
+//   green: '#00B42A',
+//   cyan: '#14C9C9',
+//   blue: '#3491FA',
+//   arcoblue: '#165DFF',
+//   purple: '#722ED1',
+//   pinkpurple: '#D91AD9',
+//   gray: '#F5319D',
+//   magenta: '#86909C',
+// }

@@ -1,73 +1,93 @@
-import type { Ref } from 'vue'
-import { baseSettings } from '~/settings'
-import { cacheAppSettings, replacePrimaryColor, updateFromStorage } from '~/utils'
+import { breakpointsTailwind } from '@vueuse/core'
+import { useTabStore } from './tabs'
+import type { ConfigSettingObject } from '~/config'
+import { cacheAppSettings, configSettings } from '~/config'
+import {
+  cacheSettingsOnStorage,
+  clearTabStorage,
+  replacePrimaryColor,
+  updateSettingsFromStorage,
+  writeTabsIntoStorageIfCached,
+} from '~/utils'
 
 export const useAppStore = defineStore(
   'appStore',
   () => {
-    // update the history settings from localStorage
-    updateFromStorage(baseSettings)
+    // 是否为移动端（包含 `PC` 端宽度过小的情况）
+    const breakpoints = useBreakpoints(breakpointsTailwind)
+    const isMobile = breakpoints.smaller('sm')
 
-    const {
-      layout,
-      showTheLogo,
-      showTheTags,
-      tagButtonShape,
-      cacheTheTags,
-      fixHeader,
-      primaryColor,
-      openAnimation,
-      animationMode,
-    } = toRefs(baseSettings)
+    // `app` 配置对象
+    const baseSettings = ref<ConfigSettingObject>({
+      ...configSettings,
+    })
+    // `app` 暂存配置对象
+    const stageSettings = ref<ConfigSettingObject>({
+      ...configSettings,
+    })
 
-    // stage the change of style right panel done
-    const stage = reactive<Record<string, Ref>>({})
-    function buildStage() {
-      for (const [k, v] of Object.entries(toRaw(baseSettings)))
-        stage[k] = ref(v)
+    const init = () => {
+      // 如果开启了缓存配置, 则从 `storage` 更新配置
+      // 未开启，`updateSettingsFromStorage` 方法会返回默认配置
+      baseSettings.value = {
+        ...updateSettingsFromStorage({
+          ...configSettings,
+        }),
+      }
+
+      // 替换主题色
+      replacePrimaryColor(baseSettings.value.themePrimaryColor)
     }
-    buildStage()
+    init()
 
-    function getStageVal() {
-      return toRefs(stage)
+    // 初始化 `app` 设置项的暂存区
+    const buildStageData = () => {
+      const source = { ...baseSettings.value } as ConfigSettingObject
+      stageSettings.value = { ...source } || { ...configSettings }
     }
+    buildStageData()
 
-    function updateByStage() {
-      for (const [k, v] of Object.entries(toRaw(stage)))
-        baseSettings[k] = unref(v)
-
-      // update the primary color
-      replacePrimaryColor(primaryColor.value)
-
-      // write settings to localStorage
-      cacheAppSettings(baseSettings)
-    }
-
-    function resetStage() {
-      buildStage()
+    function resetStageData() {
+      buildStageData()
     }
 
-    // the collapse state of menu
+    // 从暂存区更新设置
+    function updateSettingsFromStageData() {
+      const originThemePrimaryColor = baseSettings.value.themePrimaryColor
+      baseSettings.value = { ...stageSettings.value } || { ...configSettings }
+
+      // 如果主题主要色调发生改变，替换主色调
+      if (originThemePrimaryColor !== baseSettings.value.themePrimaryColor)
+        replacePrimaryColor(baseSettings.value.themePrimaryColor)
+
+      // 如果改变多页签的显示状态 | 多页签的缓存状态
+      // 需要更新多页签的缓存
+      if (baseSettings.value.showTabs && baseSettings.value.cacheTabs)
+        writeTabsIntoStorageIfCached([...useTabStore().visitedTabs])
+
+      else
+        clearTabStorage()
+
+      if (cacheAppSettings)
+        cacheSettingsOnStorage({ ...baseSettings.value })
+    }
+
+    // 菜单是否折叠
     const {
       bool: menuCollapsed,
-      setBool: toggleMenuCollapsed,
-    } = useBoolean()
+      setTrue: setMenuCollapsed,
+      setFalse: setMenuUnCollapsed,
+    } = useBoolean(false)
 
     return {
-      layout,
-      showTheLogo,
-      showTheTags,
-      tagButtonShape,
-      cacheTheTags,
-      fixHeader,
-      primaryColor,
-      openAnimation,
-      animationMode,
+      isMobile,
+      baseSettings,
+      stageSettings,
+      resetStageData,
+      updateSettingsFromStageData,
       menuCollapsed,
-      getStageVal,
-      updateByStage,
-      resetStage,
-      toggleMenuCollapsed,
+      setMenuCollapsed,
+      setMenuUnCollapsed,
     }
   },
   {

@@ -1,4 +1,19 @@
+import type { Component } from 'vue'
+import {
+  IconFile,
+  IconHome,
+  IconUser,
+} from '@arco-design/web-vue/es/icon'
 import type { Menu } from '~/types'
+
+/**
+ * 储存 `icon` 字段对应的图标组件
+ */
+export const defaultMenuIconMap: { [key: string]: Component } = {
+  home: markRaw(IconHome),
+  user: markRaw(IconUser),
+  file: markRaw(IconFile),
+}
 
 /**
  * 默认菜单集合

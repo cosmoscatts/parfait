@@ -1,14 +1,14 @@
 import type { User } from '~/types'
-import defaultAvatar from '~/assets/avatar.jpg'
+import defaultAvatar from '~/assets/default-avatar.jpg'
 
 export const useUserStore = defineStore(
   'userStore',
   () => {
     const user = ref<User>()
     /**
-     * update the new user.
+     * 更新用户
      *
-     * @param _user - new user
+     * @param _user - 新用户
      */
     function updateUser(_user: User) {
       if (!_user.avatar)
@@ -16,13 +16,7 @@ export const useUserStore = defineStore(
       user.value = _user
     }
     /**
-     * update user avatar
-     */
-    function updateAvatar(avatar: string) {
-      user.value!.avatar = avatar
-    }
-    /**
-     * remove the user.
+     * 清空用户
      */
     function removeUser() {
       user.value = undefined
@@ -31,7 +25,6 @@ export const useUserStore = defineStore(
     return {
       user,
       updateUser,
-      updateAvatar,
       removeUser,
     }
   },
@@ -41,6 +34,3 @@ export const useUserStore = defineStore(
     },
   },
 )
-
-if (import.meta.hot)
-  import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot))

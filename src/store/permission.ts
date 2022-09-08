@@ -1,19 +1,31 @@
 import type { Menu } from '~/types'
-import { defaultMenus } from '~/config'
+import { defaultMenuIconMap, defaultMenus, menuSource } from '~/config'
 
 export const usePermissionStore = defineStore(
   'permissionStore',
   () => {
     const appMenus = ref<Menu[]>([])
-    function fetchAppMenus() {
-      appMenus.value = defaultMenus
+    const menuIconMap = ref(defaultMenuIconMap)
+
+    /**
+     * 获取菜单
+     */
+    async function fetchAppMenus() {
+      appMenus.value = menuSource === 'front'
+        ? [...defaultMenus]
+        : []
     }
+
+    /**
+     * 清空菜单
+     */
     function removeAppMenus() {
       appMenus.value = []
     }
 
     return {
       appMenus,
+      menuIconMap,
       fetchAppMenus,
       removeAppMenus,
     }

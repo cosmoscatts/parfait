@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getColorMap } from '~/utils'
+import { themeColorValueMap } from '~/config'
 
 const {
   colorName = 'arcoblue',
@@ -7,7 +7,6 @@ const {
   colorName?: string
 }>()
 const emit = defineEmits(['update:colorName'])
-const { colorMap } = getColorMap()
 function onChange(val: any) {
   emit('update:colorName', val)
 }
@@ -20,7 +19,7 @@ function onChange(val: any) {
     @change="onChange"
   >
     <a-radio
-      v-for="[k, { name, value }] of Object.entries(colorMap)"
+      v-for="[k, { name, value }] of Object.entries(themeColorValueMap)"
       :key="k" :value="k" m="t-1 l-4"
     >
       <div w-12px h-12px rounded-sm flex-inline mr-1 :style="{ background: value }" />
