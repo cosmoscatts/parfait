@@ -1,22 +1,15 @@
+/**
+ * 定义菜单的数据结构
+ */
 export interface Menu {
-  /**
-   * id
-   */
+  /** id */
   id: number
-  /**
-   * title
-   */
+  /** 菜单名称 */
   title: string
-  /**
-   * route path
-   */
+  /** 菜单路由 */
   path?: string
-  /**
-   * icon
-   */
+  /** 菜单图标 */
   icon?: string
-  /**
-   * menu children
-   */
+  /** 子菜单集合 */
   children?: Menu[]
 }

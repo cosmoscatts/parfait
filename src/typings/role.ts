@@ -1,22 +1,15 @@
+/**
+ * 定义角色的数据结构
+ */
 export interface Role {
-  /**
-   * id
-   */
+  /** id */
   id?: number
-  /**
-   * name
-   */
+  /** 角色名称 */
   name?: string
-  /**
-   * description
-   */
+  /** 角色描述 */
   description?: string
-  /**
-   * createTime
-   */
+  /** 创建时间 */
   createTime?: Date
-  /**
-   * updateTime
-   */
+  /** 更新时间 */
   updateTime?: Date
 }

@@ -1,47 +1,29 @@
 import type { Role } from './role'
+
+/**
+ * 定义用户的数据结构
+ */
 export interface User {
-  /**
-   * id
-   */
+  /** id */
   id?: number
-  /**
-   * username
-   */
+  /** 用户账号 */
   username?: string
-  /**
-   * name
-   */
+  /** 用户名称 */
   name?: string
-  /**
-   * password
-   */
+  /** 密码 */
   password?: string
-  /**
-   * avatar
-   */
+  /** 头像 */
   avatar?: string
-  /**
-   * phone
-   */
+  /** 手机号 */
   phone?: string
-  /**
-   * email
-   */
+  /** 邮箱 */
   email?: string
-  /**
-   * roleId
-   */
+  /** 角色 `id` */
   roleId?: number
-  /**
-   * role
-   */
+  /** 角色 */
   role?: Role
-  /**
-   * createTime
-   */
+  /** 创建时间 */
   createTime?: Date
-  /**
-   * updateTime
-   */
+  /** 更新时间 */
   updateTime?: Date
 }
