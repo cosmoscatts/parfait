@@ -1,40 +1,42 @@
-# Parfait - Vue3 Starter Template With Arco Design
-Learn from [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) and [vitesse](https://github.com/antfu/vitesse).
-<br>Rewrite with [Arco Design](https://arco.design/vue/docs/start).
+# Parfait
 
+> Tips: 这是一个使用 vue3 搭配 Arco Design 实现的一个简易后台管理系统模块，可以被用来当作是项目的脚手架。页面风格清新，可以自由配置。
 
-## Live Demo
-<a href="https://parfait.netlify.app">Preview</a>
+*********
 
-## Features
+## 预览
+[在线预览](https://parfait.netlify.app/)
 
-- ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite), [Pnpm](https://pnpm.js.org/)
+## 参考
+- [Vitesse](https://github.com/antfu/vitesse/)
+- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin/)
 
-- 🎆 [Arco Design](https://arco.design/vue/docs/start)
+## 技术栈
+- 🤙🏻 Vue3 <setup>
+- ⚡️ Vite2
+- 🦾 TypeScript
+- 🍍 Pinia
+- 🔥 Vue-Router
+- 🎨 Unocss
+- 📥 unplugin-auto-import
+- 🗒 unplugin-vue-components
 
-- 📦 [Components auto importing](./src/components)
+## 功能点
+* [x] 垂直、水平布局
+* [x] 页面主题配置，包括『界面内容的显示』、『主题色更换』、『多页签配置』、『页面动画』等
+* [x] 系统管理模块，包括『用户管理』、『角色管理』等
+* [x] 个人设置模块，包括『个人资料修改』、『修改密码』等
+* [x] 支持 `markdown`
 
-- 🍍 [State Management via Pinia](https://pinia.esm.dev/)
+## 如何启动？
+```TypeScript
+pnpm install
+pnpm run dev
+pnpm run build
+```
 
-- 📑 [Layout system](./src/layouts)
+## 作者
+🧑🏻‍💻 duende 
 
-- 🎨 [UnoCSS](https://github.com/antfu/unocss) - the instant on-demand atomic CSS engine
-
-- 😃 [Use icons from any icon sets with classes](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
-
-- 🗒 [Markdown Support](https://github.com/antfu/vite-plugin-md)
-
-- 🔥 Use the [new `<script setup>` syntax](https://github.com/vuejs/rfcs/pull/227)
-
-- 🤙🏻 [Reactivity Transform](https://vuejs.org/guide/extras/reactivity-transform.html) enabled
-
-- 📥 [APIs auto importing](https://github.com/antfu/unplugin-auto-import) - use Composition API and others directly
-
-- 🦔 Critical CSS via [critters](https://github.com/GoogleChromeLabs/critters)
-
-- 🦾 TypeScript, of course
-
-- ☁️ Deploy on Netlify, zero-config [Netlify](https://www.netlify.com)
-
-<br>
-
+## 最后
+喜欢就麻烦给个 `star` （；´д｀）ゞ
