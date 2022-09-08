@@ -15,6 +15,7 @@ specifiers:
   '@vueuse/components': ^9.2.0
   '@vueuse/core': ^9.2.0
   '@vueuse/head': ^0.7.9
+  animate.css: ^4.1.1
   axios: ^0.27.2
   b-tween: ^0.3.3
   colord: ^2.9.3
@@ -45,6 +46,7 @@ dependencies:
   '@vueuse/components': registry.npmmirror.com/@vueuse/components/9.2.0_vue@3.2.38
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/9.2.0_vue@3.2.38
   '@vueuse/head': registry.npmmirror.com/@vueuse/head/0.7.9_vue@3.2.38
+  animate.css: registry.npmmirror.com/animate.css/4.1.1
   axios: registry.npmmirror.com/axios/0.27.2
   b-tween: registry.npmmirror.com/b-tween/0.3.3
   colord: registry.npmmirror.com/colord/2.9.3
@@ -1224,6 +1226,12 @@ packages:
       json-schema-traverse: registry.npmmirror.com/json-schema-traverse/0.4.1
       uri-js: registry.npmmirror.com/uri-js/4.4.1
     dev: true
+
+  registry.npmmirror.com/animate.css/4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/animate.css/-/animate.css-4.1.1.tgz}
+    name: animate.css
+    version: 4.1.1
+    dev: false
 
   registry.npmmirror.com/ansi-regex/5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ansi-regex/-/ansi-regex-5.0.1.tgz}

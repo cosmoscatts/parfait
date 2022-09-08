@@ -1,6 +1,7 @@
 import App from './App.vue'
 import type { AppContext, UserModule } from './types'
 
+import 'animate.css'
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
