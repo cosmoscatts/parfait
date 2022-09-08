@@ -50,7 +50,7 @@ declare global {
   const inject: typeof import('vue')['inject']
   const isDark: typeof import('./composables/dark')['isDark']
   const isDefined: typeof import('@vueuse/core')['isDefined']
-  const isLabelHidden: typeof import('./composables/useHideFormLabel')['isLabelHidden']
+  const isLabelHidden: typeof import('./composables/useResponsive')['isLabelHidden']
   const isProxy: typeof import('vue')['isProxy']
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
@@ -353,7 +353,7 @@ declare module '@vue/runtime-core' {
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isDark: UnwrapRef<typeof import('./composables/dark')['isDark']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
-    readonly isLabelHidden: UnwrapRef<typeof import('./composables/useHideFormLabel')['isLabelHidden']>
+    readonly isLabelHidden: UnwrapRef<typeof import('./composables/useResponsive')['isLabelHidden']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>

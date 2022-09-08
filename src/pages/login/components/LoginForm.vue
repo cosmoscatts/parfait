@@ -39,7 +39,7 @@ async function submit({
 <template>
   <a-space direction="vertical" size="large" w-450px class="mt-1/15">
     <div text="32px center" font-bold>
-      🎃 Parfait
+      Parfait
     </div>
     <a-form :model="form" layout="vertical" size="large" @submit="submit">
       <a-form-item
@@ -90,7 +90,7 @@ async function submit({
     </a-form>
     <div flex justify-center items-center>
       <DarkToggle />
-      <span ml-5 op-50 text-xl>🙌🙌 By Duende 🙌🙌</span>
+      <span ml-5 op-50 text-xl> Duende </span>
     </div>
   </a-space>
 </template>
