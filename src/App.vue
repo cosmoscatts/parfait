@@ -37,6 +37,6 @@ useEventListener(window, 'beforeunload', () => {
 </script>
 
 <template>
-  <WaitForWindowReload v-if="appReloading" />
+  <AppLoading v-if="appReloading" />
   <RouterView v-else />
 </template>
