@@ -18,7 +18,7 @@ function reset() {
 }
 
 // whether hide the form label
-const labelHidden = isLabelHidden
+const labelHidden = useResponsiveFormLabelHidden
 
 defineExpose({
   formModel,

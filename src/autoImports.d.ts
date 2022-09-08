@@ -12,6 +12,7 @@ declare global {
   const EffectScope: typeof import('vue')['EffectScope']
   const Message: typeof import('./composables/useGlobalArcoDesign')['Message']
   const Modal: typeof import('./composables/useGlobalArcoDesign')['Modal']
+  const Notification: typeof import('./composables/useGlobalArcoDesign')['Notification']
   const RoleApi: typeof import('./server/api/role')['RoleApi']
   const UserApi: typeof import('./server/api/user')['UserApi']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
@@ -50,7 +51,6 @@ declare global {
   const inject: typeof import('vue')['inject']
   const isDark: typeof import('./composables/useThemeDark')['isDark']
   const isDefined: typeof import('@vueuse/core')['isDefined']
-  const isLabelHidden: typeof import('./composables/useResponsive')['isLabelHidden']
   const isProxy: typeof import('vue')['isProxy']
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
@@ -81,7 +81,6 @@ declare global {
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
   const pausableWatch: typeof import('@vueuse/core')['pausableWatch']
-  const preferredDark: typeof import('./composables/useThemeDark')['preferredDark']
   const provide: typeof import('vue')['provide']
   const reactify: typeof import('@vueuse/core')['reactify']
   const reactifyObject: typeof import('@vueuse/core')['reactifyObject']
@@ -126,7 +125,7 @@ declare global {
   const unrefElement: typeof import('@vueuse/core')['unrefElement']
   const until: typeof import('@vueuse/core')['until']
   const useActiveElement: typeof import('@vueuse/core')['useActiveElement']
-  const useAppStore: typeof import('./stores/app')['useAppStore']
+  const useAppStore: typeof import('./store/app')['useAppStore']
   const useArrayEvery: typeof import('@vueuse/core')['useArrayEvery']
   const useArrayFilter: typeof import('@vueuse/core')['useArrayFilter']
   const useArrayFind: typeof import('@vueuse/core')['useArrayFind']
@@ -222,7 +221,7 @@ declare global {
   const usePageLeave: typeof import('@vueuse/core')['usePageLeave']
   const useParallax: typeof import('@vueuse/core')['useParallax']
   const usePermission: typeof import('@vueuse/core')['usePermission']
-  const usePermissionStore: typeof import('./stores/permission')['usePermissionStore']
+  const usePermissionStore: typeof import('./store/permission')['usePermissionStore']
   const usePointer: typeof import('@vueuse/core')['usePointer']
   const usePointerSwipe: typeof import('@vueuse/core')['usePointerSwipe']
   const usePreferredColorScheme: typeof import('@vueuse/core')['usePreferredColorScheme']
@@ -234,6 +233,7 @@ declare global {
   const useRefHistory: typeof import('@vueuse/core')['useRefHistory']
   const useRequest: typeof import('./composables/useRequest')['useRequest']
   const useResizeObserver: typeof import('@vueuse/core')['useResizeObserver']
+  const useResponsiveFormLabelHidden: typeof import('./composables/useResponsive')['useResponsiveFormLabelHidden']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useScreenOrientation: typeof import('@vueuse/core')['useScreenOrientation']
@@ -252,7 +252,7 @@ declare global {
   const useStyleTag: typeof import('@vueuse/core')['useStyleTag']
   const useSupported: typeof import('@vueuse/core')['useSupported']
   const useSwipe: typeof import('@vueuse/core')['useSwipe']
-  const useTagsStore: typeof import('./stores/tags')['useTagsStore']
+  const useTagsStore: typeof import('./store/tags')['useTagsStore']
   const useTemplateRefsList: typeof import('@vueuse/core')['useTemplateRefsList']
   const useTextDirection: typeof import('@vueuse/core')['useTextDirection']
   const useTextSelection: typeof import('@vueuse/core')['useTextSelection']
@@ -272,7 +272,7 @@ declare global {
   const useTransition: typeof import('@vueuse/core')['useTransition']
   const useUrlSearchParams: typeof import('@vueuse/core')['useUrlSearchParams']
   const useUserMedia: typeof import('@vueuse/core')['useUserMedia']
-  const useUserStore: typeof import('./stores/user')['useUserStore']
+  const useUserStore: typeof import('./store/user')['useUserStore']
   const useVModel: typeof import('@vueuse/core')['useVModel']
   const useVModels: typeof import('@vueuse/core')['useVModels']
   const useVibrate: typeof import('@vueuse/core')['useVibrate']
@@ -315,6 +315,7 @@ declare module '@vue/runtime-core' {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly Message: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['Message']>
     readonly Modal: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['Modal']>
+    readonly Notification: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['Notification']>
     readonly RoleApi: UnwrapRef<typeof import('./server/api/role')['RoleApi']>
     readonly UserApi: UnwrapRef<typeof import('./server/api/user')['UserApi']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -353,7 +354,6 @@ declare module '@vue/runtime-core' {
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isDark: UnwrapRef<typeof import('./composables/useThemeDark')['isDark']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
-    readonly isLabelHidden: UnwrapRef<typeof import('./composables/useResponsive')['isLabelHidden']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
@@ -384,7 +384,6 @@ declare module '@vue/runtime-core' {
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly pausableWatch: UnwrapRef<typeof import('@vueuse/core')['pausableWatch']>
-    readonly preferredDark: UnwrapRef<typeof import('./composables/useThemeDark')['preferredDark']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly reactify: UnwrapRef<typeof import('@vueuse/core')['reactify']>
     readonly reactifyObject: UnwrapRef<typeof import('@vueuse/core')['reactifyObject']>
@@ -429,7 +428,7 @@ declare module '@vue/runtime-core' {
     readonly unrefElement: UnwrapRef<typeof import('@vueuse/core')['unrefElement']>
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
-    readonly useAppStore: UnwrapRef<typeof import('./stores/app')['useAppStore']>
+    readonly useAppStore: UnwrapRef<typeof import('./store/app')['useAppStore']>
     readonly useArrayEvery: UnwrapRef<typeof import('@vueuse/core')['useArrayEvery']>
     readonly useArrayFilter: UnwrapRef<typeof import('@vueuse/core')['useArrayFilter']>
     readonly useArrayFind: UnwrapRef<typeof import('@vueuse/core')['useArrayFind']>
@@ -525,7 +524,7 @@ declare module '@vue/runtime-core' {
     readonly usePageLeave: UnwrapRef<typeof import('@vueuse/core')['usePageLeave']>
     readonly useParallax: UnwrapRef<typeof import('@vueuse/core')['useParallax']>
     readonly usePermission: UnwrapRef<typeof import('@vueuse/core')['usePermission']>
-    readonly usePermissionStore: UnwrapRef<typeof import('./stores/permission')['usePermissionStore']>
+    readonly usePermissionStore: UnwrapRef<typeof import('./store/permission')['usePermissionStore']>
     readonly usePointer: UnwrapRef<typeof import('@vueuse/core')['usePointer']>
     readonly usePointerSwipe: UnwrapRef<typeof import('@vueuse/core')['usePointerSwipe']>
     readonly usePreferredColorScheme: UnwrapRef<typeof import('@vueuse/core')['usePreferredColorScheme']>
@@ -537,6 +536,7 @@ declare module '@vue/runtime-core' {
     readonly useRefHistory: UnwrapRef<typeof import('@vueuse/core')['useRefHistory']>
     readonly useRequest: UnwrapRef<typeof import('./composables/useRequest')['useRequest']>
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
+    readonly useResponsiveFormLabelHidden: UnwrapRef<typeof import('./composables/useResponsive')['useResponsiveFormLabelHidden']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useScreenOrientation: UnwrapRef<typeof import('@vueuse/core')['useScreenOrientation']>
@@ -555,7 +555,7 @@ declare module '@vue/runtime-core' {
     readonly useStyleTag: UnwrapRef<typeof import('@vueuse/core')['useStyleTag']>
     readonly useSupported: UnwrapRef<typeof import('@vueuse/core')['useSupported']>
     readonly useSwipe: UnwrapRef<typeof import('@vueuse/core')['useSwipe']>
-    readonly useTagsStore: UnwrapRef<typeof import('./stores/tags')['useTagsStore']>
+    readonly useTagsStore: UnwrapRef<typeof import('./store/tags')['useTagsStore']>
     readonly useTemplateRefsList: UnwrapRef<typeof import('@vueuse/core')['useTemplateRefsList']>
     readonly useTextDirection: UnwrapRef<typeof import('@vueuse/core')['useTextDirection']>
     readonly useTextSelection: UnwrapRef<typeof import('@vueuse/core')['useTextSelection']>
@@ -575,7 +575,7 @@ declare module '@vue/runtime-core' {
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
     readonly useUserMedia: UnwrapRef<typeof import('@vueuse/core')['useUserMedia']>
-    readonly useUserStore: UnwrapRef<typeof import('./stores/user')['useUserStore']>
+    readonly useUserStore: UnwrapRef<typeof import('./store/user')['useUserStore']>
     readonly useVModel: UnwrapRef<typeof import('@vueuse/core')['useVModel']>
     readonly useVModels: UnwrapRef<typeof import('@vueuse/core')['useVModels']>
     readonly useVibrate: UnwrapRef<typeof import('@vueuse/core')['useVibrate']>

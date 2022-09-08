@@ -1,12 +1,12 @@
 import type { Menu } from '~/types'
-import { menus } from '~/menus'
+import { defaultMenus } from '~/config'
 
 export const usePermissionStore = defineStore(
   'permissionStore',
   () => {
     const appMenus = ref<Menu[]>([])
     function fetchAppMenus() {
-      appMenus.value = menus
+      appMenus.value = defaultMenus
     }
     function removeAppMenus() {
       appMenus.value = []

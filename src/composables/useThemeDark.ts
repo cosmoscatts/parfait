@@ -30,8 +30,8 @@ export const isDark = initDark()
 export const toggleDark = useToggle(isDark)
 
 // 监控亮暗模式的变化，设置亮暗主题
-watch(isDark, (_isDark) => {
-  if (_isDark)
+watchEffect(() => {
+  if (isDark.value)
     document.body.setAttribute('arco-theme', 'dark')
   else document.body.removeAttribute('arco-theme')
 })
