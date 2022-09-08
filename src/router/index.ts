@@ -1,9 +1,9 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from 'nprogress'
-import { BLANK_LAYOUT } from './constants'
+import 'nprogress/nprogress.css'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import { BASE_LAYOUT, BLANK_LAYOUT } from './constants'
 import appRoutes from './routes'
 import createRouterGuard from './guards'
-import 'nprogress/nprogress.css'
 
 NProgress.configure({ showSpinner: false, easing: 'ease', speed: 500 })
 
@@ -12,7 +12,10 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: 'login',
+      component: BASE_LAYOUT,
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/login',
@@ -23,6 +26,7 @@ const router = createRouter({
           name: 'Login',
           component: () => import('~/pages/login/index.vue'),
           meta: {
+            title: '登录',
             requiresAuth: false,
           },
         },
@@ -36,7 +40,24 @@ const router = createRouter({
         {
           path: '',
           name: 'ErrorPage',
-          component: () => import('~/pages/exception/500/index.vue'),
+          component: () => import('~/pages/exception/error/index.vue'),
+          meta: {
+            title: '500',
+          },
+        },
+      ],
+    },
+    {
+      path: '/403',
+      component: BLANK_LAYOUT,
+      children: [
+        {
+          path: '',
+          name: 'NoPermission',
+          component: () => import('~/pages/exception/no-permission/index.vue'),
+          meta: {
+            title: '403',
+          },
         },
       ],
     },
@@ -47,19 +68,21 @@ const router = createRouter({
         {
           path: '',
           name: 'NotFound',
-          component: () => import('~/pages/exception/404/index.vue'),
+          component: () => import('~/pages/exception/not-found/index.vue'),
+          meta: {
+            title: '404',
+          },
         },
       ],
     },
   ],
   scrollBehavior() {
-    return {
-      top: 0,
-      behavior: 'smooth',
-    }
+    return { top: 0 }
   },
 })
 
-createRouterGuard(router)
-
 export default router
+
+export {
+  createRouterGuard,
+}

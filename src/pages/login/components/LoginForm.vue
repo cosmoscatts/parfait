@@ -1,15 +1,37 @@
 <script setup lang="ts">
 import { IconLock, IconUser } from '@arco-design/web-vue/es/icon'
-import type { ValidatedError } from '~/types'
+import type { ValidatedError } from '@arco-design/web-vue/es/form/interface'
+import { debug } from '~/config'
+import { findFirstPermissionRoute, loginCallback } from '~/utils'
 
 const { loading, startLoading, endLoading } = useLoading()
-const form = reactive({
-  username: 'admin',
-  password: '123456',
-  isRead: false,
+
+/**
+ * 定义表单数据结构
+ */
+interface ModelType {
+  username?: string
+  password?: string
+}
+
+// 表单基础数据
+const baseFormModel = debug
+  ? {
+      username: 'admin',
+      password: '123456',
+    }
+  : {
+      username: '',
+      password: '',
+    }
+
+// 表单数据
+const formModel = reactive<ModelType>({
+  ...baseFormModel,
 })
+
 const validateTrigger = ref<('change' | 'input' | 'focus' | 'blur')[]>(['change', 'input'])
-const { updateUser } = useUserStore()
+
 const router = useRouter()
 async function submit({
   errors,
@@ -20,18 +42,22 @@ async function submit({
 }) {
   if (errors)
     return
+
   startLoading()
-  Message.success('欢迎使用')
-  updateUser({
+  await loginCallback({
     id: 1,
     username: 'admin',
     name: 'admin',
     roleId: 1,
+    phone: '6666666666',
+    email: 'dasb@qq.com',
     createTime: new Date(),
   })
+  const path = findFirstPermissionRoute() ?? '/'
   useTimeoutFn(() => {
-    router.push('/foo')
     endLoading()
+    router.push(path)
+    Message.success('登录成功')
   }, 1000)
 }
 </script>
@@ -41,7 +67,7 @@ async function submit({
     <div text="32px center" font-bold>
       Parfait
     </div>
-    <a-form :model="form" layout="vertical" size="large" @submit="submit">
+    <a-form :model="formModel" layout="vertical" size="large" @submit="submit">
       <a-form-item
         field="username" label="账号" hide-asterisk feedback
         :rules="[
@@ -50,7 +76,7 @@ async function submit({
         ]"
         :validate-trigger="validateTrigger"
       >
-        <a-input v-model="form.username" placeholder="请输入你的账号..." allow-clear>
+        <a-input v-model="formModel.username" placeholder="请输入你的账号..." allow-clear>
           <template #prefix>
             <IconUser />
           </template>
@@ -64,23 +90,11 @@ async function submit({
         ]"
         :validate-trigger="validateTrigger"
       >
-        <a-input-password v-model="form.password" placeholder="请输入你的密码..." allow-clear>
+        <a-input-password v-model="formModel.password" placeholder="请输入你的密码..." allow-clear>
           <template #prefix>
             <IconLock />
           </template>
         </a-input-password>
-      </a-form-item>
-      <div flex-y-center justify-start mt-3>
-        <div i-carbon-touch-2-filled icon-btn />
-        <span text-10px ml-3>注册登录即表示同意 用户协议 、 隐私政策</span>
-      </div>
-      <a-form-item
-        field="isRead" hide-asterisk
-        :rules="[{ type: 'boolean', true: true, message: '请勾选' }]"
-      >
-        <a-checkbox v-model="form.isRead">
-          我同意登录协议
-        </a-checkbox>
       </a-form-item>
       <a-form-item>
         <a-button long type="primary" html-type="submit" :loading="loading" font-bold>

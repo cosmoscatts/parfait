@@ -64,7 +64,6 @@ export const useAppStore = defineStore(
       // 需要更新多页签的缓存
       if (baseSettings.value.showTabs && baseSettings.value.cacheTabs)
         writeTabsIntoStorageIfCached([...useTabStore().visitedTabs])
-
       else
         clearTabStorage()
 

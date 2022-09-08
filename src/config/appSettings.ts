@@ -87,10 +87,12 @@ export const configSettings: ConfigSettingObject = {
   fixNav: true,
   /**
     * 主题主要色调
+    *   - 'red' | 'orangered' | 'orange' | 'gold' | 'yellow' | 'lime' | 'green'
+    *   - 'cyan' | 'blue' | 'arcoblue' | 'purple' | 'pinkpurple' | 'gray' | 'magenta'
     *
-    * @default: '#0d9488'
+    * @default: 'green'
     */
-  themePrimaryColor: '#0d9488',
+  themePrimaryColor: 'green',
   /**
     * 页面切换动画类型 - 'fade-slide' | 'fade' | 'fade-bottom' | 'fade-scale' | 'zoom-fade' | 'zoom-out'
     *
