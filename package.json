@@ -22,7 +22,6 @@
     "colord": "^2.9.3",
     "critters": "^0.0.16",
     "dayjs": "^1.11.5",
-    "mitt": "^3.0.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.21",
     "pinia-plugin-persist-uni": "^1.1.5",
