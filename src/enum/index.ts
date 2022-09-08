@@ -3,3 +3,6 @@ export enum EnumStorageKey {
   'tags' = 'PARFAIT_TAGS',
   'themeMode' = 'PARFAIT_THEME_MODE',
 }
+
+export * from './request'
+export * from './storage'
