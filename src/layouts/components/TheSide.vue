@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import Logo from '../widgets/Logo.vue'
-import Menu from '../widgets/Menu.vue'
-
-const { appMenus } = storeToRefs(usePermissionStore())
-const mode: 'vertical' | 'horizontal' | 'pop' | 'popButton' = 'vertical'
+import Logo from './logo'
+import Menu from './menu'
 </script>
 
 <template>
   <div flex="x-center col" of-hidden>
     <Logo />
-    <Menu :mode="mode" :metadata="appMenus" />
+    <Menu />
   </div>
 </template>

@@ -1,58 +1,80 @@
 <script setup lang="ts">
 import { vElementHover } from '@vueuse/components'
 import { IconSkin } from '@arco-design/web-vue/es/icon'
-import RightPanelSetting from '../widgets/RightPanelSetting.vue'
+import SettingsDrawer from './settings'
+import { appLayoutParams } from '~/config'
 
 const {
-  visible = false,
-} = defineProps<{
-  visible?: boolean
-}>()
-const emits = defineEmits(['update:visible'])
-let isHovered = $ref(false)
+  settingsDrawerRight,
+  settingsDrawerBottom,
+  settingsDrawerWidth,
+} = appLayoutParams
+
+const {
+  updateSettingsFromStageData,
+  resetStageData,
+} = useAppStore()
+
+// 是否显示 `app` 设置抽屉
+let showSettingsDrawer = $ref(false)
+
+let isButtonHovered = $ref(false)
 function onHover(state: boolean) {
-  isHovered = state
+  isButtonHovered = state
 }
-const { updateByStage, resetStage } = useAppStore()
-function handleOk() {
-  isHovered = false
-  updateByStage()
-  emits('update:visible', false)
-}
-function handleCancel() {
-  isHovered = false
-  resetStage()
-  emits('update:visible', false)
-}
+
 function onClick() {
-  resetStage()
-  emits('update:visible', !visible)
+  isButtonHovered = false
+  showSettingsDrawer = true
+}
+
+// 应用当前配置
+function saveCurrentSettings() {
+  const LOADING_INTERVAL = 1000
+  Message.loading('正在更新配置')
+  updateSettingsFromStageData()
+  useTimeoutFn(() => {
+    Message.clear()
+    Message.success('应用成功')
+    showSettingsDrawer = false
+  }, LOADING_INTERVAL)
 }
 </script>
 
 <template>
-  <div>
+  <div fixed :style="{ right: `${settingsDrawerRight}px`, bottom: `${settingsDrawerBottom}px` }" z-1000>
     <a-button
-      v-if="!visible"
-      v-element-hover="onHover" fixed
-      class="bottom-25% right-3% lt-md:!right-5%" shadow-md
-      :shape="isHovered ? 'round' : 'circle'"
-      size="large" @click="onClick()"
+      v-if="!showSettingsDrawer"
+      v-element-hover="onHover"
+      size="large"
+      :shape="isButtonHovered ? 'round' : 'circle'"
+      @click="onClick()"
     >
       <IconSkin :stroke-width="6" />
-      <span v-if="isHovered" ml-3>页面风格</span>
+      <span v-if="isButtonHovered" ml-3 font-bold>页面风格</span>
     </a-button>
-    <a-drawer
-      :visible="visible"
-      :width="300"
-      unmount-on-close
-      @ok="handleOk"
-      @cancel="handleCancel"
-    >
-      <template #title>
-        页面风格设置
-      </template>
-      <RightPanelSetting />
-    </a-drawer>
   </div>
+
+  <a-drawer
+    v-model:visible="showSettingsDrawer"
+    :width="settingsDrawerWidth"
+    unmount-on-close
+  >
+    <template #title>
+      页面风格设置
+    </template>
+
+    <SettingsDrawer v-if="showSettingsDrawer" />
+
+    <template #footer>
+      <a-space vertical w-full>
+        <a-button type="primary" block @click="saveCurrentSettings">
+          <span text="dark dark:white" font-bold>应用当前配置</span>
+        </a-button>
+        <a-button type="primary" status="warning" block @click="resetStageData">
+          <span text="dark dark:white" font-bold>重置当前配置</span>
+        </a-button>
+      </a-space>
+    </template>
+  </a-drawer>
 </template>
