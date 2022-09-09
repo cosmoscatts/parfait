@@ -5,6 +5,10 @@ useHeadMeta()
 // 初始化 `loading`
 const { loading: appLoading, endLoading } = useLoading(true)
 
+// 初始话 `appStore`
+const { initAppSettings } = useAppStore()
+initAppSettings()
+
 // 定义 `loading` 整体时间和内层动画持续时间
 const LOADING_INTERVAL = 2500
 const LOADING_INNER_INTERVAL = 1800

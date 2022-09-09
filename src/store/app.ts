@@ -26,7 +26,7 @@ export const useAppStore = defineStore(
       ...configSettings,
     })
 
-    const init = () => {
+    const initAppSettings = () => {
       // 如果开启了缓存配置, 则从 `storage` 更新配置
       // 未开启，`updateSettingsFromStorage` 方法会返回默认配置
       baseSettings.value = {
@@ -38,7 +38,6 @@ export const useAppStore = defineStore(
       // 替换主题色
       replacePrimaryColor(baseSettings.value.themePrimaryColor)
     }
-    init()
 
     // 初始化 `app` 设置项的暂存区
     const buildStageData = () => {
@@ -82,6 +81,7 @@ export const useAppStore = defineStore(
       isMobile,
       baseSettings,
       stageSettings,
+      initAppSettings,
       resetStageData,
       updateSettingsFromStageData,
       menuCollapsed,
