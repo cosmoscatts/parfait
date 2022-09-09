@@ -9,7 +9,7 @@ function reTry() {
 </script>
 
 <template>
-  <div w-screen h-screen flex justify-center items-center>
+  <div hw-screen flex-center>
     <a-result status="500" subtitle="您可以选择重试或者返回" class="mb-1/10">
       <template #title>
         <div text-32px>

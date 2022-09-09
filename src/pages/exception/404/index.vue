@@ -6,7 +6,7 @@ function back() {
 </script>
 
 <template>
-  <div w-screen h-screen flex justify-center items-center>
+  <div hw-screen flex-center>
     <a-result status="404" class="mb-1/10">
       <template #title>
         <div text-32px>
