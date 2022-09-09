@@ -1,7 +1,9 @@
 import type { Component } from 'vue'
 import {
+  IconDesktop,
   IconFile,
   IconHome,
+  IconIdcard,
   IconUser,
 } from '@arco-design/web-vue/es/icon'
 import type { Menu } from '~/types'
@@ -11,7 +13,9 @@ import type { Menu } from '~/types'
  */
 export const defaultMenuIconMap: { [key: string]: Component } = {
   home: markRaw(IconHome),
+  system: markRaw(IconDesktop),
   user: markRaw(IconUser),
+  role: markRaw(IconIdcard),
   file: markRaw(IconFile),
 }
 
@@ -28,16 +32,18 @@ export const defaultMenus: Menu[] = [
   {
     id: 102,
     title: '系统管理',
-    icon: 'user',
+    icon: 'system',
     children: [
       {
         id: 10201,
         title: '用户管理',
+        icon: 'user',
         path: '/system/user',
       },
       {
         id: 10202,
         title: '角色管理',
+        icon: 'role',
         path: '/system/role',
       },
     ],
