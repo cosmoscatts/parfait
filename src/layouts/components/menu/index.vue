@@ -64,12 +64,11 @@ const selectedMenuOptionKey = computed(() => {
   >
     <a-menu
       :mode="baseSettings.layout"
-      :auto-open="false"
+      :auto-open="true"
       :accordion="true"
       :selected-keys="selectedMenuOptionKey"
       :collapsed="menuCollapsed"
       :collapsed-width="sideCollapsedWidth"
-      auto-open-selected
       breakpoint="lg"
     >
       <template v-for="{ key, title, path, icon, children } of menuOptions">
