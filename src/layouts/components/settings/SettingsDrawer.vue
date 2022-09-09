@@ -54,10 +54,11 @@ const showDisabledMsg = (data: SettingItem[], disabledMsg?: string) => {
     </a-divider>
     <div
       v-for="{ name, title, data } in layoutSettings"
-      :key="name" :header="title"
+      :key="name" :header="title" mt-3
     >
-      <div text-lg>
-        {{ title }}
+      <div flex-y-center text-primary font-bold>
+        <div i-ri-code-s-slash-line mr-2 />
+        <span>{{ title }}</span>
       </div>
       <div v-for="item, idx in data" :key="idx">
         <Component
@@ -73,6 +74,7 @@ const showDisabledMsg = (data: SettingItem[], disabledMsg?: string) => {
     <Component
       :is="renderComponent('colorPicker')"
       v-model:model-value="stageSettings[primaryColorSetting.prop]"
+      my-4
     />
 
     <a-divider>
@@ -80,10 +82,13 @@ const showDisabledMsg = (data: SettingItem[], disabledMsg?: string) => {
     </a-divider>
     <div
       v-for="{ name, title, data, disabledMsg } in funcSettings"
-      :key="name" :header="title"
+      :key="name" :header="title" mt-3
     >
-      <div text-lg flex-y-center justify-between>
-        <span>{{ title }}</span>
+      <div flex-y-center justify-between text-primary font-bold>
+        <div flex-y-center>
+          <div i-ri-code-s-slash-line mr-2 />
+          <span>{{ title }}</span>
+        </div>
         <span v-if="showDisabledMsg(data, disabledMsg)" text-danger font-bold>
           {{ disabledMsg }}
         </span>

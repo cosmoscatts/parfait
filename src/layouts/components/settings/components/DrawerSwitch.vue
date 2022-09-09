@@ -16,7 +16,7 @@ const SWITCH_COLOR = {
   unchecked: 'rgb(var(--gray-6))',
 }
 
-function onChange(value: boolean) {
+function onChange(value: any) {
   emits('update:model-value', value)
 }
 </script>

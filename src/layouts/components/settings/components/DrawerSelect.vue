@@ -16,7 +16,7 @@ const {
 
 const emits = defineEmits(['update:model-value'])
 
-function onUpdateValue(value: boolean) {
+function onChange(value: any) {
   emits('update:model-value', value)
 }
 </script>
@@ -32,7 +32,7 @@ function onUpdateValue(value: boolean) {
       :model-value="modelValue"
       :options="options"
       :disabled="disabled"
-      @update:value="onUpdateValue"
+      @change="onChange"
     />
   </div>
 </template>

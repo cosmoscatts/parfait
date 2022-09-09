@@ -21,7 +21,7 @@ function onChange<T extends string | number | boolean>(value: T) {
     :model-value="colorName"
     flex="~ wrap"
     mt-2 rounded py-2
-    border="1 gray300 dark:gray600"
+    border="2 [var(--color-border)]"
     @change="onChange"
   >
     <a-radio
