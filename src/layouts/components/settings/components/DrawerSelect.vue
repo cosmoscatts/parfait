@@ -29,7 +29,7 @@ function onUpdateValue(value: boolean) {
     <a-select
       class="!w-120px"
       :placeholder="name"
-      :value="modelValue"
+      :model-value="modelValue"
       :options="options"
       :disabled="disabled"
       @update:value="onUpdateValue"

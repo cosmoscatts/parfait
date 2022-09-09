@@ -28,7 +28,7 @@ function onUpdateValue(value: boolean) {
     </span>
     <a-switch
       type="round"
-      :value="modelValue"
+      :model-value="modelValue"
       :disabled="disabled"
       :checked-color="SWITCH_COLOR.checked"
       :unchecked-color="SWITCH_COLOR.unchecked"
