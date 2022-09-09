@@ -11,6 +11,8 @@ export const appLayoutParams = {
   sideWidth: 240,
   /** 侧边栏折叠后的宽度 */
   sideCollapsedWidth: 64,
+  /** 侧边栏中菜单折叠后的宽度 */
+  sideMenuCollapsedWidth: 48,
   /** 内容内边距 */
   contentPadding: 20,
   /** 底部高度 */

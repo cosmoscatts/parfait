@@ -12,7 +12,7 @@ interface MenuOption {
 }
 
 // 菜单折叠后宽度（垂直布局）
-const { sideCollapsedWidth } = appLayoutParams
+const { sideMenuCollapsedWidth } = appLayoutParams
 
 const appStore = useAppStore()
 const { menuCollapsed, baseSettings } = storeToRefs(appStore)
@@ -68,7 +68,7 @@ const selectedMenuOptionKey = computed(() => {
       :accordion="true"
       :selected-keys="selectedMenuOptionKey"
       :collapsed="menuCollapsed"
-      :collapsed-width="sideCollapsedWidth"
+      :collapsed-width="sideMenuCollapsedWidth"
       breakpoint="lg"
     >
       <template v-for="{ key, title, path, icon, children } of menuOptions">
