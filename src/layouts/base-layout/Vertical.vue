@@ -72,20 +72,21 @@ watch(() => route.path, (val, old) => {
   <a-layout
     relative
     hw-screen
-    bg-base of-hidden
+    bg-body of-hidden
   >
     <a-layout-sider
       v-if="!isMobile"
       absolute top-0 left-0
       h-full of="x-hidden y-auto"
-      bg-sider
+      bg-side
+      border-r="1px solid [var(--color-border)]"
       hide-trigger
       collapsible
       :width="sideWidth"
       :collapsed-width="64"
       :collapsed="menuCollapsed"
     >
-      <TheSide h-full w-full bg-transparent />
+      <TheSide hw-full />
     </a-layout-sider>
     <a-drawer
       v-else
@@ -93,6 +94,7 @@ watch(() => route.path, (val, old) => {
       :auto-focus="false"
       :visible="!menuCollapsed"
       placement="left"
+      bg-side
     >
       <TheSide />
     </a-drawer>
@@ -108,19 +110,18 @@ watch(() => route.path, (val, old) => {
       }"
     >
       <a-layout-header
-        bg-header
+        bg-nav
         :class="
           baseSettings.fixNav
             ? 'absolute top-0 right-0 w-full'
             : ''"
       >
-        <TheNav w-full bg-transparent :style="{ height: `${navHeight}px` }" />
-        <TheTabs v-show="baseSettings.showTabs" w-full bg-transparent :style="{ height: `${tabHeight}px` }" />
+        <TheNav w-full :style="{ height: `${navHeight}px` }" />
+        <TheTabs v-show="baseSettings.showTabs" w-full :style="{ height: `${tabHeight}px` }" />
       </a-layout-header>
       <a-layout
         id="content-wrapper"
         ref="refContentWrapper"
-        bg-transparent
         :style="{
           marginTop: `${
             !baseSettings.fixNav
@@ -131,14 +132,18 @@ watch(() => route.path, (val, old) => {
           }px`,
           minHeight: `calc(100% - ${diffHeight}px)`,
           overflow: baseSettings.fixNav
-            ? 'auto'
+            ? 'hidden auto'
             : undefined,
         }"
       >
         <a-layout-content>
           <TheMain ha :style="{ padding: `${contentPadding}px`, minHeight: `calc(100vh - ${diffHeight + footHeight + 1}px)` }" />
         </a-layout-content>
-        <a-layout-footer v-if="baseSettings.showFoot" :style="{ height: `${footHeight}px` }">
+        <a-layout-footer
+          v-if="baseSettings.showFoot"
+          :style="{ height: `${footHeight}px` }"
+          bg-foot border-t="1px solid [var(--color-border)]"
+        >
           <TheFoot hw-full />
         </a-layout-footer>
       </a-layout>

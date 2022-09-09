@@ -51,7 +51,7 @@ const defaultSelectedMenuOptionKey = computed(() => {
       ? [i, ...i.children]
       : [i]
   })
-  return allMenuOptions.find(i => i.path === route.path)?.key || undefined
+  return allMenuOptions.filter(i => i.path === route.path).map(j => j.key) || []
 })
 </script>
 
@@ -66,9 +66,10 @@ const defaultSelectedMenuOptionKey = computed(() => {
       :mode="baseSettings.layout"
       :auto-open="false"
       :accordion="true"
-      :selected-keys="defaultSelectedMenuOptionKey"
+      :default-selected-keys="defaultSelectedMenuOptionKey"
       :collapsed="menuCollapsed"
       :collapsed-width="sideCollapsedWidth"
+      auto-open-selected
       breakpoint="lg"
     >
       <template v-for="{ key, title, path, icon, children } of menuOptions">

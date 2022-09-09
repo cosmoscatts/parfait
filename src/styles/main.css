@@ -55,10 +55,10 @@ html.dark {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--c-scrollbar);
+  background: rgb(var(--primary-6));
   border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background: var(--c-scrollbar-hover);
-}
+} */
