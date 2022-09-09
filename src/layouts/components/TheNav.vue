@@ -26,7 +26,7 @@ const isVerticalLayout = computed(() => {
     <div flex-auto />
     <div flex-y-center>
       <a
-        icon-btn text-lg i-carbon-logo-github mx-4
+        icon-btn text-lg i-carbon-logo-github mr-4
         href="https://github.com/dud9/petite"
         target="_blank" title="GitHub"
       />

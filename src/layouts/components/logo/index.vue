@@ -3,7 +3,7 @@ import { breakpointsTailwind } from '@vueuse/core'
 import { appLayoutParams, appMeta } from '~/config'
 
 const { title } = appMeta
-const { navHeight } = appLayoutParams
+const { navHeight, sideWidth, sideCollapsedWidth } = appLayoutParams
 
 const appstore = useAppStore()
 const { menuCollapsed, baseSettings } = storeToRefs(appstore)
@@ -24,15 +24,23 @@ const hiddenTitle = breakpoints.smaller('lg')
 <template>
   <div
     v-if="baseSettings.showLogo"
-    flex-center :style="{ height: `${navHeight}px` }"
+    flex-center
     :class="{ 'ml-4': isHorizontalLayout }"
+    :style="{
+      height: `${navHeight}px`,
+      width: isHorizontalLayout
+        ? hiddenTitle
+          ? `${sideCollapsedWidth}px`
+          : `${sideWidth + 40}px`
+        : undefined,
+    }"
   >
     <!-- <img
         src="https://www.naiveui.com/assets/naivelogo.93278402.svg"
         alt="Logo" :style="{ width: `${navHeight * 0.65}px !important`, height: `${navHeight * 0.65}px !important` }"
       > -->
     <div i-ri-rocket-fill text="primary 24px" />
-    <span v-if="!menuCollapsed && (!hiddenTitle || !isHorizontalLayout)" font="bold sans" pl-16px text-16px>
+    <span v-if="!menuCollapsed && (!hiddenTitle || !isHorizontalLayout)" font="bold sans" ml-4 text-16px>
       {{ title }}
     </span>
   </div>
