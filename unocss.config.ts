@@ -18,11 +18,11 @@ export default defineConfig({
     'flex-y-center': 'flex items-center',
     'flex-col-center': 'flex-col flex-center',
     'border-base': 'border-gray/20 dark:border-gray/15',
+    'icon-btn': 'op30 hover:op100 hover:bg-primary_hover',
     'bg-base': 'bg-gray:15 dark:bg-[#17171A]',
     'bg-card': 'bg-white dark:bg-[#2A2A2B]',
     'bg-header': 'bg-white dark:bg-[#232324]',
     'bg-sider': 'bg-white dark:bg-[#232324]',
-    'icon-btn': 'op30 hover:op100 hover:bg-primary_hover',
   },
   presets: [
     presetAttributify(),
