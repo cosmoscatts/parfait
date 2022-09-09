@@ -1,4 +1,4 @@
-import NavBell from './Navbell.vue'
+import NavBell from './NavBell.vue'
 import NavAvatar from './NavAvatar.vue'
 import NavBreadcrumb from './NavBreadcrumb.vue'
 import NavCollapsedToggle from './NavCollapsedToggle.vue'
