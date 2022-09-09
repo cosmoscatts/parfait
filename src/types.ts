@@ -8,5 +8,4 @@ export * from '~/typings/menu'
 export * from '~/typings/tab'
 export * from '~/typings/arco'
 export * from '~/typings/global'
-export * from '~/typings/color'
 
