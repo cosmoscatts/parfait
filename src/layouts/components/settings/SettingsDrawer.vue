@@ -1,116 +1,103 @@
 <script setup lang="ts">
-import ColorPicker from './ColorPicker.vue'
+import type { Component } from 'vue'
+import {
+  DrawerColorPicker,
+  DrawerLayoutMode,
+  DrawerSelect,
+  DrawerSwitch,
+} from './components'
+import {
+  type CollapseItem,
+  type SettingItem,
+  type SettingItemRenderType,
+  funcSettings,
+  layoutSettings,
+  primaryColorSetting,
+} from './helper'
+
+const defaultExpandedNames = computed(() => {
+  return [funcSettings, layoutSettings]
+    .flatMap((i: CollapseItem[]) => i.map(j => j.name)) || []
+})
 
 const appStore = useAppStore()
-const {
-  layout,
-  fixHeader,
-  showTheLogo,
-  showTheTags,
-  tagButtonShape,
-  cacheTheTags,
-  primaryColor,
-  openAnimation,
-  animationMode,
-} = appStore.getStageVal()
-const layoutRadios = [
-  { prop: 'vertical', name: '垂直导航', img: '' },
-  { prop: 'horizontal', name: '水平导航', img: '' },
-]
-const switchRect = reactive<any>({
-  primaryColor,
-  fixHeader,
-  showTheLogo,
-  showTheTags,
-  tagButtonShape,
-  cacheTheTags,
-  openAnimation,
-  animationMode,
-})
-const switchItems = [
-  { name: '主要色调', prop: 'primaryColor', type: 'colorPicker', dependOn: undefined },
-  { name: '页面Logo', prop: 'showTheLogo', type: 'switch', dependOn: undefined },
-  { name: '固定页头', prop: 'fixHeader', type: 'switch', dependOn: undefined },
-  { name: '多页签导航', prop: 'showTheTags', type: 'switch', dependOn: undefined },
-  { name: '多页签风格', prop: 'tagButtonShape', type: 'select', dependOn: 'showTheTags' },
-  { name: '多页签缓存', prop: 'cacheTheTags', type: 'switch', dependOn: 'showTheTags' },
-  { name: '页面切换动画', prop: 'openAnimation', type: 'switch', dependOn: undefined },
-  { name: '页面切换动画类型', prop: 'animationMode', type: 'select', dependOn: 'openAnimation' },
-]
-const filterSwitchItems = computed(() => {
-  return switchItems.filter(i => i.dependOn === undefined || switchRect[i.dependOn!])
-})
-const switchColors = {
-  checked: 'rgb(var(--primary-6))',
-  unchecked: 'rgb(var(--gray-6))',
+const { stageSettings } = storeToRefs(appStore)
+
+function renderComponent(key: SettingItemRenderType) {
+  const componentMap: Record<SettingItemRenderType, Component> = {
+    layoutRadio: DrawerLayoutMode,
+    select: DrawerSelect,
+    switch: DrawerSwitch,
+    colorPicker: DrawerColorPicker,
+  }
+  return componentMap[key]
 }
-const selectOptions: Record<string, any> = {
-  animationMode: [
-    { label: '滑动', value: 'fade-slide' },
-    { label: '消退', value: 'fade' },
-    { label: '底部消退', value: 'fade-bottom' },
-    { label: '缩放消退', value: 'fade-scale' },
-    { label: '渐变', value: 'zoom-fade' },
-    { label: '闪现', value: 'zoom-out' },
-  ],
-  tagButtonShape: [
-    { label: '按钮风格', value: 'default' },
-    { label: '谷歌风格', value: 'chrome' },
-  ],
+
+// 判断关联的设置项是否需要禁止点击
+const isDisabled = ({ dependOn }: SettingItem) => {
+  if (!dependOn)
+    return false
+    // 侧边栏折叠触发器样式需要单独判断
+    // 只有垂直布局时，才有侧边栏
+  const { value: stage } = stageSettings
+  return dependOn === 'layout'
+    ? stage[dependOn] !== 'vertical'
+    : !stage[dependOn]
+}
+
+// 判断 `collapse-item` 是否显示禁止点击信息
+const showDisabledMsg = (data: SettingItem[], disabledMsg?: string) => {
+  if (!disabledMsg)
+    return false
+  return data.some(i => isDisabled(i))
 }
 </script>
 
 <template>
-  <div ha of="x-hidden y-auto" flex="~ col" gap-4>
-    <div flex="~ col">
-      <span>页面排版</span>
-      <a-radio-group v-model="layout" direction="vertical">
-        <template v-for="{ prop, name } of layoutRadios" :key="prop">
-          <a-radio :value="prop" mt-3>
-            <template #radio="{ checked }">
-              <a-space
-                class="group" w-full p="x-3 y-2" rounded flex justify-between
-                border="1 gray300 dark:gray600 hover:![rgb(var(--primary-6))]"
-                text="gray600 dark:white hover:![rgb(var(--primary-6))]"
-                :class="checked
-                  ? `bg-[var(--color-primary-light-1)] !border-[rgb(var(--primary-6))] !text-[rgb(var(--primary-6))]`
-                  : ''"
-              >
-                <div
-                  h-14px w-14px flex-inline justify-center items-center rounded-full
-                  border="1 gray300 dark:gray600 group-hover:![rgb(var(--primary-6))]"
-                  :class="checked ? '!border-[rgb(var(--primary-6))]' : ''"
-                >
-                  <div w-8px h-8px rounded-full :class="checked ? '!bg-[rgb(var(--primary-6))]' : ''" />
-                </div>
-                <div flex-inline justify-center items-center mx-4 font-bold>
-                  {{ name }}
-                </div>
-                <div v-if="prop === 'vertical'" i-ri-layout-3-line text-40px />
-                <div v-else i-ri-layout-top-line text-40px />
-              </a-space>
-            </template>
-          </a-radio>
-        </template>
-      </a-radio-group>
-    </div>
+  <a-collapse :default-active-key="defaultExpandedNames" :bordered="false">
+    <a-divider>
+      页面布局
+    </a-divider>
+    <a-collapse-item
+      v-for="{ name, title, data } in layoutSettings"
+      :key="name" :header="title"
+    >
+      <div v-for="item, idx in data" :key="idx">
+        <Component
+          :is="renderComponent(item.type)"
+          v-bind="{ ...item }" v-model:model-value="stageSettings[item.prop]"
+        />
+      </div>
+    </a-collapse-item>
 
-    <div v-for="{ name, prop, type }, idx of filterSwitchItems" :key="idx">
-      <span>{{ name }}</span>
-      <ColorPicker v-if="type === 'colorPicker'" v-model:color-name="primaryColor" />
-      <a-switch
-        v-if="type === 'switch'"
-        v-model="switchRect[prop]"
-        type="round" float-right
-        :checked-color="switchColors.checked"
-        :unchecked-color="switchColors.unchecked"
-      />
-      <a-select
-        v-if="type === 'select'"
-        v-model="switchRect[prop]" float-right class="!w-120px"
-        :options="selectOptions[prop]" size="small"
-      />
-    </div>
-  </div>
+    <a-divider>
+      系统主色调
+    </a-divider>
+    <Component
+      :is="renderComponent('colorPicker')"
+      v-model:model-value="stageSettings[primaryColorSetting.prop]"
+    />
+
+    <a-divider>
+      页面功能
+    </a-divider>
+    <a-collapse-item
+      v-for="{ name, title, data, disabledMsg } in funcSettings"
+      :key="name" :header="title"
+    >
+      <template v-if="showDisabledMsg(data, disabledMsg)" #extra>
+        <span text-danger font-bold>
+          {{ disabledMsg }}
+        </span>
+      </template>
+      <div v-for="item, idx in data" :key="idx">
+        <Component
+          :is="renderComponent(item.type)"
+          v-bind="{ ...item }" v-model:model-value="stageSettings[item.prop]"
+          :disabled="isDisabled(item)"
+        />
+      </div>
+    </a-collapse-item>
+  </a-collapse>
 </template>
 

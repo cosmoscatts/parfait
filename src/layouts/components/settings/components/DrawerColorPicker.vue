@@ -6,21 +6,27 @@ const {
 } = defineProps<{
   colorName?: string
 }>()
+
 const emit = defineEmits(['update:colorName'])
-function onChange(val: any) {
-  emit('update:colorName', val)
+
+function onChange<T extends string | number | boolean>(value: T) {
+  if (typeof value !== 'string')
+    return
+  emit('update:colorName', value)
 }
 </script>
 
 <template>
   <a-radio-group
-    :model-value="colorName" flex="~ wrap"
-    mt-2 border="1 gray300 dark:gray600" rounded py-2
+    :model-value="colorName"
+    flex="~ wrap"
+    mt-2 rounded py-2
+    border="1 gray300 dark:gray600"
     @change="onChange"
   >
     <a-radio
-      v-for="[k, { name, value }] of Object.entries(themeColorValueMap)"
-      :key="k" :value="k" m="t-1 l-4"
+      v-for="[key, { name, value }] of Object.entries(themeColorValueMap)"
+      :key="key" :value="key" m="t-1 l-4"
     >
       <div w-12px h-12px rounded-sm flex-inline mr-1 :style="{ background: value }" />
       <span class="!text-sm">{{ name }}</span>
