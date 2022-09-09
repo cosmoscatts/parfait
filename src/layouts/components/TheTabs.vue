@@ -109,7 +109,7 @@ watch(
           :class="{ 'ha max-h-full': isChromeTabShapeStyle }"
         >
           <TabItem
-            :props="{
+            v-bind="{
               index,
               title,
               path,

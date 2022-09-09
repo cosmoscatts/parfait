@@ -74,7 +74,7 @@ function handleCloseTab() {
     >
       <TabButton
         v-if="!isChromeTab"
-        :props="{
+        v-bind="{
           title,
           isActive: isActive(path),
         }"
@@ -89,7 +89,7 @@ function handleCloseTab() {
 
       <TabChrome
         v-else
-        :props="{
+        v-bind="{
           title,
           isActive: isActive(path),
           isLast: index === tabs.length - 1,
@@ -107,7 +107,7 @@ function handleCloseTab() {
 
     <template #content>
       <TabContextMenu
-        :props="{
+        v-bind="{
           index,
           tabs,
           hasLeftTabs: tabs.length > 1 && index > 0,
