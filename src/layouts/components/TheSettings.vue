@@ -67,11 +67,11 @@ function saveCurrentSettings() {
     <SettingsDrawer v-if="showSettingsDrawer" />
 
     <template #footer>
-      <a-space vertical w-full>
-        <a-button type="primary" block @click="saveCurrentSettings">
+      <a-space direction="vertical" fill>
+        <a-button type="primary" long @click="saveCurrentSettings">
           <span text="dark dark:white" font-bold>应用当前配置</span>
         </a-button>
-        <a-button type="primary" status="warning" block @click="resetStageData">
+        <a-button type="primary" status="warning" long @click="resetStageData">
           <span text="dark dark:white" font-bold>重置当前配置</span>
         </a-button>
       </a-space>

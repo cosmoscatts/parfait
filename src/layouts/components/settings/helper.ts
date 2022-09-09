@@ -26,7 +26,7 @@ export interface SettingItem {
 /**
  * 配置项按功能分类，折叠面板数据结构
  */
-export interface CollapseItem {
+export interface ModuleItem {
   name: string
   title: string
   data: SettingItem[]
@@ -42,7 +42,7 @@ export interface CollapseItem {
 /**
  * 页面布局配置项
  */
-export const layoutSettings: CollapseItem[] = [
+export const layoutSettings: ModuleItem[] = [
   {
     name: '布局模式',
     title: '布局模式',
@@ -111,7 +111,7 @@ export const primaryColorSetting: SettingItem = {
 /**
  * 页面功能配置项
  */
-export const funcSettings: CollapseItem[] = [
+export const funcSettings: ModuleItem[] = [
   {
     name: '多页签',
     title: '多页签',

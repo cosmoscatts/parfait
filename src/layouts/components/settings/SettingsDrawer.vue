@@ -7,18 +7,12 @@ import {
   DrawerSwitch,
 } from './components'
 import {
-  type CollapseItem,
   type SettingItem,
   type SettingItemRenderType,
   funcSettings,
   layoutSettings,
   primaryColorSetting,
 } from './helper'
-
-const defaultActiveKeys = computed(() => {
-  return [funcSettings, layoutSettings]
-    .flatMap((i: CollapseItem[]) => i.map(j => j.name)) || []
-})
 
 const appStore = useAppStore()
 const { stageSettings } = storeToRefs(appStore)
@@ -54,21 +48,24 @@ const showDisabledMsg = (data: SettingItem[], disabledMsg?: string) => {
 </script>
 
 <template>
-  <a-collapse :default-active-key="defaultActiveKeys" :bordered="false">
+  <div flex="~ col">
     <a-divider>
       页面布局
     </a-divider>
-    <a-collapse-item
+    <div
       v-for="{ name, title, data } in layoutSettings"
       :key="name" :header="title"
     >
+      <div text-lg>
+        {{ title }}
+      </div>
       <div v-for="item, idx in data" :key="idx">
         <Component
           :is="renderComponent(item.type)"
           v-bind="{ ...item }" v-model:model-value="stageSettings[item.prop]"
         />
       </div>
-    </a-collapse-item>
+    </div>
 
     <a-divider>
       系统主色调
@@ -81,15 +78,17 @@ const showDisabledMsg = (data: SettingItem[], disabledMsg?: string) => {
     <a-divider>
       页面功能
     </a-divider>
-    <a-collapse-item
+    <div
       v-for="{ name, title, data, disabledMsg } in funcSettings"
       :key="name" :header="title"
     >
-      <template v-if="showDisabledMsg(data, disabledMsg)" #extra>
-        <span text-danger font-bold>
+      <div text-lg flex-y-center justify-between>
+        <span>{{ title }}</span>
+        <span v-if="showDisabledMsg(data, disabledMsg)" text-danger font-bold>
           {{ disabledMsg }}
         </span>
-      </template>
+      </div>
+
       <div v-for="item, idx in data" :key="idx">
         <Component
           :is="renderComponent(item.type)"
@@ -97,7 +96,7 @@ const showDisabledMsg = (data: SettingItem[], disabledMsg?: string) => {
           :disabled="isDisabled(item)"
         />
       </div>
-    </a-collapse-item>
-  </a-collapse>
+    </div>
+  </div>
 </template>
 

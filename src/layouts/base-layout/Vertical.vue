@@ -71,13 +71,13 @@ watch(() => route.path, (val, old) => {
 <template>
   <a-layout
     relative
-    hw-screen bg-base
-    of="x-hidden y-auto"
+    hw-screen
+    bg-base of-hidden
   >
     <a-layout-sider
       v-if="!isMobile"
       absolute top-0 left-0
-      h-full of-hidden
+      h-full of="x-hidden y-auto"
       bg-sider
       hide-trigger
       collapsible
@@ -101,6 +101,7 @@ watch(() => route.path, (val, old) => {
       id="main-wrapper"
       ref="refMainWrapper"
       absolute
+      h-full of="x-hidden y-auto"
       :style="{
         width: mainWrapperWidth,
         left: mainWrapperLeft,
@@ -130,7 +131,7 @@ watch(() => route.path, (val, old) => {
           }px`,
           minHeight: `calc(100% - ${diffHeight}px)`,
           overflow: baseSettings.fixNav
-            ? 'hidden auto'
+            ? 'auto'
             : undefined,
         }"
       >
