@@ -7,7 +7,9 @@ const {
   title = '',
   isActive = false,
 } = defineProps<{
+  /** 多页签标题 */
   title?: string
+  /** 是否为当前路由 */
   isActive?: boolean
 }>()
 

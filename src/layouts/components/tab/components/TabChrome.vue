@@ -12,12 +12,19 @@ const {
   mixColor = ['#ffffff', '#000000'],
   mixRatio = [0.2, 0.3],
 } = defineProps<{
+  /** 多页签标题 */
   title?: string
+  /** 是否为当前路由 */
   isActive?: boolean
+  /** 是否是最后一个 */
   isLast?: boolean
+  /** 背景颜色 */
   bgColor?: FillColor
+  /** 背景颜色 `hover` */
   hoverBgColor?: FillColor
+  /** 混合调色 */
   mixColor?: FillColor
+  /** 混合透明度 */
   mixRatio?: MixRatio
 }>()
 
