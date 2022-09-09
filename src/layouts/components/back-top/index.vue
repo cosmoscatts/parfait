@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IconToTop } from '@arco-design/web-vue/es/icon'
+import { IconUp } from '@arco-design/web-vue/es/icon'
 import { appLayoutParams } from '~/config'
 
 const {
@@ -26,7 +26,7 @@ const {
       }"
       size="large" shape="circle"
     >
-      <IconToTop :stroke-width="8" />
+      <IconUp :stroke-width="8" />
     </a-button>
   </a-back-top>
 </template>

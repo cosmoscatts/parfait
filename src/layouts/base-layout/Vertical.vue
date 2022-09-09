@@ -21,6 +21,7 @@ const {
 
 const route = useRoute()
 const { isMobile, menuCollapsed, baseSettings } = storeToRefs(useAppStore())
+const { setMenuCollapsed } = useAppStore()
 
 const backTopTarget = computed(() => {
   const { value: { fixNav } } = baseSettings
@@ -90,13 +91,16 @@ watch(() => route.path, (val, old) => {
     </a-layout-sider>
     <a-drawer
       v-else
+      class="menu-drawer"
+      placement="left"
       :width="sideWidth"
       :auto-focus="false"
       :visible="!menuCollapsed"
-      placement="left"
-      bg-side
+      :header="false"
+      :footer="false"
+      @cancel="setMenuCollapsed"
     >
-      <TheSide />
+      <TheSide hw-full bg-side />
     </a-drawer>
 
     <a-layout
@@ -153,3 +157,9 @@ watch(() => route.path, (val, old) => {
   </a-layout>
 </template>
 
+<style>
+.menu-drawer .arco-drawer-body {
+  padding: 0 !important;
+  border-right: 1px solid var(--color-border);
+}
+</style>

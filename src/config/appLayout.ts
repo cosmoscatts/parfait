@@ -18,7 +18,7 @@ export const appLayoutParams = {
   /** `backTop` 距离页面右部的距离 */
   backTopRight: 20,
   /** `backTop` 距离页面底部的距离 */
-  backTopBottom: 200,
+  backTopBottom: 75,
   /** `backTop` 滚动时触发显示回到顶部的高度 */
   backTopvisibilityHeight: 250,
   /** `settingsDrawer` 距离页面右部的距离 */
