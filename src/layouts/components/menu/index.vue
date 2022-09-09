@@ -45,7 +45,7 @@ const menuOptions = computed<MenuOption[]>(() => {
 const route = useRoute()
 
 // 默认选中的 `menu option`
-const defaultSelectedMenuOptionKey = computed(() => {
+const selectedMenuOptionKey = computed(() => {
   const allMenuOptions = menuOptions.value.flatMap((i) => {
     return i.children
       ? [i, ...i.children]
@@ -66,7 +66,7 @@ const defaultSelectedMenuOptionKey = computed(() => {
       :mode="baseSettings.layout"
       :auto-open="false"
       :accordion="true"
-      :default-selected-keys="defaultSelectedMenuOptionKey"
+      :selected-keys="selectedMenuOptionKey"
       :collapsed="menuCollapsed"
       :collapsed-width="sideCollapsedWidth"
       auto-open-selected
@@ -97,7 +97,7 @@ const defaultSelectedMenuOptionKey = computed(() => {
         </template>
         <template v-else>
           <RouterLink :key="key" :to="path!">
-            <a-menu-item :key="path">
+            <a-menu-item :key="key">
               <template #icon>
                 <Component :is="icon" />
               </template>
