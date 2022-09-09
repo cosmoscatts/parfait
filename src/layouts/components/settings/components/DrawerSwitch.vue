@@ -16,7 +16,7 @@ const SWITCH_COLOR = {
   unchecked: 'rgb(var(--gray-6))',
 }
 
-function onUpdateValue(value: boolean) {
+function onChange(value: boolean) {
   emits('update:model-value', value)
 }
 </script>
@@ -32,7 +32,7 @@ function onUpdateValue(value: boolean) {
       :disabled="disabled"
       :checked-color="SWITCH_COLOR.checked"
       :unchecked-color="SWITCH_COLOR.unchecked"
-      @update:value="onUpdateValue"
+      @change="onChange"
     />
   </div>
 </template>
