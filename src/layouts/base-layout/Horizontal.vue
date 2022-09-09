@@ -1,28 +1,48 @@
 <script setup lang="ts">
 import {
+  BackTop,
   TheFoot,
   TheMain,
   TheNav,
   TheSettings,
   TheTabs,
 } from '../components'
+import { appLayoutParams, showAppSettings } from '~/config'
 
-const { showTheTags, fixHeader } = storeToRefs(useAppStore())
-const rightPanelVisible = ref(false)
+const {
+  navHeight,
+  tabHeight,
+  contentPadding,
+  footHeight,
+} = appLayoutParams
+
+const route = useRoute()
+const { baseSettings } = storeToRefs(useAppStore())
+
 const backTopTarget = computed(() => {
-  return fixHeader.value
+  const { value: { fixNav } } = baseSettings
+  return fixNav
     ? '#content-wrapper'
     : '#main-wrapper'
 })
 
-// handle scroll position
+// 计算内容区域需要减去的高度值
+const diffHeight = computed(() => {
+  let height = navHeight
+  if (baseSettings.value.showTabs)
+    height += tabHeight
+  // `border` 边框的高度也需要考虑
+  return height + 1
+})
+
 const refMainWrapper = ref()
 const refContentWrapper = ref()
-const route = useRoute()
+
 watch(() => route.path, (val, old) => {
   if (val === old)
     return
-  const refTarget = fixHeader.value
+  const { value: { fixNav } } = baseSettings
+  const refTarget = fixNav
     ? refContentWrapper
     : refMainWrapper
   if ((refTarget.value?.$el?.scrollTop ?? 0) === 0)
@@ -32,27 +52,47 @@ watch(() => route.path, (val, old) => {
 </script>
 
 <template>
-  <a-layout id="main-wrapper" ref="refMainWrapper" h-screen w-screen bg-base of="x-hidden y-auto">
-    <a-layout-header bg-header :class="fixHeader ? 'fixed top-0 right-0 w-full' : ''">
-      <TheNav w-full h-50px bg-transparent />
-      <TheTags v-show="showTheTags" w-full h-40px bg-transparent />
+  <a-layout
+    id="main-wrapper"
+    ref="refMainWrapper"
+    hw-screen bg-base
+    of="x-hidden y-auto"
+  >
+    <a-layout-header
+      bg-header
+      :class="baseSettings.fixNav
+        ? 'fixed top-0 right-0 w-full'
+        : ''"
+    >
+      <TheNav w-full bg-transparent :style="{ height: `${navHeight}px` }" />
+      <TheTabs v-show="baseSettings.showTabs" w-full bg-transparent :style="{ height: `${tabHeight}px` }" />
     </a-layout-header>
     <a-layout
       id="content-wrapper"
       ref="refContentWrapper"
       bg-transparent
-      :class="
-        fixHeader
-          ? showTheTags
-            ? 'of-x-hidden of-y-auto !mt-90px'
-            : 'of-x-hidden of-y-auto !mt-50px'
-          : '' "
+      :style="{
+        marginTop: `${
+          !baseSettings.fixNav
+            ? 0
+            : baseSettings.showTabs
+              ? navHeight + tabHeight + 1
+              : navHeight + 1
+        }px`,
+        minHeight: `calc(100% - ${diffHeight}px)`,
+        overflow: baseSettings.fixNav
+          ? 'hidden auto'
+          : undefined,
+      }"
     >
       <a-layout-content>
-        <TheMain w-full h-full p-5 />
+        <TheMain ha :style="{ padding: `${contentPadding}px`, minHeight: `calc(100vh - ${diffHeight + footHeight + 1}px)` }" />
       </a-layout-content>
+      <a-layout-footer v-if="baseSettings.showFoot" :style="{ height: `${footHeight}px` }">
+        <TheFoot hw-full />
+      </a-layout-footer>
     </a-layout>
-    <TheRightPanel v-model:visible="rightPanelVisible" />
+    <TheSettings v-if="showAppSettings" />
   </a-layout>
   <BackTop :target-container="backTopTarget" />
 </template>
