@@ -19,9 +19,9 @@ export default defineConfig({
     'flex-col-center': 'flex-col flex-center',
     'border-base': 'border-gray/20 dark:border-gray/15',
     'icon-btn': 'op30 hover:op100 hover:bg-primary_hover',
-    'bg-body': 'bg-white dark:bg-[#17171A]',
+    'bg-body': 'bg-gray:15 dark:bg-[#17171A]',
     'bg-nav': 'bg-white dark:bg-[#232324]',
-    'bg-side': 'bg-gray:15 dark:bg-[#232324]',
+    'bg-side': 'bg-white dark:bg-[#232324]',
     'bg-foot': 'bg-white dark:bg-[#232324]',
   },
   presets: [

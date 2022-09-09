@@ -55,22 +55,21 @@ watch(() => route.path, (val, old) => {
   <a-layout
     id="main-wrapper"
     ref="refMainWrapper"
-    hw-screen bg-base
+    hw-screen bg-body
     of="x-hidden y-auto"
   >
     <a-layout-header
-      bg-header
+      bg-nav
       :class="baseSettings.fixNav
         ? 'fixed top-0 right-0 w-full'
         : ''"
     >
-      <TheNav w-full bg-transparent :style="{ height: `${navHeight}px` }" />
-      <TheTabs v-show="baseSettings.showTabs" w-full bg-transparent :style="{ height: `${tabHeight}px` }" />
+      <TheNav w-full :style="{ height: `${navHeight}px` }" />
+      <TheTabs v-show="baseSettings.showTabs" w-full :style="{ height: `${tabHeight}px` }" />
     </a-layout-header>
     <a-layout
       id="content-wrapper"
       ref="refContentWrapper"
-      bg-transparent
       :style="{
         marginTop: `${
           !baseSettings.fixNav
@@ -88,7 +87,11 @@ watch(() => route.path, (val, old) => {
       <a-layout-content>
         <TheMain ha :style="{ padding: `${contentPadding}px`, minHeight: `calc(100vh - ${diffHeight + footHeight + 1}px)` }" />
       </a-layout-content>
-      <a-layout-footer v-if="baseSettings.showFoot" :style="{ height: `${footHeight}px` }">
+      <a-layout-footer
+        v-if="baseSettings.showFoot"
+        :style="{ height: `${footHeight}px` }"
+        bg-foot border-t="1px solid [var(--color-border)]"
+      >
         <TheFoot hw-full />
       </a-layout-footer>
     </a-layout>
