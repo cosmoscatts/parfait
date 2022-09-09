@@ -1,48 +1,62 @@
 <script setup lang="ts">
 import TabItem from './tab'
-
-const { tagButtonShape } = storeToRefs(useAppStore())
-
-const tagsStore = useTagsStore()
-const tags = $computed(() => {
-  return tagsStore.visitedPages || []
-})
+import type { Tab } from '~/types'
 
 const route = useRoute()
-function addTag() {
-  const { name, meta: { title, cached }, path, fullPath, query } = route
-  if ([title, path, fullPath].some(i => !i))
-    return
-  tagsStore.addTag({
-    path,
-    query,
-    fullPath,
-    name: name?.toString() || '',
-    title: title as string,
-    cached: cached as boolean || false,
-  })
-}
-addTag()
-watch(() => route.path, () => {
-  addTag()
+
+const tabStore = useTabStore()
+const { addOneTab } = tabStore
+const { baseSettings } = storeToRefs(useAppStore())
+
+// 多页签风格是否为谷歌风格
+const isChromeTabShapeStyle = computed(() => {
+  return baseSettings.value.tabShapeStyle === 'chrome'
 })
 
-const refWrapper = ref()
-const refScroll = ref()
-const refTag = ref()
-const { width: refWrapperWidth, left: refWrapperLeft } = useElementBounding(refWrapper)
-const activeTagIndex = computed(() => {
+// 所有的多页签
+const tabs = $computed(() => {
+  return tabStore.visitedTabs || []
+})
+
+/**
+ * 添加多页签
+ */
+function addTab() {
+  const { name, path, meta: { title, cached } } = route
+  if ([title, path].some(i => !i))
+    return
+  addOneTab({
+    path,
+    name,
+    title,
+    cached,
+  } as Tab)
+}
+addTab()
+watch(
+  () => route.path,
+  addTab,
+)
+
+const refTab = ref()
+const refContainer = ref()
+const refScrollWrapper = ref()
+
+const { width: refContainerWidth, left: refContainerLeft } = useElementBounding(refContainer)
+
+// 当前显示的 `tab` 索引
+const activeTabIndex = computed(() => {
   const redirectPrefix = '/redirect'
   const activePath = route.path.startsWith(redirectPrefix)
     ? route.path.substring(redirectPrefix.length)
     : route.path
-  return tags.findIndex(i => i.path === activePath) || -1
+  return tabs.findIndex(i => i.path === activePath) || -1
 })
 
 async function getActiveTabClientX() {
   await nextTick()
-  if (refTag.value && refTag.value?.children?.length && refTag.value.children[activeTagIndex.value]) {
-    const activeTagEl = refTag.value.children[activeTagIndex.value]
+  if (refTab.value && refTab.value?.children?.length && refTab.value.children[activeTabIndex.value]) {
+    const activeTagEl = refTab.value.children[activeTabIndex.value]
     const { x, width } = activeTagEl.getBoundingClientRect()
     const clientX = x + width / 2
     useTimeoutFn(() => {
@@ -52,18 +66,18 @@ async function getActiveTabClientX() {
 }
 
 function handleScroll(clientX: number) {
-  const currentX = clientX - refWrapperLeft.value
-  const deltaX = currentX - refWrapperWidth.value / 2
-  if (refScroll.value) {
-    const { maxScrollX, x: leftX } = refScroll.value.instance
+  const currentX = clientX - refContainerLeft.value
+  const deltaX = currentX - refContainerWidth.value / 2
+  if (refScrollWrapper.value) {
+    const { maxScrollX, x: leftX } = refScrollWrapper.value.instance
     const rightX = maxScrollX - leftX
     const update = deltaX > 0 ? Math.max(-deltaX, rightX) : Math.min(-deltaX, -leftX)
-    refScroll.value?.instance.scrollBy(update, 0, 300)
+    refScrollWrapper.value?.instance.scrollBy(update, 0, 300)
   }
 }
 
 watch(
-  activeTagIndex,
+  activeTabIndex,
   () => {
     getActiveTabClientX()
   },
@@ -74,14 +88,36 @@ watch(
 </script>
 
 <template>
-  <div ref="refWrapper" of-hidden mx-1rem style="width: calc(100% - 2rem);">
-    <ScrollWrapper ref="refScroll" :options="{ scrollX: true, scrollY: false, click: true }">
-      <div ref="refTag" h-full :class="[tagButtonShape === 'default' ? 'flex !items-center gap-x-2 mt-1px' : 'flex items-end pr-7']">
+  <div
+    ref="refContainer"
+    of-hidden mx="[0.5rem]"
+    :style="{ width: 'calc(100% - 1rem)' }"
+  >
+    <ScrollWrapper ref="refScrollWrapper" :options="{ scrollX: true, scrollY: false, click: true }">
+      <div
+        ref="refTab" h-full
+        :class="[
+          isChromeTabShapeStyle
+            ? 'flex items-end pr-7'
+            : 'flex !items-center gap-x-2 mt-1px',
+        ]"
+      >
         <div
-          v-for="{ title, path, query }, idx in tags" :key="idx"
-          h-26px lh-26px wa flex-inline items-center cursor-pointer
-          :class="{ 'ha max-h-full': tagButtonShape !== 'default' }"
-        />
+          v-for="{ title, path }, index in tabs" :key="path"
+          flex-inline items-center
+          h-26px lh-26px wa cursor-pointer
+          :class="{ 'ha max-h-full': isChromeTabShapeStyle }"
+        >
+          <TabItem
+            :props="{
+              index,
+              title,
+              path,
+              tabs,
+              isChromeTab: isChromeTabShapeStyle,
+            }"
+          />
+        </div>
       </div>
     </ScrollWrapper>
   </div>
