@@ -15,7 +15,7 @@ import {
   primaryColorSetting,
 } from './helper'
 
-const defaultExpandedNames = computed(() => {
+const defaultActiveKeys = computed(() => {
   return [funcSettings, layoutSettings]
     .flatMap((i: CollapseItem[]) => i.map(j => j.name)) || []
 })
@@ -54,7 +54,7 @@ const showDisabledMsg = (data: SettingItem[], disabledMsg?: string) => {
 </script>
 
 <template>
-  <a-collapse :default-active-key="defaultExpandedNames" :bordered="false">
+  <a-collapse :default-active-key="defaultActiveKeys" :bordered="false">
     <a-divider>
       页面布局
     </a-divider>
