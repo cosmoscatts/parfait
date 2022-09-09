@@ -57,7 +57,7 @@ function onClick(value: string) {
       :class="[isChecked(value) ? 'border-primary' : 'border-transparent']"
       @click="onClick(value)"
     >
-      <a-tooltip :content="label">
+      <a-tooltip :content="label" position="bottom">
         <div relative h-80px bg="white dark:[#232324]" rounded-4px of-hidden :style="{ width: `${layoutElWidth}px` }">
           <div class="absolute left-0 top-0 bg-[#273352] dark:bg-[#232324]" :class="renderLayoutIcon(value)?.menuClass" />
           <div class="absolute right-0 bottom-0 bg-[#f0f2f5] dark:bg-[#17171A]" :class="renderLayoutIcon(value)?.mainClass" />
