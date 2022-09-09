@@ -20,7 +20,7 @@ function onChange<T extends string | number | boolean>(value: T) {
   <a-radio-group
     :model-value="colorName"
     flex="~ wrap"
-    mt-2 rounded py-2
+    mt-2 p="l-5 y-2" rounded
     border="2 [var(--color-border)]"
     @change="onChange"
   >
