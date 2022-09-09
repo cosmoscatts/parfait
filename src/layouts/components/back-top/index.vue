@@ -5,6 +5,7 @@ import { appLayoutParams } from '~/config'
 const {
   targetContainer = '',
 } = defineProps<{
+  /** 作用的目标容器元素 `id` */
   targetContainer: string
 }>()
 
