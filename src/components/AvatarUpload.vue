@@ -34,7 +34,7 @@ function onProgress(currentFile: any) {
 </script>
 
 <template>
-  <a-space w-full flex justify-center items-center>
+  <a-space w-full flex-center>
     <a-upload
       :file-list="file ? [file] : []"
       :show-file-list="false"
