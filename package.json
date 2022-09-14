@@ -33,7 +33,7 @@
     "@arco-design/web-vue": "^2.36.1",
     "@iconify/json": "^2.1.106",
     "@types/markdown-it-link-attributes": "^3.0.1",
-    "@types/node": "^18.7.17",
+    "@types/node": "^18.7.18",
     "@types/nprogress": "^0.2.0",
     "@unocss/preset-icons": "^0.45.21",
     "@unocss/preset-wind": "^0.45.21",

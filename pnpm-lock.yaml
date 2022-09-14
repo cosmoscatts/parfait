@@ -6,7 +6,7 @@ specifiers:
   '@better-scroll/core': ^2.4.2
   '@iconify/json': ^2.1.106
   '@types/markdown-it-link-attributes': ^3.0.1
-  '@types/node': ^18.7.17
+  '@types/node': ^18.7.18
   '@types/nprogress': ^0.2.0
   '@unocss/preset-icons': ^0.45.21
   '@unocss/preset-wind': ^0.45.21
@@ -62,7 +62,7 @@ devDependencies:
   '@arco-design/web-vue': registry.npmmirror.com/@arco-design/web-vue/2.36.1_vue@3.2.39
   '@iconify/json': registry.npmmirror.com/@iconify/json/2.1.106
   '@types/markdown-it-link-attributes': registry.npmmirror.com/@types/markdown-it-link-attributes/3.0.1
-  '@types/node': registry.npmmirror.com/@types/node/18.7.17
+  '@types/node': registry.npmmirror.com/@types/node/18.7.18
   '@types/nprogress': registry.npmmirror.com/@types/nprogress/0.2.0
   '@unocss/preset-icons': registry.npmmirror.com/@unocss/preset-icons/0.45.21
   '@unocss/preset-wind': registry.npmmirror.com/@unocss/preset-wind/0.45.21
@@ -578,10 +578,10 @@ packages:
     version: 1.0.2
     dev: true
 
-  registry.npmmirror.com/@types/node/18.7.17:
-    resolution: {integrity: sha512-0UyfUnt02zIuqp7yC8RYtDkp/vo8bFaQ13KkSEvUAohPOAlnVNbj5Fi3fgPSuwzakS+EvvnnZ4x9y7i6ASaSPQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.7.17.tgz}
+  registry.npmmirror.com/@types/node/18.7.18:
+    resolution: {integrity: sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.7.18.tgz}
     name: '@types/node'
-    version: 18.7.17
+    version: 18.7.18
     dev: true
 
   registry.npmmirror.com/@types/normalize-package-data/2.4.1:
