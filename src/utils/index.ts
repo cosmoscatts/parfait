@@ -1,4 +1,4 @@
-export * from './axios'
+export * from './createAxios'
 export * from './handleThemeColor'
 export * from './createPermission'
 export * from './cacheAppSettings'
