@@ -1,14 +1,20 @@
-import { axiosService as axios } from '~/utils'
-import type { AnyObject, GetParams, PostData } from '~/types'
+import type { AxiosResponse } from 'axios'
+import { createAxios } from '~/utils'
+import type {
+  AnyObject,
+  DeleteParams,
+  GetParams,
+  PostParams,
+  PutParams,
+} from '~/types'
+import { ERROR_PAGE } from '~/router/constants'
+
+type Fn = () => Promise<AxiosResponse<any, any>>
 
 /**
- * add params to url
- * parmas can be Object or Array<Object>
- *
- * @param params - { k: v } | [{ k: v }, ...]
- * @return react url - string
+ * 拼接 `url` 参数
  */
-function addUrlParams(params?: AnyObject | AnyObject[]) {
+function handleUrlParams(params?: AnyObject | AnyObject[]) {
   if (!params)
     return ''
 
@@ -26,27 +32,69 @@ function addUrlParams(params?: AnyObject | AnyObject[]) {
   return `?${paramStr.slice(1)}`
 }
 
-export const useRequest = {
-  // HTTP GET
-  get(url: string, { urlAdd }: GetParams) {
-    url += addUrlParams(urlAdd)
-    return axios.get(url)
-  },
+/**
+ * 处理请求处理
+ */
+function handleRequestError(fn: Fn) {
+  const router = useRouter()
 
-  // HTTP POST
-  post(url: string, { body = {}, urlAdd }: PostData) {
-    url += addUrlParams(urlAdd)
-    return axios.post(url, body)
-  },
-
-  // HTTP PUT
-  put(url: string, { body = {} }: PostData) {
-    return axios.put(url, body)
-  },
-
-  // HTTP DELETE
-  delete(url: string, { urlAdd }: GetParams) {
-    url += addUrlParams(urlAdd)
-    return axios.delete(url)
-  },
+  return fn?.().then(
+    data => data,
+    (error) => {
+      console.error(error)
+      Message.error(error)
+      router.push(ERROR_PAGE)
+      return undefined
+    },
+  )
 }
+
+/**
+ * 统一封装 `axios` 请求
+ */
+function createRequest() {
+  const axios = createAxios()
+
+  const httpMap = {
+    doGet: (url: string) => axios.get(url),
+    doPost: (url: string, body: AnyObject) => axios.post(url, body),
+    doPut: (url: string, body: AnyObject) => axios.post(url, body),
+    doDelete: (url: string) => axios.delete(url),
+  }
+
+  const {
+    doGet,
+    doPost,
+    doPut,
+    doDelete,
+  } = httpMap
+
+  const _get = (url: string, { urlParams }: GetParams) => {
+    url += handleUrlParams(urlParams)
+    return handleRequestError(() => doGet(url))
+  }
+
+  const _post = (url: string, { urlParams, body = {} }: PostParams) => {
+    url += handleUrlParams(urlParams)
+    return handleRequestError(() => doPost(url, body))
+  }
+
+  const _put = (url: string, { urlParams, body = {} }: PutParams) => {
+    url += handleUrlParams(urlParams)
+    return handleRequestError(() => doPut(url, body))
+  }
+
+  const _delete = (url: string, { urlParams }: DeleteParams) => {
+    url += handleUrlParams(urlParams)
+    return handleRequestError(() => doDelete(url))
+  }
+
+  return {
+    get: _get,
+    post: _post,
+    put: _put,
+    delete: _delete,
+  }
+}
+
+export const useRequest = createRequest()

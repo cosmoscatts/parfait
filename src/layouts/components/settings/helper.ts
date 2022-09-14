@@ -18,7 +18,7 @@ export interface SettingItem {
   /** 配置项渲染组件类型 */
   type: SettingItemRenderType
   /** 配置项可配置的值 */
-  options?: any
+  options?: { label: string; value: string | number }[]
   /** 依赖于其他配置项 */
   dependOn?: SettingItemProp
 }

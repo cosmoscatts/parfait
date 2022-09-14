@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import type { SelectOptionData } from '@arco-design/web-vue/es/select/interface'
 import UserModal from './components/UserModal.vue'
 import UserSearchForm from './components/UserSearchForm.vue'
 import { saveUserHandler } from './helper'
-import type { Pagination, SelectOptionData } from '~/types'
+import type { Pagination } from '~/types'
 
 const { loading, startLoading, endLoading } = useLoading()
 let tabledata = $ref([])

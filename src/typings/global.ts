@@ -1,40 +1,38 @@
+/** 任意 `Object` */
 export interface AnyObject {
   [key: string]: unknown
 }
-
-export interface Options {
-  value: unknown
-  label: string
+/** `通用` 请求参数 */
+export interface HttpParams {
+  urlParams?: AnyObject | AnyObject[]
 }
-
-export interface NodeOptions extends Options {
-  children?: NodeOptions[]
-}
-
-export interface GetParams {
-  urlAdd?: AnyObject | AnyObject[]
-}
-
-export interface PostData {
+/** `Get` 请求参数 */
+export interface GetParams extends HttpParams {}
+/** `Post` 请求参数 */
+export interface PostParams extends HttpParams {
   body?: AnyObject
-  urlAdd?: AnyObject | AnyObject[]
 }
-
+/** `Put` 请求参数 */
+export interface PutParams extends HttpParams {
+  body?: AnyObject
+}
+/** `Delete` 请求参数 */
+export interface DeleteParams extends HttpParams {}
+/** `Http` 返回数据结构 */
 export interface Result<T> {
   code: number
-  data: T
+  data: T | T[]
   message?: string
 }
-
+/** 分页返回数据结构 */
+export interface PageResult<T> {
+  [key: string]: any
+  records?: T[]
+  total?: number
+}
+/** 分页器数据结构 */
 export interface Pagination {
   current: number
   pageSize: number
   total?: number
-}
-
-export type TimeRanger = [string, string]
-
-export interface GeneralChart {
-  xAxis: string[]
-  data: Array<{ name: string; value: number[] }>
 }

@@ -1,7 +1,5 @@
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import axios from 'axios'
-import { ERROR_PAGE } from '~/router/constants'
-import router from '~/router'
 
 function createAxios() {
   const service = axios.create({
@@ -14,9 +12,7 @@ function createAxios() {
       return config
     },
     (e: any) => {
-      router.push(ERROR_PAGE)
-      Message.error('请求异常')
-      Promise.reject(e).then(() => console.error(e))
+      Promise.reject(e)
     },
   )
 
@@ -28,8 +24,6 @@ function createAxios() {
       return Promise.resolve({ code, data, message })
     },
     (error: any) => {
-      router.push(ERROR_PAGE)
-      Message.error('服务器异常')
       return Promise.reject(error)
     },
   )
@@ -37,5 +31,4 @@ function createAxios() {
   return service
 }
 
-const axiosService = createAxios()
-export { axiosService }
+export { createAxios }

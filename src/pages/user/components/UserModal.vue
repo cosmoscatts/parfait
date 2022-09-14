@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { IconLock } from '@arco-design/web-vue/es/icon'
-import type { SelectOptionData } from '~/types'
+import type { SelectOptionData } from '@arco-design/web-vue/es/select/interface'
 
 const {
   visible = false,
