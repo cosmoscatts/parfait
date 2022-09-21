@@ -1,3 +1,12 @@
+/// ///// 常用工具方法 ////////
+// 添加新方法时，请在这里标注，方便查看
+// - Arco Design > Modal / Message / ANotification
+// - useHeadMeta
+// - useLogout
+// - useOpenWindow
+// - useScrollTop
+/// ///// END ////////
+
 import '@arco-design/web-vue/es/message/style/css.js'
 import '@arco-design/web-vue/es/modal/style/css.js'
 import '@arco-design/web-vue/es/notification/style/css.js'

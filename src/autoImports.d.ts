@@ -8,11 +8,11 @@ declare global {
   const $ref: typeof import('vue/macros')['$ref']
   const $shallowRef: typeof import('vue/macros')['$shallowRef']
   const $toRef: typeof import('vue/macros')['$toRef']
-  const ANotification: typeof import('./composables/useGlobalArcoDesign')['ANotification']
+  const ANotification: typeof import('./composables/useTools')['ANotification']
   const AuthApi: typeof import('./server/api/auth')['AuthApi']
   const EffectScope: typeof import('vue')['EffectScope']
-  const Message: typeof import('./composables/useGlobalArcoDesign')['Message']
-  const Modal: typeof import('./composables/useGlobalArcoDesign')['Modal']
+  const Message: typeof import('./composables/useTools')['Message']
+  const Modal: typeof import('./composables/useTools')['Modal']
   const RoleApi: typeof import('./server/api/role')['RoleApi']
   const UserApi: typeof import('./server/api/user')['UserApi']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
@@ -186,7 +186,7 @@ declare global {
   const useGamepad: typeof import('@vueuse/core')['useGamepad']
   const useGeolocation: typeof import('@vueuse/core')['useGeolocation']
   const useHead: typeof import('@vueuse/head')['useHead']
-  const useHeadMeta: typeof import('./composables/useHeadMeta')['useHeadMeta']
+  const useHeadMeta: typeof import('./composables/useTools')['useHeadMeta']
   const useIdle: typeof import('@vueuse/core')['useIdle']
   const useImage: typeof import('@vueuse/core')['useImage']
   const useInfiniteScroll: typeof import('@vueuse/core')['useInfiniteScroll']
@@ -197,7 +197,7 @@ declare global {
   const useLastChanged: typeof import('@vueuse/core')['useLastChanged']
   const useLoading: typeof import('./composables/useLoading')['useLoading']
   const useLocalStorage: typeof import('@vueuse/core')['useLocalStorage']
-  const useLogout: typeof import('./composables/useLogout')['useLogout']
+  const useLogout: typeof import('./composables/useTools')['useLogout']
   const useMagicKeys: typeof import('@vueuse/core')['useMagicKeys']
   const useManualRefHistory: typeof import('@vueuse/core')['useManualRefHistory']
   const useMediaControls: typeof import('@vueuse/core')['useMediaControls']
@@ -215,7 +215,7 @@ declare global {
   const useObjectUrl: typeof import('@vueuse/core')['useObjectUrl']
   const useOffsetPagination: typeof import('@vueuse/core')['useOffsetPagination']
   const useOnline: typeof import('@vueuse/core')['useOnline']
-  const useOpenWindow: typeof import('./composables/useOpenWindow')['useOpenWindow']
+  const useOpenWindow: typeof import('./composables/useTools')['useOpenWindow']
   const usePageLeave: typeof import('@vueuse/core')['usePageLeave']
   const useParallax: typeof import('@vueuse/core')['useParallax']
   const usePermission: typeof import('@vueuse/core')['usePermission']
@@ -239,7 +239,7 @@ declare global {
   const useScriptTag: typeof import('@vueuse/core')['useScriptTag']
   const useScroll: typeof import('@vueuse/core')['useScroll']
   const useScrollLock: typeof import('@vueuse/core')['useScrollLock']
-  const useScrollTop: typeof import('./composables/useScrollTop')['useScrollTop']
+  const useScrollTop: typeof import('./composables/useTools')['useScrollTop']
   const useSessionStorage: typeof import('@vueuse/core')['useSessionStorage']
   const useShare: typeof import('@vueuse/core')['useShare']
   const useSlots: typeof import('vue')['useSlots']
@@ -311,11 +311,11 @@ declare module '@vue/runtime-core' {
     readonly $ref: UnwrapRef<typeof import('vue/macros')['$ref']>
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
-    readonly ANotification: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['ANotification']>
+    readonly ANotification: UnwrapRef<typeof import('./composables/useTools')['ANotification']>
     readonly AuthApi: UnwrapRef<typeof import('./server/api/auth')['AuthApi']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
-    readonly Message: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['Message']>
-    readonly Modal: UnwrapRef<typeof import('./composables/useGlobalArcoDesign')['Modal']>
+    readonly Message: UnwrapRef<typeof import('./composables/useTools')['Message']>
+    readonly Modal: UnwrapRef<typeof import('./composables/useTools')['Modal']>
     readonly RoleApi: UnwrapRef<typeof import('./server/api/role')['RoleApi']>
     readonly UserApi: UnwrapRef<typeof import('./server/api/user')['UserApi']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -489,7 +489,7 @@ declare module '@vue/runtime-core' {
     readonly useGamepad: UnwrapRef<typeof import('@vueuse/core')['useGamepad']>
     readonly useGeolocation: UnwrapRef<typeof import('@vueuse/core')['useGeolocation']>
     readonly useHead: UnwrapRef<typeof import('@vueuse/head')['useHead']>
-    readonly useHeadMeta: UnwrapRef<typeof import('./composables/useHeadMeta')['useHeadMeta']>
+    readonly useHeadMeta: UnwrapRef<typeof import('./composables/useTools')['useHeadMeta']>
     readonly useIdle: UnwrapRef<typeof import('@vueuse/core')['useIdle']>
     readonly useImage: UnwrapRef<typeof import('@vueuse/core')['useImage']>
     readonly useInfiniteScroll: UnwrapRef<typeof import('@vueuse/core')['useInfiniteScroll']>
@@ -500,7 +500,7 @@ declare module '@vue/runtime-core' {
     readonly useLastChanged: UnwrapRef<typeof import('@vueuse/core')['useLastChanged']>
     readonly useLoading: UnwrapRef<typeof import('./composables/useLoading')['useLoading']>
     readonly useLocalStorage: UnwrapRef<typeof import('@vueuse/core')['useLocalStorage']>
-    readonly useLogout: UnwrapRef<typeof import('./composables/useLogout')['useLogout']>
+    readonly useLogout: UnwrapRef<typeof import('./composables/useTools')['useLogout']>
     readonly useMagicKeys: UnwrapRef<typeof import('@vueuse/core')['useMagicKeys']>
     readonly useManualRefHistory: UnwrapRef<typeof import('@vueuse/core')['useManualRefHistory']>
     readonly useMediaControls: UnwrapRef<typeof import('@vueuse/core')['useMediaControls']>
@@ -518,7 +518,7 @@ declare module '@vue/runtime-core' {
     readonly useObjectUrl: UnwrapRef<typeof import('@vueuse/core')['useObjectUrl']>
     readonly useOffsetPagination: UnwrapRef<typeof import('@vueuse/core')['useOffsetPagination']>
     readonly useOnline: UnwrapRef<typeof import('@vueuse/core')['useOnline']>
-    readonly useOpenWindow: UnwrapRef<typeof import('./composables/useOpenWindow')['useOpenWindow']>
+    readonly useOpenWindow: UnwrapRef<typeof import('./composables/useTools')['useOpenWindow']>
     readonly usePageLeave: UnwrapRef<typeof import('@vueuse/core')['usePageLeave']>
     readonly useParallax: UnwrapRef<typeof import('@vueuse/core')['useParallax']>
     readonly usePermission: UnwrapRef<typeof import('@vueuse/core')['usePermission']>
@@ -542,7 +542,7 @@ declare module '@vue/runtime-core' {
     readonly useScriptTag: UnwrapRef<typeof import('@vueuse/core')['useScriptTag']>
     readonly useScroll: UnwrapRef<typeof import('@vueuse/core')['useScroll']>
     readonly useScrollLock: UnwrapRef<typeof import('@vueuse/core')['useScrollLock']>
-    readonly useScrollTop: UnwrapRef<typeof import('./composables/useScrollTop')['useScrollTop']>
+    readonly useScrollTop: UnwrapRef<typeof import('./composables/useTools')['useScrollTop']>
     readonly useSessionStorage: UnwrapRef<typeof import('@vueuse/core')['useSessionStorage']>
     readonly useShare: UnwrapRef<typeof import('@vueuse/core')['useShare']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
