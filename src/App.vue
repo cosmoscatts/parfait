@@ -11,11 +11,11 @@ initAppSettings()
 
 // 定义 `loading` 整体时间和内层动画持续时间
 const LOADING_INTERVAL = 2500
-const LOADING_INNER_INTERVAL = 1800
+const BEFORE_LEAVING_MS = 1800
 useTimeoutFn(endLoading, LOADING_INTERVAL)
 </script>
 
 <template>
-  <AppLoading v-if="appLoading" :inner-loading="LOADING_INNER_INTERVAL" />
+  <PreLoaded v-if="appLoading" :before-leaving-ms="BEFORE_LEAVING_MS" />
   <RouterView v-else />
 </template>

@@ -2,14 +2,14 @@
 import { appMeta } from '~/config'
 
 const {
-  innerLoading = 1500,
+  beforeLeavingMs = 1500,
 } = defineProps<{
-  innerLoading: number
+  beforeLeavingMs: number
 }>()
 
 // 控制内层动画
 const { loading, endLoading } = useLoading(true)
-useTimeoutFn(endLoading, innerLoading)
+useTimeoutFn(endLoading, beforeLeavingMs)
 </script>
 
 <template>
