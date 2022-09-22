@@ -2,12 +2,12 @@ import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import axios from 'axios'
 
 function createAxios() {
-  const service = axios.create({
+  const _axios = axios.create({
     baseURL: import.meta.env.VITE_BASE_API_URL as string,
     timeout: 5000,
   })
 
-  service.interceptors.request.use(
+  _axios.interceptors.request.use(
     (config: AxiosRequestConfig) => {
       return config
     },
@@ -16,7 +16,7 @@ function createAxios() {
     },
   )
 
-  service.interceptors.response.use(
+  _axios.interceptors.response.use(
     async (response: AxiosResponse) => {
       const {
         data: { code, data, message },
@@ -28,7 +28,7 @@ function createAxios() {
     },
   )
 
-  return service
+  return _axios
 }
 
 export { createAxios }
