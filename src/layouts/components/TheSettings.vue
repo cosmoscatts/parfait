@@ -32,8 +32,8 @@ function onClick() {
 function saveCurrentSettings() {
   const LOADING_INTERVAL = 1000
   Message.loading('正在更新配置')
-  updateSettingsFromStageData()
   useTimeoutFn(() => {
+    updateSettingsFromStageData()
     Message.clear()
     Message.success('应用成功')
     showSettingsDrawer = false
