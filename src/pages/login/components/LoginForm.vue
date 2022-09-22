@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { IconLock, IconUser } from '@arco-design/web-vue/es/icon'
 import type { ValidatedError } from '@arco-design/web-vue/es/form/interface'
-import { debug } from '~/config'
+import { appMeta, debug } from '~/config'
 import { findFirstPermissionRoute, loginCallback } from '~/utils'
 
 const { loading, startLoading, endLoading } = useLoading()
@@ -65,7 +65,7 @@ async function submit({
 <template>
   <a-space direction="vertical" size="large" w-450px class="mt-1/15">
     <div text="32px center" font-bold>
-      Parfait
+      {{ appMeta.name }}
     </div>
     <a-form :model="formModel" layout="vertical" size="large" @submit="submit">
       <a-form-item
@@ -104,7 +104,7 @@ async function submit({
     </a-form>
     <div flex-center>
       <DarkToggle />
-      <span ml-5 op-50 text-xl> Duende </span>
+      <span ml-5 op-50 text-xl> {{ appMeta.author }} </span>
     </div>
   </a-space>
 </template>
