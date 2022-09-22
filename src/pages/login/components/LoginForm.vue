@@ -57,7 +57,10 @@ async function submit({
   useTimeoutFn(() => {
     endLoading()
     router.push(path)
-    Message.success('登录成功')
+    ANotification.success({
+      title: '登录成功',
+      content: `你好，${values.username}。欢迎回来！`,
+    })
   }, 1000)
 }
 </script>
