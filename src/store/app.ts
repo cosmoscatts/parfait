@@ -26,6 +26,12 @@ export const useAppStore = defineStore(
       ...configSettings,
     })
 
+    // 初始化 `app` 设置项的暂存区
+    const buildStageData = () => {
+      const source = { ...baseSettings.value } as ConfigSettingObject
+      stageSettings.value = { ...source } || { ...configSettings }
+    }
+
     const initAppSettings = () => {
       // 如果开启了缓存配置, 则从 `storage` 更新配置
       // 未开启，`updateSettingsFromStorage` 方法会返回默认配置
@@ -35,16 +41,11 @@ export const useAppStore = defineStore(
         }),
       }
 
+      buildStageData()
+
       // 替换主题色
       replacePrimaryColor(baseSettings.value.themePrimaryColor)
     }
-
-    // 初始化 `app` 设置项的暂存区
-    const buildStageData = () => {
-      const source = { ...baseSettings.value } as ConfigSettingObject
-      stageSettings.value = { ...source } || { ...configSettings }
-    }
-    buildStageData()
 
     function resetStageData() {
       buildStageData()
