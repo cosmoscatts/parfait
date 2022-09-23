@@ -2,6 +2,7 @@
 import { IconRefresh, IconSearch } from '@arco-design/web-vue/es/icon'
 
 const emit = defineEmits(['fetchData'])
+
 function generateFormModel() {
   return {
     name: '',
@@ -13,11 +14,11 @@ function search() {
   emit('fetchData', formModel.value)
 }
 search()
+
 function reset() {
-  formModel.value = ref(generateFormModel()) as any
+  formModel.value = generateFormModel()
 }
 
-// whether hide the form label
 const labelHidden = useResponsiveFormLabelHidden
 
 defineExpose({

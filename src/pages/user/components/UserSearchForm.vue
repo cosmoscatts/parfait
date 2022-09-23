@@ -7,7 +7,9 @@ const {
 } = defineProps<{
   roleOptions: SelectOptionData[]
 }>()
+
 const emit = defineEmits(['fetchData'])
+
 function generateFormModel() {
   return {
     username: '',
@@ -18,16 +20,18 @@ function generateFormModel() {
     createTime: [],
   }
 }
+
 const formModel = ref(generateFormModel())
+
 function search() {
   emit('fetchData', formModel.value)
 }
 search()
+
 function reset() {
-  formModel.value = ref(generateFormModel()) as any
+  formModel.value = generateFormModel()
 }
 
-// whether hide the form label
 const labelHidden = useResponsiveFormLabelHidden
 
 defineExpose({

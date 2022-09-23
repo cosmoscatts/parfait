@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { IconLock } from '@arco-design/web-vue/es/icon'
 import type { SelectOptionData } from '@arco-design/web-vue/es/select/interface'
+import type { User } from '~/types'
 
 const {
   visible = false,
@@ -9,14 +10,16 @@ const {
   roleOptions = [],
 } = defineProps<{
   visible?: boolean
-  user?: Record<string, any>
+  user?: User
   type?: 'add' | 'edit'
   roleOptions?: SelectOptionData[]
 }>()
+
 const emits = defineEmits(['update:visible', 'saveUser'])
 
 const refForm = ref()
 const validateTrigger = ref<('change' | 'input' | 'focus' | 'blur')[]>(['change', 'input'])
+
 const baseFormModel = {
   id: undefined,
   username: '',
@@ -28,28 +31,39 @@ const baseFormModel = {
   email: '',
   roleId: undefined,
 }
-const formModel = reactive<Record<string, any>>({
+
+type FormModel = Omit<User, 'role' | 'createTime' | 'updateTime'> & {
+  checkPass?: string
+}
+
+const formModel = reactive<FormModel>({
   ...baseFormModel,
 })
+
 const title = computed(() => {
   return ['添加用户', '编辑用户'][type === 'add' ? 0 : 1]
 })
+
 const { loading, startLoading, endLoading } = useLoading()
 function assign() {
   const target = visible && type === 'edit'
     ? unref(user)
     : baseFormModel
+
+  type K = keyof FormModel
   for (const [k, v] of Object.entries(target)) {
     if (!Object.prototype.hasOwnProperty.call(formModel, k))
       continue
-    formModel[k] = v
+    formModel[k as K] = v
   }
 }
+
 watch(() => visible, () => {
   assign()
   endLoading()
   refForm.value && refForm.value.clearValidate()
 })
+
 function handleOk() {
   refForm.value.validate((errors: any) => {
     if (errors)
@@ -60,6 +74,7 @@ function handleOk() {
     emits('saveUser', formModel)
   })
 }
+
 function handleCancel() {
   emits('update:visible', false)
 }
