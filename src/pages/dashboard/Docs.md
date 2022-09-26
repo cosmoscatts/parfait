@@ -13,8 +13,8 @@ The starter of Vite, Vue3 Template with Arco Design. Just playing around!
 <p align="center">💡 I highly recommend this enterprise-level design system - <br><a href="https://arco.design/vue/component/layout"><strong>Arco Design</strong></a> for the project behind</p>
 
 <p align="center">
-<a href="https://github.com/dud9">🤹‍♂️ Duende</a><br>
-<a href="https://github.com/dud9/parfait">🐱‍🐉 github</a>
+<a href="https://github.com/cosmoscatts">🤹‍♂️ Cosmoscatts</a><br>
+<a href="https://github.com/cosmoscatts/parfait">🐱‍🐉 github</a>
 </p>
 
 <p align="center" text-18px>

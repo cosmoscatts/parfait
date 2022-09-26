@@ -8,6 +8,7 @@ import {
   NavCollapsedToggle,
   NavFullScreen,
 } from './nav'
+import { appMeta } from '~/config'
 
 const { baseSettings } = storeToRefs(useAppStore())
 
@@ -27,7 +28,7 @@ const isVerticalLayout = computed(() => {
     <div flex-y-center>
       <a
         icon-btn text-lg i-carbon-logo-github mr-4
-        href="https://github.com/dud9/petite"
+        :href="appMeta.github"
         target="_blank" title="GitHub"
       />
       <NavBell mr-4 />
