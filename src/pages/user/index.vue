@@ -3,7 +3,7 @@ import type { SelectOptionData } from '@arco-design/web-vue/es/select/interface'
 import UserModal from './components/UserModal.vue'
 import UserSearchForm from './components/UserSearchForm.vue'
 import { saveUserHandler } from './helper'
-import type { Pagination } from '~/types'
+import type { Pagination, User } from '~/types'
 
 const { loading, startLoading, endLoading } = useLoading()
 let tabledata = $ref([])
@@ -58,7 +58,7 @@ function formatRowIndex(idx: number) {
 
 let userModalVisible = $ref(false)
 let showUserModalType = $ref<'add' | 'edit'>('add')
-let selectedUser = $ref({})
+let selectedUser = $ref<User>({})
 function showUserModal(type: 'add' | 'edit', user = {}) {
   showUserModalType = type
   selectedUser = user

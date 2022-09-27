@@ -53,6 +53,6 @@ function get() {
 }
 ```
 
-Check out the [GitHub repo](https://github.com/dud9/parfait) for more details.
+Check out the [GitHub repo](https://github.com/cosmoscatts/parfait) for more details.
 
 <br>
