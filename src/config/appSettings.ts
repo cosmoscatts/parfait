@@ -24,7 +24,9 @@ export const cacheAppSettings = true
  */
 export const defaultThemeMode = 'auto'
 /**
- * 菜单来源: 'front' | 'end'
+ * 菜单来源
+ *  - 'front'
+ *  - 'end'
  *
  * @default 'front'
  */
@@ -92,7 +94,7 @@ export const configSettings: ConfigSettingObject = {
    *  - 'red' | 'orangered' | 'orange' | 'gold' | 'yellow' | 'lime' | 'green' |
    *  - 'cyan' | 'blue' | 'arcoblue' | 'purple' | 'pinkpurple' | 'gray' | 'magenta'
    *
-   * @default: 'green'
+   * @default 'green'
    */
   themePrimaryColor: 'green',
   /**
