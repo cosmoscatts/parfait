@@ -69,6 +69,7 @@ const selectedMenuOptionKey = computed(() => {
       :selected-keys="selectedMenuOptionKey"
       :collapsed="menuCollapsed"
       :collapsed-width="sideMenuCollapsedWidth"
+      auto-open-selected
       breakpoint="lg"
     >
       <template v-for="{ key, title, path, icon, children } of menuOptions">
