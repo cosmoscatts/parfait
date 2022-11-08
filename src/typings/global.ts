@@ -10,11 +10,11 @@ export interface HttpParams {
 export interface GetParams extends HttpParams {}
 /** `Post` 请求参数 */
 export interface PostParams extends HttpParams {
-  body?: AnyObject
+  body?: AnyObject | AnyObject[]
 }
 /** `Put` 请求参数 */
 export interface PutParams extends HttpParams {
-  body?: AnyObject
+  body?: AnyObject | AnyObject[]
 }
 /** `Delete` 请求参数 */
 export interface DeleteParams extends HttpParams {}

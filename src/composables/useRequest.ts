@@ -56,8 +56,8 @@ function createRequest() {
 
   const httpMap = {
     doGet: (url: string) => axios.get(url),
-    doPost: (url: string, body: AnyObject) => axios.post(url, body),
-    doPut: (url: string, body: AnyObject) => axios.put(url, body),
+    doPost: (url: string, body: AnyObject | AnyObject[]) => axios.post(url, body),
+    doPut: (url: string, body: AnyObject | AnyObject[]) => axios.put(url, body),
     doDelete: (url: string) => axios.delete(url),
   }
 
