@@ -14,7 +14,7 @@ const basePagination: Pagination = {
 const pagination = reactive({
   ...basePagination,
 })
-let roleOptions = $ref<SelectOptionData[]>()
+let roleOptions = $ref<SelectOptionData[]>([])
 function fetchRoleOptions() {
   const { code, data } = RoleApi.fetchRoleList()
   if (code === 0)
