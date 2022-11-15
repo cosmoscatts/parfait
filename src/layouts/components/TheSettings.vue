@@ -48,10 +48,15 @@ function saveCurrentSettings() {
       v-element-hover="onHover"
       size="large"
       :shape="isButtonHovered ? 'round' : 'circle'"
+      :style="{
+        boxShadow: '0 2px 12px #0000001a',
+        background: 'var(--color-bg-5)',
+        border: '1px solid var(--color-fill-3)',
+      }"
       @click="onClick()"
     >
       <IconSkin :stroke-width="6" />
-      <span v-if="isButtonHovered" ml-3 font-bold>页面风格</span>
+      <span v-if="isButtonHovered" ml-2>页面风格</span>
     </a-button>
   </div>
 

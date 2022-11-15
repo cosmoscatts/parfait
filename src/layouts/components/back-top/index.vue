@@ -21,6 +21,9 @@ const {
     <a-button
       fixed shadow-md
       :style="{
+        boxShadow: '0 2px 12px #0000001a',
+        background: 'var(--color-bg-5)',
+        border: '1px solid var(--color-fill-3)',
         right: `${backTopRight}px`,
         bottom: `${backTopBottom}px`,
       }"
