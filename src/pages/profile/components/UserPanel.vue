@@ -4,7 +4,7 @@ import { IconCamera, IconEye } from '@arco-design/web-vue/es/icon'
 
 const userStore = useUserStore()
 const { user } = storeToRefs(userStore)
-const {updateUser} = userStore
+const { updateUser } = userStore
 
 function getFileUrl() {
   const avatar = unref(user)?.avatar
@@ -37,7 +37,7 @@ function onChange(_: FileItem[], currentFile: FileItem) {
     Message.success('上传成功')
     updateUser({
       ...user.value,
-      avatar: imageAsDateURL as string 
+      avatar: imageAsDateURL as string,
     })
     // }
     // else {

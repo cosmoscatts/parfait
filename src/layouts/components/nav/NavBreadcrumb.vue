@@ -2,7 +2,7 @@
 import type { RouteLocationMatched } from 'vue-router'
 import { IconBookmark } from '@arco-design/web-vue/es/icon'
 
-let metadata = $ref<string[]>()
+let metadata = $ref<string[]>([])
 
 const route = useRoute()
 

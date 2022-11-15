@@ -38,6 +38,8 @@ const primaryColor = computed(() => {
   const { value: { themePrimaryColor } } = baseSettings
   return hexThemeColorValueMap[themePrimaryColor]
 })
+
+const dark = isDark
 </script>
 
 <template>
@@ -77,7 +79,7 @@ const primaryColor = computed(() => {
       transition="opacity 0.3s ease-in-out"
       :class="{
         '!op-0': isTabHovered || isActive || isLast,
-        '!bg-[#595959]': isDark,
+        '!bg-[#595959]': dark,
       }"
     />
   </div>
