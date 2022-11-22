@@ -7,20 +7,6 @@
 ## 预览
 [在线预览](https://parfait.netlify.app/)
 
-## 参考
-- [Vitesse](https://github.com/antfu/vitesse/)
-- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin/)
-
-## 技术栈
-- 🤙🏻 Vue3 <setup>
-- ⚡️ Vite2
-- 🦾 TypeScript
-- 🍍 Pinia
-- 🔥 Vue-Router
-- 🎨 Unocss
-- 📥 unplugin-auto-import
-- 🗒 unplugin-vue-components
-
 ## 功能点
 * [x] 垂直、水平布局
 * [x] 页面主题配置，包括『界面内容的显示』、『主题色更换』、『多页签配置』、『页面动画』等

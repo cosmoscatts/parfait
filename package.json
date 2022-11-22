@@ -22,6 +22,7 @@
     "colord": "^2.9.3",
     "critters": "^0.0.16",
     "dayjs": "^1.11.6",
+    "lottie-web": "^5.9.6",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.25",
     "pinia-plugin-persist-uni": "^1.2.0",

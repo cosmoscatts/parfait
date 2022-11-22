@@ -22,6 +22,7 @@ specifiers:
   critters: ^0.0.16
   dayjs: ^1.11.6
   eslint: ^8.28.0
+  lottie-web: ^5.9.6
   markdown-it: ^13.0.1
   markdown-it-link-attributes: ^4.0.1
   markdown-it-shiki: ^0.5.1
@@ -51,6 +52,7 @@ dependencies:
   colord: registry.npmmirror.com/colord/2.9.3
   critters: registry.npmmirror.com/critters/0.0.16
   dayjs: registry.npmmirror.com/dayjs/1.11.6
+  lottie-web: registry.npmmirror.com/lottie-web/5.9.6
   nprogress: registry.npmmirror.com/nprogress/0.2.0
   pinia: registry.npmmirror.com/pinia/2.0.25_mgnvym7yiazkylwwogi5r767ue
   pinia-plugin-persist-uni: registry.npmmirror.com/pinia-plugin-persist-uni/1.2.0_pinia@2.0.25+vue@3.2.45
@@ -3579,6 +3581,12 @@ packages:
     name: lodash
     version: 4.17.21
     dev: true
+
+  registry.npmmirror.com/lottie-web/5.9.6:
+    resolution: {integrity: sha512-JFs7KsHwflugH5qIXBpB4905yC1Sub2MZWtl/elvO/QC6qj1ApqbUZJyjzJseJUtVpgiDaXQLjBlIJGS7UUUXA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lottie-web/-/lottie-web-5.9.6.tgz}
+    name: lottie-web
+    version: 5.9.6
+    dev: false
 
   registry.npmmirror.com/lru-cache/6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lru-cache/-/lru-cache-6.0.0.tgz}
