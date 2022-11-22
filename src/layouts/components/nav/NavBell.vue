@@ -57,7 +57,7 @@ const totalCnt = computed(() => {
   <div flex-y-center mt-2px>
     <a-popover trigger="click" position="br" :content-style="{ paddingBottom: 0 }">
       <a-badge :count="totalCnt" dot>
-        <button i-fa-solid-bell icon-btn text-lg />
+        <button i-carbon-notification icon-btn text-lg />
       </a-badge>
       <template #content>
         <a-tabs v-model:active-key="activeKey" w-420px flex="~ col" items-center type="rounded">

@@ -5,7 +5,7 @@ const toggle = useToggleDark
 <template>
   <button
     icon-btn text-lg
-    i="carbon-light-filled dark:carbon-asleep-filled"
+    i="carbon-sun dark:carbon-asleep"
     @click="toggle()"
   />
 </template>
