@@ -21,7 +21,7 @@ const isVerticalLayout = computed(() => {
 <template>
   <div flex-center pr-5 border-b="1px solid [var(--color-border)]">
     <Logo v-if="!isVerticalLayout" />
-    <NavCollapsedToggle v-if="isVerticalLayout" ml-4 />
+    <NavCollapsedToggle v-if="isVerticalLayout" />
     <NavBreadcrumb v-if="isVerticalLayout" mx-4 />
     <Menu v-if="!isVerticalLayout" mx-4 />
     <div flex-auto />

@@ -90,7 +90,6 @@ watch(() => route.path, (val, old) => {
       <a-layout-footer
         v-if="baseSettings.showFoot"
         :style="{ height: `${footHeight}px` }"
-        bg-foot border-t="1px solid [var(--color-border)]"
       >
         <TheFoot hw-full />
       </a-layout-footer>

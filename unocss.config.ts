@@ -22,7 +22,6 @@ export default defineConfig({
     'bg-body': 'bg-gray:15 dark:bg-[#17171A]',
     'bg-nav': 'bg-white dark:bg-[#232324]',
     'bg-side': 'bg-white dark:bg-[#232324]',
-    'bg-foot': 'bg-white dark:bg-[#232324]',
   },
   presets: [
     presetAttributify(),

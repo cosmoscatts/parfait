@@ -80,7 +80,6 @@ watch(() => route.path, (val, old) => {
       absolute top-0 left-0
       h-full of="x-hidden y-auto"
       bg-side
-      border-r="1px solid [var(--color-border)]"
       hide-trigger
       collapsible
       :width="sideWidth"
@@ -114,7 +113,7 @@ watch(() => route.path, (val, old) => {
       }"
     >
       <a-layout-header
-        bg-nav
+        bg-nav border-b="1px solid [var(--color-border)]"
         :class="
           baseSettings.fixNav
             ? 'absolute top-0 right-0 w-full'
@@ -146,7 +145,6 @@ watch(() => route.path, (val, old) => {
         <a-layout-footer
           v-if="baseSettings.showFoot"
           :style="{ height: `${footHeight}px` }"
-          bg-foot border-t="1px solid [var(--color-border)]"
         >
           <TheFoot hw-full />
         </a-layout-footer>
