@@ -1,7 +1,7 @@
 {
-  "name": "parfait",
-  "version": "1.0.0",
+  "type": "module",
   "private": true,
+  "packageManager": "pnpm@7.12.0",
   "scripts": {
     "dev": "vite --port 3333 --open",
     "build": "vue-tsc --noEmit && vite build",

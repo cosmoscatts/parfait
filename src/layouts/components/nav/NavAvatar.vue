@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import defaultAvatar from '~/assets/default-avatar.jpg'
-import { appMeta } from '~/config'
+import { APP_META } from '~/config'
 
 const router = useRouter()
 
@@ -21,7 +21,7 @@ function onSelect<T extends string | number | Record<string, any> | undefined>(v
     return
   const actionMap: Record<string, Function> = {
     0: () => router.push('/profile'),
-    1: () => useOpenWindow(appMeta.github),
+    1: () => useOpenWindow(APP_META.github),
     2: logout,
   }
   actionMap?.[value]?.()

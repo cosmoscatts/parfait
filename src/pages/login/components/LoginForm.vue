@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { IconLock, IconUser } from '@arco-design/web-vue/es/icon'
 import type { ValidatedError } from '@arco-design/web-vue/es/form/interface'
-import { appMeta, debug } from '~/config'
-import { findFirstPermissionRoute, loginCallback } from '~/utils'
+import { APP_META } from '~/config'
+import { findFirstRouteInPermission } from '~/utils'
 
 const { loading, startLoading, endLoading } = useLoading()
 
@@ -15,7 +15,7 @@ interface ModelType {
 }
 
 // 表单基础数据
-const baseFormModel = debug
+const baseFormModel = isDevelopment
   ? {
       username: 'admin',
       password: '123456',
@@ -44,16 +44,16 @@ async function submit({
     return
 
   startLoading()
-  await loginCallback({
-    id: 1,
-    username: 'admin',
-    name: 'admin',
-    roleId: 1,
-    phone: '6666666666',
-    email: 'dasb@qq.com',
-    createTime: new Date(),
-  })
-  const path = findFirstPermissionRoute() ?? '/'
+  // await loginCallback({
+  //   id: 1,
+  //   username: 'admin',
+  //   name: 'admin',
+  //   roleId: 1,
+  //   phone: '6666666666',
+  //   email: 'dasb@qq.com',
+  //   createTime: new Date(),
+  // })
+  const path = findFirstRouteInPermission() ?? '/'
   useTimeoutFn(() => {
     endLoading()
     router.push(path)
@@ -68,7 +68,7 @@ async function submit({
 <template>
   <a-space direction="vertical" size="large" w-450px class="mt-1/15">
     <div text="32px center" font-bold>
-      {{ appMeta.name }}
+      {{ APP_META.name }}
     </div>
     <a-form :model="formModel" layout="vertical" size="large" @submit="submit">
       <a-form-item
@@ -107,7 +107,7 @@ async function submit({
     </a-form>
     <div flex-center>
       <DarkToggle />
-      <span ml-5 op-50 text-xl> {{ appMeta.author }} </span>
+      <span ml-5 op-50 text-xl> {{ APP_META.author }} </span>
     </div>
   </a-space>
 </template>

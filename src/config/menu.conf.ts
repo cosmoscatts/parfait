@@ -8,21 +8,15 @@ import {
 } from '@arco-design/web-vue/es/icon'
 import type { Menu } from '~/types'
 
-/**
- * 储存 `icon` 字段对应的图标组件
- */
-export const defaultMenuIconMap: { [key: string]: Component } = {
-  home: markRaw(IconHome),
-  system: markRaw(IconDesktop),
-  user: markRaw(IconUser),
-  role: markRaw(IconIdcard),
-  file: markRaw(IconFile),
+const iconMap: { [key: string]: Component } = {
+  home: IconHome,
+  system: IconDesktop,
+  user: IconUser,
+  role: IconIdcard,
+  file: IconFile,
 }
 
-/**
- * 默认菜单集合
- */
-export const defaultMenus: Menu[] = [
+const defaultMenus: Menu[] = [
   {
     id: 101,
     title: '首页',
@@ -55,3 +49,17 @@ export const defaultMenus: Menu[] = [
     path: '/docs',
   },
 ]
+
+type Source = 'front' | 'end'
+
+interface MenuConfig {
+  source: Source
+  iconMap: { [key: string]: Component }
+  defaultMenus: Menu[]
+}
+
+export const APP_MENU: MenuConfig = {
+  source: 'front',
+  iconMap,
+  defaultMenus,
+}

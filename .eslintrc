@@ -1,3 +1,9 @@
 {
-  "extends": "@antfu"
+  "extends": "@antfu",
+  "rules": {
+    "curly": "off",
+    "antfu/if-newline": "off",
+    "@typescript-eslint/brace-style": "off",
+    "max-statements-per-line": "off"
+  }
 }

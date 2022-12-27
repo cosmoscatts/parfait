@@ -1,5 +1,7 @@
-export * from './appLayout'
-export * from './appMenus.default'
-export * from './appMeta'
-export * from './appSettings'
-export * from './appThemeColor.default'
+export * from './color.conf'
+export * from './constants.conf'
+export * from './layout.conf'
+export * from './menu.conf'
+export * from './meta.conf'
+export * from './settings.conf'
+

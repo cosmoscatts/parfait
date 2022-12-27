@@ -7,8 +7,6 @@ import {
   presetWind,
 } from 'unocss'
 
-// `Unocss` 配置
-// https://github.com/antfu/unocss
 export default defineConfig({
   shortcuts: {
     'hw-full': 'h-full w-full',
@@ -46,8 +44,6 @@ export default defineConfig({
       xl: '1536px',
       xxl: '1920px',
     },
-    // 整合 `arco` 内置颜色
-    // 命名可参考 https://arco.design/react/docs/token
     colors: {
       primary: 'rgb(var(--primary-6))',
       primary_hover: 'rgb(var(--primary-5))',

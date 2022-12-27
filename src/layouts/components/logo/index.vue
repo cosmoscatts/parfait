@@ -1,21 +1,11 @@
 <script setup lang="ts">
 import { breakpointsTailwind } from '@vueuse/core'
-import { appLayoutParams, appMeta } from '~/config'
+import { APP_LAYOUT_PARAMS, APP_META } from '~/config'
 
-const { title } = appMeta
-const { navHeight, sideWidth, sideCollapsedWidth } = appLayoutParams
+const { navHeight, sideWidth, sideCollapsedWidth } = APP_LAYOUT_PARAMS
 
-const appstore = useAppStore()
-const { menuCollapsed, baseSettings } = storeToRefs(appstore)
-const { setMenuUnCollapsed } = appstore
-
-watchEffect(() => {
-  // 当页面布局为水平时，重置菜单折叠标志
-  if (baseSettings.value.layout === 'horizontal')
-    setMenuUnCollapsed()
-})
-
-const isHorizontalLayout = computed(() => baseSettings.value.layout === 'horizontal')
+const uiStore = useUiStore()
+const isHorizontal = computed(() => uiStore.settings.layout === 'horizontal')
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const hiddenTitle = breakpoints.smaller('lg')
@@ -23,25 +13,21 @@ const hiddenTitle = breakpoints.smaller('lg')
 
 <template>
   <div
-    v-if="baseSettings.showLogo"
+    v-if="uiStore.settings.showLogo"
     flex-center
-    :class="{ 'ml-4': isHorizontalLayout }"
+    :class="{ 'ml-4': isHorizontal }"
     :style="{
       height: `${navHeight}px`,
-      width: isHorizontalLayout
+      width: isHorizontal
         ? hiddenTitle
           ? `${sideCollapsedWidth}px`
           : `${sideWidth + 40}px`
         : undefined,
     }"
   >
-    <!-- <img
-        src="https://www.naiveui.com/assets/naivelogo.93278402.svg"
-        alt="Logo" :style="{ width: `${navHeight * 0.65}px !important`, height: `${navHeight * 0.65}px !important` }"
-      > -->
     <div i-ri-rocket-fill text="primary 24px" />
-    <span v-if="!menuCollapsed && (!hiddenTitle || !isHorizontalLayout)" font="bold sans" ml-4 text-16px>
-      {{ title }}
+    <span v-if="!uiStore.collaspeSide.get() && (!hiddenTitle || !isHorizontal)" font="bold sans" ml-4 text-16px>
+      {{ APP_META.name }}
     </span>
   </div>
 </template>

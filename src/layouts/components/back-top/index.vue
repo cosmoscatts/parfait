@@ -1,19 +1,14 @@
 <script setup lang="ts">
 import { IconUp } from '@arco-design/web-vue/es/icon'
-import { appLayoutParams } from '~/config'
+import { APP_LAYOUT_PARAMS } from '~/config'
 
-const {
-  targetContainer = '',
-} = defineProps<{
-  /** 作用的目标容器元素 `id` */
-  targetContainer: string
-}>()
+defineProps<{ targetContainer: string }>()
 
 const {
   backTopRight,
   backTopBottom,
   backTopvisibilityHeight,
-} = appLayoutParams
+} = APP_LAYOUT_PARAMS
 </script>
 
 <template>
