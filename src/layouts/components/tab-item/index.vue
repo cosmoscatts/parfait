@@ -22,29 +22,23 @@ const {
 
 const route = useRoute()
 const router = useRouter()
-
-const { removeOneTab } = useTabStore()
+const tabStore = useTabStore()
 
 function handleCloseTab() {
   if (tabs.length === 1) {
     Message.warning('已经是最后一个标签了')
     return
   }
-
   const currentTab = tabs[index]
-  if (!currentTab)
-    return
-
-  removeOneTab(currentTab).then(() => {
-    if (currentTab.path === route.path) {
-      // 找到最后一个多页签
-      const latest = tabs.slice(-1)[0]
-      const path = latest
-        ? latest.path
-        : '/'
-      router.push(path)
-    }
-  })
+  if (!currentTab) return
+  tabStore
+    .removeOneTab(currentTab)
+    .then(() => {
+      if (currentTab.path === route.path) {
+        const latest = tabs.slice(-1)[0] // 找到最后一个
+        router.push(latest?.path ?? '/')
+      }
+    })
 }
 </script>
 
@@ -60,18 +54,11 @@ function handleCloseTab() {
         </template>
       </TabButton>
 
-      <TabChrome
-        v-else
-        v-bind="{
-          title,
-          isActive: isActive(path),
-          isLast: index === tabs.length - 1,
-        }"
-      >
+      <TabChrome v-else v-bind="{ title, active, last: index === tabs.length - 1 }">
         <template #close>
           <span
             i-ri-close-fill hover="i-carbon-close-filled" ml-1 z-2
-            :class="{ '!text-[rgb(var(--primary-6))]': isActive(path) }"
+            :class="{ '!text-[rgb(var(--primary-6))]': active }"
             @click.prevent="handleCloseTab"
           />
         </template>

@@ -8,15 +8,15 @@ import {
 import type { Tab } from '~/types'
 
 const {
-  index = -1,
-  tabs = [],
-  hasLeftTabs = true,
-  hasRightTabs = true,
+  index,
+  tabs,
+  hasLeftTabs,
+  hasRightTabs,
 } = defineProps<{
-  index?: number
-  tabs?: Tab[]
-  hasLeftTabs?: boolean
-  hasRightTabs?: boolean
+  index: number
+  tabs: Tab[]
+  hasLeftTabs: boolean
+  hasRightTabs: boolean
 }>()
 
 const router = useRouter()
