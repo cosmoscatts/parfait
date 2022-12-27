@@ -7,4 +7,3 @@ import { APP_META } from '~/config'
     {{ APP_META.copyRight }}
   </div>
 </template>
-

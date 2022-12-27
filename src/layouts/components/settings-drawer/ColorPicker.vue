@@ -2,23 +2,21 @@
 import { themeColorValueMap } from '~/config'
 
 const {
-  colorName = 'arcoblue',
+  modelValue = 'arcoblue',
 } = defineProps<{
-  colorName?: string
+  modelValue?: string
 }>()
 
-const emit = defineEmits(['update:colorName'])
-
-function onChange<T extends string | number | boolean>(value: T) {
-  if (typeof value !== 'string')
-    return
-  emit('update:colorName', value)
+const emit = defineEmits(['update:model-value'])
+const onChange = <T extends string | number | boolean>(value: T) => {
+  if (typeof value !== 'string') return
+  emit('update:model-value', value)
 }
 </script>
 
 <template>
   <a-radio-group
-    :model-value="colorName"
+    :model-value="modelValue"
     flex="~ wrap"
     mt-2 p="l-5 y-2" rounded
     border="2 [var(--color-border)]"
@@ -33,4 +31,3 @@ function onChange<T extends string | number | boolean>(value: T) {
     </a-radio>
   </a-radio-group>
 </template>
-

@@ -1,8 +1,5 @@
 import type { Role } from './role'
 
-/**
- * 定义用户的数据结构
- */
 export interface User {
   id?: number
   username?: string

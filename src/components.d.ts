@@ -38,6 +38,7 @@ declare module '@vue/runtime-core' {
     ATooltip: typeof import('@arco-design/web-vue')['Tooltip']
     AvatarUpload: typeof import('./components/AvatarUpload.vue')['default']
     DarkToggle: typeof import('./components/DarkToggle.vue')['default']
+    PageHeader: typeof import('./components/PageHeader.vue')['default']
     PreLoadPage: typeof import('./components/PreLoadPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

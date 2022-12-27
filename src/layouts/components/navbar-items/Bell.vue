@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { IconCalendar, IconMessage, IconNotification } from '@arco-design/web-vue/es/icon'
 import type { Component } from 'vue'
-import NavBellListMessage from './NavBellListMessage.vue'
+import BellMessage from './BellMessage.vue'
+import type { BellData, BellTabData } from './interfaces'
 
 const activeKey = ref(0)
-const tabList = [
+const tabList: BellTabData[] = [
   { name: '通知', color: '#FFB400', type: 'notification' },
   { name: '消息', color: '#F53F3F', type: 'message' },
   { name: '待办', color: '#165DFF', type: 'todo' },
@@ -15,10 +16,9 @@ const iconMap: { [key: string]: Component } = {
   todo: IconCalendar,
 }
 
-type Data = Record<string, any>[]
-let notificationData = $ref<Data>([])
-let messageData = $ref<Data>([])
-let todoData = $ref<Data>([])
+let notificationData = $ref<BellData[]>([])
+let messageData = $ref<BellData[]>([])
+let todoData = $ref<BellData[]>([])
 
 function queryData() {
   notificationData = [
@@ -37,10 +37,7 @@ function queryData() {
 }
 queryData()
 
-function getDataByKey(key: number) {
-  return [notificationData, messageData, todoData][key] || []
-}
-
+const getDataByKey = (key: number) => [notificationData, messageData, todoData][key]
 const totalCnt = computed(() => {
   let cnt = 0
   if (notificationData?.length > 0)
@@ -75,7 +72,7 @@ const totalCnt = computed(() => {
                 />
               </div>
             </template>
-            <NavBellListMessage :type="type" :data="getDataByKey(idx)" />
+            <BellMessage :type="type" :data="getDataByKey(idx)" />
           </a-tab-pane>
         </a-tabs>
         <div class="flex cursor-pointer">

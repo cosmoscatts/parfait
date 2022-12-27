@@ -3,6 +3,8 @@ import defaultAvatar from '~/assets/default-avatar.jpg'
 import { APP_META } from '~/config'
 
 const router = useRouter()
+const authStore = useAuthStore()
+const avatar = computed(() => authStore.user.get()?.avatar ?? defaultAvatar)
 
 function logout() {
   ANotification.success({
@@ -10,27 +12,19 @@ function logout() {
     content: '记得回来~',
     duration: 1000,
   })
-  useTimeoutFn(() => {
-    router.push('/login')
-    useLogout()
-  }, 1000)
+  authStore
+    .logout()
+    .then(() => useTimeoutFn(() => router.push('/login'), 1000))
 }
 
 function onSelect<T extends string | number | Record<string, any> | undefined>(value: T) {
-  if (typeof value !== 'string')
-    return
-  const actionMap: Record<string, Function> = {
-    0: () => router.push('/profile'),
-    1: () => useOpenWindow(APP_META.github),
-    2: logout,
-  }
-  actionMap?.[value]?.()
+  if (!G.isString(value)) return
+  ;[
+    () => router.push('/profile'),
+    () => useOpenWindow(APP_META.github),
+    logout,
+  ][Number(value)]()
 }
-
-const { user } = storeToRefs(useUserStore())
-const avatar = computed(() => {
-  return user.value?.avatar ?? defaultAvatar
-})
 </script>
 
 <template>

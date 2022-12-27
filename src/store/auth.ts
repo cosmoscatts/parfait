@@ -32,13 +32,17 @@ export const useAuthStore = defineStore(
         remove: () => menus.value = [],
       },
       login() {
-        hasLogin.value = true
-        ;[this.user, this.menu].forEach(i => i.fetch())
+        return new Promise(() => {
+          hasLogin.value = true
+          ;[this.user, this.menu].forEach(i => i.fetch())
+        })
       },
       logout() {
-        hasLogin.value = false
-        const tabStore = useTabStore()
+        return new Promise(() => {
+          hasLogin.value = false
+          const tabStore = useTabStore()
         ;[this.user.remove, this.menu.remove, tabStore.removeAllTabs].forEach(fn => fn())
+        })
       },
     }
   },

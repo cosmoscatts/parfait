@@ -7,4 +7,3 @@ export * from './role'
 export * from './menu'
 export * from './tab'
 export * from './global'
-

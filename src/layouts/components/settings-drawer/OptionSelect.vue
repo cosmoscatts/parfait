@@ -1,10 +1,5 @@
 <script setup lang="ts">
-const {
-  name = '',
-  modelValue,
-  options = [],
-  disabled = false,
-} = defineProps<{
+defineProps<{
   name?: string
   modelValue: string
   options: {
@@ -13,12 +8,7 @@ const {
   }[]
   disabled?: boolean
 }>()
-
-const emits = defineEmits(['update:model-value'])
-
-function onChange(value: any) {
-  emits('update:model-value', value)
-}
+defineEmits(['update:model-value'])
 </script>
 
 <template>
@@ -32,7 +22,7 @@ function onChange(value: any) {
       :model-value="modelValue"
       :options="options"
       :disabled="disabled"
-      @change="onChange"
+      @change="(value) => $emit('update:model-value', value)"
     />
   </div>
 </template>

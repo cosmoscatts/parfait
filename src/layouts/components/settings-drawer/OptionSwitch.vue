@@ -1,23 +1,14 @@
 <script setup lang="ts">
-const {
-  name = '',
-  modelValue = true,
-  disabled = false,
-} = defineProps<{
+defineProps<{
   name?: string
   modelValue: boolean
   disabled?: boolean
 }>()
-
-const emits = defineEmits(['update:model-value'])
+defineEmits(['update:model-value'])
 
 const SWITCH_COLOR = {
   checked: 'rgb(var(--primary-6))',
   unchecked: 'rgb(var(--gray-6))',
-}
-
-function onChange(value: any) {
-  emits('update:model-value', value)
 }
 </script>
 
@@ -32,8 +23,7 @@ function onChange(value: any) {
       :disabled="disabled"
       :checked-color="SWITCH_COLOR.checked"
       :unchecked-color="SWITCH_COLOR.unchecked"
-      @change="onChange"
+      @change="(value) => $emit('update:model-value', value)"
     />
   </div>
 </template>
-

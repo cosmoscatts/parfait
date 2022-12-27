@@ -11,13 +11,9 @@ const {
     value: string
   }[]
 }>()
-
 const emits = defineEmits(['update:model-value'])
 
-// 验证是否选中
 const isChecked = (value: string) => (value === modelValue)
-
-// 生成 `layout - icon` 的样式
 const layoutIconClass: Record<string, {
   menuClass: string
   mainClass: string
@@ -31,22 +27,13 @@ const layoutIconClass: Record<string, {
     mainClass: 'w-full h-3/4',
   },
 }
-
-const renderLayoutIcon = (value: string) => {
-  return layoutIconClass[value]
-}
-
-// 布局 `div` 的宽度
+const renderLayoutIcon = (value: string) => layoutIconClass[value]
 const layoutElWidth = computed(() => {
   const { settingsDrawerWidth } = APP_LAYOUT_PARAMS
   const MAX_WIDTH = 180
   const PADDING_AND_MARGIN = 66
   return Math.min((settingsDrawerWidth - PADDING_AND_MARGIN) / 2, MAX_WIDTH)
 })
-
-function onClick(value: string) {
-  emits('update:model-value', value)
-}
 </script>
 
 <template>
@@ -55,7 +42,7 @@ function onClick(value: string) {
       v-for="{ label, value }, idx in options" :key="idx"
       class="border-2px rounded-6px cursor-pointer hover:border-primary"
       :class="[isChecked(value) ? 'border-primary' : 'border-transparent']"
-      @click="onClick(value)"
+      @click="emits('update:model-value', value)"
     >
       <a-tooltip :content="label" position="bottom">
         <div relative h-80px bg="white dark:[#232324]" rounded-4px of-hidden :style="{ width: `${layoutElWidth}px` }">
@@ -66,4 +53,3 @@ function onClick(value: string) {
     </div>
   </div>
 </template>
-

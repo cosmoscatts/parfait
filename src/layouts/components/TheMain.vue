@@ -2,8 +2,8 @@
 const uiStore = useUiStore()
 const tabStore = useTabStore()
 const animateName = computed(() => (uiStore.settings.showAnimation
-    ? uiStore.settings.animationMode
-    : undefined))
+  ? uiStore.settings.animationMode
+  : undefined))
 </script>
 
 <template>
@@ -17,4 +17,3 @@ const animateName = computed(() => (uiStore.settings.showAnimation
     </RouterView>
   </div>
 </template>
-

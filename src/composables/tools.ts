@@ -15,6 +15,19 @@ export {
   ANotification,
 }
 
+/**
+ * 格式化时间
+ * @param date Date | number | string
+ * @param partten
+ */
+export function formatDate(
+  date: Date | number | string | undefined = new Date(),
+  partten = 'YYYY-MM-DD HH:mm:ss',
+): string {
+  if (['number', 'string'].includes(typeof date)) date = new Date(date)
+  return dayjs(date).format(partten)
+}
+
 type TargetContext = '_self' | '_parent' | '_blank' | '_top'
 export function useOpenWindow(
   url: string,

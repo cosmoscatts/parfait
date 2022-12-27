@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
-import { APP_LAYOUT_PARAMS } from '~/config'
+import { APP_LAYOUT_PARAMS, APP_MENU } from '~/config'
 import type { Menu } from '~/types'
 
 interface MenuOption {
@@ -11,20 +11,14 @@ interface MenuOption {
   children?: MenuOption[]
 }
 
-// 菜单折叠后宽度（垂直布局）
-const { sideMenuCollapsedWidth } = APP_LAYOUT_PARAMS
+const { mode } = defineProps<{ mode?: 'vertical' | 'horizontal' }>()
 
-const appStore = useAppStore()
-const { menuCollapsed, baseSettings } = storeToRefs(appStore)
+const route = useRoute()
+const uiStore = useUiStore()
+const authStore = useAuthStore()
 
-const permissionStore = usePermissionStore()
-const { appMenus, menuIconMap } = storeToRefs(permissionStore)
-
-/**
- * 将菜单项转换成 `<NMenu>` 组件需要的格式
- */
-function generateMenuOption(menuItem: Menu): MenuOption {
-  const { value: iconMap } = menuIconMap
+const generateMenuOption = (menuItem: Menu): MenuOption => {
+  const { iconMap } = APP_MENU
   const { id, title, icon, path, children } = menuItem
   return {
     key: String(id),
@@ -33,42 +27,35 @@ function generateMenuOption(menuItem: Menu): MenuOption {
     icon: icon && iconMap[icon]
       ? iconMap[icon]
       : undefined,
-    children: children?.map((child: Menu) => generateMenuOption(child)) || undefined,
+    children: children?.map((child: Menu) => generateMenuOption(child)),
   }
 }
 
-const menuOptions = computed<MenuOption[]>(() => {
-  const { value: menus } = appMenus
-  return menus.map(i => generateMenuOption(i)) || []
-})
-
-const route = useRoute()
-
-// 默认选中的 `menu option`
-const selectedMenuOptionKey = computed(() => {
-  const allMenuOptions = menuOptions.value.flatMap((i) => {
+const menuOptions = computed<MenuOption[]>(() => (
+  authStore.menu.get().map(i => generateMenuOption(i))
+))
+const selectedKeys = computed(() => {
+  const allOptions = menuOptions.value.flatMap((i) => {
     return i.children
       ? [i, ...i.children]
       : [i]
   })
-  return allMenuOptions.filter(i => i.path === route.path).map(j => j.key) || []
+  return allOptions.filter(i => i.path === route.path).map(j => j.key)
 })
 </script>
 
 <template>
   <div
-    flex-x-center
-    hw-full
-    bg-transparent of-hidden
-    :class="baseSettings.layout === 'horizontal' ? 'items-center' : ''"
+    flex-x-center hw-full bg-transparent of-hidden
+    :class="uiStore.settings.layout === 'horizontal' ? 'items-center' : ''"
   >
     <a-menu
-      :mode="baseSettings.layout"
+      :mode="mode ?? uiStore.settings.layout"
       :auto-open="true"
       :accordion="true"
-      :selected-keys="selectedMenuOptionKey"
-      :collapsed="menuCollapsed"
-      :collapsed-width="sideMenuCollapsedWidth"
+      :selected-keys="selectedKeys"
+      :collapsed="uiStore.collaspeSide.get()"
+      :collapsed-width="APP_LAYOUT_PARAMS.sideMenuCollapsedWidth"
       auto-open-selected
       breakpoint="lg"
     >
@@ -109,4 +96,3 @@ const selectedMenuOptionKey = computed(() => {
     </a-menu>
   </div>
 </template>
-

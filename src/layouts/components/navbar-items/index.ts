@@ -1,13 +1,13 @@
-import NavBell from './NavBell.vue'
-import NavAvatar from './NavAvatar.vue'
-import NavBreadcrumb from './NavBreadcrumb.vue'
-import NavCollapsedToggle from './NavCollapsedToggle.vue'
-import NavFullScreen from './NavFullScreen.vue'
+import Bell from './Bell.vue'
+import Avatar from './Avatar.vue'
+import Breadcrumb from './Breadcrumb.vue'
+import CollapsedToggle from './CollapsedToggle.vue'
+import FullScreen from './FullScreen.vue'
 
 export {
-  NavBell,
-  NavAvatar,
-  NavBreadcrumb,
-  NavCollapsedToggle,
-  NavFullScreen,
+  Bell,
+  Avatar,
+  Breadcrumb,
+  CollapsedToggle,
+  FullScreen,
 }

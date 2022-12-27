@@ -1,38 +1,45 @@
-/** 任意 `Object` */
+import type { App } from 'vue'
+export type UserModule = (app: App) => void
+export type { App as AppContext }
+
 export interface AnyObject {
   [key: string]: unknown
 }
-/** `通用` 请求参数 */
-export interface HttpParams {
-  urlParams?: AnyObject | AnyObject[]
-}
-/** `Get` 请求参数 */
-export interface GetParams extends HttpParams {}
-/** `Post` 请求参数 */
-export interface PostParams extends HttpParams {
-  body?: AnyObject | AnyObject[]
-}
-/** `Put` 请求参数 */
-export interface PutParams extends HttpParams {
-  body?: AnyObject | AnyObject[]
-}
-/** `Delete` 请求参数 */
-export interface DeleteParams extends HttpParams {}
-/** `Http` 返回数据结构 */
+
 export interface Result<T> {
   code: number
   data: T
   message?: string
 }
-/** 分页返回数据结构 */
-export interface PageResult<T> {
+
+export interface PageData<T> {
   [key: string]: any
-  records?: T[]
-  total?: number
+  records: T[]
+  total: number
 }
-/** 分页器数据结构 */
+
 export interface Pagination {
   current: number
   pageSize: number
   total?: number
 }
+
+// ----- Http -----
+
+type T = AnyObject | AnyObject[]
+
+export interface HttpParams extends AnyObject {
+  params?: T
+}
+
+export interface GetParams extends HttpParams {}
+
+export interface PostParams extends HttpParams {
+  body?: T
+}
+
+export interface PutParams extends HttpParams {
+  body?: T
+}
+
+export interface DeleteParams extends HttpParams {}

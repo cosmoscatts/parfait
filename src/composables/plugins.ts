@@ -1,4 +1,4 @@
-import dayJs from 'dayjs'
+import dayjs from 'dayjs'
 import lodash from 'lodash'
 
-export { dayJs, lodash }
+export { dayjs, lodash }
