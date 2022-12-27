@@ -1,22 +1,15 @@
 <script setup lang="ts">
 import type { RouteLocationMatched } from 'vue-router'
-
-interface BreadcrumbItem {
-  title: string
-  path?: string
-}
+import { IconBookmark } from '@arco-design/web-vue/es/icon'
 
 const route = useRoute()
-let data = $ref<BreadcrumbItem[]>([])
-function getBreadCrumbs() {
+let data = $ref<string[]>([])
+const getBreadCrumbs = () => {
   const matched = route
     .matched
     .filter((i: RouteLocationMatched) => i.meta && i.meta.title)
   if (!matched.length) return
-  data = matched.map(i => ({
-    title: i.meta.title,
-    path: i.children ? undefined : i.path,
-  } as BreadcrumbItem))
+  data = matched.map(i => i.meta.title as string)
 }
 getBreadCrumbs()
 watch(
@@ -30,16 +23,17 @@ watch(
 </script>
 
 <template>
-  <n-page-header>
-    <template #header>
-      <n-breadcrumb>
-        <n-breadcrumb-item
-          v-for="{ title, path }, idx in data"
-          :key="idx" :href="path"
-        >
+  <a-page-header
+    :style="{ background: 'var(--color-bg-2)' }"
+    :show-back="false"
+  >
+    <template #breadcrumb>
+      <a-breadcrumb>
+        <a-breadcrumb-item v-for="title of data" :key="title">
+          <IconBookmark />
           {{ title }}
-        </n-breadcrumb-item>
-      </n-breadcrumb>
+        </a-breadcrumb-item>
+      </a-breadcrumb>
     </template>
-  </n-page-header>
+  </a-page-header>
 </template>

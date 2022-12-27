@@ -1,33 +1,12 @@
 <script setup lang="ts">
-import { vElementHover } from '@vueuse/components'
 import { IconSkin } from '@arco-design/web-vue/es/icon'
-import SettingsDrawer from './settings'
+import SettingsDrawer from './settings-drawer/index.vue'
 import { APP_LAYOUT_PARAMS } from '~/config'
 
-const {
-  settingsDrawerRight,
-  settingsDrawerBottom,
-  settingsDrawerWidth,
-} = APP_LAYOUT_PARAMS
-
+const LOADING_INTERVAL = 1000
 const uiStore = useUiStore()
-
-// 是否显示 `app` 设置抽屉
 let showSettingsDrawer = $ref(false)
-
-let isButtonHovered = $ref(false)
-function onHover(state: boolean) {
-  isButtonHovered = state
-}
-
-function onClick() {
-  isButtonHovered = false
-  showSettingsDrawer = true
-}
-
-// 应用当前配置
 function saveCurrentSettings() {
-  const LOADING_INTERVAL = 1000
   Message.loading('正在更新配置')
   useTimeoutFn(() => {
     uiStore.applyCopySettings()
@@ -39,27 +18,16 @@ function saveCurrentSettings() {
 </script>
 
 <template>
-  <div fixed :style="{ right: `${settingsDrawerRight}px`, bottom: `${settingsDrawerBottom}px` }" z-1000>
-    <a-button
-      v-if="!showSettingsDrawer"
-      v-element-hover="onHover"
-      size="large"
-      :shape="isButtonHovered ? 'round' : 'circle'"
-      :style="{
-        boxShadow: '0 2px 12px #0000001a',
-        background: 'var(--color-bg-5)',
-        border: '1px solid var(--color-fill-3)',
-      }"
-      @click="onClick()"
-    >
-      <IconSkin :stroke-width="6" />
-      <span v-if="isButtonHovered" ml-2>页面风格</span>
-    </a-button>
-  </div>
+  <a-button
+    icon-btn text-lg
+    @click="showSettingsDrawer = true"
+  >
+    <IconSkin :stroke-width="6" />
+  </a-button>
 
   <a-drawer
     v-model:visible="showSettingsDrawer"
-    :width="settingsDrawerWidth"
+    :width="APP_LAYOUT_PARAMS.settingsDrawerWidth"
     unmount-on-close
   >
     <template #title>

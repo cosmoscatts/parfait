@@ -8,6 +8,7 @@ const animateName = computed(() => (uiStore.settings.showAnimation
 
 <template>
   <div>
+    <PageHeader mb10px />
     <RouterView v-slot="{ Component, route }">
       <Transition :name="animateName" mode="out-in" appear>
         <KeepAlive :include="tabStore.cachedTabNames" :max="10">

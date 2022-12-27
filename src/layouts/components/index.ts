@@ -1,4 +1,4 @@
-import BackTop from './back-top'
+import BackTop from './BackTop.vue'
 import TheFoot from './TheFoot.vue'
 import TheMain from './TheMain.vue'
 import TheNav from './TheNav.vue'

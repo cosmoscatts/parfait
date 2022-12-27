@@ -1,35 +1,24 @@
 import type { Settings } from '~/config'
 
-/**
- * 配置项组件渲染类型
- */
-export type SettingItemRenderType = 'layoutRadio' | 'select' | 'switch' | 'colorPicker'
+export type OptionRenderType = 'layoutRadio' | 'select' | 'switch' | 'colorPicker'
 
-type SettingItemProp = keyof Settings
+type SettingProp = keyof Settings
 
-/**
- * 配置项渲染结构
- */
-export interface SettingItem {
-  /** 字段属性 */
-  prop: SettingItemProp
-  /** 配置项名称 */
+export interface Option {
+  prop: SettingProp
   name?: string
-  /** 配置项渲染组件类型 */
-  type: SettingItemRenderType
-  /** 配置项可配置的值 */
+  type: OptionRenderType
   options?: { label: string; value: string | number }[]
-  /** 依赖于其他配置项 */
-  dependOn?: SettingItemProp
+  dependOn?: SettingProp
 }
 
 /**
  * 配置项按功能分类，折叠面板数据结构
  */
-export interface ModuleItem {
+export interface CollapseOption {
   name: string
   title: string
-  data: SettingItem[]
+  data: Option[]
   disabledMsg?: string
 }
 
@@ -39,10 +28,7 @@ export interface ModuleItem {
 // 页面功能 - `showTransitionAnimation` | `transitionAnimation` | `tabShapeStyle` |
 //           | `cacheTabs` (4)
 
-/**
- * 页面布局配置项
- */
-export const layoutSettings: ModuleItem[] = [
+export const layoutOptions: CollapseOption[] = [
   {
     name: '布局模式',
     title: '布局模式',
@@ -97,21 +83,15 @@ export const layoutSettings: ModuleItem[] = [
   },
 ]
 
-/**
- * 主色调配置项
- */
-export const primaryColorSetting: SettingItem = {
-  prop: 'themePrimaryColor',
+export const primaryColorOption: Option = {
+  prop: 'primaryColor',
   name: '页面主色调',
   type: 'colorPicker',
   options: undefined,
   dependOn: undefined,
 }
 
-/**
- * 页面功能配置项
- */
-export const funcSettings: ModuleItem[] = [
+export const funcOptions: CollapseOption[] = [
   {
     name: '多页签',
     title: '多页签',
@@ -141,14 +121,14 @@ export const funcSettings: ModuleItem[] = [
     title: '页面动画',
     data: [
       {
-        prop: 'showTransitionAnimation',
+        prop: 'showAnimation',
         name: '是否显示页面切换动画',
         type: 'switch',
         options: undefined,
         dependOn: undefined,
       },
       {
-        prop: 'transitionAnimation',
+        prop: 'animationMode',
         name: '页面切换动画类型',
         type: 'select',
         options: [
@@ -159,7 +139,7 @@ export const funcSettings: ModuleItem[] = [
           { label: '渐变', value: 'zoom-fade' },
           { label: '闪现', value: 'zoom-out' },
         ],
-        dependOn: 'showTransitionAnimation',
+        dependOn: 'showAnimation',
       },
     ],
     disabledMsg: '页面动画已关闭',

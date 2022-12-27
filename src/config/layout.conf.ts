@@ -9,7 +9,5 @@ export const APP_LAYOUT_PARAMS = {
   backTopRight: 20,
   backTopBottom: 75,
   backTopvisibilityHeight: 250,
-  settingsDrawerRight: 20,
-  settingsDrawerBottom: 350,
   settingsDrawerWidth: 330,
 }

@@ -2,7 +2,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { BASE_LAYOUT, BLANK_LAYOUT } from './constants'
-import appRoutes from './routes'
+import routes from './format-routes'
 import createRouterGuard from './guards'
 
 NProgress.configure({ showSpinner: false, easing: 'ease', speed: 500 })
@@ -17,50 +17,7 @@ const router = createRouter({
         requiresAuth: true,
       },
     },
-    {
-      path: '/login',
-      component: BLANK_LAYOUT,
-      children: [
-        {
-          path: '',
-          name: 'Login',
-          component: () => import('~/pages/login/index.vue'),
-          meta: {
-            title: '登录',
-            requiresAuth: false,
-          },
-        },
-      ],
-    },
-    ...appRoutes,
-    {
-      path: '/500',
-      component: BLANK_LAYOUT,
-      children: [
-        {
-          path: '',
-          name: 'ErrorPage',
-          component: () => import('~/pages/exception/500/index.vue'),
-          meta: {
-            title: '500',
-          },
-        },
-      ],
-    },
-    {
-      path: '/403',
-      component: BLANK_LAYOUT,
-      children: [
-        {
-          path: '',
-          name: 'NoPermission',
-          component: () => import('~/pages/exception/403/index.vue'),
-          meta: {
-            title: '403',
-          },
-        },
-      ],
-    },
+    ...routes,
     {
       path: '/:pathMatch(.*)*',
       component: BLANK_LAYOUT,
@@ -76,14 +33,9 @@ const router = createRouter({
       ],
     },
   ],
-  scrollBehavior() {
-    return { top: 0 }
-  },
+  scrollBehavior: () => ({ top: 0 }),
 })
 
 export default router
-
-export {
-  createRouterGuard,
-}
+export { createRouterGuard }
 export * from './constants'
