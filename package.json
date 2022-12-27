@@ -12,15 +12,25 @@
   },
   "dependencies": {
     "@better-scroll/core": "^2.5.0",
+<<<<<<< HEAD
     "@unocss/reset": "^0.47.6",
     "@vueuse/components": "^9.7.0",
     "@vueuse/core": "^9.7.0",
     "@vueuse/head": "^1.0.22",
+=======
+    "@unocss/reset": "^0.48.0",
+    "@vueuse/components": "^9.9.0",
+    "@vueuse/core": "^9.9.0",
+>>>>>>> 46da61b92b0d78bd472338029906c4f528993e96
     "animate.css": "^4.1.1",
     "axios": "^1.2.1",
     "b-tween": "^0.3.3",
     "colord": "^2.9.3",
     "critters": "^0.0.16",
+<<<<<<< HEAD
+=======
+    "crypto-js": "^4.1.1",
+>>>>>>> 46da61b92b0d78bd472338029906c4f528993e96
     "dayjs": "^1.11.7",
     "lottie-web": "^5.10.0",
     "nprogress": "^0.2.0",
@@ -31,6 +41,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.0",
+<<<<<<< HEAD
     "@arco-design/web-vue": "^2.40.0",
     "@iconify/json": "^2.1.153",
     "@types/markdown-it-link-attributes": "^3.0.1",
@@ -51,5 +62,25 @@
     "vite": "^4.0.1",
     "vite-plugin-vue-markdown": "^0.22.1",
     "vue-tsc": "^1.0.13"
+=======
+    "@arco-design/web-vue": "^2.40.1",
+    "@iconify/json": "^2.1.157",
+    "@types/crypto-js": "^4.1.1",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "18.11.18",
+    "@types/nprogress": "^0.2.0",
+    "@unocss/preset-icons": "^0.48.0",
+    "@unocss/preset-wind": "^0.48.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "eslint": "^8.30.0",
+    "lodash": "^4.17.21",
+    "typescript": "^4.9.4",
+    "unocss": "^0.48.0",
+    "unplugin-auto-import": "^0.12.1",
+    "unplugin-vue-components": "^0.22.12",
+    "unplugin-vue-define-options": "^1.1.1",
+    "vite": "^4.0.3",
+    "vue-tsc": "^1.0.18"
+>>>>>>> 46da61b92b0d78bd472338029906c4f528993e96
   }
 }
