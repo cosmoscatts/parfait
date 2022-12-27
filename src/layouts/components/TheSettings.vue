@@ -2,18 +2,15 @@
 import { vElementHover } from '@vueuse/components'
 import { IconSkin } from '@arco-design/web-vue/es/icon'
 import SettingsDrawer from './settings'
-import { appLayoutParams } from '~/config'
+import { APP_LAYOUT_PARAMS } from '~/config'
 
 const {
   settingsDrawerRight,
   settingsDrawerBottom,
   settingsDrawerWidth,
-} = appLayoutParams
+} = APP_LAYOUT_PARAMS
 
-const {
-  updateSettingsFromStageData,
-  resetStageData,
-} = useAppStore()
+const uiStore = useUiStore()
 
 // 是否显示 `app` 设置抽屉
 let showSettingsDrawer = $ref(false)
@@ -33,7 +30,7 @@ function saveCurrentSettings() {
   const LOADING_INTERVAL = 1000
   Message.loading('正在更新配置')
   useTimeoutFn(() => {
-    updateSettingsFromStageData()
+    uiStore.applyCopySettings()
     Message.clear()
     Message.success('应用成功')
     showSettingsDrawer = false
@@ -76,7 +73,7 @@ function saveCurrentSettings() {
         <a-button type="primary" long @click="saveCurrentSettings">
           <span text="dark dark:white" font-bold>应用当前配置</span>
         </a-button>
-        <a-button type="primary" status="warning" long @click="resetStageData">
+        <a-button type="primary" status="warning" long @click="uiStore.resetCopySettings">
           <span text="dark dark:white" font-bold>重置当前配置</span>
         </a-button>
       </a-space>

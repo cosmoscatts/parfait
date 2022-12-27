@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { appMeta } from '~/config'
+import { APP_META } from '~/config'
 
 const {
   beforeLeavingMs = 1500,
@@ -7,7 +7,6 @@ const {
   beforeLeavingMs: number
 }>()
 
-// 控制内层动画
 const { loading, endLoading } = useLoading(true)
 useTimeoutFn(endLoading, beforeLeavingMs)
 </script>
@@ -31,7 +30,7 @@ useTimeoutFn(endLoading, beforeLeavingMs)
         <div class="flex-y-center animate__animated animate__fadeInUpBig animate__faster">
           <div i-ri-rocket-fill text="primary 40px" />
           <div ml-20px text-32px font-bold>
-            {{ appMeta.title }}
+            {{ APP_META.name }}
           </div>
         </div>
       </div>

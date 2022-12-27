@@ -1,30 +1,25 @@
 import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
-import { executeActions, hasPermissionOfThePage } from './helper'
+import { checkRoutePermission, findFirstRouteInPermission } from '~/utils'
 import { NO_PERMISSION, WHITE_LIST } from '~/router/constants'
-import { findFirstPermissionRoute } from '~/utils'
 
 export default function createPermissionGuard(
   to: RouteLocationNormalized,
   _from: RouteLocationNormalized,
   next: NavigationGuardNext,
 ) {
-  const userStore = useUserStore()
-  const permissionStore = usePermissionStore()
+  const authStore = useAuthStore()
 
-  const isLogin = !!userStore.user
+  const isLogin = authStore.hasLogin
   const needLogin = Boolean(to.meta?.requiresAuth) && !WHITE_LIST.includes(to.name as string)
   // 需要对 `menus` 拷贝，`hasPermissionOfThePage` 方法会对原对象造成影响
-  const menusClone = JSON.parse(JSON.stringify(permissionStore.appMenus))
-  const hasPermission = hasPermissionOfThePage(menusClone, to.path)
+  const menusClone = JSON.parse(JSON.stringify(authStore.menu.get()))
+  const hasPermission = checkRoutePermission(menusClone, to)
 
   const actions: [boolean, Function][] = [
     // 已登录状态跳转登录页，跳转至首页
     [
       isLogin && to.name === 'Login',
-      () => {
-        const path = findFirstPermissionRoute() as string
-        next(path)
-      },
+      () => next(findFirstRouteInPermission()),
     ],
     // 不需要登录权限的页面直接通行
     [
@@ -58,6 +53,5 @@ export default function createPermissionGuard(
       },
     ],
   ]
-
-  executeActions(actions)
+  Conditional.some(actions)
 }

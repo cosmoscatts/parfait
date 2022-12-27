@@ -7,17 +7,17 @@ export const BLANK_LAYOUT = BlankLayout
  * 路由白名单
  */
 export const WHITE_LIST = [
+  'Redirect',
+  'Login',
+  'Profile',
   'NoPermission',
   'NotFound',
   'ErrorPage',
-  'Login',
-  'Redirect',
 ]
 
-/**
- * 特殊的路由路径，每个用户都会必然存在
- */
-export const specialRoutePathList = ['/', '/profile']
+export const LOGIN = {
+  name: 'Login',
+}
 
 export const NOT_FOUND = {
   name: 'NotFound',

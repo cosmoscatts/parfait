@@ -1,17 +1,23 @@
 <script setup lang="ts">
 import lottie from 'lottie-web'
-import { appLayoutParams } from '~/config'
+import { APP_LAYOUT_PARAMS } from '~/config'
 
 defineOptions({
   name: 'Dashboard',
 })
 
-const { navHeight, tabHeight, footHeight, contentPadding } = appLayoutParams
-const appStore = useAppStore()
+const {
+  navHeight,
+  tabHeight,
+  footHeight,
+  contentPadding,
+} = APP_LAYOUT_PARAMS
+
+const uiStore = useUiStore()
 
 const diffHeight = computed(() => {
   const height = navHeight + footHeight + contentPadding * 2 + 1 + 1 + 3
-  return appStore.baseSettings.showTabs ? height + tabHeight : height
+  return uiStore.settings.showTabs ? height + tabHeight : height
 })
 
 const emojiArray = [

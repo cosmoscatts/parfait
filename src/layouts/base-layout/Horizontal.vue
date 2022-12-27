@@ -7,21 +7,20 @@ import {
   TheSettings,
   TheTabs,
 } from '../components'
-import { appLayoutParams, showAppSettings } from '~/config'
+import { APP_LAYOUT_PARAMS } from '~/config'
 
 const {
   navHeight,
   tabHeight,
   contentPadding,
   footHeight,
-} = appLayoutParams
+} = APP_LAYOUT_PARAMS
 
 const route = useRoute()
-const { baseSettings } = storeToRefs(useAppStore())
+const uiStore = useUiStore()
 
 const backTopTarget = computed(() => {
-  const { value: { fixNav } } = baseSettings
-  return fixNav
+  return uiStore.settings.fixNav
     ? '#content-wrapper'
     : '#main-wrapper'
 })
@@ -29,9 +28,7 @@ const backTopTarget = computed(() => {
 // 计算内容区域需要减去的高度值
 const diffHeight = computed(() => {
   let height = navHeight
-  if (baseSettings.value.showTabs)
-    height += tabHeight
-  // `border` 边框的高度也需要考虑
+  if (uiStore.settings.showTabs) height += tabHeight
   return height + 1
 })
 
@@ -39,14 +36,11 @@ const refMainWrapper = ref()
 const refContentWrapper = ref()
 
 watch(() => route.path, (val, old) => {
-  if (val === old)
-    return
-  const { value: { fixNav } } = baseSettings
-  const refTarget = fixNav
+  if (val === old) return
+  const refTarget = uiStore.settings.fixNav
     ? refContentWrapper
     : refMainWrapper
-  if ((refTarget.value?.$el?.scrollTop ?? 0) === 0)
-    return
+  if ((refTarget.value?.$el?.scrollTop ?? 0) === 0) return
   useScrollTop(refTarget.value!.$el)
 })
 </script>
@@ -60,26 +54,26 @@ watch(() => route.path, (val, old) => {
   >
     <a-layout-header
       bg-nav
-      :class="baseSettings.fixNav
+      :class="uiStore.settings.fixNav
         ? 'fixed top-0 right-0 w-full'
         : ''"
     >
       <TheNav w-full :style="{ height: `${navHeight}px` }" />
-      <TheTabs v-show="baseSettings.showTabs" w-full :style="{ height: `${tabHeight}px` }" />
+      <TheTabs v-show="uiStore.settings.showTabs" w-full :style="{ height: `${tabHeight}px` }" />
     </a-layout-header>
     <a-layout
       id="content-wrapper"
       ref="refContentWrapper"
       :style="{
         marginTop: `${
-          !baseSettings.fixNav
+          !uiStore.settings.fixNav
             ? 0
-            : baseSettings.showTabs
+            : uiStore.settings.showTabs
               ? navHeight + tabHeight + 1
               : navHeight + 1
         }px`,
         minHeight: `calc(100% - ${diffHeight}px)`,
-        overflow: baseSettings.fixNav
+        overflow: uiStore.settings.fixNav
           ? 'hidden auto'
           : undefined,
       }"
@@ -88,13 +82,13 @@ watch(() => route.path, (val, old) => {
         <TheMain ha :style="{ padding: `${contentPadding}px`, minHeight: `calc(100vh - ${diffHeight + footHeight + 1}px)` }" />
       </a-layout-content>
       <a-layout-footer
-        v-if="baseSettings.showFoot"
+        v-if="uiStore.settings.showFoot"
         :style="{ height: `${footHeight}px` }"
       >
         <TheFoot hw-full />
       </a-layout-footer>
     </a-layout>
-    <TheSettings v-if="showAppSettings" />
+    <TheSettings v-if="uiStore.settings.showAppSettings" />
   </a-layout>
   <BackTop :target-container="backTopTarget" />
 </template>

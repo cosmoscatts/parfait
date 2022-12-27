@@ -56,6 +56,7 @@ declare module '@vue/runtime-core' {
     DarkToggle: typeof import('./components/DarkToggle.vue')['default']
     Plum: typeof import('./components/Plum.vue')['default']
     PreLoaded: typeof import('./components/PreLoaded.vue')['default']
+    PreLoadPage: typeof import('./components/PreLoadPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ScrollWrapper: typeof import('./components/ScrollWrapper.vue')['default']

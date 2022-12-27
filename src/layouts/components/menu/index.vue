@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
-import { appLayoutParams } from '~/config'
+import { APP_LAYOUT_PARAMS } from '~/config'
 import type { Menu } from '~/types'
 
 interface MenuOption {
@@ -12,7 +12,7 @@ interface MenuOption {
 }
 
 // 菜单折叠后宽度（垂直布局）
-const { sideMenuCollapsedWidth } = appLayoutParams
+const { sideMenuCollapsedWidth } = APP_LAYOUT_PARAMS
 
 const appStore = useAppStore()
 const { menuCollapsed, baseSettings } = storeToRefs(appStore)

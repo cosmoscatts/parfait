@@ -3,7 +3,6 @@ export interface ThemeColor {
   name: string
 }
 
-// `Arco Design` 默认颜色
 export const defaultThemeColors: ThemeColor[] = [
   { prop: 'red', name: '浪漫红' },
   { prop: 'orangered', name: '晚秋红' },
@@ -26,9 +25,6 @@ export interface ThemeColorValue {
   value: string
 }
 
-/**
- * 生成颜色映射
- */
 function createThemeColorMap(): Record<string, ThemeColorValue> {
   const colorMap: Record<string, ThemeColorValue> = {}
   defaultThemeColors.forEach(({ prop, name }) => {
@@ -41,10 +37,8 @@ function createThemeColorMap(): Record<string, ThemeColorValue> {
   return colorMap
 }
 
-// 包含各颜色名称、值的映射
 export const themeColorValueMap = createThemeColorMap()
 
-// 十六进制各颜色映射
 export const hexThemeColorValueMap: Record<string, string> = {
   red: '#F53F3F',
   orangered: '#F77234',

@@ -1,6 +1,4 @@
 @import './transition.css';
-@import './prose.css';
-@import './markdown.css';
 
 :root {
   --c-bg: #F0F1F3;
@@ -58,7 +56,3 @@ html.dark {
   background: rgb(var(--primary-6));
   border-radius: 10px;
 }
-
-/* ::-webkit-scrollbar-thumb:hover {
-  background: var(--c-scrollbar-hover);
-} */

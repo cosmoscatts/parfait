@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { appLayoutParams } from '~/config'
+import { APP_LAYOUT_PARAMS } from '~/config'
 
 const {
   modelValue = 'vertical',
@@ -38,7 +38,7 @@ const renderLayoutIcon = (value: string) => {
 
 // 布局 `div` 的宽度
 const layoutElWidth = computed(() => {
-  const { settingsDrawerWidth } = appLayoutParams
+  const { settingsDrawerWidth } = APP_LAYOUT_PARAMS
   const MAX_WIDTH = 180
   const PADDING_AND_MARGIN = 66
   return Math.min((settingsDrawerWidth - PADDING_AND_MARGIN) / 2, MAX_WIDTH)
