@@ -1,28 +1,23 @@
 <script setup lang="ts">
-import {
-  TabButton,
-  TabChrome,
-  TabContextMenu,
-} from './components'
+import TabButton from './TabButton.vue'
+import TabChrome from './TabChrome.vue'
+import TabContextMenu from './TabContextMenu.vue'
 import type { Tab } from '~/types'
 
 const {
-  index = -1,
-  title = '',
-  path = '/',
-  tabs = [],
-  isChromeTab = true,
+  index,
+  title,
+  path,
+  tabs,
+  chrome,
+  active,
 } = defineProps<{
-  /** 多页签索引 */
-  index?: number
-  /** 多页签标题 */
-  title?: string
-  /** 多页签路由 */
-  path?: string
-  /** 多页签 */
-  tabs?: Tab[]
-  /** 是否为谷歌风格 */
-  isChromeTab?: boolean
+  index: number
+  title: string
+  path: string
+  tabs: Tab[]
+  chrome: boolean
+  active: boolean
 }>()
 
 const route = useRoute()
@@ -30,20 +25,6 @@ const router = useRouter()
 
 const { removeOneTab } = useTabStore()
 
-/**
- * 是否为当前路由
- */
-function isActive(path?: string) {
-  if (!path)
-    return false
-  if (route.path.startsWith('/redirect'))
-    return `/redirect${path}` === route.path
-  return path === route.path
-}
-
-/**
- * 关闭多页签
- */
 function handleCloseTab() {
   if (tabs.length === 1) {
     Message.warning('已经是最后一个标签了')
@@ -69,16 +50,8 @@ function handleCloseTab() {
 
 <template>
   <a-dropdown trigger="contextMenu" position="br">
-    <RouterLink
-      :to="{ path }"
-    >
-      <TabButton
-        v-if="!isChromeTab"
-        v-bind="{
-          title,
-          isActive: isActive(path),
-        }"
-      >
+    <RouterLink :to="{ path }">
+      <TabButton v-if="!chrome" v-bind="{ title, active }">
         <template #close>
           <span
             i-ri-close-fill hover="i-carbon-close-filled" ml-1

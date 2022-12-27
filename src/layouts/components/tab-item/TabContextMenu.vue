@@ -13,75 +13,45 @@ const {
   hasLeftTabs = true,
   hasRightTabs = true,
 } = defineProps<{
-  /** 多页签索引 */
   index?: number
-  /** 多页签 */
   tabs?: Tab[]
-  /** 是否存在左侧多页签 */
   hasLeftTabs?: boolean
-  /** 是否存在右侧多页签 */
   hasRightTabs?: boolean
 }>()
 
 const router = useRouter()
-const { removerOtherTabs, removeTabsByList } = useTabStore()
+const tabStore = useTabStore()
 
-/**
- * 刷新当前
- */
 function handleRefresh() {
   const currentTab = tabs[index]
-  if (!currentTab)
-    return
-  const { path } = currentTab
-  nextTick(() => {
-    router.replace({
-      path: `/redirect${path}`,
-    })
-  })
+  if (!currentTab) return
+  nextTick(() => router.replace({
+    path: `/redirect${currentTab.path}`,
+  }))
 }
 
-/**
- * 关闭当前标签左侧的多页签
- */
 function handleCloseLeft() {
-  if (!hasLeftTabs)
-    return
   const currentTab = tabs[index]
-  if (!currentTab)
-    return
-  const { path } = currentTab
-  router.push(path)
-  removeTabsByList(tabs.slice(0, index) || [])
+  if (!currentTab || !hasLeftTabs) return
+  tabStore
+    .removeListTabs(tabs.slice(0, index))
+    .then(() => router.push(currentTab.path))
 }
 
-/**
- * 关闭当前标签右侧的多页签
- */
 function handleCloseRight() {
-  if (!hasRightTabs)
-    return
   const currentTab = tabs[index]
-  if (!currentTab)
-    return
-  const { path } = currentTab
-  router.push(path)
-  removeTabsByList(tabs.slice(index + 1) || [])
+  if (!currentTab || !hasRightTabs) return
+  tabStore
+    .removeListTabs(tabs.slice(index + 1))
+    .then(() => router.push(currentTab.path))
 }
 
-/**
- * 关闭当前标签之外的所有多页签
- */
 function handleCloseOthers() {
-  // 至少有一个多页签
-  if (tabs.length === 1)
-    return
   const currentTab = tabs[index]
-  if (!currentTab)
-    return
-  const { path } = currentTab
-  router.push(path)
-  removerOtherTabs(currentTab)
+  if (!currentTab) return
+  tabStore
+    .removeOtherTabs(currentTab)
+    .then(() => router.push(currentTab.path))
 }
 </script>
 

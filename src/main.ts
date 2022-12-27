@@ -12,4 +12,3 @@ const setupModules = (app: AppContext) => {
   app.mount('#app')
 }
 setupModules(createApp(App))
-

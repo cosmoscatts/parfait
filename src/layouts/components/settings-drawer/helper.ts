@@ -1,11 +1,11 @@
-import type { ConfigSettingObject } from '~/config'
+import type { Settings } from '~/config'
 
 /**
  * 配置项组件渲染类型
  */
 export type SettingItemRenderType = 'layoutRadio' | 'select' | 'switch' | 'colorPicker'
 
-type SettingItemProp = keyof ConfigSettingObject
+type SettingItemProp = keyof Settings
 
 /**
  * 配置项渲染结构

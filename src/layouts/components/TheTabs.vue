@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import TabItem from './tab'
+import TabItem from './tab-item/index.vue'
 import type { Tab } from '~/types'
 
 const route = useRoute()
-
+const uiStore = useUiStore()
 const tabStore = useTabStore()
-const { addOneTab } = tabStore
-const { baseSettings } = storeToRefs(useAppStore())
 
 // 多页签风格是否为谷歌风格
 const isChromeTabShapeStyle = computed(() => {

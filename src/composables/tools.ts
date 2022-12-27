@@ -36,10 +36,12 @@ export function useOpenWindow(
   )
 }
 
-export function useScrollTop(target: HTMLElement, easing = 'quartOut', duration = 500) {
-  if (!target)
-    return
-
+export function useScrollTop(
+  target: HTMLElement,
+  easing = 'quartOut',
+  duration = 500,
+) {
+  if (!target) return
   const { scrollTop } = target
   const tween = new BTween({
     from: { scrollTop },
@@ -47,8 +49,7 @@ export function useScrollTop(target: HTMLElement, easing = 'quartOut', duration 
     easing,
     duration,
     onUpdate: (keys: any) => {
-      if (target)
-        target.scrollTop = keys.scrollTop
+      if (target) target.scrollTop = keys.scrollTop
     },
   })
   tween.start()

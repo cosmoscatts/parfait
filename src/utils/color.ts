@@ -12,4 +12,3 @@ export const addColorAlpha = (color: string, alpha: number) =>
 
 export const useMixinColor = (firstColor: string, secondColor: string, ratio: number) =>
   colord(firstColor).mix(secondColor, ratio).toHex()
-

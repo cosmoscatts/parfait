@@ -1,11 +1,5 @@
 @import './transition.css';
 
-:root {
-  --c-bg: #F0F1F3;
-  --c-scrollbar: #ffc107;
-  --c-scrollbar-hover: #ff9800;
-}
-
 html,
 body,
 #app {
@@ -17,7 +11,6 @@ body,
 }
 
 html.dark {
-  --c-bg: #17171A;
   background: #17171A;
   color: white;
   color-scheme: dark;

@@ -37,8 +37,8 @@ export const useAuthStore = defineStore(
       },
       logout() {
         hasLogin.value = false
-        const tabStore = useTabStore
-        ;[this.user, this.menu, tabStore.removeAllTabs].forEach(i => i.remove())
+        const tabStore = useTabStore()
+        ;[this.user.remove, this.menu.remove, tabStore.removeAllTabs].forEach(fn => fn())
       },
     }
   },
