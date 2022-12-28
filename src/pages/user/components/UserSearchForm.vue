@@ -5,38 +5,23 @@ import type { SelectOptionData } from '@arco-design/web-vue/es/select/interface'
 const {
   roleOptions = [],
 } = defineProps<{
-  roleOptions: SelectOptionData[]
+  roleOptions?: SelectOptionData[]
 }>()
-
 const emit = defineEmits(['fetchData'])
+const getBaseFormModel = () => ({
+  username: '',
+  name: '',
+  roleId: undefined,
+  createTime: [],
+  updateTime: [],
+})
+const formModel = ref(getBaseFormModel())
+const search = () => emit('fetchData', formModel.value)
+const reset = () => formModel.value = getBaseFormModel()
 
-function generateFormModel() {
-  return {
-    username: '',
-    name: '',
-    phone: '',
-    roleId: '',
-    email: '',
-    createTime: [],
-  }
-}
-
-const formModel = ref(generateFormModel())
-
-function search() {
-  emit('fetchData', formModel.value)
-}
 search()
 
-function reset() {
-  formModel.value = generateFormModel()
-}
-
-const labelHidden = useResponsiveFormLabelHidden
-
-defineExpose({
-  formModel,
-})
+defineExpose({ formModel })
 </script>
 
 <template>
@@ -68,15 +53,6 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="phone" label="手机号" :hide-label="labelHidden">
-              <a-input
-                v-model="formModel.phone"
-                placeholder="请输入手机号"
-                allow-clear
-              />
-            </a-form-item>
-          </a-col>
-          <a-col :span="8">
             <a-form-item field="roleId" label="角色" :hide-label="labelHidden">
               <a-select
                 v-model="formModel.roleId"
@@ -87,18 +63,17 @@ defineExpose({
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="email" label="电子邮箱" :hide-label="labelHidden">
-              <a-input
-                v-model="formModel.email"
-                placeholder="请输入电子邮箱"
-                allow-clear
+            <a-form-item field="createTime" label="创建时间" :hide-label="labelHidden">
+              <a-range-picker
+                v-model="formModel.createTime"
+                w-full
               />
             </a-form-item>
           </a-col>
           <a-col :span="8">
-            <a-form-item field="createTime" label="创建时间" :hide-label="labelHidden">
+            <a-form-item field="updateTime" label="更新时间" :hide-label="labelHidden">
               <a-range-picker
-                v-model="formModel.createTime"
+                v-model="formModel.updateTime"
                 w-full
               />
             </a-form-item>

@@ -3,23 +3,16 @@ import { IconRefresh, IconSearch } from '@arco-design/web-vue/es/icon'
 
 const emit = defineEmits(['fetchData'])
 
-function generateFormModel() {
-  return {
-    name: '',
-    createTime: [],
-  }
-}
-const formModel = ref(generateFormModel())
-function search() {
-  emit('fetchData', formModel.value)
-}
+const getBaseFormModel = () => ({
+  name: '',
+  createTime: [],
+  updateTime: [],
+})
+const formModel = ref(getBaseFormModel())
+const search = () => emit('fetchData', formModel.value)
+const reset = () => formModel.value = getBaseFormModel()
+
 search()
-
-function reset() {
-  formModel.value = generateFormModel()
-}
-
-const labelHidden = useResponsiveFormLabelHidden
 
 defineExpose({
   formModel,
@@ -53,7 +46,14 @@ defineExpose({
               />
             </a-form-item>
           </a-col>
-          <a-col :xs="0" :lg="8" />
+          <a-col :xs="12" :lg="8">
+            <a-form-item field="updateTime" label="更新时间" :hide-label="labelHidden">
+              <a-range-picker
+                v-model="formModel.updateTime"
+                w-full
+              />
+            </a-form-item>
+          </a-col>
         </a-row>
       </a-form>
     </a-col>

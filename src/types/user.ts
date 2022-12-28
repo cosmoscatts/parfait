@@ -6,8 +6,6 @@ export interface User {
   name?: string
   password?: string
   avatar?: string
-  phone?: string
-  email?: string
   roleId?: number
   role?: Role
   createTime?: Date

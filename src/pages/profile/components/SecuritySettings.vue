@@ -1,141 +1,143 @@
-<script setup lang="ts">
-const {
-  tabIdx = 1,
-} = defineProps<{
-  tabIdx?: number
-}>()
+<script lang="ts" setup>
+import type { FileItem } from '@arco-design/web-vue/es/upload/interfaces'
+import { IconCamera, IconEye } from '@arco-design/web-vue/es/icon'
 
-const refForm = ref()
-const validateTrigger = ref<('change' | 'input' | 'focus' | 'blur')[]>(['change', 'input', 'focus'])
+const authStore = useAuthStore()
+const avatar = computed(() => authStore.user?.avatar)
+const getFileUrl = () => avatar.value
+  ? {
+      url: avatar.value,
+    } as FileItem
+  : undefined
+const file = ref<FileItem | undefined>(getFileUrl())
+watch(avatar, () => file.value = getFileUrl())
 
-const { user } = storeToRefs(useUserStore())
-
-const baseFormModel = reactive({
-  id: unref(user)!.id,
-  password: '',
-  newPass: '',
-  checkPass: '',
-})
-
-let formModel = $ref<Record<string, any>>({
-  ...baseFormModel,
-})
-
-function resetFormModel() {
-  formModel = {
-    ...baseFormModel,
-  }
-  refForm.value && refForm.value.clearValidate()
-}
-
-watch(() => tabIdx, resetFormModel)
-
-const router = useRouter()
-function onSubmit() {
-  refForm.value.validate(async (errors: any) => {
-    if (errors)
+function onChange(_: FileItem[], currentFile: FileItem) {
+  file.value = { ...currentFile }
+  getBase64(file.value!.file!).then((imageAsDateURL) => {
+    if (!authStore.user?.id) {
+      Message.error('用户不存在')
       return
-    // const { id, password, newPass } = JSON.parse(JSON.stringify(unref(formModel)))
-    // const { code, message } = await AuthApi.updatePassword({
-    //   id,
-    //   password,
-    //   newPass,
-    // }) as any
-    // if (code !== 0) {
-    //   Message.error(message || '密码修改失败')
-    //   return
-    // }
-    Message.success('密码修改成功, 请重新登录')
-    useTimeoutFn(() => {
-      router.push('/login')
-      useLogout()
-    }, 1000)
+    }
+    const formData = {
+      id: authStore.user.id,
+      avatar: imageAsDateURL as string,
+    }
+    UserApi
+      .updateAvatar(formData)
+      .then(({ code, message }) => {
+        if (code !== 0) {
+          Message.error(message || '上传失败')
+          return
+        }
+        Message.success('上传成功')
+        authStore.updateUser({
+          ...authStore.user,
+          avatar: formData.avatar,
+        })
+      })
   })
 }
-function validatePassword() {
-  return {
-    validator: (_: any, cb: any) => {
-      const { newPass, checkPass } = formModel
-      if (newPass === '' || checkPass === '') {
-        cb()
-      }
-      else {
-        if (newPass !== checkPass)
-          cb('两次密码输入不一致')
-        else
-          cb()
-      }
-    },
-  }
+
+function getBase64(file: File) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    let imageAsDateURL = ''
+    reader.readAsDataURL(file)
+    reader.onload = (data) => {
+      const res: any = data.target || data.srcElement
+      imageAsDateURL = res.result
+    }
+    reader.onerror = (err) => {
+      reject(err)
+    }
+    reader.onloadend = () => {
+      resolve(imageAsDateURL)
+    }
+  })
 }
 
-let hideLabel = $ref(false)
 const { width } = useWindowSize()
-watchEffect(() => {
-  hideLabel = unref(width) < 850
+const imagePreviewVisible = ref(false)
+const data = computed(() => {
+  const _data = [
+    {
+      label: '账号',
+      value: authStore.user?.username || '',
+    },
+    {
+      label: '名称',
+      value: authStore.user?.name || '',
+    },
+    {
+      label: '创建时间',
+      value: formatDate(authStore.user?.createTime),
+    },
+  ]
+  return width.value < 1000
+    ? _data.slice(0, 2)
+    : _data
 })
+
+function beforeUpload(file: File): Promise<boolean | File> {
+  return new Promise((resolve) => {
+    if (!file.type.startsWith('image')) {
+      Message.error('请上传图片')
+      return resolve(false)
+    }
+    resolve(true)
+  })
+}
 </script>
 
 <template>
-  <a-form ref="refForm" :model="formModel" size="large" class="lg:!w-540px  md:!w-440px sm:!w-350px xs:!w-260px mx-auto">
-    <a-form-item
-      field="password" label="旧密码" hide-asterisk feedback
-      :rules="[
-        { required: true, message: '旧密码是必须的' },
-      ]"
-      :validate-trigger="validateTrigger"
-      :hide-label="hideLabel"
-    >
-      <a-input-password
-        v-model="formModel.password"
-        placeholder="请输入你的旧密码..."
-        allow-clear
-      />
-    </a-form-item>
-    <a-form-item
-      field="newPass" label="新密码" hide-asterisk feedback
-      :rules="[
-        { required: true, message: '新密码是必须的' },
-      ]"
-      :validate-trigger="validateTrigger"
-      :hide-label="hideLabel"
-    >
-      <a-input-password
-        v-model="formModel.newPass"
-        placeholder="请输入你的新密码..."
-        allow-clear
-      />
-    </a-form-item>
-    <a-form-item
-      field="checkPass" label="确认新密码" hide-asterisk feedback
-      :rules="[
-        { required: true, message: '确认新密码是必须的' },
-        { ...validatePassword() },
-      ]"
-      :validate-trigger="validateTrigger"
-      :hide-label="hideLabel"
-    >
-      <a-input-password
-        v-model="formModel.checkPass"
-        placeholder="请输入确认新密码..."
-        allow-clear
-      />
-    </a-form-item>
-    <div m="x-auto y-20px">
-      <a-button
-        mr-3 font-bold
-        type="primary"
-        @click="onSubmit"
+  <a-card :bordered="false">
+    <a-space :size="64" pl-25px>
+      <a-upload
+        :auto-upload="false"
+        list-type="picture-card"
+        :file-list="file ? [file] : []"
+        :show-file-list="false"
+        :image-preview="true"
+        @change="onChange"
+        @before-upload="beforeUpload"
       >
-        更新密码
-      </a-button>
-      <a-button
-        font-bold
-        @click="resetFormModel"
-      >
-        重置
-      </a-button>
-    </div>
-  </a-form>
+        <template #upload-button>
+          <a-avatar :size="100" class="info-avatar" trigger-type="mask">
+            <template #trigger-icon>
+              <IconCamera text-24px />
+            </template>
+            <img v-if="file" :src="file.url">
+          </a-avatar>
+        </template>
+      </a-upload>
+      <div v-if="file?.url">
+        <a-button type="text" @click="imagePreviewVisible = true">
+          <IconEye />
+          预览
+        </a-button>
+        <a-image-preview
+          v-model:visible="imagePreviewVisible"
+          :src="file.url"
+        />
+      </div>
+      <a-descriptions
+        lt-sm="hidden"
+        :data="data"
+        :column="2"
+        align="right"
+        :layout="width < 1000 ? 'horizontal' : 'inline-horizontal'"
+        :label-style="{
+          width: '100px',
+          fontWeight: 'bold',
+          color: 'rgb(var(--gray-8))',
+        }"
+        :value-style="{
+          width: '180px',
+          paddingLeft: '8px',
+          textAlign: 'left',
+        }"
+      />
+    </a-space>
+  </a-card>
 </template>
-

@@ -28,23 +28,18 @@ const backTopTarget = computed(() => {
     : '#main-wrapper'
 })
 
-// 计算内容区域需要减去的高度值
 const diffHeight = computed(() => {
   let height = navHeight
-  if (uiStore.settings.showTabs)
-    height += tabHeight
-  // `border` 边框的高度也需要考虑
+  if (uiStore.settings.showTabs) height += tabHeight
   return height + 1
 })
 
-// 计算 `MainWrapper` 宽度
 const mainWrapperWidth = computed(() => {
   return isMobile.value
     ? '100%'
     : `calc(100% - ${uiStore.collaspeSide.get() ? sideCollapsedWidth : sideWidth}px)`
 })
 
-// 计算 `MainWrapper` `left` 偏移
 const mainWrapperLeft = computed(() => {
   return isMobile.value
     ? '0px'
@@ -55,23 +50,17 @@ const refMainWrapper = ref()
 const refContentWrapper = ref()
 
 watch(() => route.path, (val, old) => {
-  if (val === old)
-    return
+  if (val === old) return
   const refTarget = uiStore.settings.fixNav
     ? refContentWrapper
     : refMainWrapper
-  if ((refTarget.value?.$el?.scrollTop ?? 0) === 0)
-    return
+  if ((refTarget.value?.$el?.scrollTop ?? 0) === 0) return
   useScrollTop(refTarget.value!.$el)
 })
 </script>
 
 <template>
-  <a-layout
-    relative
-    hw-screen
-    bg-body of-hidden
-  >
+  <a-layout relative hw-screen bg-body of-hidden>
     <a-layout-sider
       v-if="!isMobile"
       absolute top-0 left-0
@@ -104,7 +93,7 @@ watch(() => route.path, (val, old) => {
             : ''"
       >
         <TheNav w-full :style="{ height: `${navHeight}px` }" />
-        <TheTabs v-show="uiStore.settings.showTabs" w-full :style="{ height: `${tabHeight}px` }" />
+        <TheTabs v-show="uiStore.settings.showTabs" wfull :style="{ height: `${tabHeight}px` }" />
       </a-layout-header>
       <a-layout
         id="content-wrapper"
@@ -138,10 +127,3 @@ watch(() => route.path, (val, old) => {
     <BackTop :target-container="backTopTarget" />
   </a-layout>
 </template>
-
-<style>
-.menu-drawer .arco-drawer-body {
-  padding: 0 !important;
-  border-right: 1px solid var(--color-border);
-}
-</style>

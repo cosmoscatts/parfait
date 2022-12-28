@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { IconLock } from '@arco-design/web-vue/es/icon'
 import type { SelectOptionData } from '@arco-design/web-vue/es/select/interface'
+import AvatarUpload from './AvatarUpload.vue'
 import type { User } from '~/types'
 
 const {
@@ -27,8 +28,6 @@ const baseFormModel = {
   password: '',
   checkPass: '',
   avatar: undefined,
-  phone: '',
-  email: '',
   roleId: undefined,
 }
 
@@ -40,37 +39,28 @@ const formModel = reactive<FormModel>({
   ...baseFormModel,
 })
 
-const title = computed(() => {
-  return ['添加用户', '编辑用户'][type === 'add' ? 0 : 1]
-})
-
 const { loading, startLoading, endLoading } = useLoading()
 function assign() {
   const target = visible && type === 'edit'
     ? unref(user)
     : baseFormModel
-
-  type K = keyof FormModel
   for (const [k, v] of Object.entries(target)) {
-    if (!Object.prototype.hasOwnProperty.call(formModel, k))
-      continue
-    formModel[k as K] = v
+    if (!Object.prototype.hasOwnProperty.call(formModel, k)) continue
+    formModel[k as keyof FormModel] = v
   }
 }
 
-watch(() => visible, () => {
-  assign()
+watch(() => visible, (val) => {
+  if (val) assign()
   endLoading()
-  refForm.value && refForm.value.clearValidate()
+  refForm.value?.clearValidate()
 })
 
 function handleOk() {
   refForm.value.validate((errors: any) => {
-    if (errors)
-      return
+    if (errors) return
     startLoading()
-    if (type === 'edit')
-      formModel.password = undefined
+    if (type === 'edit') formModel.password = undefined
     emits('saveUser', formModel)
   })
 }
@@ -91,7 +81,7 @@ function handleCancel() {
     @cancel="handleCancel"
   >
     <template #title>
-      {{ title }}
+      {{ ['添加用户', '编辑用户'][type === 'add' ? 0 : 1] }}
     </template>
     <a-form ref="refForm" :model="formModel" auto-label-width size="large">
       <a-form-item field="avatar" label="头像" hide-asterisk feedback>
@@ -145,20 +135,6 @@ function handleCancel() {
             <IconLock />
           </template>
         </a-input-password>
-      </a-form-item>
-      <a-form-item field="phone" label="手机号" hide-asterisk feedback>
-        <a-input
-          v-model="formModel.phone"
-          placeholder="请输入手机号..."
-          allow-clear
-        />
-      </a-form-item>
-      <a-form-item field="email" label="邮箱" hide-asterisk feedback>
-        <a-input
-          v-model="formModel.email"
-          placeholder="请输入邮箱..."
-          allow-clear
-        />
       </a-form-item>
       <a-form-item
         field="roleId" label="角色" hide-asterisk feedback

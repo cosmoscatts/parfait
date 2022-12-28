@@ -25,7 +25,6 @@ const backTopTarget = computed(() => {
     : '#main-wrapper'
 })
 
-// 计算内容区域需要减去的高度值
 const diffHeight = computed(() => {
   let height = navHeight
   if (uiStore.settings.showTabs) height += tabHeight

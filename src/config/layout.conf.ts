@@ -4,7 +4,7 @@ export const APP_LAYOUT_PARAMS = {
   sideWidth: 240,
   sideCollapsedWidth: 64,
   sideMenuCollapsedWidth: 48,
-  contentPadding: 15,
+  contentPadding: 20,
   footHeight: 50,
   backTopRight: 20,
   backTopBottom: 75,

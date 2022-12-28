@@ -4,4 +4,5 @@ export interface Role {
   description?: string
   createTime?: Date
   updateTime?: Date
+  menuIdList?: number[]
 }

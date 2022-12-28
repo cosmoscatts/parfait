@@ -5,9 +5,7 @@ import BasicInformation from './components/BasicInformation.vue'
 import SecuritySettings from './components/SecuritySettings.vue'
 
 const activeTabIdx = ref(1)
-function changeTabIdx(key: any) {
-  activeTabIdx.value = key
-}
+const changeTabIdx = (key: string | number) => activeTabIdx.value = Number(key)
 </script>
 
 <template>

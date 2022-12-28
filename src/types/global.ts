@@ -6,13 +6,13 @@ export interface AnyObject {
   [key: string]: unknown
 }
 
-export interface Result<T> {
+export interface Result<T = any> {
   code: number
   data: T
   message?: string
 }
 
-export interface PageData<T> {
+export interface PageData<T = any> {
   [key: string]: any
   records: T[]
   total: number

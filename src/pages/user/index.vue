@@ -1,12 +1,24 @@
 <script setup lang="ts">
+import { IconPlus } from '@arco-design/web-vue/es/icon'
 import type { SelectOptionData } from '@arco-design/web-vue/es/select/interface'
 import UserModal from './components/UserModal.vue'
 import UserSearchForm from './components/UserSearchForm.vue'
-import { saveUserHandler } from './helper'
+import { columns } from './columns'
 import type { Pagination, User } from '~/types'
 
 const { loading, startLoading, endLoading } = useLoading()
-let tabledata = $ref([])
+
+let roleOptions = $ref<SelectOptionData[]>()
+function fetchRoleOptions() {
+  RoleApi
+    .fetchRoleList()
+    .then(({ data: { records = [] } }) => {
+      roleOptions = records.map(i => ({ value: i.id, label: i.name }))
+    })
+}
+fetchRoleOptions()
+
+let tabledata = $ref<User[]>([])
 const basePagination: Pagination = {
   current: 1,
   pageSize: 10,
@@ -14,147 +26,132 @@ const basePagination: Pagination = {
 const pagination = reactive({
   ...basePagination,
 })
-let roleOptions = $ref<SelectOptionData[]>([])
-function fetchRoleOptions() {
-  const { code, data } = RoleApi.fetchRoleList()
-  if (code === 0)
-    roleOptions = data.map(i => ({ value: i.id, label: i.name }))
+interface FetchQuery extends Pagination {
+  name?: string
+  createTime?: [string, string]
+  updateTime?: [string, string]
 }
-fetchRoleOptions()
-function fetchTableData(params: Record<string, any>) {
+
+function fetchTableData(params: FetchQuery) {
   params = { ...basePagination, ...params }
   startLoading()
-  try {
-    const { data } = UserApi.fetchUserList()
-    tabledata = data as any
-    pagination.current = params.current
-    pagination.total = data.length
-  }
-  catch (err) {
-    // you can report use errorHandler or other
-  }
-  finally {
-    useTimeoutFn(() => {
-      endLoading()
-    }, 1000)
-  }
+  UserApi.fetchUserList(params)
+    .then(({ data: { records = [], total = 0 } }) => {
+      tabledata = records
+      pagination.current = params.current
+      pagination.total = total
+    })
+    .finally(() => useTimeoutFn(endLoading, 1000))
 }
+
 const refSearchForm = ref()
 function onPageChange(current: number) {
-  if (!refSearchForm.value)
-    return
+  if (!refSearchForm.value) return
   const params = refSearchForm.value.formModel
-  fetchTableData({ ...params, ...basePagination, current })
+  fetchTableData({ ...params, current })
 }
-function formartDate(date?: Date) {
-  return date
-    ? dayJs(date).format('YYYY-MM-DD HH:mm:ss')
-    : ''
-}
+
 function formatRowIndex(idx: number) {
   const { current, pageSize } = pagination
   return (current - 1) * pageSize + idx + 1
 }
 
-let userModalVisible = $ref(false)
-let showUserModalType = $ref<'add' | 'edit'>('add')
+let modalVisible = $ref(false)
+let modalType = $ref<'add' | 'edit'>('add')
 let selectedUser = $ref<User>({})
-function showUserModal(type: 'add' | 'edit', user = {}) {
-  showUserModalType = type
+function showModal(type: 'add' | 'edit', user = {}) {
+  modalType = type
   selectedUser = user
-  userModalVisible = true
+  modalVisible = true
 }
-function saveUser(data: Record<string, any>) {
-  saveUserHandler({
-    type: showUserModalType,
-    data,
+
+function saveUser(data: User) {
+  const { addUser: add, updateUser: update } = UserApi
+  const fn = [add, update][Number(modalType === 'edit')]
+  fn(data)
+    .then(({ code, message }) => {
+      if (code !== 0) {
+        Message.error(message || '保存失败')
+        return
+      }
+      Message.success('保存成功')
+      useTimeoutFn(() => {
+        modalVisible = false
+        onPageChange(pagination.current)
+      }, 200)
+    })
+}
+
+function deleteUser({ id }: User) {
+  if (!id) return
+  Modal.info({
+    title: '删除确认',
+    content: '确定要删除该用户吗？',
+    hideCancel: false,
+    onOk: () => {
+      UserApi
+        .deleteUser({ id })
+        .then(({ code, message }) => {
+          if (code !== 0) {
+            Message.error(message || '用户删除失败')
+            return
+          }
+          Message.success('用户删除成功')
+          onPageChange(pagination.current)
+        })
+    },
   })
-  useTimeoutFn(() => {
-    userModalVisible = false
-  }, 500)
 }
 </script>
 
 <template>
   <div>
     <a-card title="查询用户">
+      <template #extra>
+        <a-button type="text" size="small" font-bold @click="showModal('add')">
+          <template #icon>
+            <IconPlus />
+          </template>
+          添加
+        </a-button>
+      </template>
       <UserSearchForm ref="refSearchForm" :role-options="roleOptions" @fetch-data="fetchTableData" />
       <a-table
         row-key="id"
         :loading="loading"
+        :columns="columns"
         :pagination="pagination.total! > pagination.pageSize ? pagination : false"
         :data="tabledata"
         :bordered="false"
         @page-change="onPageChange"
       >
-        <template #columns>
-          <a-table-column
-            title="序号"
-            data-index="number"
-            align="center"
-          >
-            <template #cell="{ rowIndex }">
-              {{ formatRowIndex(rowIndex) }}
-            </template>
-          </a-table-column>
-          <a-table-column
-            title="账号"
-            data-index="username"
-            align="center"
-          />
-          <a-table-column
-            title="名称"
-            data-index="name"
-            align="center"
-          />
-          <a-table-column
-            title="角色"
-            data-index="roleId"
-            align="center"
-          >
-            <template #cell="{ record }">
-              {{ record?.role?.name || '无' }}
-            </template>
-          </a-table-column>
-          <a-table-column
-            title="手机号"
-            data-index="phone"
-            align="center"
-          />
-          <a-table-column
-            title="邮箱"
-            data-index="email"
-            align="center"
-          />
-          <a-table-column
-            title="创建时间"
-            data-index="createTime"
-            align="center"
-          >
-            <template #cell="{ record }">
-              {{ formartDate(record.createTime) }}
-            </template>
-          </a-table-column>
-          <a-table-column
-            title="操作"
-            data-index="operations"
-            align="center"
-          >
-            <template #cell="{ record }">
-              <a-button type="text" size="small" @click="showUserModal('edit', record)">
-                编辑
-              </a-button>
-              <a-button type="text" size="small">
-                删除
-              </a-button>
-            </template>
-          </a-table-column>
+        <template #id="{ rowIndex }">
+          {{ formatRowIndex(rowIndex) }}
+        </template>
+        <template #roleId="{ record }">
+          <a-tag color="#7bc616">
+            {{ record?.role?.name || '无' }}
+          </a-tag>
+        </template>
+        <template #createTime="{ record }">
+          {{ formatDate(record.createTime) }}
+        </template>
+        <template #updateTime="{ record }">
+          {{ formatDate(record.updateTime) }}
+        </template>
+        <template #action="{ record }">
+          <a-button type="text" font-bold size="small" @click="showModal('edit', record)">
+            编辑
+          </a-button>
+          <a-button type="text" font-bold size="small" @click="deleteUser(record)">
+            删除
+          </a-button>
         </template>
       </a-table>
     </a-card>
     <UserModal
-      v-model:visible="userModalVisible"
-      :type="showUserModalType"
+      v-model:visible="modalVisible"
+      :type="modalType"
       :role-options="roleOptions"
       :user="selectedUser"
       @save-user="saveUser"

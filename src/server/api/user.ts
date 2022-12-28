@@ -1,47 +1,68 @@
-export class UserApi {
-  static fetchUserList() {
-    return {
-      code: 0,
-      data: [
-        {
-          id: 1,
-          username: 'zhangsan',
-          name: '张三',
-          password: 123456,
-          avatar: null,
-          phone: '13588822192',
-          email: 'hahahahaha@163.com',
-          roleId: 1,
-          role: {
-            id: 1,
-            name: '管理员',
-            description: '管理员',
-            createTime: new Date('2022-06-19 09:42:35'),
-            updateTime: new Date('2022-06-19 09:42:35'),
-          },
-          createTime: new Date('2022-06-19 09:42:35'),
-          updateTime: new Date('2022-06-19 09:42:35'),
+import type { PageData, Pagination, Result, User } from '~/types'
+
+export const UserApi = {
+  fetchUserList: (_query?: {
+    username?: string
+    name?: string
+    roelId?: number
+    createTime?: [string, string]
+    updateTime?: [string, string]
+  } & Partial<Pagination>) => {
+    return new Promise<Result<PageData<User>>>((resolve) => {
+      resolve({
+        code: 0,
+        data: {
+          records: Array.from<User>({ length: 15 }).map((_, idx) => ({
+            id: idx + 1,
+            username: `test${idx + 1}`,
+            name: `测试${idx + 1}`,
+            roleId: Math.random() < 0.5 ? 0 : 1,
+            createTime: new Date(),
+            updateTime: new Date(),
+          })),
+          total: 15,
         },
-        {
-          id: 2,
-          username: 'lisi',
-          name: '李四',
-          password: 123456,
-          avatar: null,
-          phone: '15281926679',
-          email: 'hahahahaha@163.com',
-          roleId: 2,
-          role: {
-            id: 2,
-            name: '普通用户',
-            description: '普通用户',
-            createTime: new Date('2022-06-19 09:42:35'),
-            updateTime: new Date('2022-06-19 09:42:35'),
-          },
-          createTime: new Date('2022-06-19 09:42:35'),
-          updateTime: new Date('2022-06-19 09:42:35'),
-        },
-      ],
-    }
-  }
+      })
+    })
+  },
+
+  addUser(_body: User) {
+    return new Promise<Result>((resolve) => {
+      resolve({
+        code: 0,
+        data: null,
+        message: '',
+      })
+    })
+  },
+
+  updateUser(_body: User) {
+    return new Promise<Result>((resolve) => {
+      resolve({
+        code: 0,
+        data: null,
+        message: '',
+      })
+    })
+  },
+
+  deleteUser(_body: User) {
+    return new Promise<Result>((resolve) => {
+      resolve({
+        code: 0,
+        data: null,
+        message: '',
+      })
+    })
+  },
+
+  updateAvatar(_body: { id: number; avatar: string }) {
+    return new Promise<Result>((resolve) => {
+      resolve({
+        code: 0,
+        data: null,
+        message: '',
+      })
+    })
+  },
 }

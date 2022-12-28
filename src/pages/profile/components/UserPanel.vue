@@ -2,32 +2,21 @@
 import type { FileItem } from '@arco-design/web-vue/es/upload/interfaces'
 import { IconCamera, IconEye } from '@arco-design/web-vue/es/icon'
 
-const userStore = useUserStore()
-const { user } = storeToRefs(userStore)
-const { updateUser } = userStore
-
-function getFileUrl() {
-  const avatar = unref(user)?.avatar
-  return avatar
-    ? {
-        url: avatar,
-      }
-    : undefined
-}
-
-const file = ref<any>(getFileUrl())
-const avatar = computed(() => {
-  return unref(user)?.avatar
-})
-watch(avatar, () => {
-  file.value = getFileUrl()
-})
+const authStore = useAuthStore()
+const avatar = computed(() => authStore.user?.avatar)
+const getFileUrl = () => authStore.user?.avatar
+  ? {
+      url: authStore.user.avatar,
+    } as FileItem
+  : undefined
+const file = ref<FileItem | undefined>(getFileUrl())
+watch(avatar, () => file.value = getFileUrl())
 
 function onChange(_: FileItem[], currentFile: FileItem) {
   file.value = {
     ...currentFile,
   }
-  getBase64(unref(file).file).then(async (imageAsDateURL) => {
+  getBase64(file.value!.file!).then(async (imageAsDateURL) => {
     // const formData = {
     //   id: unref(user)?.id,
     //   avatar: imageAsDateURL,
@@ -35,8 +24,8 @@ function onChange(_: FileItem[], currentFile: FileItem) {
     // const { code } = await UserApi.updateAvatar(formData) as any
     // if (code === 0) {
     Message.success('上传成功')
-    updateUser({
-      ...user.value,
+    authStore.updateUser({
+      ...authStore.user,
       avatar: imageAsDateURL as string,
     })
     // }
@@ -67,22 +56,18 @@ function getBase64(file: any) {
 const { width } = useWindowSize()
 const imagePreviewVisible = ref(false)
 const data = computed(() => {
-  const _createTime = unref(user)?.createTime
-  const createTime = _createTime
-    ? dayJs(_createTime).format('YYYY-MM-DD HH:mm:ss')
-    : ''
   const _data = [
     {
       label: '账号',
-      value: unref(user)?.username || '',
+      value: authStore.user?.username || '',
     },
     {
       label: '名称',
-      value: unref(user)?.name || '',
+      value: authStore.user?.name || '',
     },
     {
       label: '创建时间',
-      value: createTime,
+      value: formatDate(authStore.user?.createTime),
     },
   ]
   return unref(width) < 1000
@@ -90,7 +75,7 @@ const data = computed(() => {
     : _data
 })
 
-function beforeUpload(file: any): any {
+function beforeUpload(file: any): Promise<boolean | File> {
   return new Promise((resolve) => {
     if (!file.type.startsWith('image')) {
       Message.error('请上传图片')

@@ -6,50 +6,42 @@ const {
 } = defineProps<{
   tabIdx?: number
 }>()
+type FormModel = Pick<User, 'id' | 'username' | 'name'>
 
 const refForm = ref()
+const authStore = useAuthStore()
 const validateTrigger = ref<('change' | 'input' | 'focus' | 'blur')[]>(['change', 'input'])
-
-const userStore = useUserStore()
-const { user } = storeToRefs(userStore)
-
-function getBaseFormModel() {
-  const { id, username, name } = JSON.parse(JSON.stringify(unref(user))) as User
+const getBaseFormModel = () => {
+  const { id, username, name } = G.clone(authStore.user!)
   return {
     id,
     username,
     name,
   }
 }
-
-let formModel = $ref<Record<string, any>>(getBaseFormModel())
-function resetFormModel() {
+let formModel = $ref<FormModel>(getBaseFormModel())
+const resetFormModel = () => {
   formModel = getBaseFormModel()
-  refForm.value && refForm.value.clearValidate()
+  refForm.value?.clearValidate()
 }
-
 watch(() => tabIdx, resetFormModel)
 
 function onSubmit() {
   refForm.value.validate(async (errors: any) => {
-    if (errors)
-      return
-    // const { id, username, name } = JSON.parse(JSON.stringify(unref(formModel)))
-    // const { code } = await UserApi.updateUser({
-    //   id,
-    //   username,
-    //   name,
-    // }) as any
-    // if (code !== 0) {
-    //   Message.error('信息更新失败')
-    //   return
-    // }
-    Message.success('信息更新成功')
-    const userClone = JSON.parse(JSON.stringify(unref(user)))
-    userStore.updateUser({
-      ...userClone,
-      name,
-    })
+    if (errors) return
+    UserApi
+      .updateUser(JSON.parse(JSON.stringify(formModel)))
+      .then(({ code, message }) => {
+        if (code !== 0) {
+          Message.error(message || '信息更新失败')
+          return
+        }
+        Message.success('信息更新成功')
+        authStore.updateUser({
+          ...G.clone(authStore.user),
+          name: formModel.name,
+        })
+      })
   })
 }
 </script>

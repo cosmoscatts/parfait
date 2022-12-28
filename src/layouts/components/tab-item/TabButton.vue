@@ -18,14 +18,15 @@ const uiStore = useUiStore()
 
 const tabStyle = computed(() => {
   const style: StyleValue = {}
+  const color = hexThemeColorValueMap[uiStore.settings.primaryColor]
   if (active) {
     style.backgroundColor = addColorAlpha(
-      hexThemeColorValueMap[uiStore.settings.primaryColor],
+      color,
       isDark.value ? 0.15 : 0.1,
     )
   }
   if (active || hover.value) {
-    style.borderColor = addColorAlpha(hexThemeColorValueMap[uiStore.settings.primaryColor], 0.3)
+    style.borderColor = addColorAlpha(color, 0.3)
   }
   return style
 })
@@ -36,15 +37,15 @@ const tabStyle = computed(() => {
     ref="refTab"
     flex="center nowrap"
     lt-sm="!min-w-70px" px-2 truncate
-    text="stone-600 dark:light-600/80 13px hover:primary"
+    text="13px hover:primary"
     border="1px #e5e7eb dark:#ffffff3d"
     :style="tabStyle"
     :class="{
       'text-primary': active,
     }"
   >
-    <span v-if="active" i-ri-price-tag-3-fill mr-1 />
-    <span v-else i-ri-price-tag-3-line mr-1 />
+    <span v-if="active" i-ri-price-tag-2-fill mr-1 />
+    <span v-else i-ri-price-tag-2-line mr-1 />
     {{ title }}
     <slot name="close" />
   </span>

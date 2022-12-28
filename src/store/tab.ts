@@ -17,9 +17,7 @@ export const useTabStore = defineStore(
       if (uiStore.settings.cacheTabs) {
         tabs.value = applyCachedTabs()
       } else {
-        if (!Token.get()) {
-          tabs.value = []
-        }
+        if (!Token.get()) tabs.value = []
       }
     }
 

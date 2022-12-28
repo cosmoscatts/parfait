@@ -14,6 +14,7 @@ declare global {
   const Conditional: typeof import('./composables/tools')['Conditional']
   const EffectScope: typeof import('vue')['EffectScope']
   const G: typeof import('./composables/tools')['G']
+  const MenuApi: typeof import('./server/api/menu')['MenuApi']
   const Message: typeof import('./composables/tools')['Message']
   const Modal: typeof import('./composables/tools')['Modal']
   const R: typeof import('./composables/tools')['R']
@@ -331,6 +332,7 @@ declare module 'vue' {
     readonly Conditional: UnwrapRef<typeof import('./composables/tools')['Conditional']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly G: UnwrapRef<typeof import('./composables/tools')['G']>
+    readonly MenuApi: UnwrapRef<typeof import('./server/api/menu')['MenuApi']>
     readonly Message: UnwrapRef<typeof import('./composables/tools')['Message']>
     readonly Modal: UnwrapRef<typeof import('./composables/tools')['Modal']>
     readonly R: UnwrapRef<typeof import('./composables/tools')['R']>
