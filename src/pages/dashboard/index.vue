@@ -15,8 +15,10 @@ const {
 const uiStore = useUiStore()
 
 const diffHeight = computed(() => {
-  const height = navHeight + footHeight + contentPadding * 2 + 1 + 1 + 3
-  return uiStore.settings.showTabs ? height + tabHeight : height
+  let height = navHeight + footHeight + contentPadding * 2 + 1 + 1 + 3
+  if (uiStore.settings.showTabs) height += tabHeight
+  if (uiStore.settings.layout === 'horizontal') height += 24
+  return height
 })
 
 const emojiArray = [

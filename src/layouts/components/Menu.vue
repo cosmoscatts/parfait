@@ -61,7 +61,7 @@ const selectedKeys = computed(() => {
       :collapsed="uiStore.collaspeSide.get()"
       :collapsed-width="APP_LAYOUT_PARAMS.sideMenuCollapsedWidth"
       auto-open-selected
-      :breakpoint="[false, 'lg'][Number([mode, uiStore.settings.layout].includes('vertical') && showCollapseButton !== false)]"
+      :breakpoint="['', 'lg'][Number([mode, uiStore.settings.layout].includes('vertical') && showCollapseButton !== false)]"
       :show-collapse-button="showCollapseButton"
 
       @collapse="uiStore.collaspeSide.toggle"

@@ -13,7 +13,7 @@ function logout() {
   })
   authStore
     .logout()
-    .then(() => useTimeoutFn(() => router.push('/login'), 1000))
+    .then(() => router.push('/login'))
 }
 
 function onSelect<T extends string | number | Record<string, any> | undefined>(value: T) {

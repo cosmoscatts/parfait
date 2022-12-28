@@ -1,5 +1,3 @@
-export class AuthApi {
-  static login() {
+export const AuthApi = {
 
-  }
 }
