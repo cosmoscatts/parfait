@@ -4,17 +4,15 @@ import type { ValidatedError } from '@arco-design/web-vue/es/form/interface'
 import { APP_META } from '~/config'
 import { findFirstRouteInPermission } from '~/utils'
 
+const router = useRouter()
+const authStore = useAuthStore()
 const { loading, startLoading, endLoading } = useLoading()
 
-/**
- * 定义表单数据结构
- */
 interface ModelType {
   username?: string
   password?: string
 }
 
-// 表单基础数据
 const baseFormModel = isDevelopment
   ? {
       username: 'admin',
@@ -24,44 +22,42 @@ const baseFormModel = isDevelopment
       username: '',
       password: '',
     }
-
-// 表单数据
 const formModel = reactive<ModelType>({
   ...baseFormModel,
 })
 
 const validateTrigger = ref<('change' | 'input' | 'focus' | 'blur')[]>(['change', 'input'])
 
-const router = useRouter()
-async function submit({
+function submit({
   errors,
   values,
 }: {
   errors: Record<string, ValidatedError> | undefined
   values: Record<string, any>
 }) {
-  if (errors)
-    return
-
+  if (errors) return
   startLoading()
-  // await loginCallback({
-  //   id: 1,
-  //   username: 'admin',
-  //   name: 'admin',
-  //   roleId: 1,
-  //   phone: '6666666666',
-  //   email: 'dasb@qq.com',
-  //   createTime: new Date(),
-  // })
-  const path = findFirstRouteInPermission() ?? '/'
-  useTimeoutFn(() => {
-    endLoading()
-    router.push(path)
-    ANotification.success({
-      title: '登录成功',
-      content: `你好，${values.username}。欢迎回来！`,
+  const data = {
+    id: 1,
+    username: 'admin',
+    name: 'admin',
+    roleId: 1,
+    phone: '6666666666',
+    email: 'dasb@qq.com',
+    createTime: new Date(),
+  }
+  authStore
+    .login(data)
+    .then(() => {
+      useTimeoutFn(() => {
+        router.push(findFirstRouteInPermission())
+        ANotification.success({
+          title: '登录成功',
+          content: `你好，${values.username}。欢迎回来！`,
+        })
+      }, 1000)
     })
-  }, 1000)
+    .finally(() => useTimeoutFn(endLoading, 1000))
 }
 </script>
 

@@ -6,10 +6,11 @@ import { createThemeMode } from '~/utils'
 
 export const isDark = createThemeMode(APP_SETTINGS.defaultThemeMode)
 export const toggleDark = useToggle(isDark)
-watch(isDark, (val) => {
-  if (val) document.body.setAttribute('arco-theme', 'dark')
+export const createUi = () => {
+  if (isDark.value) document.body.setAttribute('arco-theme', 'dark')
   else document.body.removeAttribute('arco-theme')
-})
+}
+watch(isDark, createUi)
 
 // ----- 响应式 -----
 

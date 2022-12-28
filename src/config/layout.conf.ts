@@ -4,10 +4,12 @@ export const APP_LAYOUT_PARAMS = {
   sideWidth: 240,
   sideCollapsedWidth: 64,
   sideMenuCollapsedWidth: 48,
-  contentPadding: 20,
+  contentPadding: 15,
   footHeight: 50,
   backTopRight: 20,
   backTopBottom: 75,
   backTopvisibilityHeight: 250,
   settingsDrawerWidth: 330,
+  settingsDrawerRight: 25,
+  settingsDrawerBottom: 350,
 }

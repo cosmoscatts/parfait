@@ -8,12 +8,10 @@ export default function createPermissionGuard(
   next: NavigationGuardNext,
 ) {
   const authStore = useAuthStore()
-
-  const isLogin = authStore.hasLogin && !!authStore.user.get()?.id
+  const isLogin = authStore.hasLogin && !!authStore.user?.id
   const needLogin = Boolean(to.meta?.requiresAuth) && !WHITE_LIST.includes(to.name as string)
-  // 需要对 `menus` 拷贝，`hasPermissionOfThePage` 方法会对原对象造成影响
-  const menusClone = JSON.parse(JSON.stringify(authStore.menu.get()))
-  const hasPermission = checkRoutePermission(menusClone, to)
+  const menusCopy = G.clone(authStore.menus)
+  const hasPermission = checkRoutePermission(menusCopy, to)
 
   const actions: [boolean, Function][] = [
     // 已登录状态跳转登录页，跳转至首页

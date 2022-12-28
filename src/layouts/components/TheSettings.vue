@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { IconSkin } from '@arco-design/web-vue/es/icon'
 import SettingsDrawer from './settings-drawer/index.vue'
-import { APP_LAYOUT_PARAMS } from '~/config'
+import { APP_LAYOUT_PARAMS as PARAMS } from '~/config'
 
 const LOADING_INTERVAL = 1000
+
 const uiStore = useUiStore()
+const refButton = ref()
+const hover = useElementHover(refButton)
+
 let showSettingsDrawer = $ref(false)
 function saveCurrentSettings() {
   Message.loading('正在更新配置')
@@ -18,16 +22,26 @@ function saveCurrentSettings() {
 </script>
 
 <template>
-  <a-button
-    icon-btn text-lg
-    @click="showSettingsDrawer = true"
-  >
-    <IconSkin :stroke-width="6" />
-  </a-button>
+  <div fixed :style="{ right: `${PARAMS.settingsDrawerRight}px`, bottom: `${PARAMS.settingsDrawerBottom}px` }" z-1000>
+    <a-button
+      v-if="!showSettingsDrawer"
+      size="large"
+      :shape="hover ? 'round' : 'circle'"
+      :style="{
+        boxShadow: '0 2px 12px #0000001a',
+        background: 'var(--color-bg-5)!important',
+        border: '1px solid var(--color-fill-3)!important',
+      }"
+      @click="showSettingsDrawer = true"
+    >
+      <IconSkin />
+      <span v-if="hover" ml-2>页面风格</span>
+    </a-button>
+  </div>
 
   <a-drawer
     v-model:visible="showSettingsDrawer"
-    :width="APP_LAYOUT_PARAMS.settingsDrawerWidth"
+    :width="PARAMS.settingsDrawerWidth"
     unmount-on-close
   >
     <template #title>

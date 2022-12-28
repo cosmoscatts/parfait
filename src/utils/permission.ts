@@ -16,7 +16,7 @@ export function findFirstRouteInPermission(): string {
     return tabStore.tabs.slice(-1)[0].path
   }
   const authStore = useAuthStore()
-  const menus = G.clone(authStore.menu.get())
+  const menus = G.clone(authStore.menus)
 
   let path = null
   while (menus.length && !path) {

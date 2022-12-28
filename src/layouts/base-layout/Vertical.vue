@@ -76,9 +76,9 @@ watch(() => route.path, (val, old) => {
       v-if="!isMobile"
       absolute top-0 left-0
       h-full of="x-hidden y-auto"
-      bg-side
-      hide-trigger
+      bg-side border-r="1px solid [var(--color-border)]"
       collapsible
+      hide-trigger
       :width="sideWidth"
       :collapsed-width="64"
       :collapsed="uiStore.collaspeSide.get()"
@@ -110,7 +110,7 @@ watch(() => route.path, (val, old) => {
       }"
     >
       <a-layout-header
-        bg-nav border-b="1px solid [var(--color-border)]"
+        bg-nav
         :class="
           uiStore.settings.fixNav
             ? 'absolute top-0 right-0 w-full'

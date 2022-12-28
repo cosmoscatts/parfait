@@ -32,7 +32,7 @@ const generateMenuOption = (menuItem: Menu): MenuOption => {
 }
 
 const menuOptions = computed<MenuOption[]>(() => (
-  authStore.menu.get().map(i => generateMenuOption(i))
+  authStore.menus.map(i => generateMenuOption(i))
 ))
 const selectedKeys = computed(() => {
   const allOptions = menuOptions.value.flatMap((i) => {
@@ -46,7 +46,7 @@ const selectedKeys = computed(() => {
 
 <template>
   <div
-    flex-x-center hw-full bg-transparent of-hidden
+    flex-x-center hw-full bg-transparent of-hidden class="menu-demo"
     :class="uiStore.settings.layout === 'horizontal' ? 'items-center' : ''"
   >
     <a-menu
@@ -57,7 +57,9 @@ const selectedKeys = computed(() => {
       :collapsed="uiStore.collaspeSide.get()"
       :collapsed-width="APP_LAYOUT_PARAMS.sideMenuCollapsedWidth"
       auto-open-selected
+      show-collapse-button
       breakpoint="lg"
+      @collapse="uiStore.collaspeSide.toggle"
     >
       <template v-for="{ key, title, path, icon, children } of menuOptions">
         <template v-if="children?.length">

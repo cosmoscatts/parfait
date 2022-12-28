@@ -16,7 +16,7 @@ const isHorizontal = computed(() => uiStore.settings.layout === 'horizontal')
     }"
   >
     <div i-ri-rocket-fill text="primary 24px" />
-    <span v-if="isPC && (isHorizontal || !collapsed)" font="bold sans" ml-4 text-16px>
+    <span v-if="isPC && (isHorizontal || !collapsed)" font="bold sans" ml-4 text-20px>
       {{ APP_META.name }}
     </span>
   </div>

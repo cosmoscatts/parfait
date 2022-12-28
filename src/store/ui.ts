@@ -27,8 +27,9 @@ export const useUiStore = defineStore(
       settingsCopy,
       collaspeSide: {
         get: () => collapse.bool.value,
-        collapse: () => collapse.setTrue(),
-        unCollapse: () => collapse.setFalse(),
+        collapse: collapse.setTrue,
+        unCollapse: collapse.setFalse,
+        toggle: collapse.toggle,
       },
       applyCopySettings() { // 保存暂存的副本设置
         // 如果主题主要色调发生改变，替换主色调

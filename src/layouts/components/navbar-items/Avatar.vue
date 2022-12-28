@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import defaultAvatar from '~/assets/default-avatar.jpg'
-import { APP_META } from '~/config'
 
 const router = useRouter()
 const authStore = useAuthStore()
-const avatar = computed(() => authStore.user.get()?.avatar ?? defaultAvatar)
+const avatar = computed(() => authStore.user?.avatar ?? defaultAvatar)
 
 function logout() {
   ANotification.success({
@@ -21,7 +20,6 @@ function onSelect<T extends string | number | Record<string, any> | undefined>(v
   if (!G.isString(value)) return
   ;[
     () => router.push('/profile'),
-    () => useOpenWindow(APP_META.github),
     logout,
   ][Number(value)]()
 }
@@ -40,12 +38,6 @@ function onSelect<T extends string | number | Record<string, any> | undefined>(v
         个人资料
       </a-doption>
       <a-doption value="1">
-        <template #icon>
-          <div i-carbon-document />
-        </template>
-        文档
-      </a-doption>
-      <a-doption value="2">
         <template #icon>
           <div i-ri-logout-box-r-line />
         </template>

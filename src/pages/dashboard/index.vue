@@ -47,17 +47,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <div w-70vw mx-a :style="{ height: `calc(100vh - ${diffHeight}px)` }" flex="col center">
-    <div id="lottie-cat" w400px h200px />
-    <div text-center font-bold>
-      <h1 text="2xl" m="t-2 b-2">
-        Hi@Everyone, {{ getEmoji() }}. Just have fun.
-      </h1>
-      <p text-xl m="t-3 b-2" w-40vw mx-a>
-        This is a template of admin system built with vite.
-        If you haven't used it yet, give it a try!
-      </p>
+  <a-card>
+    <div w70vw mxa flex="col center" :style="{ height: `calc(100vh - ${diffHeight}px)` }">
+      <div id="lottie-cat" w400px h200px />
+      <div text-center font-bold>
+        <h1 text="2xl" m="t-2 b-2">
+          Hi@Everyone, {{ getEmoji() }}. Just have fun.
+        </h1>
+        <p text-xl m="t-3 b-2" w40vw mx-a>
+          This is a template of admin system built with vite.
+          If you haven't used it yet, give it a try!
+        </p>
+      </div>
     </div>
-  </div>
+  </a-card>
 </template>
-

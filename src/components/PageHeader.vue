@@ -24,16 +24,22 @@ watch(
 
 <template>
   <a-page-header
-    :style="{ background: 'var(--color-bg-2)' }"
     :show-back="false"
+    :style="{ padding: '0px' }"
   >
     <template #breadcrumb>
       <a-breadcrumb>
         <a-breadcrumb-item v-for="title of data" :key="title">
-          <IconBookmark />
+          <!-- <IconBookmark /> -->
           {{ title }}
         </a-breadcrumb-item>
       </a-breadcrumb>
     </template>
   </a-page-header>
 </template>
+
+<style scoped>
+:deep(.arco-page-header-header) {
+  height: 0px;
+}
+</style>

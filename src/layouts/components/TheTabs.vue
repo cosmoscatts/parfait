@@ -71,7 +71,7 @@ watch(activeTabIndex, getActiveTabClientX, { immediate: true })
 <template>
   <div
     ref="refContainer"
-    of-hidden mx-1rem
+    of-hidden mx-1rem border-b="1px solid [var(--color-border)]"
     :style="{ width: 'calc(100% - 2rem)' }"
   >
     <ScrollWrapper ref="refScrollWrapper" :options="{ scrollX: true, scrollY: false, click: true }">

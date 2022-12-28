@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import TabChromeShape from './TabChromeShape.vue'
+import { hexThemeColorValueMap } from '~/config'
 
 const {
   title = '',
@@ -13,8 +14,8 @@ const {
 
 const refTab = ref()
 const hover = useElementHover(refTab)
-
 const uiStore = useUiStore()
+const primaryColor = computed(() => hexThemeColorValueMap[uiStore.settings.primaryColor])
 </script>
 
 <template>
@@ -31,13 +32,13 @@ const uiStore = useUiStore()
         v-bind="{
           hover,
           active,
-          primaryColor: uiStore.settings.primaryColor,
+          primaryColor,
         }"
       />
     </div>
     <span relative z-2 whitespace-nowrap flex-inline items-center>
-      <div v-if="active" i-carbon-bookmark-filled mr-2 z-2 />
-      <div v-else i-carbon-bookmark mr-2 z-2 />
+      <div v-if="active" i-iconoir-page mr2 z-2 text-primary />
+      <div v-else i-iconoir-empty-page mr2 z-2 />
       {{ title }}
     </span>
     <slot name="close" />

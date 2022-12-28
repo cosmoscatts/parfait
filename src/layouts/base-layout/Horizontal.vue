@@ -79,7 +79,9 @@ watch(() => route.path, (val, old) => {
       }"
     >
       <a-layout-content>
-        <TheMain ha :style="{ padding: `${contentPadding}px`, minHeight: `calc(100vh - ${diffHeight + footHeight + 1}px)` }" />
+        <TheMain ha :style="{ padding: `${contentPadding}px`, minHeight: `calc(100vh - ${diffHeight + footHeight + 1}px)` }">
+          <PageHeader mb10px />
+        </TheMain>
       </a-layout-content>
       <a-layout-footer
         v-if="uiStore.settings.showFoot"

@@ -3,6 +3,8 @@ const { loading, endLoading } = useLoading(true)
 const LOADING_INTERVAL = 2500
 const BEFORE_LEAVING_MS = 1800
 useTimeoutFn(endLoading, LOADING_INTERVAL)
+
+createUi()
 </script>
 
 <template>
