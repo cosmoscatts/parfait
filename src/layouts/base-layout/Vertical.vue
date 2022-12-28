@@ -85,19 +85,6 @@ watch(() => route.path, (val, old) => {
     >
       <TheSide hw-full />
     </a-layout-sider>
-    <a-drawer
-      v-else
-      class="menu-drawer"
-      placement="left"
-      :width="sideWidth"
-      :auto-focus="false"
-      :visible="!uiStore.collaspeSide.get()"
-      :header="false"
-      :footer="false"
-      @cancel="uiStore.collaspeSide.collapse"
-    >
-      <TheSide hw-full bg-side />
-    </a-drawer>
 
     <a-layout
       id="main-wrapper"

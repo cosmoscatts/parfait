@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { StyleValue } from 'vue'
 import { addColorAlpha } from '~/utils'
+import { hexThemeColorValueMap } from '~/config'
 
 const {
   title = '',
@@ -19,12 +20,12 @@ const tabStyle = computed(() => {
   const style: StyleValue = {}
   if (active) {
     style.backgroundColor = addColorAlpha(
-      uiStore.settings.primaryColor,
+      hexThemeColorValueMap[uiStore.settings.primaryColor],
       isDark.value ? 0.15 : 0.1,
     )
   }
   if (active || hover.value) {
-    style.borderColor = addColorAlpha(uiStore.settings.primaryColor, 0.3)
+    style.borderColor = addColorAlpha(hexThemeColorValueMap[uiStore.settings.primaryColor], 0.3)
   }
   return style
 })
@@ -33,7 +34,7 @@ const tabStyle = computed(() => {
 <template>
   <span
     ref="refTab"
-    flex="c nowrap"
+    flex="center nowrap"
     lt-sm="!min-w-70px" px-2 truncate
     text="stone-600 dark:light-600/80 13px hover:primary"
     border="1px #e5e7eb dark:#ffffff3d"

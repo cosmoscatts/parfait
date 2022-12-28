@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import lottie from 'lottie-web'
 import { APP_LAYOUT_PARAMS } from '~/config'
 
 defineOptions({
@@ -36,27 +35,22 @@ const emojiArray = [
 const getEmoji = (): string =>
   emojiArray[Math.floor(Math.random() * emojiArray.length)]
 
-onMounted(() => {
-  lottie.loadAnimation({
-    container: document.querySelector('#lottie-cat')!,
-    path: 'https://assets2.lottiefiles.com/packages/lf20_D0HSc9DlfZ.json',
-    loop: true,
-    renderer: 'svg',
-  })
-})
+onMounted(() => useLottie({
+  containerId: '#lottie',
+  path: 'https://assets8.lottiefiles.com/packages/lf20_tfl4coms.json',
+}))
 </script>
 
 <template>
-  <a-card>
-    <div w70vw mxa flex="col center" :style="{ height: `calc(100vh - ${diffHeight}px)` }">
-      <div id="lottie-cat" w400px h200px />
+  <a-card :style="{ height: `calc(100vh - ${diffHeight}px)` }" flex-center>
+    <div w70vw mxa flex="col center">
+      <div id="lottie" w400px h200px />
       <div text-center font-bold>
         <h1 text="2xl" m="t-2 b-2">
-          Hi@Everyone, {{ getEmoji() }}. Just have fun.
+          Hi@Everyone, {{ getEmoji() }}.
         </h1>
         <p text-xl m="t-3 b-2" w40vw mx-a>
-          This is a template of admin system built with vite.
-          If you haven't used it yet, give it a try!
+          More concise and more efficient!
         </p>
       </div>
     </div>

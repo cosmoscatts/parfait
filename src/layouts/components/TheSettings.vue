@@ -8,7 +8,6 @@ const LOADING_INTERVAL = 1000
 const uiStore = useUiStore()
 const refButton = ref()
 const hover = useElementHover(refButton)
-
 let showSettingsDrawer = $ref(false)
 function saveCurrentSettings() {
   Message.loading('正在更新配置')
@@ -25,6 +24,7 @@ function saveCurrentSettings() {
   <div fixed :style="{ right: `${PARAMS.settingsDrawerRight}px`, bottom: `${PARAMS.settingsDrawerBottom}px` }" z-1000>
     <a-button
       v-if="!showSettingsDrawer"
+      ref="refButton"
       size="large"
       :shape="hover ? 'round' : 'circle'"
       :style="{
@@ -32,7 +32,7 @@ function saveCurrentSettings() {
         background: 'var(--color-bg-5)!important',
         border: '1px solid var(--color-fill-3)!important',
       }"
-      @click="showSettingsDrawer = true"
+      @click="showSettingsDrawer = true; hover = false"
     >
       <IconSkin />
       <span v-if="hover" ml-2>页面风格</span>

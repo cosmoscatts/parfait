@@ -11,7 +11,10 @@ interface MenuOption {
   children?: MenuOption[]
 }
 
-const { mode } = defineProps<{ mode?: 'vertical' | 'horizontal' }>()
+const { mode, showCollapseButton = true } = defineProps<{
+  mode?: 'vertical' | 'horizontal'
+  showCollapseButton?: boolean
+}>()
 
 const route = useRoute()
 const uiStore = useUiStore()
@@ -46,10 +49,11 @@ const selectedKeys = computed(() => {
 
 <template>
   <div
-    flex-x-center hw-full bg-transparent of-hidden class="menu-demo"
-    :class="uiStore.settings.layout === 'horizontal' ? 'items-center' : ''"
+    flex-x-center hw-full bg-transparent of-hidden
+    :class="mode !== 'vertical' && uiStore.settings.layout === 'horizontal' ? 'items-center' : ''"
   >
     <a-menu
+      wfull hfull
       :mode="mode ?? uiStore.settings.layout"
       :auto-open="true"
       :accordion="true"
@@ -57,8 +61,9 @@ const selectedKeys = computed(() => {
       :collapsed="uiStore.collaspeSide.get()"
       :collapsed-width="APP_LAYOUT_PARAMS.sideMenuCollapsedWidth"
       auto-open-selected
-      show-collapse-button
-      breakpoint="lg"
+      :breakpoint="[false, 'lg'][Number([mode, uiStore.settings.layout].includes('vertical') && showCollapseButton !== false)]"
+      :show-collapse-button="showCollapseButton"
+
       @collapse="uiStore.collaspeSide.toggle"
     >
       <template v-for="{ key, title, path, icon, children } of menuOptions">

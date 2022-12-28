@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { RouteLocationMatched } from 'vue-router'
-import { IconBookmark } from '@arco-design/web-vue/es/icon'
+import { IconStamp } from '@arco-design/web-vue/es/icon'
 
 const route = useRoute()
 let data = $ref<string[]>([])
@@ -30,7 +30,7 @@ watch(
     <template #breadcrumb>
       <a-breadcrumb>
         <a-breadcrumb-item v-for="title of data" :key="title">
-          <!-- <IconBookmark /> -->
+          <IconStamp mr1 />
           {{ title }}
         </a-breadcrumb-item>
       </a-breadcrumb>
