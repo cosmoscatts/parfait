@@ -59,13 +59,19 @@ function submit({
     })
     .finally(() => useTimeoutFn(endLoading, 1000))
 }
+
+onMounted(() => useTimeoutFn(() => useLottie({
+  containerId: '#lottie',
+  path: 'https://assets2.lottiefiles.com/packages/lf20_iVPQC8jyX2.json',
+}), 50))
 </script>
 
 <template>
-  <a-space direction="vertical" size="large" w-450px class="mt-1/15">
+  <a-card direction="vertical">
     <div text="32px center" font-bold>
       {{ APP_META.name }}
     </div>
+    <div id="lottie" h150px />
     <a-form :model="formModel" layout="vertical" size="large" @submit="submit">
       <a-form-item
         field="username" label="账号" hide-asterisk feedback
@@ -105,5 +111,5 @@ function submit({
       <DarkToggle />
       <span ml-5 op-50 text-xl> {{ APP_META.author }} </span>
     </div>
-  </a-space>
+  </a-card>
 </template>
