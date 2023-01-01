@@ -45,6 +45,7 @@ const selectedKeys = computed(() => {
   })
   return allOptions.filter(i => i.path === route.path).map(j => j.key)
 })
+const collapsed = computed(() => [false, uiStore.collaspeSide.get()][Number(uiStore.settings.layout === 'vertical')])
 </script>
 
 <template>
@@ -58,10 +59,10 @@ const selectedKeys = computed(() => {
       :auto-open="true"
       :accordion="true"
       :selected-keys="selectedKeys"
-      :collapsed="uiStore.collaspeSide.get()"
+      :collapsed="collapsed"
       :collapsed-width="APP_LAYOUT_PARAMS.sideMenuCollapsedWidth"
       auto-open-selected
-      :breakpoint="['', 'lg'][Number([mode, uiStore.settings.layout].includes('vertical') && showCollapseButton !== false)]"
+      :breakpoint="['xs', 'lg'][Number([uiStore.settings.layout].includes('vertical') && !mode && showCollapseButton !== false)]"
       :show-collapse-button="showCollapseButton"
 
       @collapse="uiStore.collaspeSide.toggle"
