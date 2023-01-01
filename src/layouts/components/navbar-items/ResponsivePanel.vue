@@ -24,7 +24,7 @@ const show = ref(false)
         <Avatar />
         <div flex-auto />
         <a
-          icon-btn text-lg i-carbon-logo-github mx4
+          icon-btn text-lg i-ri-github-line mx4
           :href="APP_META.github"
           target="_blank" title="GitHub"
         />
