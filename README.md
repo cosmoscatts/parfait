@@ -6,7 +6,9 @@
 
 ## 预览
 [在线预览](https://parfait.netlify.app/)
+<br/>
 账号：admin 
+<br/>
 密码：123456
 
 ## 功能点
