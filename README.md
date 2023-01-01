@@ -6,6 +6,8 @@
 
 ## 预览
 [在线预览](https://parfait.netlify.app/)
+账号：admin 
+密码：123456
 
 ## 功能点
 * [x] 垂直、水平布局
