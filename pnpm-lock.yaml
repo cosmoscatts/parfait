@@ -2,9 +2,9 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config': ^0.35.2
-  '@arco-design/web-vue': ^2.42.1
+  '@arco-design/web-vue': ^2.43.0
   '@better-scroll/core': ^2.5.0
-  '@iconify/json': ^2.2.19
+  '@iconify/json': ^2.2.20
   '@types/crypto-js': ^4.1.1
   '@types/lodash': ^4.14.191
   '@types/node': 18.13.0
@@ -30,11 +30,7 @@ specifiers:
   pinia-plugin-persist-uni: ^1.2.0
   typescript: ^4.9.5
   unocss: ^0.49.4
-<<<<<<< HEAD
-  unplugin-auto-import: ^0.13.0
-=======
   unplugin-auto-import: ^0.14.2
->>>>>>> chore: update
   unplugin-vue-components: ^0.23.0
   unplugin-vue-define-options: ^1.2.1
   vite: ^4.1.1
@@ -63,8 +59,8 @@ dependencies:
 
 devDependencies:
   '@antfu/eslint-config': registry.npmmirror.com/@antfu/eslint-config/0.35.2_4vsywjlpuriuw3tl5oq6zy5a64
-  '@arco-design/web-vue': registry.npmmirror.com/@arco-design/web-vue/2.42.1_vue@3.2.47
-  '@iconify/json': registry.npmmirror.com/@iconify/json/2.2.19
+  '@arco-design/web-vue': registry.npmmirror.com/@arco-design/web-vue/2.43.0_vue@3.2.47
+  '@iconify/json': registry.npmmirror.com/@iconify/json/2.2.20
   '@types/crypto-js': registry.npmmirror.com/@types/crypto-js/4.1.1
   '@types/lodash': registry.npmmirror.com/@types/lodash/4.14.191
   '@types/node': registry.npmmirror.com/@types/node/18.13.0
@@ -76,11 +72,7 @@ devDependencies:
   lodash: registry.npmmirror.com/lodash/4.17.21
   typescript: registry.npmmirror.com/typescript/4.9.5
   unocss: registry.npmmirror.com/unocss/0.49.4_vite@4.1.1
-<<<<<<< HEAD
-  unplugin-auto-import: registry.npmmirror.com/unplugin-auto-import/0.13.0_@vueuse+core@9.12.0
-=======
   unplugin-auto-import: registry.npmmirror.com/unplugin-auto-import/0.14.2_@vueuse+core@9.12.0
->>>>>>> chore: update
   unplugin-vue-components: registry.npmmirror.com/unplugin-vue-components/0.23.0_vue@3.2.47
   unplugin-vue-define-options: registry.npmmirror.com/unplugin-vue-define-options/1.2.1_vue@3.2.47
   vite: registry.npmmirror.com/vite/4.1.1_edl3ajnhen4c5iqs57t4gqrzly
@@ -235,11 +227,11 @@ packages:
       color: registry.npmmirror.com/color/3.2.1
     dev: true
 
-  registry.npmmirror.com/@arco-design/web-vue/2.42.1_vue@3.2.47:
-    resolution: {integrity: sha512-zzXmayX/DIJiPuxIntj3KJrLe6VrFoX6ixpmbrLl7SAnoecGAMSXnaAy6sw0xOybrZid3ytYEzAuqTI/p9aOQw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@arco-design/web-vue/-/web-vue-2.42.1.tgz}
-    id: registry.npmmirror.com/@arco-design/web-vue/2.42.1
+  registry.npmmirror.com/@arco-design/web-vue/2.43.0_vue@3.2.47:
+    resolution: {integrity: sha512-saGi7H4kzcg6A88C7h6g1/nOfLUDvSFEYV9nlzqWnHW5Qq/kaUi9pXHvB9nEYVqS4WDdXFzqiVxX4muKiFnUzQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@arco-design/web-vue/-/web-vue-2.43.0.tgz}
+    id: registry.npmmirror.com/@arco-design/web-vue/2.43.0
     name: '@arco-design/web-vue'
-    version: 2.42.1
+    version: 2.43.0
     peerDependencies:
       vue: ^3.1.0
     dependencies:
@@ -808,10 +800,10 @@ packages:
     version: 1.2.1
     dev: true
 
-  registry.npmmirror.com/@iconify/json/2.2.19:
-    resolution: {integrity: sha512-u9GEiedZRmDAqbYa2A43KG5BQ6lYrFtwpoBm9CJuA7FyN4UUrf3qyaNvEaD9R+dfie8KXqqTa2hKEAoJ7F1McA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify/json/-/json-2.2.19.tgz}
+  registry.npmmirror.com/@iconify/json/2.2.20:
+    resolution: {integrity: sha512-mi7rXIc+/un3+GuIZkHJrfgLL5jjrfG0UidRybYj8LLh2bdUV3P5mz0+a2O+bwE9V5hvbFGBekgt5rvSnQYGHQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify/json/-/json-2.2.20.tgz}
     name: '@iconify/json'
-    version: 2.2.19
+    version: 2.2.20
     dependencies:
       '@iconify/types': registry.npmmirror.com/@iconify/types/2.0.0
       pathe: registry.npmmirror.com/pathe/1.1.0
@@ -937,27 +929,27 @@ packages:
       scule: registry.npmmirror.com/scule/1.0.0
       semver: registry.npmmirror.com/semver/7.3.8
       unctx: registry.npmmirror.com/unctx/2.1.1
-      unimport: registry.npmmirror.com/unimport/2.1.0
+      unimport: registry.npmmirror.com/unimport/2.2.4
       untyped: registry.npmmirror.com/untyped/1.2.2
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  registry.npmmirror.com/@nuxt/kit/3.1.2:
-    resolution: {integrity: sha512-m8/AF8hBJiG7aTx2CpiDGeLYYz30fUoPbJ9XiSmHqRIXv1goAFWHSkzWfRNEsoAAbMHf76oB917wVUQ3VSSQHg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@nuxt/kit/-/kit-3.1.2.tgz}
+  registry.npmmirror.com/@nuxt/kit/3.2.0:
+    resolution: {integrity: sha512-Otb1S/08tDxbpeQYLMynjr2TX7ssU1ynbWDpVzFzLBdfHkGWHXpIhJr+0u3LdnPUBw6C/xPXe7fd7RuXI9avoA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@nuxt/kit/-/kit-3.2.0.tgz}
     name: '@nuxt/kit'
-    version: 3.1.2
+    version: 3.2.0
     engines: {node: ^14.16.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     dependencies:
-      '@nuxt/schema': registry.npmmirror.com/@nuxt/schema/3.1.2
+      '@nuxt/schema': registry.npmmirror.com/@nuxt/schema/3.2.0
       c12: registry.npmmirror.com/c12/1.1.0
       consola: registry.npmmirror.com/consola/2.15.3
       defu: registry.npmmirror.com/defu/6.1.2
       globby: registry.npmmirror.com/globby/13.1.3
       hash-sum: registry.npmmirror.com/hash-sum/2.0.0
       ignore: registry.npmmirror.com/ignore/5.2.4
-      jiti: registry.npmmirror.com/jiti/1.16.2
+      jiti: registry.npmmirror.com/jiti/1.17.0
       knitwork: registry.npmmirror.com/knitwork/1.0.0
       lodash.template: registry.npmmirror.com/lodash.template/4.5.0
       mlly: registry.npmmirror.com/mlly/1.1.0
@@ -983,7 +975,7 @@ packages:
       create-require: registry.npmmirror.com/create-require/1.1.1
       defu: registry.npmmirror.com/defu/6.1.2
       hookable: registry.npmmirror.com/hookable/5.4.2
-      jiti: registry.npmmirror.com/jiti/1.16.2
+      jiti: registry.npmmirror.com/jiti/1.17.0
       pathe: registry.npmmirror.com/pathe/1.1.0
       pkg-types: registry.npmmirror.com/pkg-types/1.0.1
       postcss-import-resolver: registry.npmmirror.com/postcss-import-resolver/2.0.0
@@ -997,17 +989,17 @@ packages:
       - supports-color
     dev: true
 
-  registry.npmmirror.com/@nuxt/schema/3.1.2:
-    resolution: {integrity: sha512-wru9LhRXTa6WQlx7c0oYrtvJY7TiVlkBKXY5Rsmfo0StJuWohgZiReu9fu6z6GU4MzZlX25TVjwvq9Q7bNVbSQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@nuxt/schema/-/schema-3.1.2.tgz}
+  registry.npmmirror.com/@nuxt/schema/3.2.0:
+    resolution: {integrity: sha512-tz9RandI5LgbT9BQ8dE8n4kItV7+4OUgbX42YemcGbtORVJAWJJvQyHGikJ5akUgiTFYTV8tjV6pRPH9Txx0Pg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@nuxt/schema/-/schema-3.2.0.tgz}
     name: '@nuxt/schema'
-    version: 3.1.2
+    version: 3.2.0
     engines: {node: ^14.16.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     dependencies:
       c12: registry.npmmirror.com/c12/1.1.0
       create-require: registry.npmmirror.com/create-require/1.1.1
       defu: registry.npmmirror.com/defu/6.1.2
       hookable: registry.npmmirror.com/hookable/5.4.2
-      jiti: registry.npmmirror.com/jiti/1.16.2
+      jiti: registry.npmmirror.com/jiti/1.17.0
       pathe: registry.npmmirror.com/pathe/1.1.0
       pkg-types: registry.npmmirror.com/pkg-types/1.0.1
       postcss-import-resolver: registry.npmmirror.com/postcss-import-resolver/2.0.0
@@ -2019,7 +2011,7 @@ packages:
       defu: registry.npmmirror.com/defu/6.1.2
       dotenv: registry.npmmirror.com/dotenv/16.0.3
       giget: registry.npmmirror.com/giget/1.0.0
-      jiti: registry.npmmirror.com/jiti/1.16.2
+      jiti: registry.npmmirror.com/jiti/1.17.0
       mlly: registry.npmmirror.com/mlly/1.1.0
       pathe: registry.npmmirror.com/pathe/1.1.0
       pkg-types: registry.npmmirror.com/pkg-types/1.0.1
@@ -3951,6 +3943,13 @@ packages:
     hasBin: true
     dev: true
 
+  registry.npmmirror.com/jiti/1.17.0:
+    resolution: {integrity: sha512-CByzPgFqYoB9odEeef7GNmQ3S5THIBOtzRYoSCya2Sv27AuQxy2jgoFjQ6VTF53xsq1MXRm+YWNvOoDHUAteOw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/jiti/-/jiti-1.17.0.tgz}
+    name: jiti
+    version: 1.17.0
+    hasBin: true
+    dev: true
+
   registry.npmmirror.com/js-sdsl/4.1.4:
     resolution: {integrity: sha512-Y2/yD55y5jteOAmY50JbUZYwk3CP3wnLPEZnlR1w9oKhITrBEtAxwuWKebFf8hMrPMgbYwFoWK/lH2sBkErELw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/js-sdsl/-/js-sdsl-4.1.4.tgz}
     name: js-sdsl
@@ -5518,7 +5517,7 @@ packages:
     dependencies:
       '@antfu/utils': registry.npmmirror.com/@antfu/utils/0.5.2
       defu: registry.npmmirror.com/defu/6.1.2
-      jiti: registry.npmmirror.com/jiti/1.16.2
+      jiti: registry.npmmirror.com/jiti/1.17.0
     dev: true
 
   registry.npmmirror.com/unctx/2.1.1:
@@ -5539,26 +5538,6 @@ packages:
     engines: {node: '>=12.18'}
     dependencies:
       busboy: registry.npmmirror.com/busboy/1.6.0
-    dev: true
-
-  registry.npmmirror.com/unimport/2.1.0:
-    resolution: {integrity: sha512-GDVIxATluUquX8EqelT6DtnmnZaXGID1jsO9IXwlnxb0OIEqKAxTOnTlnGmHbseoGTh+ZC9kcNDaO18HYQj9KA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unimport/-/unimport-2.1.0.tgz}
-    name: unimport
-    version: 2.1.0
-    dependencies:
-      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils/5.0.2
-      escape-string-regexp: registry.npmmirror.com/escape-string-regexp/5.0.0
-      fast-glob: registry.npmmirror.com/fast-glob/3.2.12
-      local-pkg: registry.npmmirror.com/local-pkg/0.4.3
-      magic-string: registry.npmmirror.com/magic-string/0.27.0
-      mlly: registry.npmmirror.com/mlly/1.1.0
-      pathe: registry.npmmirror.com/pathe/1.1.0
-      pkg-types: registry.npmmirror.com/pkg-types/1.0.1
-      scule: registry.npmmirror.com/scule/1.0.0
-      strip-literal: registry.npmmirror.com/strip-literal/1.0.0
-      unplugin: registry.npmmirror.com/unplugin/1.0.1
-    transitivePeerDependencies:
-      - rollup
     dev: true
 
   registry.npmmirror.com/unimport/2.2.4:
@@ -5637,7 +5616,7 @@ packages:
         optional: true
     dependencies:
       '@antfu/utils': registry.npmmirror.com/@antfu/utils/0.7.2
-      '@nuxt/kit': registry.npmmirror.com/@nuxt/kit/3.1.2
+      '@nuxt/kit': registry.npmmirror.com/@nuxt/kit/3.2.0
       '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils/5.0.2
       '@vueuse/core': registry.npmmirror.com/@vueuse/core/9.12.0_vue@3.2.47
       local-pkg: registry.npmmirror.com/local-pkg/0.4.3
