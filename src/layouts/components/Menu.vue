@@ -27,7 +27,7 @@ const generateMenuOption = (menuItem: Menu): MenuOption => {
     key: String(id),
     title,
     path,
-    icon: icon && iconMap[icon]
+    icon: (icon && iconMap[icon])
       ? iconMap[icon]
       : undefined,
     children: children?.map((child: Menu) => generateMenuOption(child)),
