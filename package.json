@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "@better-scroll/core": "^2.5.0",
-    "@unocss/reset": "^0.49.7",
+    "@unocss/reset": "^0.50.1",
     "@vueuse/core": "^9.13.0",
     "animate.css": "^4.1.1",
-    "axios": "^1.3.3",
+    "axios": "^1.3.4",
     "b-tween": "^0.3.3",
     "colord": "^2.9.3",
     "critters": "^0.0.16",
@@ -30,24 +30,24 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.35.2",
-    "@arco-design/web-vue": "^2.43.1",
-    "@iconify/json": "^2.2.24",
+    "@antfu/eslint-config": "^0.35.3",
+    "@arco-design/web-vue": "^2.43.2",
+    "@iconify/json": "^2.2.28",
     "@types/crypto-js": "^4.1.1",
     "@types/lodash": "^4.14.191",
-    "@types/node": "18.14.0",
+    "@types/node": "18.14.2",
     "@types/nprogress": "^0.2.0",
-    "@unocss/preset-icons": "^0.49.7",
-    "@unocss/preset-wind": "^0.49.7",
+    "@unocss/preset-icons": "^0.50.1",
+    "@unocss/preset-wind": "^0.50.1",
     "@vitejs/plugin-vue": "^4.0.0",
-    "eslint": "^8.34.0",
+    "eslint": "^8.35.0",
     "lodash": "^4.17.21",
     "typescript": "^4.9.5",
-    "unocss": "^0.49.7",
-    "unplugin-auto-import": "^0.14.4",
+    "unocss": "^0.50.1",
+    "unplugin-auto-import": "^0.15.0",
     "unplugin-vue-components": "^0.24.0",
-    "unplugin-vue-define-options": "^1.2.2",
+    "unplugin-vue-define-options": "^1.2.3",
     "vite": "^4.1.4",
-    "vue-tsc": "^1.1.7"
+    "vue-tsc": "^1.2.0"
   }
 }
