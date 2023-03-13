@@ -80,7 +80,7 @@ watch(activeTabIndex, getActiveTabClientX, { immediate: true })
         :class="[
           chrome
             ? 'flex items-end pr-7'
-            : 'flex !items-center gap-x-2 mt-1px',
+            : 'flex !items-center gap-x-2 mt-1px px2',
         ]"
       >
         <div
