@@ -30,8 +30,8 @@ specifiers:
   pinia-plugin-persist-uni: ^1.2.0
   typescript: ^5.0.2
   unocss: ^0.50.6
-  unplugin-auto-import: ^0.15.1
-  unplugin-vue-components: ^0.24.1
+  unplugin-auto-import: ^0.12.2
+  unplugin-vue-components: ^0.24.0
   unplugin-vue-define-options: ^1.2.3
   vite: ^4.2.0
   vue: ^3.2.47
@@ -72,7 +72,7 @@ devDependencies:
   lodash: registry.npmmirror.com/lodash/4.17.21
   typescript: registry.npmmirror.com/typescript/5.0.2
   unocss: registry.npmmirror.com/unocss/0.50.6_vite@4.2.0
-  unplugin-auto-import: registry.npmmirror.com/unplugin-auto-import/0.15.1_@vueuse+core@9.13.0
+  unplugin-auto-import: registry.npmmirror.com/unplugin-auto-import/0.12.2_@vueuse+core@9.13.0
   unplugin-vue-components: registry.npmmirror.com/unplugin-vue-components/0.24.1_vue@3.2.47
   unplugin-vue-define-options: registry.npmmirror.com/unplugin-vue-define-options/1.2.4_vue@3.2.47
   vite: registry.npmmirror.com/vite/4.2.0_cjr6shcfhu7mk6dmispzab7gzy
@@ -3591,6 +3591,15 @@ packages:
     dependencies:
       sourcemap-codec: registry.npmmirror.com/sourcemap-codec/1.4.8
 
+  registry.npmmirror.com/magic-string/0.27.0:
+    resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/magic-string/-/magic-string-0.27.0.tgz}
+    name: magic-string
+    version: 0.27.0
+    engines: {node: '>=12'}
+    dependencies:
+      '@jridgewell/sourcemap-codec': registry.npmmirror.com/@jridgewell/sourcemap-codec/1.4.14
+    dev: true
+
   registry.npmmirror.com/magic-string/0.30.0:
     resolution: {integrity: sha512-LA+31JYDJLs82r2ScLrlz1GjSgu66ZV518eyWT+S8VhyQn/JL0u9MeBOvQMGYiPk1DBiSN9DDMOcXvigJZaViQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/magic-string/-/magic-string-0.30.0.tgz}
     name: magic-string
@@ -4763,16 +4772,16 @@ packages:
       jiti: registry.npmmirror.com/jiti/1.17.1
     dev: true
 
-  registry.npmmirror.com/unimport/3.0.2:
-    resolution: {integrity: sha512-OQ0hShpcerS1PSsISsyn/NV2dGe5xfdUn4p5nwOodq0iqq5xxYQrTidHqlFGjxIliPDtDJp80OeySzyPTjYHmA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unimport/-/unimport-3.0.2.tgz}
+  registry.npmmirror.com/unimport/2.2.4:
+    resolution: {integrity: sha512-qMgmeEGqqrrmEtm0dqxMG37J6xBtrriqxq9hILvDb+e6l2F0yTnJomLoCCp0eghLR7bYGeBsUU5Y0oyiUYhViw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unimport/-/unimport-2.2.4.tgz}
     name: unimport
-    version: 3.0.2
+    version: 2.2.4
     dependencies:
       '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils/5.0.2
       escape-string-regexp: registry.npmmirror.com/escape-string-regexp/5.0.0
       fast-glob: registry.npmmirror.com/fast-glob/3.2.12
       local-pkg: registry.npmmirror.com/local-pkg/0.4.3
-      magic-string: registry.npmmirror.com/magic-string/0.30.0
+      magic-string: registry.npmmirror.com/magic-string/0.27.0
       mlly: registry.npmmirror.com/mlly/1.1.1
       pathe: registry.npmmirror.com/pathe/1.1.0
       pkg-types: registry.npmmirror.com/pkg-types/1.0.2
@@ -4827,18 +4836,15 @@ packages:
       - vite
     dev: true
 
-  registry.npmmirror.com/unplugin-auto-import/0.15.1_@vueuse+core@9.13.0:
-    resolution: {integrity: sha512-xLS+BfVNy00Y3IkqBmEd0IThvjx8kSGIgSuf/1kETttiENK8sHrDA+poKkQxRCPTKYH4yWM6txGQANPTzwpUWQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unplugin-auto-import/-/unplugin-auto-import-0.15.1.tgz}
-    id: registry.npmmirror.com/unplugin-auto-import/0.15.1
+  registry.npmmirror.com/unplugin-auto-import/0.12.2_@vueuse+core@9.13.0:
+    resolution: {integrity: sha512-hC4w0GZjPjmLtrxV0u10XO350V9eCtQyEyifXr7B9UGD7SvbbIvKuOcHt58Zd4FAqZJXKWoXkpr9mdhBp85Usw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unplugin-auto-import/-/unplugin-auto-import-0.12.2.tgz}
+    id: registry.npmmirror.com/unplugin-auto-import/0.12.2
     name: unplugin-auto-import
-    version: 0.15.1
+    version: 0.12.2
     engines: {node: '>=14'}
     peerDependencies:
-      '@nuxt/kit': ^3.2.2
       '@vueuse/core': '*'
     peerDependenciesMeta:
-      '@nuxt/kit':
-        optional: true
       '@vueuse/core':
         optional: true
     dependencies:
@@ -4846,9 +4852,8 @@ packages:
       '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils/5.0.2
       '@vueuse/core': registry.npmmirror.com/@vueuse/core/9.13.0_vue@3.2.47
       local-pkg: registry.npmmirror.com/local-pkg/0.4.3
-      magic-string: registry.npmmirror.com/magic-string/0.30.0
-      minimatch: registry.npmmirror.com/minimatch/7.4.2
-      unimport: registry.npmmirror.com/unimport/3.0.2
+      magic-string: registry.npmmirror.com/magic-string/0.27.0
+      unimport: registry.npmmirror.com/unimport/2.2.4
       unplugin: registry.npmmirror.com/unplugin/1.1.0
     transitivePeerDependencies:
       - rollup

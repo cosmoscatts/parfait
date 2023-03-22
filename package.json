@@ -44,8 +44,8 @@
     "lodash": "^4.17.21",
     "typescript": "^5.0.2",
     "unocss": "^0.50.6",
-    "unplugin-auto-import": "^0.15.1",
-    "unplugin-vue-components": "^0.24.1",
+    "unplugin-auto-import": "^0.12.2",
+    "unplugin-vue-components": "^0.24.0",
     "unplugin-vue-define-options": "^1.2.3",
     "vite": "^4.2.0",
     "vue-tsc": "^1.2.0"
