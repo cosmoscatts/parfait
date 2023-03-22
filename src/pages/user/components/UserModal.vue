@@ -41,7 +41,7 @@ const formModel = reactive<FormModel>({
 
 const { loading, startLoading, endLoading } = useLoading()
 function assign() {
-  const target = visible && type === 'edit'
+  const target = (visible && type === 'edit')
     ? unref(user)
     : baseFormModel
   for (const [k, v] of Object.entries(target)) {
