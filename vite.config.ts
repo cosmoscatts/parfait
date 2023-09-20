@@ -8,7 +8,7 @@ import DefineOptions from 'unplugin-vue-define-options/vite'
 import UnoCSS from 'unocss/vite'
 
 export default defineConfig({
-  base: '/',
+  base: './',
   resolve: {
     alias: {
       '~/': `${resolve(__dirname, 'src')}/`,
