@@ -5,6 +5,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 import UnoCSS from 'unocss/vite'
+import VueMacros from 'unplugin-vue-macros/vite'
 
 export default defineConfig({
   base: './',
@@ -14,16 +15,20 @@ export default defineConfig({
     },
   },
   plugins: [
-    UnoCSS(),
-    Vue({
-      include: [/\.vue$/, /\.md$/],
-      reactivityTransform: true,
+    VueMacros({
+      defineModels: true,
+      defineOptions: true,
+      plugins: {
+        vue: Vue({
+          reactivityTransform: true,
+        }),
+      },
     }),
+    UnoCSS(),
     AutoImport({
       imports: [
         'vue',
         'vue-router',
-        'vue/macros',
         '@vueuse/head',
         '@vueuse/core',
         'pinia',

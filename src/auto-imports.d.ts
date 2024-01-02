@@ -346,13 +346,6 @@ declare global {
 import { UnwrapRef } from 'vue'
 declare module 'vue' {
   interface ComponentCustomProperties {
-    readonly $$: UnwrapRef<typeof import('vue/macros')['$$']>
-    readonly $: UnwrapRef<typeof import('vue/macros')['$']>
-    readonly $computed: UnwrapRef<typeof import('vue/macros')['$computed']>
-    readonly $customRef: UnwrapRef<typeof import('vue/macros')['$customRef']>
-    readonly $ref: UnwrapRef<typeof import('vue/macros')['$ref']>
-    readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
-    readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
     readonly ANotification: UnwrapRef<typeof import('./composables/tools')['ANotification']>
     readonly AuthApi: UnwrapRef<typeof import('./server/api/auth')['AuthApi']>
     readonly BaseRequest: UnwrapRef<typeof import('./composables/tools')['BaseRequest']>
@@ -680,13 +673,6 @@ declare module 'vue' {
 }
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
-    readonly $$: UnwrapRef<typeof import('vue/macros')['$$']>
-    readonly $: UnwrapRef<typeof import('vue/macros')['$']>
-    readonly $computed: UnwrapRef<typeof import('vue/macros')['$computed']>
-    readonly $customRef: UnwrapRef<typeof import('vue/macros')['$customRef']>
-    readonly $ref: UnwrapRef<typeof import('vue/macros')['$ref']>
-    readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
-    readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
     readonly ANotification: UnwrapRef<typeof import('./composables/tools')['ANotification']>
     readonly AuthApi: UnwrapRef<typeof import('./server/api/auth')['AuthApi']>
     readonly BaseRequest: UnwrapRef<typeof import('./composables/tools')['BaseRequest']>

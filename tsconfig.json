@@ -11,7 +11,7 @@
     },
     "types": [
       "vite/client",
-      "vue/ref-macros"
+      "unplugin-vue-macros/macros-global"
     ],
     "resolveJsonModule": true,
     "esModuleInterop": true,
@@ -20,6 +20,12 @@
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "skipLibCheck": true
+  },
+  "vueCompilerOptions": {
+    "plugins": [
+      "@vue-macros/volar/define-options",
+      "@vue-macros/volar/define-models"
+    ]
   },
   "exclude": ["dist", "node_modules"]
 }

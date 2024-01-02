@@ -106,6 +106,9 @@ devDependencies:
   unplugin-vue-components:
     specifier: ^0.26.0
     version: registry.npmmirror.com/unplugin-vue-components@0.26.0(vue@3.3.13)
+  unplugin-vue-macros:
+    specifier: ^2.6.1
+    version: registry.npmmirror.com/unplugin-vue-macros@2.7.7(@vueuse/core@10.7.1)(typescript@5.3.3)(vite@4.5.1)(vue@3.3.13)
   vite:
     specifier: ^4.4.11
     version: registry.npmmirror.com/vite@4.5.1(@types/node@20.10.6)(less@4.2.0)
@@ -527,7 +530,7 @@ packages:
     engines: {node: '>=6.9.0'}
 
   registry.npmmirror.com/@babel/helper-validator-identifier@7.22.20:
-    resolution: {integrity: sha512-Y4OZ+ytlatR8AI+8KZfKuL5urKp7qey08ha31L8b3BwewJAoJamTzyvxPR/5D+KkdJCGPq/+8TukHBlY10FX9A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.22.20.tgz}
+    resolution: {integrity: sha512-Y4OZ+ytlatR8AI+8KZfKuL5urKp7qey08ha31L8b3BwewJAoJamTzyvxPR/5D+KkdJCGPq/+8TukHBlY10FX9A==, tarball: https://registry.npmmirror.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.22.20.tgz}
     name: '@babel/helper-validator-identifier'
     version: 7.22.20
     engines: {node: '>=6.9.0'}
@@ -1047,7 +1050,7 @@ packages:
     version: 2.1.13
     dependencies:
       '@antfu/install-pkg': registry.npmmirror.com/@antfu/install-pkg@0.1.1
-      '@antfu/utils': registry.npmmirror.com/@antfu/utils@0.7.6
+      '@antfu/utils': registry.npmmirror.com/@antfu/utils@0.7.7
       '@iconify/types': registry.npmmirror.com/@iconify/types@2.0.0
       debug: registry.npmmirror.com/debug@4.3.4
       kolorist: registry.npmmirror.com/kolorist@1.8.0
@@ -1082,7 +1085,7 @@ packages:
     dev: true
 
   registry.npmmirror.com/@jridgewell/sourcemap-codec@1.4.15:
-    resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz}
+    resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==, tarball: https://registry.npmmirror.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz}
     name: '@jridgewell/sourcemap-codec'
     version: 1.4.15
 
@@ -1781,6 +1784,425 @@ packages:
       path-browserify: registry.npmmirror.com/path-browserify@1.0.1
     dev: true
 
+  registry.npmmirror.com/@vue-macros/api@0.9.2(vue@3.3.13):
+    resolution: {integrity: sha512-j9MTa30Krmb9TP/tExSSaHVO6wDvvNx4MEbTTS14jPz09as3dM5QedpmVo3j+rQZyG2/Nmew5tF0xMK4a69+Lw==, tarball: https://registry.npmmirror.com/@vue-macros/api/-/api-0.9.2.tgz}
+    id: registry.npmmirror.com/@vue-macros/api/0.9.2
+    name: '@vue-macros/api'
+    version: 0.9.2
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@babel/types': registry.npmmirror.com/@babel/types@7.23.6
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      resolve.exports: registry.npmmirror.com/resolve.exports@2.0.2
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/better-define@1.7.2(vue@3.3.13):
+    resolution: {integrity: sha512-J7xTD16T+GjMgZ13sr4yfyCRKxFxRT3WWgfxp8i3EsMUW5/LyYyo4rkWNBhf1KeQoxl6pJivDFRMIpGjD9C7kg==, tarball: https://registry.npmmirror.com/@vue-macros/better-define/-/better-define-1.7.2.tgz}
+    id: registry.npmmirror.com/@vue-macros/better-define/1.7.2
+    name: '@vue-macros/better-define'
+    version: 1.7.2
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/api': registry.npmmirror.com/@vue-macros/api@0.9.2(vue@3.3.13)
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/boolean-prop@0.3.1(vue@3.3.13):
+    resolution: {integrity: sha512-XE/8vZG6rka6Eul6t0iuF+ibfflvx+pnFYrupmaBmaz2zc1dWn+xYiVz5xEawcCEiVBEUHK1NWSblxluhWBQPA==, tarball: https://registry.npmmirror.com/@vue-macros/boolean-prop/-/boolean-prop-0.3.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/boolean-prop/0.3.1
+    name: '@vue-macros/boolean-prop'
+    version: 0.3.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core@3.3.13
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/chain-call@0.2.1(vue@3.3.13):
+    resolution: {integrity: sha512-w4tWPttIa27V1mbfEMJiUMZw8nH/uO9lvAMZnsn39S8m2Ud2yiMdkKyWgH62gtLoeCDdH7HEPqv4ZHbMx74cdg==, tarball: https://registry.npmmirror.com/@vue-macros/chain-call/-/chain-call-0.2.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/chain-call/0.2.1
+    name: '@vue-macros/chain-call'
+    version: 0.2.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13):
+    resolution: {integrity: sha512-4DZsPeQA/nBQDw2RkYAmH7KrFjJVrMdAhJhO1JCl1bbbFXCGeoGjXfkg9wHPppj47s2HpAB3GrqNwqVGbi12NQ==, tarball: https://registry.npmmirror.com/@vue-macros/common/-/common-1.10.0.tgz}
+    id: registry.npmmirror.com/@vue-macros/common/1.10.0
+    name: '@vue-macros/common'
+    version: 1.10.0
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    peerDependenciesMeta:
+      vue:
+        optional: true
+    dependencies:
+      '@babel/types': registry.npmmirror.com/@babel/types@7.23.6
+      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@5.1.0
+      '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc@3.3.13
+      ast-kit: registry.npmmirror.com/ast-kit@0.11.3
+      local-pkg: registry.npmmirror.com/local-pkg@0.5.0
+      magic-string-ast: registry.npmmirror.com/magic-string-ast@0.3.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/define-emit@0.2.2(vue@3.3.13):
+    resolution: {integrity: sha512-hmd4WSgOxYErAhoGgadNWOiu8MeIpUMvBnC3xqGMSg7bk1aPhIsei4MMvg2jxEH96mfd+NHzZwp3WALgxOJDpg==, tarball: https://registry.npmmirror.com/@vue-macros/define-emit/-/define-emit-0.2.2.tgz}
+    id: registry.npmmirror.com/@vue-macros/define-emit/0.2.2
+    name: '@vue-macros/define-emit'
+    version: 0.2.2
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    dependencies:
+      '@vue-macros/api': registry.npmmirror.com/@vue-macros/api@0.9.2(vue@3.3.13)
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/define-models@1.2.1(@vueuse/core@10.7.1)(vue@3.3.13):
+    resolution: {integrity: sha512-QVQ7MBByiuZ1rc/UyhDOsueD4LiRIUEqVXlmsDUzugiRmUc6ND2+jI3w7eGFLcgA8ruLV3uR6ozEZaHHib5TFA==, tarball: https://registry.npmmirror.com/@vue-macros/define-models/-/define-models-1.2.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/define-models/1.2.1
+    name: '@vue-macros/define-models'
+    version: 1.2.1
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      '@vueuse/core': '>=9.0.0'
+    peerDependenciesMeta:
+      '@vueuse/core':
+        optional: true
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vueuse/core': registry.npmmirror.com/@vueuse/core@10.7.1(vue@3.3.13)
+      ast-walker-scope: registry.npmmirror.com/ast-walker-scope@0.5.0
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/define-prop@0.3.2(vue@3.3.13):
+    resolution: {integrity: sha512-Y8G5IQBeQu7jw3tHjUZu1QY/Y5uI150iJhQXYDIeju6db1fPJjymwXy1RE9WcsAiuEYTf7ktEiCWtlL3D5IpuQ==, tarball: https://registry.npmmirror.com/@vue-macros/define-prop/-/define-prop-0.3.2.tgz}
+    id: registry.npmmirror.com/@vue-macros/define-prop/0.3.2
+    name: '@vue-macros/define-prop'
+    version: 0.3.2
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    dependencies:
+      '@vue-macros/api': registry.npmmirror.com/@vue-macros/api@0.9.2(vue@3.3.13)
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/define-props-refs@1.2.1(vue@3.3.13):
+    resolution: {integrity: sha512-NF5VvP5dBWy7X35KldxKhT/psmkEOkV2wHefLFiQDsVvUGYyqwVcsC0t+PrKqoYlmYg5Ouq0lOmTPyEVqjhmDA==, tarball: https://registry.npmmirror.com/@vue-macros/define-props-refs/-/define-props-refs-1.2.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/define-props-refs/1.2.1
+    name: '@vue-macros/define-props-refs'
+    version: 1.2.1
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/define-props@2.0.1(@vue-macros/reactivity-transform@0.4.1)(vue@3.3.13):
+    resolution: {integrity: sha512-Cm6T2n7BBmCutrCJqgVkrtnhHIF6y5nNIRgHdb+LNFodaxmSPVBQ+8ddNMMn9C5JG6SdVnybivsS3WkDdl9jpA==, tarball: https://registry.npmmirror.com/@vue-macros/define-props/-/define-props-2.0.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/define-props/2.0.1
+    name: '@vue-macros/define-props'
+    version: 2.0.1
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      '@vue-macros/reactivity-transform': ^0.4.1
+      vue: ^2.7.0 || ^3.2.25
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vue-macros/reactivity-transform': registry.npmmirror.com/@vue-macros/reactivity-transform@0.4.1(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/define-render@1.5.1(vue@3.3.13):
+    resolution: {integrity: sha512-60m7i64dPbye5m5Y6DRQi9qPAUPavAyNXbFKws+R62lbc0R1j2pEUxOtMoblusDLFZRQG+MFLjWMYs3dBy7DaA==, tarball: https://registry.npmmirror.com/@vue-macros/define-render/-/define-render-1.5.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/define-render/1.5.1
+    name: '@vue-macros/define-render'
+    version: 1.5.1
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.0.0
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/define-slots@1.1.1(vue@3.3.13):
+    resolution: {integrity: sha512-I1iOto50nQPbEsU/+bPr7MQDNgrvMGunfyuS/tQQu9Hp/Y0pGop3LEFXfM1lxBfOishBiBB1i2zMAOIi1IqfIA==, tarball: https://registry.npmmirror.com/@vue-macros/define-slots/-/define-slots-1.1.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/define-slots/1.1.1
+    name: '@vue-macros/define-slots'
+    version: 1.1.1
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.0.0
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/devtools@0.2.0(typescript@5.3.3)(vite@4.5.1):
+    resolution: {integrity: sha512-jHjvY1bFgQLe/2+5pBOG4fgmL5MPhsqQDj7Barhj8YN+Oe7U2hBImvfAyOGpqd2uucLOWQTP1cWrp3q9b1svsg==, tarball: https://registry.npmmirror.com/@vue-macros/devtools/-/devtools-0.2.0.tgz}
+    id: registry.npmmirror.com/@vue-macros/devtools/0.2.0
+    name: '@vue-macros/devtools'
+    version: 0.2.0
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vite: ^4.0.0 || ^5.0.0-0
+    peerDependenciesMeta:
+      vite:
+        optional: true
+    dependencies:
+      sirv: registry.npmmirror.com/sirv@2.0.3
+      vite: registry.npmmirror.com/vite@4.5.1(@types/node@20.10.6)(less@4.2.0)
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - typescript
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/export-expose@0.1.1(vue@3.3.13):
+    resolution: {integrity: sha512-88CBQ/o+BXV9fyrGBs2qAlBPyTFcrxm9Ye3JjtxmCsiws/8bTbQRWi3MXrNp5XNxD0LDVN2P5xXe0lKKQyN4Kg==, tarball: https://registry.npmmirror.com/@vue-macros/export-expose/-/export-expose-0.1.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/export-expose/0.1.1
+    name: '@vue-macros/export-expose'
+    version: 0.1.1
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc@3.3.13
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/export-props@0.4.1(vue@3.3.13):
+    resolution: {integrity: sha512-pmcyddNk3VnBonjqExIdCNAdsIIRifjK2X3+dmQ1GuXzDMTF7CQ51tr/4yMain0pn40PTr0Az7nqUdYaskp2Fw==, tarball: https://registry.npmmirror.com/@vue-macros/export-props/-/export-props-0.4.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/export-props/0.4.1
+    name: '@vue-macros/export-props'
+    version: 0.4.1
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/export-render@0.2.1(vue@3.3.13):
+    resolution: {integrity: sha512-Em+5cPF1bLiwr3rQmvxo8vQa2jRax81vhp6bIYW4QtXKgdAWbfc+SRHdPQz/BjavvK/oymsnO3/jAK35Vv/xNQ==, tarball: https://registry.npmmirror.com/@vue-macros/export-render/-/export-render-0.2.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/export-render/0.2.1
+    name: '@vue-macros/export-render'
+    version: 0.2.1
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc@3.3.13
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/hoist-static@1.5.1(vue@3.3.13):
+    resolution: {integrity: sha512-EWmejhLnk5cZ//YNO8o206YFaMvphEXjCXH7fZ3/2SZM99D9xLo/7OUUehmEnR1Pkv9GeG31X2yRhJx80fOuQg==, tarball: https://registry.npmmirror.com/@vue-macros/hoist-static/-/hoist-static-1.5.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/hoist-static/1.5.1
+    name: '@vue-macros/hoist-static'
+    version: 1.5.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/jsx-directive@0.8.5(vue@3.3.13):
+    resolution: {integrity: sha512-GxtqiH9+Ap7kfHiy07JjtmOcBBg7l5UahPViJ0Jpsb89rOimHArZmKabpdeH5eJ8Tjyea/RHQTTEWdodJFArhQ==, tarball: https://registry.npmmirror.com/@vue-macros/jsx-directive/-/jsx-directive-0.8.5.tgz}
+    id: registry.npmmirror.com/@vue-macros/jsx-directive/0.8.5
+    name: '@vue-macros/jsx-directive'
+    version: 0.8.5
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/named-template@0.4.1(vue@3.3.13):
+    resolution: {integrity: sha512-n3zAA4jWek1p9YzSyAySE0UA8G9w4n385yPjcKrOSGYcCjskBJRzKzNklMsvEn0dbR46H7ZrpVxJffv28z8NEA==, tarball: https://registry.npmmirror.com/@vue-macros/named-template/-/named-template-0.4.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/named-template/0.4.1
+    name: '@vue-macros/named-template'
+    version: 0.4.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom@3.3.13
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/reactivity-transform@0.4.1(vue@3.3.13):
+    resolution: {integrity: sha512-P+9MnDx9eVr23jDo2CifUtfgYGZ8NcTAE3njS1ef3DpEs9C3p4UfcEbeLyvt1fCpPVf9kpdo//8mVJ8MgVK6cw==, tarball: https://registry.npmmirror.com/@vue-macros/reactivity-transform/-/reactivity-transform-0.4.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/reactivity-transform/0.4.1
+    name: '@vue-macros/reactivity-transform'
+    version: 0.4.1
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    dependencies:
+      '@babel/parser': registry.npmmirror.com/@babel/parser@7.23.6
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core@3.3.13
+      '@vue/shared': registry.npmmirror.com/@vue/shared@3.3.13
+      magic-string: registry.npmmirror.com/magic-string@0.30.5
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/setup-block@0.3.1(vue@3.3.13):
+    resolution: {integrity: sha512-gzRjsmuIBhcMEBY4qyxQBulxa50SyjmQo4QhsaBIMurxcoky8lQpqcQedPhWLQIeJMxZ5s44WrUoGCtEYwaH2Q==, tarball: https://registry.npmmirror.com/@vue-macros/setup-block/-/setup-block-0.3.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/setup-block/0.3.1
+    name: '@vue-macros/setup-block'
+    version: 0.3.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vue/compiler-dom': registry.npmmirror.com/@vue/compiler-dom@3.3.13
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/setup-component@0.17.1(vue@3.3.13):
+    resolution: {integrity: sha512-yfv0GKlO914y22T6pE+CiI5lXOb1UxKLzHyyZshOjlmiuSM6MQICaZulTvh+R+MvIayxu/Y53Ujnovbvbmvhsw==, tarball: https://registry.npmmirror.com/@vue-macros/setup-component/-/setup-component-0.17.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/setup-component/0.17.1
+    name: '@vue-macros/setup-component'
+    version: 0.17.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/setup-sfc@0.17.1(vue@3.3.13):
+    resolution: {integrity: sha512-TG9xOFrse2AzSlJx/hpgOXbczngBvuDNZRR9FcNU8DZW/TozFFY7zjHOlrFG38cVAJYPjBPuqrn4mix7FnAoTA==, tarball: https://registry.npmmirror.com/@vue-macros/setup-sfc/-/setup-sfc-0.17.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/setup-sfc/0.17.1
+    name: '@vue-macros/setup-sfc'
+    version: 0.17.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/short-bind@0.2.1(vue@3.3.13):
+    resolution: {integrity: sha512-KtkRAU+cl9BnCmbIA4hMK2GltG5i+4xv+o4l7IhKuYWzBGqBCQHsgDM4B9IwnYh3hb1pHH+aJo/wRcX6hZJW9g==, tarball: https://registry.npmmirror.com/@vue-macros/short-bind/-/short-bind-0.2.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/short-bind/0.2.1
+    name: '@vue-macros/short-bind'
+    version: 0.2.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core@3.3.13
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/short-emits@1.5.1(vue@3.3.13):
+    resolution: {integrity: sha512-1QO3xsUGr0/nTP9DYqsK4cNGfaEuqPEUlX6jhDBGGZru1POOpZjdqs2m9gvJrtDZJhk4k5i3AVDZ+PQsFrivsQ==, tarball: https://registry.npmmirror.com/@vue-macros/short-emits/-/short-emits-1.5.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/short-emits/1.5.1
+    name: '@vue-macros/short-emits'
+    version: 1.5.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vue-macros/short-vmodel@1.4.1(vue@3.3.13):
+    resolution: {integrity: sha512-FKgA0iV5xQ2N4scZtUq5Rwciss9swcnbJ2eBMQBz2nHBGG183/+eyWkS1y8HzGyK3ZuwQNQ0vbLkN1ZXg75+ug==, tarball: https://registry.npmmirror.com/@vue-macros/short-vmodel/-/short-vmodel-1.4.1.tgz}
+    id: registry.npmmirror.com/@vue-macros/short-vmodel/1.4.1
+    name: '@vue-macros/short-vmodel'
+    version: 1.4.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core@3.3.13
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
   registry.npmmirror.com/@vue/compiler-core@3.3.13:
     resolution: {integrity: sha512-bwi9HShGu7uaZLOErZgsH2+ojsEdsjerbf2cMXPwmvcgZfVPZ2BVZzCVnwZBxTAYd6Mzbmf6izcUNDkWnBBQ6A==, tarball: https://registry.npmmirror.com/@vue/compiler-core/-/compiler-core-3.3.13.tgz}
     name: '@vue/compiler-core'
@@ -1934,7 +2356,7 @@ packages:
       - '@vue/composition-api'
       - vue
 
-  registry.npmmirror.com/acorn-jsx@5.3.2(acorn@8.10.0):
+  registry.npmmirror.com/acorn-jsx@5.3.2(acorn@8.11.2):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz}
     id: registry.npmmirror.com/acorn-jsx/5.3.2
     name: acorn-jsx
@@ -1942,19 +2364,11 @@ packages:
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      acorn: registry.npmmirror.com/acorn@8.10.0
-    dev: true
-
-  registry.npmmirror.com/acorn@8.10.0:
-    resolution: {integrity: sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/acorn/-/acorn-8.10.0.tgz}
-    name: acorn
-    version: 8.10.0
-    engines: {node: '>=0.4.0'}
-    hasBin: true
+      acorn: registry.npmmirror.com/acorn@8.11.2
     dev: true
 
   registry.npmmirror.com/acorn@8.11.2:
-    resolution: {integrity: sha512-nc0Axzp/0FILLEVsm4fNwLCwMttvhEI263QtVPQcbpfZZ3ts0hLsZGOpE6czNlid7CJ9MlyH8reXkpsf3YUY4w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/acorn/-/acorn-8.11.2.tgz}
+    resolution: {integrity: sha512-nc0Axzp/0FILLEVsm4fNwLCwMttvhEI263QtVPQcbpfZZ3ts0hLsZGOpE6czNlid7CJ9MlyH8reXkpsf3YUY4w==, tarball: https://registry.npmmirror.com/acorn/-/acorn-8.11.2.tgz}
     name: acorn
     version: 8.11.2
     engines: {node: '>=0.4.0'}
@@ -2030,6 +2444,44 @@ packages:
     name: array-union
     version: 2.1.0
     engines: {node: '>=8'}
+    dev: true
+
+  registry.npmmirror.com/ast-kit@0.11.3:
+    resolution: {integrity: sha512-qdwwKEhckRk0XE22/xDdmU3v/60E8Edu4qFhgTLIhGGDs/PAJwLw9pQn8Rj99PitlbBZbYpx0k/lbir4kg0SuA==, tarball: https://registry.npmmirror.com/ast-kit/-/ast-kit-0.11.3.tgz}
+    name: ast-kit
+    version: 0.11.3
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@babel/parser': registry.npmmirror.com/@babel/parser@7.23.6
+      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@5.1.0
+      pathe: registry.npmmirror.com/pathe@1.1.1
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/ast-kit@0.9.5:
+    resolution: {integrity: sha512-kbL7ERlqjXubdDd+szuwdlQ1xUxEz9mCz1+m07ftNVStgwRb2RWw+U6oKo08PAvOishMxiqz1mlJyLl8yQx2Qg==, tarball: https://registry.npmmirror.com/ast-kit/-/ast-kit-0.9.5.tgz}
+    name: ast-kit
+    version: 0.9.5
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@babel/parser': registry.npmmirror.com/@babel/parser@7.23.6
+      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@5.1.0
+      pathe: registry.npmmirror.com/pathe@1.1.1
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
+  registry.npmmirror.com/ast-walker-scope@0.5.0:
+    resolution: {integrity: sha512-NsyHMxBh4dmdEHjBo1/TBZvCKxffmZxRYhmclfu0PP6Aftre47jOHYaYaNqJcV0bxihxFXhDkzLHUwHc0ocd0Q==, tarball: https://registry.npmmirror.com/ast-walker-scope/-/ast-walker-scope-0.5.0.tgz}
+    name: ast-walker-scope
+    version: 0.5.0
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@babel/parser': registry.npmmirror.com/@babel/parser@7.23.6
+      ast-kit: registry.npmmirror.com/ast-kit@0.9.5
+    transitivePeerDependencies:
+      - rollup
     dev: true
 
   registry.npmmirror.com/asynckit@0.4.0:
@@ -3057,8 +3509,8 @@ packages:
     version: 9.6.1
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
-      acorn: registry.npmmirror.com/acorn@8.10.0
-      acorn-jsx: registry.npmmirror.com/acorn-jsx@5.3.2(acorn@8.10.0)
+      acorn: registry.npmmirror.com/acorn@8.11.2
+      acorn-jsx: registry.npmmirror.com/acorn-jsx@5.3.2(acorn@8.11.2)
       eslint-visitor-keys: registry.npmmirror.com/eslint-visitor-keys@3.4.3
     dev: true
 
@@ -3744,7 +4196,7 @@ packages:
     dev: true
 
   registry.npmmirror.com/local-pkg@0.4.3:
-    resolution: {integrity: sha512-SFppqq5p42fe2qcZQqqEOiVRXl+WCP1MdT6k7BDEW1j++sp5fIY+/fdRQitvKgB5BrBcmrs5m/L0v2FrU5MY1g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/local-pkg/-/local-pkg-0.4.3.tgz}
+    resolution: {integrity: sha512-SFppqq5p42fe2qcZQqqEOiVRXl+WCP1MdT6k7BDEW1j++sp5fIY+/fdRQitvKgB5BrBcmrs5m/L0v2FrU5MY1g==, tarball: https://registry.npmmirror.com/local-pkg/-/local-pkg-0.4.3.tgz}
     name: local-pkg
     version: 0.4.3
     engines: {node: '>=14'}
@@ -3813,8 +4265,17 @@ packages:
       yallist: registry.npmmirror.com/yallist@4.0.0
     dev: true
 
+  registry.npmmirror.com/magic-string-ast@0.3.0:
+    resolution: {integrity: sha512-0shqecEPgdFpnI3AP90epXyxZy9g6CRZ+SZ7BcqFwYmtFEnZ1jpevcV5HoyVnlDS9gCnc1UIg3Rsvp3Ci7r8OA==, tarball: https://registry.npmmirror.com/magic-string-ast/-/magic-string-ast-0.3.0.tgz}
+    name: magic-string-ast
+    version: 0.3.0
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      magic-string: registry.npmmirror.com/magic-string@0.30.5
+    dev: true
+
   registry.npmmirror.com/magic-string@0.30.5:
-    resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/magic-string/-/magic-string-0.30.5.tgz}
+    resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==, tarball: https://registry.npmmirror.com/magic-string/-/magic-string-0.30.5.tgz}
     name: magic-string
     version: 0.30.5
     engines: {node: '>=12'}
@@ -4460,6 +4921,13 @@ packages:
     version: 1.0.0
     dev: true
 
+  registry.npmmirror.com/resolve.exports@2.0.2:
+    resolution: {integrity: sha512-X2UW6Nw3n/aMgDVy+0rSqgHlv39WZAlZrXCdnbyEiKm17DSqHX4MmQMaST3FbeWR5FTuRcUwYAziZajji0Y7mg==, tarball: https://registry.npmmirror.com/resolve.exports/-/resolve.exports-2.0.2.tgz}
+    name: resolve.exports
+    version: 2.0.2
+    engines: {node: '>=10'}
+    dev: true
+
   registry.npmmirror.com/resolve@1.22.6:
     resolution: {integrity: sha512-njhxM7mV12JfufShqGy3Rz8j11RPdLy4xi15UurGJeoHLfJpVXKdh3ueuOqbYUcDZnffr6X739JBo5LzyahEsw==, tarball: https://registry.npmmirror.com/resolve/-/resolve-1.22.6.tgz}
     name: resolve
@@ -4945,6 +5413,32 @@ packages:
       - rollup
     dev: true
 
+  registry.npmmirror.com/unplugin-combine@0.8.1(vite@4.5.1):
+    resolution: {integrity: sha512-m2OSmXXRwCPZx8Ct8eF8WbjgTo8bydim2W1ofu2hDabGdr2pgDAoFjOP1J4MOIwa0OByqk1JX8IGlSdeE6uxVQ==, tarball: https://registry.npmmirror.com/unplugin-combine/-/unplugin-combine-0.8.1.tgz}
+    id: registry.npmmirror.com/unplugin-combine/0.8.1
+    name: unplugin-combine
+    version: 0.8.1
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      esbuild: '>=0.13'
+      rollup: ^3.2.0 || ^4.0.0
+      vite: ^2.3.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
+      webpack: 4 || 5
+    peerDependenciesMeta:
+      esbuild:
+        optional: true
+      rollup:
+        optional: true
+      vite:
+        optional: true
+      webpack:
+        optional: true
+    dependencies:
+      '@antfu/utils': registry.npmmirror.com/@antfu/utils@0.7.7
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      vite: registry.npmmirror.com/vite@4.5.1(@types/node@20.10.6)(less@4.2.0)
+    dev: true
+
   registry.npmmirror.com/unplugin-vue-components@0.26.0(vue@3.3.13):
     resolution: {integrity: sha512-s7IdPDlnOvPamjunVxw8kNgKNK8A5KM1YpK5j/p97jEKTjlPNrA0nZBiSfAKKlK1gWZuyWXlKL5dk3EDw874LQ==, tarball: https://registry.npmmirror.com/unplugin-vue-components/-/unplugin-vue-components-0.26.0.tgz}
     id: registry.npmmirror.com/unplugin-vue-components/0.26.0
@@ -4975,6 +5469,68 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
+    dev: true
+
+  registry.npmmirror.com/unplugin-vue-define-options@1.4.1(vue@3.3.13):
+    resolution: {integrity: sha512-dsI7JZvzCv6hV0Iq8cUKO70gFlsfEmASZzmebVlPzT2Knb57d4Plqjuf0wpU61G2HGSDZ8gy73Nix4FTmFVOyQ==, tarball: https://registry.npmmirror.com/unplugin-vue-define-options/-/unplugin-vue-define-options-1.4.1.tgz}
+    id: registry.npmmirror.com/unplugin-vue-define-options/1.4.1
+    name: unplugin-vue-define-options
+    version: 1.4.1
+    engines: {node: '>=16.14.0'}
+    dependencies:
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      ast-walker-scope: registry.npmmirror.com/ast-walker-scope@0.5.0
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+    transitivePeerDependencies:
+      - rollup
+      - vue
+    dev: true
+
+  registry.npmmirror.com/unplugin-vue-macros@2.7.7(@vueuse/core@10.7.1)(typescript@5.3.3)(vite@4.5.1)(vue@3.3.13):
+    resolution: {integrity: sha512-sTQoBxTP5ZYzOfFNn+labx4Ry+O4rxkph3E41DkAnAdWFHJKExnTZVHPW0oNIYz4ZMumUIM7fYXrxXG2GbhX1A==, tarball: https://registry.npmmirror.com/unplugin-vue-macros/-/unplugin-vue-macros-2.7.7.tgz}
+    id: registry.npmmirror.com/unplugin-vue-macros/2.7.7
+    name: unplugin-vue-macros
+    version: 2.7.7
+    engines: {node: '>=16.14.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    dependencies:
+      '@vue-macros/better-define': registry.npmmirror.com/@vue-macros/better-define@1.7.2(vue@3.3.13)
+      '@vue-macros/boolean-prop': registry.npmmirror.com/@vue-macros/boolean-prop@0.3.1(vue@3.3.13)
+      '@vue-macros/chain-call': registry.npmmirror.com/@vue-macros/chain-call@0.2.1(vue@3.3.13)
+      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
+      '@vue-macros/define-emit': registry.npmmirror.com/@vue-macros/define-emit@0.2.2(vue@3.3.13)
+      '@vue-macros/define-models': registry.npmmirror.com/@vue-macros/define-models@1.2.1(@vueuse/core@10.7.1)(vue@3.3.13)
+      '@vue-macros/define-prop': registry.npmmirror.com/@vue-macros/define-prop@0.3.2(vue@3.3.13)
+      '@vue-macros/define-props': registry.npmmirror.com/@vue-macros/define-props@2.0.1(@vue-macros/reactivity-transform@0.4.1)(vue@3.3.13)
+      '@vue-macros/define-props-refs': registry.npmmirror.com/@vue-macros/define-props-refs@1.2.1(vue@3.3.13)
+      '@vue-macros/define-render': registry.npmmirror.com/@vue-macros/define-render@1.5.1(vue@3.3.13)
+      '@vue-macros/define-slots': registry.npmmirror.com/@vue-macros/define-slots@1.1.1(vue@3.3.13)
+      '@vue-macros/devtools': registry.npmmirror.com/@vue-macros/devtools@0.2.0(typescript@5.3.3)(vite@4.5.1)
+      '@vue-macros/export-expose': registry.npmmirror.com/@vue-macros/export-expose@0.1.1(vue@3.3.13)
+      '@vue-macros/export-props': registry.npmmirror.com/@vue-macros/export-props@0.4.1(vue@3.3.13)
+      '@vue-macros/export-render': registry.npmmirror.com/@vue-macros/export-render@0.2.1(vue@3.3.13)
+      '@vue-macros/hoist-static': registry.npmmirror.com/@vue-macros/hoist-static@1.5.1(vue@3.3.13)
+      '@vue-macros/jsx-directive': registry.npmmirror.com/@vue-macros/jsx-directive@0.8.5(vue@3.3.13)
+      '@vue-macros/named-template': registry.npmmirror.com/@vue-macros/named-template@0.4.1(vue@3.3.13)
+      '@vue-macros/reactivity-transform': registry.npmmirror.com/@vue-macros/reactivity-transform@0.4.1(vue@3.3.13)
+      '@vue-macros/setup-block': registry.npmmirror.com/@vue-macros/setup-block@0.3.1(vue@3.3.13)
+      '@vue-macros/setup-component': registry.npmmirror.com/@vue-macros/setup-component@0.17.1(vue@3.3.13)
+      '@vue-macros/setup-sfc': registry.npmmirror.com/@vue-macros/setup-sfc@0.17.1(vue@3.3.13)
+      '@vue-macros/short-bind': registry.npmmirror.com/@vue-macros/short-bind@0.2.1(vue@3.3.13)
+      '@vue-macros/short-emits': registry.npmmirror.com/@vue-macros/short-emits@1.5.1(vue@3.3.13)
+      '@vue-macros/short-vmodel': registry.npmmirror.com/@vue-macros/short-vmodel@1.4.1(vue@3.3.13)
+      unplugin: registry.npmmirror.com/unplugin@1.6.0
+      unplugin-combine: registry.npmmirror.com/unplugin-combine@0.8.1(vite@4.5.1)
+      unplugin-vue-define-options: registry.npmmirror.com/unplugin-vue-define-options@1.4.1(vue@3.3.13)
+      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
+    transitivePeerDependencies:
+      - '@vueuse/core'
+      - esbuild
+      - rollup
+      - typescript
+      - vite
+      - webpack
     dev: true
 
   registry.npmmirror.com/unplugin@1.5.1:
