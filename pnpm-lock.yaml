@@ -106,9 +106,6 @@ devDependencies:
   unplugin-vue-components:
     specifier: ^0.26.0
     version: registry.npmmirror.com/unplugin-vue-components@0.26.0(vue@3.3.13)
-  unplugin-vue-define-options:
-    specifier: ^1.4.1
-    version: registry.npmmirror.com/unplugin-vue-define-options@1.4.1(vue@3.3.13)
   vite:
     specifier: ^4.4.11
     version: registry.npmmirror.com/vite@4.5.1(@types/node@20.10.6)(less@4.2.0)
@@ -1784,29 +1781,6 @@ packages:
       path-browserify: registry.npmmirror.com/path-browserify@1.0.1
     dev: true
 
-  registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13):
-    resolution: {integrity: sha512-4DZsPeQA/nBQDw2RkYAmH7KrFjJVrMdAhJhO1JCl1bbbFXCGeoGjXfkg9wHPppj47s2HpAB3GrqNwqVGbi12NQ==, tarball: https://registry.npmmirror.com/@vue-macros/common/-/common-1.10.0.tgz}
-    id: registry.npmmirror.com/@vue-macros/common/1.10.0
-    name: '@vue-macros/common'
-    version: 1.10.0
-    engines: {node: '>=16.14.0'}
-    peerDependencies:
-      vue: ^2.7.0 || ^3.2.25
-    peerDependenciesMeta:
-      vue:
-        optional: true
-    dependencies:
-      '@babel/types': registry.npmmirror.com/@babel/types@7.23.6
-      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@5.1.0
-      '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc@3.3.13
-      ast-kit: registry.npmmirror.com/ast-kit@0.11.3
-      local-pkg: registry.npmmirror.com/local-pkg@0.5.0
-      magic-string-ast: registry.npmmirror.com/magic-string-ast@0.3.0
-      vue: registry.npmmirror.com/vue@3.3.13(typescript@5.3.3)
-    transitivePeerDependencies:
-      - rollup
-    dev: true
-
   registry.npmmirror.com/@vue/compiler-core@3.3.13:
     resolution: {integrity: sha512-bwi9HShGu7uaZLOErZgsH2+ojsEdsjerbf2cMXPwmvcgZfVPZ2BVZzCVnwZBxTAYd6Mzbmf6izcUNDkWnBBQ6A==, tarball: https://registry.npmmirror.com/@vue/compiler-core/-/compiler-core-3.3.13.tgz}
     name: '@vue/compiler-core'
@@ -2056,44 +2030,6 @@ packages:
     name: array-union
     version: 2.1.0
     engines: {node: '>=8'}
-    dev: true
-
-  registry.npmmirror.com/ast-kit@0.11.3:
-    resolution: {integrity: sha512-qdwwKEhckRk0XE22/xDdmU3v/60E8Edu4qFhgTLIhGGDs/PAJwLw9pQn8Rj99PitlbBZbYpx0k/lbir4kg0SuA==, tarball: https://registry.npmmirror.com/ast-kit/-/ast-kit-0.11.3.tgz}
-    name: ast-kit
-    version: 0.11.3
-    engines: {node: '>=16.14.0'}
-    dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser@7.23.6
-      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@5.1.0
-      pathe: registry.npmmirror.com/pathe@1.1.1
-    transitivePeerDependencies:
-      - rollup
-    dev: true
-
-  registry.npmmirror.com/ast-kit@0.9.5:
-    resolution: {integrity: sha512-kbL7ERlqjXubdDd+szuwdlQ1xUxEz9mCz1+m07ftNVStgwRb2RWw+U6oKo08PAvOishMxiqz1mlJyLl8yQx2Qg==, tarball: https://registry.npmmirror.com/ast-kit/-/ast-kit-0.9.5.tgz}
-    name: ast-kit
-    version: 0.9.5
-    engines: {node: '>=16.14.0'}
-    dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser@7.23.6
-      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@5.1.0
-      pathe: registry.npmmirror.com/pathe@1.1.1
-    transitivePeerDependencies:
-      - rollup
-    dev: true
-
-  registry.npmmirror.com/ast-walker-scope@0.5.0:
-    resolution: {integrity: sha512-NsyHMxBh4dmdEHjBo1/TBZvCKxffmZxRYhmclfu0PP6Aftre47jOHYaYaNqJcV0bxihxFXhDkzLHUwHc0ocd0Q==, tarball: https://registry.npmmirror.com/ast-walker-scope/-/ast-walker-scope-0.5.0.tgz}
-    name: ast-walker-scope
-    version: 0.5.0
-    engines: {node: '>=16.14.0'}
-    dependencies:
-      '@babel/parser': registry.npmmirror.com/@babel/parser@7.23.6
-      ast-kit: registry.npmmirror.com/ast-kit@0.9.5
-    transitivePeerDependencies:
-      - rollup
     dev: true
 
   registry.npmmirror.com/asynckit@0.4.0:
@@ -3877,15 +3813,6 @@ packages:
       yallist: registry.npmmirror.com/yallist@4.0.0
     dev: true
 
-  registry.npmmirror.com/magic-string-ast@0.3.0:
-    resolution: {integrity: sha512-0shqecEPgdFpnI3AP90epXyxZy9g6CRZ+SZ7BcqFwYmtFEnZ1jpevcV5HoyVnlDS9gCnc1UIg3Rsvp3Ci7r8OA==, tarball: https://registry.npmmirror.com/magic-string-ast/-/magic-string-ast-0.3.0.tgz}
-    name: magic-string-ast
-    version: 0.3.0
-    engines: {node: '>=16.14.0'}
-    dependencies:
-      magic-string: registry.npmmirror.com/magic-string@0.30.5
-    dev: true
-
   registry.npmmirror.com/magic-string@0.30.5:
     resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/magic-string/-/magic-string-0.30.5.tgz}
     name: magic-string
@@ -4906,7 +4833,7 @@ packages:
     name: unconfig
     version: 0.3.11
     dependencies:
-      '@antfu/utils': registry.npmmirror.com/@antfu/utils@0.7.6
+      '@antfu/utils': registry.npmmirror.com/@antfu/utils@0.7.7
       defu: registry.npmmirror.com/defu@6.1.2
       jiti: registry.npmmirror.com/jiti@1.20.0
       mlly: registry.npmmirror.com/mlly@1.4.2
@@ -5048,21 +4975,6 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
-    dev: true
-
-  registry.npmmirror.com/unplugin-vue-define-options@1.4.1(vue@3.3.13):
-    resolution: {integrity: sha512-dsI7JZvzCv6hV0Iq8cUKO70gFlsfEmASZzmebVlPzT2Knb57d4Plqjuf0wpU61G2HGSDZ8gy73Nix4FTmFVOyQ==, tarball: https://registry.npmmirror.com/unplugin-vue-define-options/-/unplugin-vue-define-options-1.4.1.tgz}
-    id: registry.npmmirror.com/unplugin-vue-define-options/1.4.1
-    name: unplugin-vue-define-options
-    version: 1.4.1
-    engines: {node: '>=16.14.0'}
-    dependencies:
-      '@vue-macros/common': registry.npmmirror.com/@vue-macros/common@1.10.0(vue@3.3.13)
-      ast-walker-scope: registry.npmmirror.com/ast-walker-scope@0.5.0
-      unplugin: registry.npmmirror.com/unplugin@1.5.1
-    transitivePeerDependencies:
-      - rollup
-      - vue
     dev: true
 
   registry.npmmirror.com/unplugin@1.5.1:

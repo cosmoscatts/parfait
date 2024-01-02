@@ -11,8 +11,7 @@
     },
     "types": [
       "vite/client",
-      "vue/ref-macros",
-      "unplugin-vue-define-options/macros-global"
+      "vue/ref-macros"
     ],
     "resolveJsonModule": true,
     "esModuleInterop": true,

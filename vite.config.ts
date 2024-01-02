@@ -4,7 +4,6 @@ import Vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
-import DefineOptions from 'unplugin-vue-define-options/vite'
 import UnoCSS from 'unocss/vite'
 
 export default defineConfig({
@@ -46,6 +45,5 @@ export default defineConfig({
       ],
       dts: 'src/components.d.ts',
     }),
-    DefineOptions(),
   ],
 })
